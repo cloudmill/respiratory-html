@@ -5,3 +5,7 @@
 
   @return math.div($px, $breakpoint) * 100vw;
 }
+
+@function getRem($px) {
+  @return math.div($px, $font-size) * 1rem;
+}

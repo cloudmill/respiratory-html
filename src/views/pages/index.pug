@@ -2,11 +2,9 @@ extends ../layouts/master
 
 
 
-include ../components/test
-
-
-
 block content
-  .container
-    - for (let i = 0; i < 100; i++)
-      +test
+  each className in ['a', 'b', 'c']
+    .container
+      - for (let fontWeight = 100; fontWeight <= 900; fontWeight += 100)
+        .item(class=className style=`font-weight: ${fontWeight}`)
+          |#[span.item__weight #{fontWeight}:] Lorem ipsum dolor sit, amet consectetur adipisicing elit

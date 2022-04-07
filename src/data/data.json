@@ -1,3 +1,10 @@
 {
-  "title": "respiratory-html"
+  "title": "respiratory-html",
+
+  "routes": [
+    {
+      "title": "О компании",
+      "path": "about"
+    }
+  ]
 }

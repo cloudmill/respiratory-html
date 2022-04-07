@@ -1,10 +1,4 @@
-extends ../layouts/master
-
-
-
-block content
-  each className in ['a', 'b', 'c']
-    .container
-      - for (let fontWeight = 100; fontWeight <= 900; fontWeight += 100)
-        .item(class=className style=`font-weight: ${fontWeight}`)
-          |#[span.item__weight #{fontWeight}:] Lorem ipsum dolor sit, amet consectetur adipisicing elit
+ul
+  each route in data.routes
+    li
+      a(href=route.path)= route.title

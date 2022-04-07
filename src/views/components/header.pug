@@ -3,10 +3,22 @@ mixin header
     .header__row.header__top
       .container
         .header__grid
-          each i in [1, 2, 3]
-            .header__place= i
+          .header__place.header__left
+            .header__left-item
+              |123
+            .header__left-item
+              |123
+          .header__place
+            |123
+          .header__place
+            |123
     .header__row
       .container
         .header__grid
-          each i in [1, 2, 3]
-            .header__place= i
+          .header__place.header__left
+            .header__left-item
+              |123
+          .header__place
+            |123
+          .header__place
+            |123

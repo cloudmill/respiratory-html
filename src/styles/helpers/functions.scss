@@ -1,0 +1,7 @@
+@function getVw($px, $breakpoint) {
+  /*
+    1vw === 1% of real window width (without scrollbar)
+  */
+
+  @return math.div($px, $breakpoint) * 100vw;
+}

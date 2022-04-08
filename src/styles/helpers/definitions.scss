@@ -1,3 +1,9 @@
+$font-size-root: 16px;
+
+@function getRem($px) {
+  @return math.div($px, $font-size-root) * 1rem;
+}
+
 $breakpoint-max: 1920px;
 $breakpoint-min: 320px;
 
@@ -14,8 +20,6 @@ $breakpoints: (
   $breakpoint-min
 );
 
-$font-size-root: 16px;
-
 :root {
   --color-blue: #2967eb;
   --color-white: white;
@@ -27,3 +31,11 @@ $font-family-title: "ALSGorizont";
 $letter-spacing-title: (normal, -0.02em, -0.06em);
 
 $pad: getRem(40px);
+
+@function getVw($px, $breakpoint) {
+  /*
+    1vw === 1% of real window width (without scrollbar)
+  */
+
+  @return math.div($px, $breakpoint) * 100vw;
+}

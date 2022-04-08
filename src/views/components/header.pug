@@ -1,10 +1,17 @@
 include ./menu-button
 
-mixin header__link({ href } = {})
+//- link
+mixin header__link(href)
+  .header__link
+    a.header__link-link(href=(href || "#"))
+      block
+//- link--large
+mixin header__link--large(href)
   .header__link
     a.header__link-link(href=(href || "#"))
       block
 
+//- select
 mixin header__select
   .header__select
     .header__select-button
@@ -12,22 +19,46 @@ mixin header__select
         block
       .header__select-icon
         +arrow-svg.header__select-svg
+//- select--large
+mixin header__select--large
+  .header__select
+    .header__select-button
+      .header__select-text.header__select-text--large
+        block
+      .header__select-icon
+        +arrow-svg.header__select-svg
 
+//- header
 mixin header
   header.header
-    .header__row.header__top
+    .header__row.header__row--border--bottom
       .container
         .header__grid
           .header__place.header__left
             .header__left-item
-              +header__select
-                |Ru
+              //- select
+              .header__select
+                .header__select-button
+                  .header__select-text
+                    |Ru
+                  .header__select-icon
+                    +arrow-svg.header__select-svg
             .header__left-item
               +header__link
                 |О компании
           .header__place
             +header__link
               |Контроль качества
+          .header__place.header__sub-grid
+            .header__sub-place
+              +header__link
+                |Работа у нас
+            .header__sub-place
+              +header__link
+                |Документация
+            .header__sub-place
+              +header__link
+                |Медиа-центр
           .header__place
             |123
     .header__row
@@ -38,8 +69,29 @@ mixin header
               a.header__logo(href="#")
                 .header__logo-button
                   +logo-svg.header__logo-svg
+          //- place
           .header__place
             +menu-button
               |Продукция
+          //- place + sub-grid
+          .header__place.header__sub-grid
+            //- sub-place
+            .header__sub-place
+              //- select
+              .header__select
+                .header__select-button
+                  .header__select-text.header__select-text--large
+                    |Партнерам
+                  .header__select-icon
+                    +arrow-svg.header__select-svg
+            //- sub-place
+            .header__sub-place
+              +header__link
+                |Потребителям
+            //- sub-place
+            .header__sub-place
+              //- search
+              +search-svg.header__search
+          //- place
           .header__place
             |123

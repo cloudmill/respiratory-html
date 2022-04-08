@@ -7,5 +7,5 @@
 }
 
 @function getRem($px) {
-  @return math.div($px, $font-size) * 1rem;
+  @return math.div($px, $font-size-root) * 1rem;
 }

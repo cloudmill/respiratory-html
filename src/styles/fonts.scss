@@ -1,16 +1,6 @@
 // https://developer.mozilla.org/ru/docs/Web/CSS/@font-face
 
 @font-face {
-  font-family: "a";
-  src: url("../assets/fonts/ALSGorizont-ExtraBoldExpanded.ttf");
-}
-
-@font-face {
-  font-family: "b";
-  src: url("../assets/fonts/ALSGorizont-RegularExpanded 2.ttf");
-}
-
-@font-face {
-  font-family: "c";
-  src: url("../assets/fonts/ALSGorizontGX.ttf");
+  font-family: "ALSGorizont";
+  src: url("../assets/fonts/ALSGorizont.woff");
 }

@@ -1,0 +1,4 @@
+@mixin font-title($variant: 1) {
+  font-family: $font-family-title;
+  letter-spacing: list.nth($letter-spacing-title, $variant);
+}

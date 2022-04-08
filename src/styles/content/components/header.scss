@@ -2,6 +2,8 @@
   position: sticky;
   top: 0;
 
+  background-color: gray;
+
   &__row {
     padding: getRem(24px) 0;
   }
@@ -13,12 +15,11 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    column-gap: 20px;
+    column-gap: getRem(20px);
+    align-items: center;
   }
 
   &__place {
-    background-color: black;
-
     &:nth-child(1) {
       grid-area: 1 / 1 / span 1 / span 3;
     }
@@ -39,6 +40,86 @@
       &:nth-child(2) {
         margin: 0 auto;
       }
+    }
+  }
+
+  &__logo {
+    display: flex;
+
+    &-button {
+      display: flex;
+
+      &:hover {
+        .header__logo-svg {
+          path {
+            fill: var(--color-blue);
+          }
+        }
+      }
+    }
+
+    &-svg {
+      width: getRem(194px);
+      height: getRem(49px);
+    }
+  }
+
+  &__link {
+    display: flex;
+
+    &-link {
+      @include font-title(1);
+
+      font-size: getRem(13px);
+      line-height: 1;
+      color: var(--color-white);
+      text-transform: uppercase;
+
+      &:hover {
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  &__select {
+    display: flex;
+
+    &-button {
+      display: flex;
+
+      cursor: pointer;
+
+      &:hover {
+        .header__select-svg {
+          path {
+            fill: var(--color-blue);
+          }
+        }
+
+        .header__select-text {
+          color: var(--color-blue);
+        }
+      }
+    }
+
+    &-text {
+      @include font-title(1);
+
+      font-size: getRem(13px);
+      line-height: 1;
+      color: var(--color-white);
+      text-transform: uppercase;
+    }
+
+    &-icon {
+      margin-left: getRem(7px);
+      padding-top: getRem(2px);
+      display: flex;
+    }
+
+    &-svg {
+      width: getRem(15px);
+      height: getRem(9px);
     }
   }
 }

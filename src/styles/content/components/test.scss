@@ -1,0 +1,13 @@
+.test {
+  &__a {
+    @include font-title(1);
+  }
+
+  &__b {
+    @include font-title(2);
+  }
+
+  &__c {
+    @include font-title(3);
+  }
+}

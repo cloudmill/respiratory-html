@@ -1,3 +1,18 @@
+include ./menu-button
+
+mixin header__link({ href } = {})
+  .header__link
+    a.header__link-link(href=(href || "#"))
+      block
+
+mixin header__select
+  .header__select
+    .header__select-button
+      .header__select-text
+        block
+      .header__select-icon
+        +arrow-svg.header__select-svg
+
 mixin header
   header.header
     .header__row.header__top
@@ -5,11 +20,14 @@ mixin header
         .header__grid
           .header__place.header__left
             .header__left-item
-              |123
+              +header__select
+                |Ru
             .header__left-item
-              |123
+              +header__link
+                |О компании
           .header__place
-            |123
+            +header__link
+              |Контроль качества
           .header__place
             |123
     .header__row
@@ -17,8 +35,11 @@ mixin header
         .header__grid
           .header__place.header__left
             .header__left-item
-              |123
+              a.header__logo(href="#")
+                .header__logo-button
+                  +logo-svg.header__logo-svg
           .header__place
-            |123
+            +menu-button
+              |Продукция
           .header__place
             |123

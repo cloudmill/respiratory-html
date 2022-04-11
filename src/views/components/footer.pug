@@ -1,3 +1,75 @@
+mixin facebook-svg
+  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='8' height='16' viewbox='0 0 8 16' fill='none')
+    path(d='M5.31915 3.52821V5.12821H8L7.65957 8H5.31915V16H1.65957V8H0V5.12821H1.65957V3.52821C1.65957 3.52821 1.3617 0.492308 4.34043 0H8V2.58462H6.34043C6.34043 2.54359 5.40426 2.50256 5.31915 3.52821Z' fill='white')
+
+mixin phone-svg
+  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewbox='0 0 18 18' fill='none')
+    path(d='M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416' stroke='white' stroke-width='1.5')
+    line(y1='-0.75' x2='17' y2='-0.75' transform='matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)' stroke='white' stroke-width='1.5')
+
 mixin footer
-  footer
-    |footer
+  footer.footer
+    .footer__row
+      each i in [1, 2]
+        a.footer__col.footer__phone(href="#")
+          .footer__phone-container
+            span.footer__phone-phone
+              |8 812 703-37-33
+            span.footer__phone-description
+              |Многоканальный
+            .footer__phone-icon
+              +phone-svg.footer__phone-svg
+    .footer__bottom
+      .container
+        .footer__email
+          a.footer__email-link(href="#")
+            |info@szpe.ru
+        .footer__grid
+          ul.footer__grid-place.footer__links
+            -
+              var items = [
+                'О компании',
+                'Контроль качества',
+                'Работа у нас',
+                'Документация',
+                'Медиа-центр',
+                'Контакты',
+              ]
+            each item in items
+              li.footer__links-item.footer__link
+                a.footer__link-link(href="#")
+                  |#{item}
+          ul.footer__grid-place.footer__links
+            -
+              var items = [
+                'Промышленным организациям',
+                'Медицинским учреждениям',
+                'Торговым организациям',
+                'Потребителям',
+                'Оформить заказ',
+                'Где купить',
+              ]
+            each item in items
+              li.footer__links-item.footer__link
+                a.footer__link-link(href="#")
+                  |#{item}
+          .footer__grid-place.footer__link
+            a.footer__link-link(href="#")
+              |Политика конфиденциальности
+          .footer__grid-place
+            ul.footer__shelf.footer__socials
+              each i in [1, 2, 3]
+                li.footer__socials-item
+                  a.footer__social(href="#")
+                    +facebook-svg.footer__social-svg
+            .footer__shelf.button-link
+              a.button-link__link(href="#")
+                span.button-link__text
+                  |корпоративный портал
+            .footer__shelf.footer__copyright
+              |© 2010-2021 ООО «Респираторный комплекс»
+            .footer__shelf.footer__shelf--small.footer__author
+              span.footer__author-text
+                |Сделано в&nbsp;
+              a.footer__author-link(href="#")
+                |CloudMill

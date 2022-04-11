@@ -24,6 +24,9 @@ $breakpoints: (
   --color-blue: #2967eb;
   --color-white: white;
   --color-black: #191a1c;
+  --color-gray: #333333;
+  --color-gray-dark: #5d6064;
+  --color-yellow: #ffed49;
 }
 
 $font-family-title: "ALSGorizont";
@@ -31,6 +34,7 @@ $font-family-title: "ALSGorizont";
 $letter-spacing-title: (normal, -0.02em, -0.06em);
 
 $pad: getRem(40px);
+$gap: getRem(20px);
 
 @function getVw($px, $breakpoint) {
   /*
@@ -39,3 +43,5 @@ $pad: getRem(40px);
 
   @return math.div($px, $breakpoint) * 100vw;
 }
+
+$col: "((100vw - (#{$pad} * 2) - (#{$gap} * 11)) / 12)";

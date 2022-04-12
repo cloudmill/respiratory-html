@@ -1,50 +1,80 @@
 .header {
+  $component: &;
+
   position: sticky;
   top: 0;
 
-  background-color: gray;
+  background-color: var(--color-gray); // test
 
-  &__row {
-    padding: getRem(24px) 0;
+  &__block {
+    padding-top: getRem(24px);
+    padding-bottom: getRem(24px);
 
     &--border {
       &--bottom {
-        border-bottom: 1px solid var(--color-black);
+        border-bottom: 1px solid black;
       }
     }
   }
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: getRem(20px);
+    grid-template-columns:
+      calc(#{getCols(3)}) calc(#{getCols(2)}) calc(#{getCols(4)})
+      calc(#{getCols(3)});
+    column-gap: $gap;
     align-items: center;
-  }
 
-  &__place {
-    &:nth-child(1) {
-      grid-area: 1 / 1 / span 1 / span 3;
-    }
-
-    &:nth-child(2) {
-      grid-area: 1 / 4 / span 1 / span 2;
-    }
-
-    &:nth-child(3) {
-      grid-area: 1 / 6 / span 1 / span 4;
-    }
-
-    &:nth-child(4) {
-      grid-area: 1 / 10 / span 1 / span 3;
+    &-cell {
     }
   }
 
-  &__left {
+  &__row {
+    display: flex;
+    align-items: center;
+
+    &--grid {
+      #{$component}__row-col {
+        width: calc((100% - (#{$gap} * 2)) / 3);
+
+        &:not(:first-child) {
+          margin-left: $gap;
+        }
+      }
+    }
+
+    &--align {
+      &--right {
+        justify-content: flex-end;
+      }
+    }
+
+    &-col {
+      &--space {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__text {
+    font-size: getRem(13px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-white);
+
+    &--large {
+      font-size: getRem(18px);
+    }
+  }
+
+  &__link {
     display: flex;
 
-    &-item {
-      &:nth-child(2) {
-        margin: 0 auto;
+    &-link {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-blue);
       }
     }
   }
@@ -52,11 +82,11 @@
   &__logo {
     display: flex;
 
-    &-button {
-      display: flex;
+    &-link {
+      cursor: pointer;
 
       &:hover {
-        .header__logo-svg {
+        #{$component}__logo-svg {
           path {
             fill: var(--color-blue);
           }
@@ -70,98 +100,77 @@
     }
   }
 
-  &__link {
+  &__search {
     display: flex;
 
-    &-link {
-      @include font-title(1);
-
-      font-size: getRem(13px);
-      line-height: 1;
-      color: var(--color-white);
-      text-transform: uppercase;
-
-      &:hover {
-        color: var(--color-blue);
+    &--align {
+      &--right {
+        justify-content: flex-end;
       }
     }
-  }
 
-  &__select {
-    display: flex;
-
-    &-button {
+    &-link {
       display: flex;
 
       cursor: pointer;
 
       &:hover {
-        .header__select-svg {
+        #{$component}__search-svg {
           path {
             fill: var(--color-blue);
           }
         }
-
-        .header__select-text {
-          color: var(--color-blue);
-        }
       }
-    }
-
-    &-text {
-      @include font-title(1);
-
-      font-size: getRem(13px);
-      line-height: 1;
-      color: var(--color-white);
-      text-transform: uppercase;
-
-      &--large {
-        font-size: getRem(18px);
-      }
-    }
-
-    &-icon {
-      margin-left: getRem(7px);
-      padding-top: getRem(2px);
-      display: flex;
     }
 
     &-svg {
-      width: getRem(15px);
-      height: getRem(9px);
+      $size: getRem(20px);
+
+      width: $size;
+      height: $size;
     }
   }
+}
 
-  &__sub {
-    &-grid {
-      display: grid;
-      grid-template-columns: repeat(3, calc((100% - (getRem(20px) * 2)) / 3));
-      column-gap: getRem(20px);
-      align-items: center;
-    }
+.drop-link {
+  $component: &;
 
-    &-place {
-      display: flex;
+  display: flex;
 
-      &:last-child {
-        justify-content: flex-end;
-      }
-    }
-  }
-
-  &__search {
-    $size: getRem(20px);
-
-    width: $size;
-    height: $size;
+  &__link {
+    display: flex;
+    align-items: center;
 
     cursor: pointer;
 
     &:hover {
-      path {
-        fill: var(--color-blue);
+      #{$component}__text {
+        color: var(--color-blue);
+      }
+
+      #{$component}__svg {
+        path {
+          fill: var(--color-blue);
+        }
       }
     }
+  }
+
+  &__text {
+  }
+
+  &__icon {
+    display: flex;
+    margin-left: getRem(7px);
+
+    &--margin {
+      &--large {
+        margin-left: getRem(11px);
+      }
+    }
+  }
+  &__svg {
+    width: getRem(15px);
+    height: getRem(9px);
   }
 }

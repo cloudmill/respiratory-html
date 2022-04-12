@@ -35,6 +35,7 @@ $letter-spacing-title: (normal, -0.02em, -0.06em);
 
 $pad: getRem(40px);
 $gap: getRem(20px);
+$col: "((100vw - (#{$pad} * 2) - (#{$gap} * 11)) / 12)";
 
 @function getVw($px, $breakpoint) {
   /*
@@ -44,4 +45,6 @@ $gap: getRem(20px);
   @return math.div($px, $breakpoint) * 100vw;
 }
 
-$col: "((100vw - (#{$pad} * 2) - (#{$gap} * 11)) / 12)";
+@function getCols($count: 1) {
+  @return "((#{$col} * #{$count}) + (#{$gap} * #{$count - 1}))";
+}

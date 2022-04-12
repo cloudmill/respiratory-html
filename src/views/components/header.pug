@@ -1,97 +1,60 @@
 include ./menu-button
+include ./button-link
 
-//- link
-mixin header__link(href)
-  .header__link
-    a.header__link-link(href=(href || "#"))
-      block
-//- link--large
-mixin header__link--large(href)
-  .header__link
-    a.header__link-link(href=(href || "#"))
-      block
-
-//- select
-mixin header__select
-  .header__select
-    .header__select-button
-      .header__select-text
-        block
-      .header__select-icon
-        +arrow-svg.header__select-svg
-//- select--large
-mixin header__select--large
-  .header__select
-    .header__select-button
-      .header__select-text.header__select-text--large
-        block
-      .header__select-icon
-        +arrow-svg.header__select-svg
-
-//- header
 mixin header
   header.header
-    .header__row.header__row--border--bottom
-      .container
-        .header__grid
-          .header__place.header__left
-            .header__left-item
-              //- select
-              .header__select
-                .header__select-button
-                  .header__select-text
-                    |Ru
-                  .header__select-icon
-                    +arrow-svg.header__select-svg
-            .header__left-item
-              +header__link
-                |О компании
-          .header__place
-            +header__link
-              |Контроль качества
-          .header__place.header__sub-grid
-            .header__sub-place
-              +header__link
-                |Работа у нас
-            .header__sub-place
-              +header__link
-                |Документация
-            .header__sub-place
-              +header__link
-                |Медиа-центр
-          .header__place
-            |123
-    .header__row
-      .container
-        .header__grid
-          .header__place.header__left
-            .header__left-item
-              a.header__logo(href="#")
-                .header__logo-button
-                  +logo-svg.header__logo-svg
-          //- place
-          .header__place
-            +menu-button
-              |Продукция
-          //- place + sub-grid
-          .header__place.header__sub-grid
-            //- sub-place
-            .header__sub-place
-              //- select
-              .header__select
-                .header__select-button
-                  .header__select-text.header__select-text--large
-                    |Партнерам
-                  .header__select-icon
-                    +arrow-svg.header__select-svg
-            //- sub-place
-            .header__sub-place
-              +header__link
-                |Потребителям
-            //- sub-place
-            .header__sub-place
-              //- search
-              +search-svg.header__search
-          //- place
-          .header__place
-            |123
+    .header__block.header__block--border--bottom.container.header__grid
+      .header__grid-cell.header__row
+        .header__row-col.drop-link
+          a.drop-link__link(href="#")
+            span.drop-link__text.header__text
+              |ru
+            .drop-link__icon
+              +arrow-svg.drop-link__svg
+        .header__row-col.header__row-col--space.header__link
+          a.header__link-link.header__text(href="#")
+            |О компании
+      .header__grid-cell.header__link
+        a.header__link-link.header__text(href="#")
+          |Контроль качества
+      .header__grid-cell.header__row.header__row--grid
+        -
+          var items = [
+            'Работа у нас',
+            'Документация',
+            'Медиа-центр',
+          ]
+        each item in items
+          .header__row-col.header__link
+            a.header__link-link.header__text(href="#")
+              |#{item}
+      .header__grid-cell.header__row
+        .header__row-col.header__row-col--space.header__link
+          a.header__link-link.header__text(href="#")
+            |Где купить
+        .header__row-col.header__link
+          a.header__link-link.header__text(href="#")
+            |Контакты
+    .header__block.container.header__grid
+      .header__grid-cell.header__logo
+        a.header__logo-link(href="#")
+          +logo-svg.header__logo-svg
+      .header__grid-cell
+        +menu-button
+          |Продукция
+      .header__grid-cell.header__row.header__row--grid
+        .header__row-col.drop-link
+          a.drop-link__link(href="#")
+            span.drop-link__text.header__text.header__text--large
+              |Партнерам
+            .drop-link__icon.drop-link__icon--margin--large
+              +arrow-svg.drop-link__svg
+        .header__row-col.header__link
+          a.header__link-link.header__text.header__text--large(href="#")
+            |Потребителям
+        .header__row-col.header__search.header__search--align--right
+          a.header__search-link(href="#")
+            +search-svg.header__search-svg
+      .header__grid-cell.header__row.header__row--align--right
+        +button-link.button-link--in-header
+          |123

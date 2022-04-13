@@ -1,13 +1,21 @@
 .test {
-  &__a {
-    @include font-title(1);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+
+  &__container {
+    border: 1px solid black;
   }
 
-  &__b {
-    @include font-title(2);
+  &__aside {
+    grid-area: 1 / span 1 / 1 / span 1;
+  }
+  &__main {
+    grid-area: 2 / span 1 / 2 / span 1;
   }
 
-  &__c {
-    @include font-title(3);
+  &__place {
+    display: none;
   }
 }

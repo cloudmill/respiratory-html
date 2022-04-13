@@ -2,3 +2,8 @@
   font-family: $font-family-title;
   letter-spacing: list.nth($letter-spacing-title, $variant);
 }
+
+@mixin getArea($x, $y, $width, $height) {
+  grid-column: $x / span $width;
+  grid-row: $y / span $height;
+}

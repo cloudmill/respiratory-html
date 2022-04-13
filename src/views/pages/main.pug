@@ -1,0 +1,31 @@
+extends ../layouts/master
+
+block content
+  section.section
+    .container
+      .section__border.section__container.section__grid
+        - for (let i = 0; i < 4; i++)
+          .section__place
+        .section__aside
+          h2.title
+            |Не просто производим
+        .section__main
+          p.article
+            |Помогаем выстраивать процессы и развивать культуру профессионального использования #[a.article__link(href="#") СИЗОД]
+  section.section
+    .container
+      .section__border.section__container.section__grid.section__grid--vertical
+        - for (let i = 0; i < 4; i++)
+          .section__place
+        .section__aside
+          h2.title
+            |Условия сотрудничества
+        .section__main
+          .cards
+            each i in [1, 2, 3]
+              .cards__item
+                a.card(href="#")
+                  h3.card__title
+                    |Промышленным предприятиям
+                  .card__label
+                    +phone-svg.card__label-svg

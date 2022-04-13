@@ -1,0 +1,147 @@
+.section {
+  $component: &;
+
+  margin-top: 20px; // test
+
+  &__border {
+    border-top: 1px solid var(--color-gray-light);
+  }
+
+  &__container {
+    padding-top: getRem(16px);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: calc(#{getCols(3)}) calc(#{getCols(9)});
+    column-gap: $gap;
+
+    &--vertical {
+      row-gap: getRem(32px);
+
+      #{$component}__aside {
+        @include getArea(1, 1, 2, 1);
+      }
+      #{$component}__main {
+        @include getArea(1, 2, 2, 1);
+      }
+    }
+
+    &--layering {
+      #{$component}__aside,
+      #{$component}__main {
+        @include getArea(1, 2, 1, 1);
+      }
+    }
+  }
+
+  &__place {
+    display: none;
+  }
+  &__aside {
+    @include getArea(1, 1, 1, 1);
+  }
+  &__main {
+    @include getArea(2, 1, 1, 1);
+  }
+}
+
+.article {
+  @include font-title(2);
+
+  font-size: getRem(60px);
+  line-height: 1.1;
+  text-indent: getRem(150px);
+  text-transform: uppercase;
+
+  &__link {
+    color: var(--color-blue);
+  }
+}
+
+.title {
+  @include font-title(2);
+
+  font-size: getRem(18px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, calc(#{getCols(4)}));
+  column-gap: getRem(20px);
+
+  &__item {
+  }
+}
+
+.card {
+  $component: &;
+
+  position: relative;
+  z-index: 0;
+
+  $padding: getRem(40px);
+  padding: $padding calc(#{$col}) $padding $padding;
+  height: getRem(600px);
+  display: block;
+  overflow: hidden;
+
+  background-color: var(--color-black);
+  $radius: getRem(16px);
+  border-radius: 0px $radius $radius $radius;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    $offset: getRem(40px);
+    top: $offset;
+    right: $offset;
+
+    content: "";
+    $size: getRem(20px);
+    width: $size;
+    height: $size;
+
+    border-top: 1px solid var(--color-blue);
+    border-right: 1px solid var(--color-blue);
+    border-radius: 0 getRem(10px) 0 0;
+  }
+
+  &:hover {
+    #{$component}__title {
+      color: var(--color-blue);
+    }
+  }
+
+  &__title {
+    @include font-title(2);
+
+    font-size: getRem(28px);
+    line-height: 1.1;
+    color: var(--color-white);
+    text-transform: uppercase;
+  }
+
+  &__label {
+    position: absolute;
+    $offset: getRem(40px);
+    bottom: $offset;
+    right: $offset;
+
+    $size: getRem(64px);
+    width: $size;
+    height: $size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-blue);
+    border-radius: 50%;
+
+    &-svg {
+       
+    }
+  }
+}

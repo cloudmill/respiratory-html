@@ -7,3 +7,10 @@
   grid-column: $x / span $width;
   grid-row: $y / span $height;
 }
+
+@mixin inset($offset) {
+  top: $offset;
+  bottom: $offset;
+  left: $offset;
+  right: $offset;
+}

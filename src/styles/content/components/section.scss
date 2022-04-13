@@ -156,3 +156,25 @@
     pointer-events: none;
   }
 }
+
+.info {
+  padding: getRem(80px) 0;
+  height: getRem(960px);
+  overflow: hidden;
+
+  border-radius: 0px 0px getRem(120px) 0px;
+  background-color: var(--color-black);
+  background-image: url("assets/images/info.jpg");
+  background-size: cover;
+  background-position: center;
+
+  &__title {
+    @include font-title(3);
+
+    font-size: getRem(90px);
+    line-height: 1;
+    color: var(--color-white);
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

@@ -13,8 +13,15 @@ block content
           .section__place
         .section__aside
           h2.title
-            |Не просто производим
-        .section__main
-          p.article
-            |Помогаем выстраивать процессы и развивать культуру профессионального использования #[a.article__link(href="#") СИЗОД]
+            |Медиа-центр
+        .section__main.section__row.section__row--space-between
+          .section__col
+            .buttons
+              .buttons__item.button
+                +phone-svg.button__svg
+              .buttons__item.button.button--right
+                +phone-svg.button__svg
+          .section__col
+            +button-link.button-link--theme--color
+              |все новости и статьи
         

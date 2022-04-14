@@ -49,3 +49,21 @@ block content
           |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
         +button-link.button-link--theme--color.info__button-link
           |Информация для потребителей
+  section.section
+    .container
+      .section__border.section__container.section__grid
+        - for (let i = 0; i < 4; i++)
+          .section__place
+        .section__aside
+          h2.title
+            |Медиа-центр
+        .section__main.section__row.section__row--space-between
+          .section__col
+            .buttons
+              .buttons__item.button
+                +phone-svg.button__svg
+              .buttons__item.button.button--right
+                +phone-svg.button__svg
+          .section__col
+            +button-link.button-link--theme--color
+              |все новости и статьи

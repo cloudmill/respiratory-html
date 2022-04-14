@@ -20,11 +20,15 @@
         &:hover {
           background-color: var(--color-white);
           border-color: var(--color-white);
-    
+
           #{$component}__text {
             color: var(--color-black);
           }
         }
+      }
+
+      #{$component}__text {
+        color: var(--color-white);
       }
     }
   }

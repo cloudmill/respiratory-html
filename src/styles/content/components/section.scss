@@ -44,6 +44,14 @@
   &__main {
     @include getArea(2, 1, 1, 1);
   }
+
+  &__row {
+    display: flex;
+
+    &--space-between {
+      justify-content: space-between;
+    }
+  }
 }
 
 .article {
@@ -154,5 +162,50 @@
     height: 100%;
     object-fit: cover;
     pointer-events: none;
+  }
+}
+
+.button {
+  $component: &;
+
+  $size: getRem(64px);
+  width: $size;
+  height: $size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: var(--color-black);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-blue);
+  }
+
+  &--right {
+    #{$component}__svg {
+      transform: rotate(45deg);
+    }
+  }
+
+  &__svg {
+    transform: rotate(-135deg);
+
+    $size: getRem(17px);
+    width: $size;
+    height: $size;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    &:last-child {
+      margin-left: getRem(8px);
+    }
   }
 }

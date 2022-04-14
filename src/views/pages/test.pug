@@ -1,72 +1,17 @@
 extends ../layouts/master
 
-include ../components/button-link
-
 block header
 block footer
 
 block content
-  .slider
+  section.section
     .container
-      .slider__grid
-        .slider__place
-          a.slide.slide--large(href="#")
-            .slide__image
-              img.slide__img(src="assets/images/slide.jpg")
-              .slide__label
-                +phone-svg.slide__svg
-            .slide__bottom
-              .slide__grid
-                .slide__place
-                  .progress.progress--large.slide__progress
-                    .progress__text.progress__current
-                      |10
-                    .progress__text.progress__all
-                      |/11
-                - for (let i = 0; i < 10; i++)
-                  .slide__place
-                    .tag
-                      .tag__link
-                        |Жиз
-              .slide__text
-                |Респираторный комплекс – итоги года
-        .slider__place
-          a.slide(href="#")
-            .slide__image
-              img.slide__img(src="assets/images/slide.jpg")
-              .slide__label
-                +phone-svg.slide__svg
-            .slide__grid
-              .slide__place
-                .progress.slide__progress
-                  .progress__text.progress__current
-                    |10
-                  .progress__text.progress__all
-                    |/11
-              - for (let i = 0; i < 5; i++)
-                .slide__place
-                  .tag
-                    .tag__link
-                      |Жиз
-            .slide__text
-              |Респираторный комплекс – итоги года
-        .slider__place
-          a.slide(href="#")
-            .slide__image
-              img.slide__img(src="assets/images/slide.jpg")
-              .slide__label
-                +phone-svg.slide__svg
-            .slide__grid
-              .slide__place
-                .progress.slide__progress
-                  .progress__text.progress__current
-                    |10
-                  .progress__text.progress__all
-                    |/11
-              - for (let i = 0; i < 5; i++)
-                .slide__place
-                  .tag
-                    .tag__link
-                      |Жиз
-            .slide__text
-              |Респираторный комплекс – итоги года
+      .section__border.section__container.section__grid
+        - for (let i = 0; i < 4; i++)
+          .section__place
+        .section__aside
+          h2.title
+            |123
+        .section__main
+          p.article
+            |321

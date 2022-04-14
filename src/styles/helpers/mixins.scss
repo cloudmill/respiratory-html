@@ -14,3 +14,13 @@
   left: $offset;
   right: $offset;
 }
+
+@mixin getSize($width, $height: null) {
+  @if $height {
+    width: $width;
+    height: $height;
+  } @else {
+    width: $width;
+    height: $width;
+  }
+}

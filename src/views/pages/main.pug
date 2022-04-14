@@ -67,3 +67,48 @@ block content
           .section__col
             +button-link.button-link--theme--color
               |все новости и статьи
+  .slider
+    .container
+      .slider__grid
+        .slider__place
+          |123
+        .slider__place
+          .slide
+            .slide__image
+              img.slide__img(src="assets/images/slide.jpg")
+              .slide__label
+                +phone-svg.slide__svg
+            .slide__grid
+              .slide__place
+                .progress.slide__progress
+                  .progress__text.progress__current
+                    |10
+                  .progress__text.progress__all
+                    |/11
+              - for (let i = 0; i < 5; i++)
+                .slide__place
+                  .tag
+                    .tag__link
+                      |Жиз
+            .slide__text
+              |Респираторный комплекс – итоги года
+        .slider__place
+          .slide
+            .slide__image
+              img.slide__img(src="assets/images/slide.jpg")
+              .slide__label
+                +phone-svg.slide__svg
+            .slide__grid
+              .slide__place
+                .progress.slide__progress
+                  .progress__text.progress__current
+                    |10
+                  .progress__text.progress__all
+                    |/11
+              - for (let i = 0; i < 5; i++)
+                .slide__place
+                  .tag
+                    .tag__link
+                      |Жиз
+            .slide__text
+              |Респираторный комплекс – итоги года

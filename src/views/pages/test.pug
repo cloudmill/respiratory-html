@@ -6,22 +6,48 @@ block header
 block footer
 
 block content
-  section.section
+  .slider
     .container
-      .section__border.section__container.section__grid
-        - for (let i = 0; i < 4; i++)
-          .section__place
-        .section__aside
-          h2.title
-            |Медиа-центр
-        .section__main.section__row.section__row--space-between
-          .section__col
-            .buttons
-              .buttons__item.button
-                +phone-svg.button__svg
-              .buttons__item.button.button--right
-                +phone-svg.button__svg
-          .section__col
-            +button-link.button-link--theme--color
-              |все новости и статьи
-        
+      .slider__grid
+        .slider__place
+          |123
+        .slider__place
+          .slide
+            .slide__image
+              img.slide__img(src="assets/images/slide.jpg")
+              .slide__label
+                +phone-svg.slide__svg
+            .slide__grid
+              .slide__place
+                .progress.slide__progress
+                  .progress__text.progress__current
+                    |10
+                  .progress__text.progress__all
+                    |/11
+              - for (let i = 0; i < 5; i++)
+                .slide__place
+                  .tag
+                    .tag__link
+                      |Жиз
+            .slide__text
+              |Респираторный комплекс – итоги года
+        .slider__place
+          .slide
+            .slide__image
+              img.slide__img(src="assets/images/slide.jpg")
+              .slide__label
+                +phone-svg.slide__svg
+            .slide__grid
+              .slide__place
+                .progress.slide__progress
+                  .progress__text.progress__current
+                    |10
+                  .progress__text.progress__all
+                    |/11
+              - for (let i = 0; i < 5; i++)
+                .slide__place
+                  .tag
+                    .tag__link
+                      |Жиз
+            .slide__text
+              |Респираторный комплекс – итоги года

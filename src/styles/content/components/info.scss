@@ -72,6 +72,7 @@
   }
 
   &__avatar {
+    margin: getRem(4px) 0;
     width: getRem(170px);
     height: getRem(92px);
     display: flex;

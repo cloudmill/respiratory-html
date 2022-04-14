@@ -9,6 +9,28 @@
 }
 
 .slide {
+  $component: &;
+
+  display: block;
+
+  cursor: pointer;
+
+  &--large {
+    display: grid;
+    grid-template-columns: calc(#{getCols(4)}) calc(#{getCols(2)});
+    column-gap: $gap;
+
+    #{$component} {
+      &__image {
+        height: getRem(398px);
+      }
+
+      &__text {
+        font-size: getRem(20px);
+      }
+    }
+  }
+
   &__image {
     position: relative;
     z-index: 0;
@@ -69,6 +91,10 @@
   &__progress {
     margin-right: getRem(20px);
   }
+
+  &__cell {
+    display: none;
+  }
 }
 
 .tag {
@@ -87,7 +113,20 @@
 }
 
 .progress {
+  $component: &;
+
   display: flex;
+
+  &--large {
+    #{$component} {
+      &__current {
+        font-size: getRem(40px);
+      }
+      &__all {
+        font-size: getRem(16px);
+      }
+    }
+  }
 
   &__text {
     @include font-title(2);
@@ -99,7 +138,6 @@
     font-size: getRem(24px);
     color: var(--color-blue);
   }
-
   &__all {
     margin-left: getRem(12px);
 

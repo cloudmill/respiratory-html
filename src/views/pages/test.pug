@@ -10,9 +10,28 @@ block content
     .container
       .slider__grid
         .slider__place
-          |123
+          a.slide.slide--large(href="#")
+            .slide__image
+              img.slide__img(src="assets/images/slide.jpg")
+              .slide__label
+                +phone-svg.slide__svg
+            .slide__bottom
+              .slide__grid
+                .slide__place
+                  .progress.progress--large.slide__progress
+                    .progress__text.progress__current
+                      |10
+                    .progress__text.progress__all
+                      |/11
+                - for (let i = 0; i < 10; i++)
+                  .slide__place
+                    .tag
+                      .tag__link
+                        |Жиз
+              .slide__text
+                |Респираторный комплекс – итоги года
         .slider__place
-          .slide
+          a.slide(href="#")
             .slide__image
               img.slide__img(src="assets/images/slide.jpg")
               .slide__label
@@ -32,7 +51,7 @@ block content
             .slide__text
               |Респираторный комплекс – итоги года
         .slider__place
-          .slide
+          a.slide(href="#")
             .slide__image
               img.slide__img(src="assets/images/slide.jpg")
               .slide__label

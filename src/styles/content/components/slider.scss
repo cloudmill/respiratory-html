@@ -98,7 +98,16 @@
 }
 
 .tag {
+  $component: &;
+
   display: flex;
+
+  &--active {
+    #{$component}__link {
+      background-color: var(--color-yellow);
+      border-color: var(--color-yellow);
+    }
+  }
 
   &__link {
     padding: getRem(7px) getRem(12px);

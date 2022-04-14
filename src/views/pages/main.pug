@@ -49,6 +49,49 @@ block content
           |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
         +button-link.button-link--theme--color.info__button-link
           |Информация для потребителей
+  section.products
+    .container
+      .products__grid
+        .products__grid-cell.products__grid-cell--title
+          h2.title
+            |продукция
+        .products__grid-cell.products__grid-cell--tabs
+          .tags
+            .tags__grid
+              -
+                var tabs = [
+                  'RK 9000',
+                  'RK 6000',
+                  'АЛИНА®',
+                  'ЮЛИЯ®',
+                  'НЕВА®',
+                  'GAGARA®',
+                ]
+              each tab, index in tabs
+                .tags__item
+                  .tag(class=(index === 0 ? 'tag--active' : ''))
+                    .tag__link
+                      |#{tab}
+        .products__grid-cell.products__grid-cell--content
+          +button-link.button-link--theme--color
+            |Смотреть серию
+        .products__grid-cell.products__grid-cell--photos
+          .products__photos
+            - for (var i = 0; i < 3; i++)
+              .products__photos-cell
+                img.products__photo.products__photo--small(src="assets/images/photo.jpg")
+            -
+              var cols = 2;
+              var rows = 2;
+            - for (var i = 0; i < cols * rows; i++)
+              .products__photos-fake
+        .products__grid-cell.products__grid-cell--photo
+          img.products__photo(src="assets/images/photo.jpg")
+        -
+          var cols = 4
+          var rows = 2
+        - for (var i = 0; i < cols * rows; i++)
+          .products__grid-fake
   section.section
     .container
       .section__border.section__container.section__grid

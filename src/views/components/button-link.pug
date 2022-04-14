@@ -1,9 +1,4 @@
--
-  var defaultProps = {
-    href: "#",
-  }
-
-mixin button-link({ href } = defaultProps)
+mixin button-link({ href } = { href: "#" })
   .button-link(class=attributes.class)
     a.button-link__link(href=href)
       span.button-link__text

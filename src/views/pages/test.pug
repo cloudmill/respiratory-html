@@ -1,8 +1,28 @@
-.container
-  .test
-    - for (let i = 0; i < 4; i++)
-      .test__place
-    .test__aside.test__container
-      |aside
-    .test__main.test__container
-      |main
+extends ../layouts/master
+
+include ../components/button-link
+
+block header
+block footer
+
+block content
+  section.info
+    .container
+      h2.info__top
+        .info__title
+          |Используйте респиратор
+        .info__row
+          .info__col
+            .info__title
+              |для защиты
+          .info__col
+            .info__avatar
+              img.info__img(src="assets/images/avatar.jpg")
+        .info__title
+          |органов дыхания
+      .info__bottom
+        .info__article
+          |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
+        +button-link.button-link--theme--color.info__button-link
+          |Информация для потребителей
+        

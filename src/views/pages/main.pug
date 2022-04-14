@@ -32,9 +32,20 @@ block content
                   img.card__background(src="assets/images/card.jpg")
   section.info
     .container
-      h2.info__title
-        |Используйте респиратор
-      h2.info__title
-        |для защиты
-      h2.info__title
-        |органов дыхания
+      h2.info__top
+        .info__title
+          |Используйте респиратор
+        .info__row
+          .info__col
+            .info__title
+              |для защиты
+          .info__col
+            .info__avatar
+              img.info__img(src="assets/images/avatar.jpg")
+        .info__title
+          |органов дыхания
+      .info__bottom
+        .info__article
+          |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
+        +button-link.button-link--theme--color.info__button-link
+          |Информация для потребителей

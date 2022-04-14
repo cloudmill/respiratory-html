@@ -6,23 +6,15 @@ block header
 block footer
 
 block content
-  section.info
+  section.section
     .container
-      h2.info__top
-        .info__title
-          |Используйте респиратор
-        .info__row
-          .info__col
-            .info__title
-              |для защиты
-          .info__col
-            .info__avatar
-              img.info__img(src="assets/images/avatar.jpg")
-        .info__title
-          |органов дыхания
-      .info__bottom
-        .info__article
-          |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
-        +button-link.button-link--theme--color.info__button-link
-          |Информация для потребителей
+      .section__border.section__container.section__grid
+        - for (let i = 0; i < 4; i++)
+          .section__place
+        .section__aside
+          h2.title
+            |Не просто производим
+        .section__main
+          p.article
+            |Помогаем выстраивать процессы и развивать культуру профессионального использования #[a.article__link(href="#") СИЗОД]
         

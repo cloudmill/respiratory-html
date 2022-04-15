@@ -30,8 +30,50 @@ block content
                     .tag__link
                       |#{tab}
         .products__grid-cell.products__grid-cell--content
-          +button-link.button-link--theme--color
-            |Смотреть серию
+          .products__content
+            .products__content-place
+              .products__title.products__title--sub
+                |Серия респираторов
+            .products__content-place
+              .products__title.products__title--main
+                |RK 9000
+            .products__content-place
+              .products__features
+                -
+                  var features = [
+                    'Классическая чашеобразная форма',
+                    'Внутри анатомической выемки усилитель для более плотного прилегания респиратора к лицевой части',
+                  ]
+                each feature in features
+                  .products__features-place
+                    .products__features-icon
+                    .products__features-text
+                      |#{feature}
+            .products__content-place
+              .products__title.products__title--list
+                |Защита от газов и паров
+            .products__content-place
+              .tags
+                .tags__grid
+                  -
+                    var tabs = [
+                      'Органические газы и пары от нагрева металлов',
+                      'Сварочные аэрозоли, озон',
+                      'Кислые газы',
+                      'Неорганические газы',
+                      'Основные газы',
+                      'Вирусы и бактерии',
+                      'Радиоактивные и канцерогенные аэрозоли',
+                      'Радиоактивный йод',
+                    ]
+                  each tab, index in tabs
+                    .tags__item
+                      .tag
+                        .tag__link
+                          |#{tab}
+            .products__content-place
+              +button-link.button-link--theme--color
+                |Смотреть серию
         .products__grid-cell.products__grid-cell--photos
           .products__photos
             - for (var i = 0; i < 3; i++)

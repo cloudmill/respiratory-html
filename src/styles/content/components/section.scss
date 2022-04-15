@@ -226,8 +226,6 @@
     row-gap: $gap-row;
 
     &-cell {
-      border: 1px solid black; // test
-
       &--title {
         @include getArea(1, 1, 1, 1);
       }
@@ -293,6 +291,105 @@
       min-height: auto;
 
       border-radius: getRem(8px);
+    }
+  }
+
+  &__content {
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(5, auto) 1fr;
+
+    &-place {
+      $gaps: (20px, 20px, 60px, 20px, 115px);
+
+      $index: 2;
+      @each $gap in $gaps {
+        &:nth-child(#{$index}) {
+          margin-top: getRem($gap);
+        }
+
+        $index: $index + 1;
+      }
+
+      &:last-child {
+        align-self: end;
+      }
+    }
+  }
+
+  &__title {
+    &--main {
+      @include font-title(3);
+
+      font-size: getRem(130px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    &--sub {
+      font-size: getRem(16px);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    &--list {
+      @include font-title(2);
+
+      font-size: getRem(13px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{getCols(3)}));
+    column-gap: $gap;
+
+    &-place {
+      position: relative;
+      z-index: 0;
+
+      padding: getRem(30px) 0 0 getRem(30px);
+    }
+
+    &-icon {
+      @include getSize(getRem(21px));
+
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+
+      &::before,
+      &::after {
+        @include getSize(getRem(11px));
+
+        position: absolute;
+
+        content: "";
+
+        border-bottom: 1px solid var(--color-blue);
+        border-left: 1px solid var(--color-blue);
+        border-radius: 0 0 0 getRem(5px);
+      }
+      &::before {
+        top: 0;
+        right: 0;
+      }
+      &::after {
+        bottom: 0;
+        left: 0;
+        transform: rotate(180deg);
+      }
+    }
+
+    &-text {
+      max-width: getRem(320px);
+
+      font-size: getRem(16px);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
   }
 }

@@ -1,4 +1,10 @@
-ul
-  each route in data.routes
-    li
-      a(href=route.path)= route.title
+include ../components/button-link
+
+.container
+  ul
+    each route in data.routes
+      li(style="margin-top: 20px")
+        .button-link.button-link--theme--color
+          a.button-link__link(href=route.path)
+            span.button-link__text
+              |#{route.title}

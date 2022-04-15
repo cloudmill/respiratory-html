@@ -30,25 +30,6 @@ block content
                   .card__label
                     +phone-svg.card__label-svg
                   img.card__background(src="assets/images/card.jpg")
-  section.info
-    .container
-      h2.info__top
-        .info__title
-          |Используйте респиратор
-        .info__row
-          .info__col
-            .info__title
-              |для защиты
-          .info__col
-            .info__avatar
-              img.info__img(src="assets/images/avatar.jpg")
-        .info__title
-          |органов дыхания
-      .info__bottom
-        .info__article
-          |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
-        +button-link.button-link--theme--color.info__button-link
-          |Информация для потребителей
   section.products
     .container
       .products__grid
@@ -73,8 +54,50 @@ block content
                     .tag__link
                       |#{tab}
         .products__grid-cell.products__grid-cell--content
-          +button-link.button-link--theme--color
-            |Смотреть серию
+          .products__content
+            .products__content-place
+              .products__title.products__title--sub
+                |Серия респираторов
+            .products__content-place
+              .products__title.products__title--main
+                |RK 9000
+            .products__content-place
+              .products__features
+                -
+                  var features = [
+                    'Классическая чашеобразная форма',
+                    'Внутри анатомической выемки усилитель для более плотного прилегания респиратора к лицевой части',
+                  ]
+                each feature in features
+                  .products__features-place
+                    .products__features-icon
+                    .products__features-text
+                      |#{feature}
+            .products__content-place
+              .products__title.products__title--list
+                |Защита от газов и паров
+            .products__content-place
+              .tags
+                .tags__grid
+                  -
+                    var tabs = [
+                      'Органические газы и пары от нагрева металлов',
+                      'Сварочные аэрозоли, озон',
+                      'Кислые газы',
+                      'Неорганические газы',
+                      'Основные газы',
+                      'Вирусы и бактерии',
+                      'Радиоактивные и канцерогенные аэрозоли',
+                      'Радиоактивный йод',
+                    ]
+                  each tab, index in tabs
+                    .tags__item
+                      .tag
+                        .tag__link
+                          |#{tab}
+            .products__content-place
+              +button-link.button-link--theme--color
+                |Смотреть серию
         .products__grid-cell.products__grid-cell--photos
           .products__photos
             - for (var i = 0; i < 3; i++)
@@ -92,6 +115,25 @@ block content
           var rows = 2
         - for (var i = 0; i < cols * rows; i++)
           .products__grid-fake
+  section.info
+    .container
+      h2.info__top
+        .info__title
+          |Используйте респиратор
+        .info__row
+          .info__col
+            .info__title
+              |для защиты
+          .info__col
+            .info__avatar
+              img.info__img(src="assets/images/avatar.jpg")
+        .info__title
+          |органов дыхания
+      .info__bottom
+        .info__article
+          |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
+        +button-link.button-link--theme--color.info__button-link
+          |Информация для потребителей
   section.section
     .container
       .section__border.section__container.section__grid

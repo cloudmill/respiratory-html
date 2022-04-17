@@ -7,6 +7,7 @@ block content
   .catalog
     .catalog__grid
       - for (let i = 0; i < 5; i++)
-        .catalog__place
-          .catalog__card
-            |card
+        .catalog__cell
+          .catalog__place
+            .product.product--catalog
+              |product

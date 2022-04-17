@@ -4,5 +4,9 @@ block header
 block footer
 
 block content
-  .container
-    .test Manrope
+  .catalog
+    .catalog__grid
+      - for (let i = 0; i < 5; i++)
+        .catalog__place
+          .catalog__card
+            |card

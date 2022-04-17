@@ -30,10 +30,6 @@ $breakpoints: (
   --color-yellow: #ffed49;
 }
 
-$font-family-title: "ALSGorizont";
-
-$letter-spacing-title: (normal, -0.02em, -0.06em);
-
 $pad: getRem(40px);
 $gap: getRem(20px);
 $col: "((100vw - (#{$pad} * 2) - (#{$gap} * 11)) / 12)";

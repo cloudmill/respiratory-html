@@ -35,6 +35,18 @@
         }
       }
     }
+
+    &--index {
+      #{$component} {
+        &__item {
+          margin-top: getRem(20px);
+
+          &--large {
+            margin-top: getRem(60px);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -375,6 +387,22 @@
 
       &--full {
         width: 100%;
+      }
+
+      &--dark {
+        background-color: var(--color-black);
+        border: 1px solid var(--color-black);
+
+        &:hover {
+          background-color: var(--color-white);
+          border-color: var(--color-black);
+
+          #{$component} {
+            &__text {
+              color: var(--color-black);
+            }
+          }
+        }
       }
     }
   }

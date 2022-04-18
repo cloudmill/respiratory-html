@@ -3,16 +3,16 @@
 
   "routes": [
     {
-      "title": "Тестовая",
-      "path": "test"
-    },
-    {
       "title": "Главная",
       "path": "main"
     },
     {
       "title": "Каталог",
       "path": "catalog"
+    },
+    {
+      "title": "Тестовая",
+      "path": "test"
     }
   ]
 }

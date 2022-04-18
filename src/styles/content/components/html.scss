@@ -1,6 +1,6 @@
 .html {
   @include font-title(1);
-
+  
   font-size: getVw($font-size-root, $breakpoint-max);
 
   @each $breakpoint in $breakpoints {

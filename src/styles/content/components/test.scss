@@ -76,3 +76,27 @@
     // background-color: var(--color-gray-3);
   }
 }
+
+.indent {
+  $component: &;
+
+  &--page {
+    &--main {
+      padding: getRem(180px) 0;
+
+      #{$component} {
+        &__section {
+          &:not(:first-child) {
+            margin-top: getRem(180px);
+          }
+        }
+
+        &__sub-section {
+          &:not(:first-child) {
+            margin-top: getRem(100px);
+          }
+        }
+      }
+    }
+  }
+}

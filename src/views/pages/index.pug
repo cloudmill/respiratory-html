@@ -1,9 +1,14 @@
 extends ../layouts/master
 
-.container
-  ul
-    li(style="margin-top: 20px")
-      .btn
-        a.btn__link.btn__link--variant--default.btn__link--variant--filter.btn__link--variant--full
-          .btn__text
-            |123
+block header
+block footer
+
+block content
+  .container
+    ul
+      each route in data.routes
+        li(style="margin-top: 20px")
+          .btn
+            a.btn__link.btn__link--variant--default.btn__link--variant--text(href=route.path)
+              .btn__text
+                |#{route.title}

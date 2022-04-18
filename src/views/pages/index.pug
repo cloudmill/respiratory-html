@@ -1,10 +1,9 @@
-include ../components/button-link
+extends ../layouts/master
 
 .container
   ul
-    each route in data.routes
-      li(style="margin-top: 20px")
-        .button-link.button-link--theme--color
-          a.button-link__link(href=route.path)
-            span.button-link__text
-              |#{route.title}
+    li(style="margin-top: 20px")
+      .btn
+        a.btn__link.btn__link--variant--default.btn__link--variant--filter.btn__link--variant--full
+          .btn__text
+            |123

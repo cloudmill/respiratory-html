@@ -8,6 +8,7 @@
 
     display: flex;
   }
+
   &__col {
     width: 50%;
 
@@ -17,16 +18,21 @@
   }
 
   &__phone {
+    $icon-size: getRem(44px);
+
+    --border-color: var(--color-gray-5);
+
     padding: $pad;
     min-height: getRem(180px);
 
-    border-bottom: 1px solid var(--color-gray);
+    border-bottom: 1px solid var(--border-color);
 
     &:first-child {
-      border-right: 1px solid var(--color-gray);
+      border-right: 1px solid var(--border-color);
     }
+
     &:last-child {
-      border-left: 1px solid var(--color-gray);
+      border-left: 1px solid var(--border-color);
     }
 
     &:hover {
@@ -40,6 +46,7 @@
     &-container {
       position: relative;
 
+      padding-right: $icon-size + $pad;
       height: 100%;
     }
 
@@ -47,34 +54,39 @@
     &-description {
       display: block;
     }
+
     &-phone {
+      @include font(2);
+
       font-size: getRem(60px);
+      text-transform: uppercase;
     }
+
     &-description {
+      @include font(5);
+
       font-size: getRem(16px);
       line-height: 1.3;
-      color: var(--color-gray-dark);
+      color: var(--color-gray-4);
     }
 
     &-icon {
+      @include getSize($icon-size);
+
       position: absolute;
       bottom: 0;
       right: 0;
 
-      $size: getRem(44px);
-      width: $size;
-      height: $size;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      border: 1px solid var(--color-gray);
+      border: 1px solid var(--color-gray-5);
       border-radius: 50%;
     }
+
     &-svg {
-      $size: getRem(17px);
-      width: $size;
-      height: $size;
+      @include getSize(getRem(17px));
     }
   }
 
@@ -87,7 +99,11 @@
     justify-content: center;
 
     &-link {
+      @include font(2);
+
       font-size: getRem(40px);
+      line-height: 1;
+      text-transform: uppercase;
 
       &:hover {
         color: var(--color-blue);
@@ -98,7 +114,7 @@
   &__grid {
     margin-top: getRem(180px);
     display: grid;
-    grid-template-columns: repeat(12, calc((#{$col} * 3) + (#{$gap} * 2)));
+    grid-template-columns: repeat(4, calc(#{getCols(3)}));
     column-gap: $gap;
     align-items: end;
 
@@ -118,6 +134,8 @@
     display: flex;
 
     &-link {
+      @include font(6);
+
       font-size: getRem(16px);
       line-height: 1.3;
 
@@ -150,14 +168,13 @@
   }
 
   &__social {
-    $size: getRem(44px);
-    width: $size;
-    height: $size;
+    @include getSize(getRem(44px));
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    border: 1px solid var(--color-gray);
+    border: 1px solid var(--color-gray-5);
     border-radius: 50%;
 
     &:hover {
@@ -171,21 +188,36 @@
     }
 
     &-svg {
+      &--facebook {
+        @include getSize(getRem(8px), getRem(16px));
+      }
+
+      &--youtube {
+        @include getSize(getRem(18px), getRem(12px));
+      }
+
+      &--vk {
+        @include getSize(getRem(18px), getRem(11px));
+      }
     }
   }
 
   &__copyright {
+    @include font(6);
+
     font-size: getRem(14px);
     line-height: 1.3;
-    color: var(--color-gray);
+    color: var(--color-gray-4);
   }
 
   &__author {
+    @include font(6);
+
     display: flex;
 
     font-size: getRem(14px);
     line-height: 1.3;
-    color: var(--color-gray);
+    color: var(--color-gray-4);
 
     &-link {
       color: var(--color-white);

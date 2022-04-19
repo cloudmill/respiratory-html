@@ -1,12 +1,3 @@
-mixin facebook-svg
-  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='8' height='16' viewbox='0 0 8 16' fill='none')
-    path(d='M5.31915 3.52821V5.12821H8L7.65957 8H5.31915V16H1.65957V8H0V5.12821H1.65957V3.52821C1.65957 3.52821 1.3617 0.492308 4.34043 0H8V2.58462H6.34043C6.34043 2.54359 5.40426 2.50256 5.31915 3.52821Z' fill='white')
-
-mixin phone-svg
-  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewbox='0 0 18 18' fill='none')
-    path(d='M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416' stroke='white' stroke-width='1.5')
-    line(y1='-0.75' x2='17' y2='-0.75' transform='matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)' stroke='white' stroke-width='1.5')
-
 mixin footer
   footer.footer
     .footer__row
@@ -58,10 +49,15 @@ mixin footer
               |Политика конфиденциальности
           .footer__grid-place
             ul.footer__shelf.footer__socials
-              each i in [1, 2, 3]
-                li.footer__socials-item
-                  a.footer__social(href="#")
-                    +facebook-svg.footer__social-svg
+              li.footer__socials-item
+                a.footer__social(href="#")
+                  +facebook-svg.footer__social-svg.footer__social-svg--facebook
+              li.footer__socials-item
+                a.footer__social(href="#")
+                  +youtube-svg.footer__social-svg.footer__social-svg--youtube
+              li.footer__socials-item
+                a.footer__social(href="#")
+                  +vk-svg.footer__social-svg.footer__social-svg--vk
             .footer__shelf.button-link
               a.button-link__link(href="#")
                 span.button-link__text

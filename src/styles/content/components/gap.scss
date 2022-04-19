@@ -1,0 +1,13 @@
+.gap {
+  &--section {
+    margin-top: getRem(180px);
+  }
+
+  &--block {
+    margin-top: getRem(100px);
+  }
+
+  &--bottom {
+    padding-top: getRem(180px);
+  }
+}

@@ -1,0 +1,10 @@
+.rails {
+  height: 100%;
+
+  &__train {
+    $header-height: getRem(170px);
+
+    position: sticky;
+    top: $header-height;
+  }
+}

@@ -11,6 +11,10 @@
       "path": "catalog"
     },
     {
+      "title": "Карточка товара",
+      "path": "product"
+    },
+    {
       "title": "Тестовая",
       "path": "test"
     }

@@ -1,0 +1,8 @@
+.panel {
+  padding: getRem(27px) 0 getRem(40px) 0;
+
+  &--sticky {
+    position: sticky;
+    bottom: 0;
+  }
+}

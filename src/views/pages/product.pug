@@ -1,0 +1,46 @@
+extends ../layouts/master
+
+block content
+  .container
+    .row.row--half
+      .row__col
+        .wall
+          .wall__list
+            -
+              var items = [
+                'Главная',
+                'АЛИНА®',
+                'АЛИНА®-100',
+              ]
+            each item, index in items
+              if index < items.length - 1
+                .wall__item
+                  .badge
+                    a.badge__link.badge__link--variant--breadcrumb(href="#")
+                      |#{item}
+              else
+                .wall__item
+                  .badge
+                    .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
+                      |#{item}
+        .qwe
+      .row__col
+        .rails
+          .rails__train
+            .gallery
+              |Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi doloremque quidem a eum voluptate ipsum illo quo, quisquam error tempore quas distinctio sunt, unde nam similique quae dignissimos. Repudiandae, exercitationem!
+    .panel.panel--sticky
+      .row.row--panel
+        -
+          var items = [
+            'КУПИТЬ У ОфициальнЫХ диллерОВ',
+            'КУПИТЬ В розничныХ магазинАХ',
+            'Самостоятельно сформировать заказ',
+          ]
+        each item in items
+          .row__col
+            +button-link.button-link--theme--color.button-link--fluid.button-link--in-panel
+              |#{item}     
+  .container
+    |bottom
+    .qwe

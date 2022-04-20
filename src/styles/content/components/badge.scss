@@ -1,0 +1,66 @@
+.badge {
+  display: flex;
+
+  &__link {
+    $element: &;
+
+    &--variant {
+      &--tab {
+        $variant: &;
+
+        @include font(2);
+
+        padding: getRem(20px) getRem(16px);
+
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-2);
+        border-radius: getRem(6px);
+        font-size: getRem(20px);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:not(#{$element}--no-hover, #{$variant}-active) {
+          &:hover {
+            border-color: var(--color-blue);
+            color: var(--color-blue);
+          }
+        }
+
+        &:not(#{$variant}-active) {
+          cursor: pointer;
+        }
+
+        &-active {
+          background-color: var(--color-yellow);
+          border-color: var(--color-yellow);
+        }
+      }
+
+      &--breadcrumb {
+        @include font(2);
+
+        padding: getRem(8px) getRem(12px);
+
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-2);
+        border-radius: getRem(4px);
+        font-size: getRem(13px);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:not(#{$element}--no-hover) {
+          &:hover {
+            border-color: var(--color-blue);
+            color: var(--color-blue);
+          }
+        }
+
+        &-active {
+          background-color: var(--color-gray-2);
+        }
+      }
+    }
+  }
+}

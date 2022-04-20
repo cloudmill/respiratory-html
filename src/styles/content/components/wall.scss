@@ -1,0 +1,15 @@
+.wall {
+  $gap: getRem(8px);
+
+  &__list {
+    margin-top: -$gap;
+    margin-left: -$gap;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-top: $gap;
+    margin-left: $gap;
+  }
+}

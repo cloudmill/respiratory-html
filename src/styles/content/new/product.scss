@@ -1039,12 +1039,6 @@
 
   &--small {
     @include getSize(getRem(44px));
-
-    #{$component} {
-      &__svg {
-        @include getSize(getRem(12px));
-      }
-    }
   }
 
   &__svg {
@@ -1798,6 +1792,7 @@
     @include getSize(100%);
 
     object-fit: cover;
+    user-select: none;
   }
 }
 
@@ -1809,7 +1804,7 @@
 
   overflow: hidden;
 
-  background-color: var(--color-gray-1);
+  // background-color: var(--color-gray-1);
   border-radius: getRem(16px);
 
   &__prev,
@@ -1828,10 +1823,21 @@
     right: getRem(20px);
   }
 
+  &__image {
+    width: calc(#{getCols(4)});
+    overflow: hidden;
+
+    border-radius: getRem(16px);
+  }
+
   &__img {
     @include getSize(100%);
 
     object-fit: cover;
+  }
+
+  &__gap {
+    width: $gap;
   }
 
   .swiper {

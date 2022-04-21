@@ -1,13 +1,9 @@
 import Swiper, { Navigation } from "swiper";
 import { useDebug } from "./useDebug";
 
-const DEBUG = true;
-const SWIPER_PARAMETERS = {
-  loop: true,
-  modules: [Navigation],
-};
+const SWIPER_SPEED = 500;
 
-const [log, logError] = useDebug(DEBUG);
+const [log, logError] = useDebug(true);
 
 log("masks");
 
@@ -21,14 +17,19 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     const masksSwiper = new Swiper(masks, {
-      ...SWIPER_PARAMETERS,
+      modules: [Navigation],
+
+      loop: true,
+
+      speed: SWIPER_SPEED,
+
+      slidesPerView: "auto",
+      slidesPerGroup: 2,
 
       navigation: {
         nextEl: "[data-masks-next]",
         prevEl: "[data-masks-prev]",
       },
-
-      spaceBetween: 20,
     });
   } catch (error) {
     logError(error);

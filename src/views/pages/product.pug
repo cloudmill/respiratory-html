@@ -34,12 +34,10 @@ block content
                   .masks
                     .swiper(data-masks)
                       .swiper-wrapper
-                        .swiper-slide
-                          img.masks__img(src="assets/images/photo.jpg")
-                        .swiper-slide
-                          img.masks__img(src="assets/images/photo.jpg")
-                        .swiper-slide
-                          img.masks__img(src="assets/images/photo.jpg")
+                        each i in [1, 2, 3]
+                          .swiper-slide.masks__image
+                            img.masks__img(src="assets/images/photo.jpg")
+                          .swiper-slide.masks__gap
                       .masks__prev
                         .button.button--small(data-masks-prev)
                           +phone-svg.button__svg

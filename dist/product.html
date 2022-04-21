@@ -11,7 +11,7 @@
 	</head>
 
 	<body class="body">
-		<header class="header">
+		<header class="header" data-header="data-header">
 			<div class="header__block header__block--border--bottom container header__grid">
 				<div class="header__grid-cell header__row">
 					<div class="header__row-col drop-link"><a class="drop-link__link" href="#"><span class="drop-link__text header__text">ru</span>
@@ -83,15 +83,19 @@
 							</div>
 						</div>
 					</div>
-					<div class="mock"></div>top
+					<div class="mock"></div>
 				</div>
 				<div class="row__col">
 					<div class="rails">
-						<div class="rails__train">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi doloremque quidem a eum voluptate ipsum illo quo, quisquam error tempore quas distinctio sunt, unde nam similique quae dignissimos. Repudiandae, exercitationem!</div>
+						<div class="rails__train" data-rails>
+							<div class="aside" data-aside>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi doloremque quidem a eum voluptate ipsum illo quo, quisquam error tempore quas distinctio sunt, unde nam similique quae dignissimos. Repudiandae, exercitationem!</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="panel panel--sticky">
+		</div>
+		<div class="panel panel--sticky" data-panel>
+			<div class="container">
 				<div class="row row--panel">
 					<div class="row__col">
 						<div class="button-link button-link--theme--color button-link--fluid button-link--in-panel"><a class="button-link__link" href="#"><span class="button-link__text">КУПИТЬ У ОфициальнЫХ диллерОВ</span></a></div>
@@ -105,7 +109,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">bottom<div class="mock"></div>bottom</div>
+		<div class="container">
+			<div class="mock"></div>
+		</div>
 		<footer class="footer">
 			<div class="footer__row"><a class="footer__col footer__phone" href="#">
 					<div class="footer__phone-container"><span class="footer__phone-phone">8 812 703-37-33</span><span class="footer__phone-description">Многоканальный</span>

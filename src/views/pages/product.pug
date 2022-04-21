@@ -24,12 +24,13 @@ block content
                     .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
                       |#{item}
         .mock
-        |top
       .row__col
         .rails
-          .rails__train
-            |Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi doloremque quidem a eum voluptate ipsum illo quo, quisquam error tempore quas distinctio sunt, unde nam similique quae dignissimos. Repudiandae, exercitationem!
-    .panel.panel--sticky
+          .rails__train(data-rails)
+            .aside(data-aside)
+              |Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi doloremque quidem a eum voluptate ipsum illo quo, quisquam error tempore quas distinctio sunt, unde nam similique quae dignissimos. Repudiandae, exercitationem!
+  .panel.panel--sticky(data-panel)
+    .container
       .row.row--panel
         -
           var items = [
@@ -42,6 +43,4 @@ block content
             +button-link.button-link--theme--color.button-link--fluid.button-link--in-panel
               |#{item}     
   .container
-    |bottom
     .mock
-    |bottom

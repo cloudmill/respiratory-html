@@ -45,7 +45,7 @@ block content
                       .swiper-wrapper
                         - for (var i = 0; i < paginationSrcList.length; i++)
                           .swiper-slide.masks__image
-                            img.masks__img(src="assets/images/masks-1.jpg")
+                            img.masks__img(src="assets/images/masks-1.jpg" data-fancybox)
                       .masks__bullets
                         .masks__bullets-list
                       .masks__prev
@@ -56,10 +56,10 @@ block content
                           +phone-svg.button__svg
                 .gallery__place
                   .gallery__image
-                    img.gallery__img(src="assets/images/masks-2.jpg")
+                    img.gallery__img(src="assets/images/masks-2.jpg" data-fancybox)
                 .gallery__place
                   .gallery__image
-                    img.gallery__img(src="assets/images/masks-3.jpg")
+                    img.gallery__img(src="assets/images/masks-3.jpg" data-fancybox)
   .panel.panel--sticky(data-panel)
     .container
       .row.row--panel

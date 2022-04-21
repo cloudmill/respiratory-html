@@ -45,11 +45,9 @@
 }
 
 .panel {
-  padding: getRem(27px) 0 getRem(40px) 0;
+  padding: getRem(40px) 0;
 
   background-color: var(--color-white);
-  border-top: 1px solid black; // test
-  border-bottom: 1px solid black; // test
 
   &--sticky {
     position: sticky;
@@ -513,6 +511,10 @@
 
   &--block {
     margin-top: getRem(100px);
+  }
+
+  &--small {
+    padding-top: getRem(40px);
   }
 
   &--bottom {
@@ -1032,6 +1034,16 @@
   &--right {
     #{$component}__svg {
       transform: rotate(45deg);
+    }
+  }
+
+  &--small {
+    @include getSize(getRem(44px));
+
+    #{$component} {
+      &__svg {
+        @include getSize(getRem(12px));
+      }
     }
   }
 
@@ -1741,5 +1753,92 @@
 }
 
 .aside {
-  border: 10px dashed black; // test
+  &--gallery {
+    padding-top: getRem(40px);
+  }
+}
+
+.gallery {
+  @include getSize(100%);
+
+  display: grid;
+  grid-template-columns: calc(#{getCols(4)}) calc(#{getCols(2)});
+  grid-template-rows: repeat(2, calc((100% - #{$gap}) / 2));
+  column-gap: $gap;
+  row-gap: $gap;
+
+  &__place {
+    &:nth-child(1) {
+      @include getArea(1, 1, 1, 2);
+    }
+
+    &:nth-child(2) {
+      @include getArea(2, 1, 1, 1);
+    }
+
+    &:nth-child(3) {
+      @include getArea(2, 2, 1, 1);
+    }
+  }
+
+  &__image {
+    @include getSize(100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background-color: var(--color-gray-1);
+    border: 1px solid var(--color-gray-1);
+    border-radius: getRem(16px);
+  }
+
+  &__img {
+    @include getSize(100%);
+
+    object-fit: cover;
+  }
+}
+
+.masks {
+  @include getSize(100%);
+
+  position: relative;
+  z-index: 0;
+
+  overflow: hidden;
+
+  background-color: var(--color-gray-1);
+  border-radius: getRem(16px);
+
+  &__prev,
+  &__next {
+    position: absolute;
+    z-index: 2; // because swiper-wrapper z-index: 1
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__prev {
+    left: getRem(20px);
+  }
+
+  &__next {
+    right: getRem(20px);
+  }
+
+  &__img {
+    @include getSize(100%);
+
+    object-fit: cover;
+  }
+
+  .swiper {
+    @include getSize(100%);
+
+    &-slide {
+      overflow: hidden;
+    }
+  }
 }

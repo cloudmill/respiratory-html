@@ -4,6 +4,7 @@ block content
   .container
     .row.row--half
       .row__col
+        .gap.gap--small
         .wall
           .wall__list
             -
@@ -27,8 +28,30 @@ block content
       .row__col
         .rails
           .rails__train(data-rails)
-            .aside(data-aside)
-              |Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi doloremque quidem a eum voluptate ipsum illo quo, quisquam error tempore quas distinctio sunt, unde nam similique quae dignissimos. Repudiandae, exercitationem!
+            .aside.aside--gallery(data-aside)
+              .gallery
+                .gallery__place
+                  .masks
+                    .swiper(data-masks)
+                      .swiper-wrapper
+                        .swiper-slide
+                          img.masks__img(src="assets/images/photo.jpg")
+                        .swiper-slide
+                          img.masks__img(src="assets/images/photo.jpg")
+                        .swiper-slide
+                          img.masks__img(src="assets/images/photo.jpg")
+                      .masks__prev
+                        .button.button--small(data-masks-prev)
+                          +phone-svg.button__svg
+                      .masks__next
+                        .button.button--small.button--right(data-masks-next)
+                          +phone-svg.button__svg
+                .gallery__place
+                  .gallery__image
+                    img.gallery__img(src="assets/images/photo.jpg")
+                .gallery__place
+                  .gallery__image
+                    img.gallery__img(src="assets/images/photo.jpg")
   .panel.panel--sticky(data-panel)
     .container
       .row.row--panel

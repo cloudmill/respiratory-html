@@ -1,34 +1,50 @@
-import Swiper, { Navigation } from "swiper";
+import Swiper, { Navigation, Pagination } from "swiper";
 import { useDebug } from "./useDebug";
 
-const SWIPER_SPEED = 500;
+const SWIPER_SPEED = 1000;
+const SWIPER_LOOP = true;
 
-const [log, logError] = useDebug(true);
+const [log, logError] = useDebug(false);
 
 log("masks");
 
 window.addEventListener("DOMContentLoaded", () => {
   try {
     const masks = document.querySelector("[data-masks]");
+    const srcJSON = masks.dataset.masksPagination;
+    const srcList = JSON.parse(srcJSON);
 
     log({
       masks,
-      sw: Swiper,
+      srcJSON,
+      srcList,
+      Sw: Swiper,
     });
 
     const masksSwiper = new Swiper(masks, {
-      modules: [Navigation],
+      modules: [Navigation, Pagination],
 
-      loop: true,
-
+      loop: SWIPER_LOOP,
       speed: SWIPER_SPEED,
 
       slidesPerView: "auto",
-      slidesPerGroup: 2,
 
       navigation: {
         nextEl: "[data-masks-next]",
         prevEl: "[data-masks-prev]",
+      },
+
+      pagination: {
+        el: ".masks__bullets-list",
+        clickable: true,
+
+        renderBullet: (index, className) => {
+          return `
+            <div class="masks__bullet ${className}">
+              <img class="masks__bullet-img" src="${srcList[index]}" />
+            </div>
+          `;
+        },
       },
     });
   } catch (error) {

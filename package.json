@@ -39,6 +39,7 @@
     "webpack-notifier": "^1.15.0"
   },
   "dependencies": {
+    "@fancyapps/ui": "^4.0.26",
     "aos": "^2.3.4",
     "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",

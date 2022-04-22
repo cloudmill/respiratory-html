@@ -4,16 +4,5 @@ block header
 block footer
 
 block content
-  .panel
-    .container
-      .row.row--panel
-        -
-          var items = [
-            'КУПИТЬ У ОфициальнЫХ диллерОВ',
-            'КУПИТЬ В розничныХ магазинАХ',
-            'Самостоятельно сформировать заказ',
-          ]
-        each item in items
-          .row__col
-            +button-link.button-link--theme--color.button-link--fluid.button-link--in-panel
-              |#{item}
+  .container
+    |test

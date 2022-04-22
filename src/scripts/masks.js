@@ -1,7 +1,7 @@
 import Swiper, { Navigation, Pagination } from "swiper";
 import { useDebug } from "./useDebug";
 
-const SWIPER_SPEED = 1000;
+const SWIPER_SPEED = 500;
 const SWIPER_LOOP = true;
 
 const [log, logError] = useDebug(false);
@@ -39,6 +39,8 @@ window.addEventListener("DOMContentLoaded", () => {
         clickable: true,
 
         renderBullet: (index, className) => {
+          // count of bullets relative to slide size (& slides count)
+
           return `
             <div class="masks__bullet ${className}">
               <img class="masks__bullet-img" src="${srcList[index]}" />

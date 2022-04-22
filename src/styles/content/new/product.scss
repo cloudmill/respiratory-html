@@ -1875,6 +1875,7 @@
       border: 2px solid var(--color-blue);
       border-radius: $border-radius;
       opacity: 0;
+      transition: opacity 0.5s;
     }
 
     &.swiper-pagination-bullet-active {

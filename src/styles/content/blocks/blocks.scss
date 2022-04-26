@@ -570,7 +570,18 @@
   }
 }
 
-// gaps
+// gaps (padding)
+.wubhhh {
+  padding-top: getRem(180px);
+}
+.lmsyry {
+  padding-top: getRem(80px);
+}
+
+// gaps (margin)
+.akrsnt {
+  margin-top: getRem(120px);
+}
 .ravxnv {
   margin-top: getRem(80px);
 }
@@ -590,8 +601,8 @@
 
   &__content {
     margin: 0 auto;
-    padding-right: calc(#{$col} + #{$gap});
-    width: calc(#{getCols(7)});
+    padding: 0 calc(#{$col} + #{$gap});
+    width: calc(#{getCols(8)});
 
     border-left: 1px solid var(--color-gray-2);
     border-right: 1px solid var(--color-gray-2);
@@ -600,7 +611,13 @@
 
 // кнопка с иконкой
 .mcusad {
+  $component: &;
+
+  position: relative;
+  z-index: 0;
+
   padding: getRem(18px);
+  width: 100%;
   min-height: getRem(60px);
   display: flex;
   justify-content: center;
@@ -608,12 +625,74 @@
   overflow: hidden;
 
   background-color: var(--color-blue);
+  border: none;
   border-radius: getRem(8px);
   cursor: pointer;
+
+  &:disabled {
+    background-color: var(--color-gray-1);
+    cursor: not-allowed;
+
+    #{$component} {
+      &__decoration {
+        &::before,
+        &::after {
+          border-color: var(--color-gray-2);
+        }
+      }
+
+      &__text {
+        color: var(--color-gray-3);
+        opacity: 0.3;
+      }
+
+      &__svg {
+        path {
+          stroke: var(--color-gray-2);
+        }
+      }
+    }
+  }
 
   // ограничение по ширине в 3 колонки
   &--antzhn {
     max-width: calc(#{getCols(3)});
+  }
+
+  &__decoration {
+    $offset: getRem(10px);
+    $size: getRem(10px);
+
+    @include inset(0);
+
+    position: absolute;
+    z-index: -1;
+
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      @include getSize($size);
+
+      position: absolute;
+
+      content: "";
+
+      border-top: 1px solid var(--color-yellow);
+      border-right: 1px solid var(--color-yellow);
+      border-radius: 0 math.div($size, 2) 0 0;
+    }
+
+    &::before {
+      top: $offset;
+      right: $offset;
+    }
+
+    &::after {
+      bottom: $offset;
+      left: $offset;
+      transform: rotate(180deg);
+    }
   }
 
   &__svg {
@@ -651,6 +730,12 @@
   border-radius: getRem(12px);
   font-size: getRem(16px);
   line-height: 1.3;
+
+  // textarea
+  &--vkvfwb {
+    height: getRem(141px);
+    resize: none;
+  }
 }
 
 // checkbox/radio button
@@ -719,4 +804,100 @@
     font-size: getRem(16px);
     line-height: 1.3;
   }
+}
+
+// пояснение к полю (textarea)
+.cmjcvs {
+  @include font(4);
+
+  font-size: getRem(16px);
+  line-height: 1.6;
+  color: var(--color-gray-3);
+}
+
+// agreeement checkbox
+.aoabcj {
+  $component: &;
+
+  display: flex;
+
+  &__label {
+    position: relative;
+
+    display: flex;
+
+    cursor: pointer;
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    opacity: 0;
+
+    &:checked {
+      & + {
+        #{$component} {
+          &__mark {
+            background-color: var(--color-blue);
+            border-color: var(--color-blue);
+          }
+        }
+      }
+    }
+  }
+
+  &__mark {
+    @include getSize(getRem(24px));
+
+    margin-right: getRem(12px);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(4px);
+  }
+
+  &__svg {
+    @include getSize(getRem(15px), getRem(10px));
+  }
+
+  &__text {
+    @include font(4);
+
+    padding: getRem(3px) 0;
+
+    font-size: getRem(12px);
+    line-height: 1.6;
+  }
+
+  &__link {
+    color: var(--color-blue);
+  }
+}
+
+// bottom формы с сабмитом и чекбоксом соглашения
+.pcvkpe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__col {
+    &:last-child {
+      margin-left: $gap;
+      flex-grow: 1;
+      max-width: getRem(217px);
+    }
+  }
+}
+
+// datapicker container
+.ozbbnq {
+  max-width: calc(#{getCols(3)});
 }

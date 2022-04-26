@@ -74,6 +74,12 @@
   font-size: getRem(18px);
   line-height: 1;
   text-transform: uppercase;
+
+  // sub-title увеличенный
+  &--wiwhvt {
+    font-size: getRem(32px);
+    line-height: 1.2;
+  }
 }
 
 // feature card # 1
@@ -113,13 +119,23 @@
 
 // features grid (or other staff)
 .ndxzhy {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: $gap;
-  row-gap: $gap;
+  --gap: #{$gap};
+  --col-count: 3;
 
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+
+  // 2 колонки
   &--zoxaue {
-    grid-template-columns: repeat(2, 1fr);
+    --col-count: 2;
+  }
+
+  // 1 колонка
+  &--jbjufj {
+    --gap: #{getRem(8px)};
+    --col-count: 1;
   }
 }
 
@@ -196,7 +212,37 @@
 
 // badge
 .dqnoxb {
+  $component: &;
+
   display: flex;
+
+  // хлебная крошка
+  &--hjdvot {
+    #{$component} {
+      &__button {
+        @include font(2);
+
+        padding: getRem(8px) getRem(12px);
+
+        font-size: getRem(13px);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  // текущая хлебная крошка
+  &--vjzfip {
+    #{$component} {
+      &__button {
+        background-color: var(--color-gray-2);
+
+        &:hover {
+          border-color: var(--color-gray-2);
+        }
+      }
+    }
+  }
 
   &__button {
     @include font(4);
@@ -218,18 +264,22 @@
 
 // badge list
 .lhqxmb {
-  $gap: getRem(4px);
+  --gap: #{getRem(4px)};
+
+  &--okgqtd {
+    --gap: #{getRem(8px)};
+  }
 
   &__list {
-    margin-top: -$gap;
-    margin-left: -$gap;
+    margin-top: calc(-1 * var(--gap));
+    margin-left: calc(-1 * var(--gap));
     display: flex;
     flex-wrap: wrap;
   }
 
   &__item {
-    margin-top: $gap;
-    margin-left: $gap;
+    margin-top: var(--gap);
+    margin-left: var(--gap);
   }
 }
 
@@ -532,4 +582,73 @@
 }
 .kzgrca {
   margin-top: getRem(20px);
+}
+
+// держательно контента с декорацией (Оформление заказа)
+.chkzqs {
+  border-top: 1px solid var(--color-gray-2);
+
+  &__content {
+    margin: 0 auto;
+    padding-right: calc(#{$col} + #{$gap});
+    width: calc(#{getCols(7)});
+
+    border-left: 1px solid var(--color-gray-2);
+    border-right: 1px solid var(--color-gray-2);
+  }
+}
+
+// кнопка с иконкой
+.mcusad {
+  padding: getRem(18px);
+  min-height: getRem(60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: var(--color-blue);
+  border-radius: getRem(8px);
+  cursor: pointer;
+
+  // ограничение по ширине в 3 колонки
+  &--antzhn {
+    max-width: calc(#{getCols(3)});
+  }
+
+  &__svg {
+    @include getSize(getRem(24px));
+
+    margin-right: getRem(8px);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    @include font(1);
+
+    font-size: getRem(13px);
+    line-height: 1;
+    color: var(--color-white);
+    text-transform: uppercase;
+  }
+}
+
+// текстовое поле
+.lpxpkk {
+  @include font(4);
+
+  @include placeholder() {
+    color: var(--color-gray-3);
+  }
+
+  padding: getRem(19px) getRem(24px) getRem(20px) getRem(24px);
+  width: 100%;
+  height: getRem(60px);
+  display: block;
+
+  background: var(--color-gray-1);
+  border: 1px solid var(--color-gray-2);
+  border-radius: getRem(12px);
+  font-size: getRem(16px);
+  line-height: 1.3;
 }

@@ -41,6 +41,10 @@
 
   &--rxljso {
     background-color: var(--color-black);
+
+    &:hover {
+      background-color: var(--color-blue);
+    }
   }
 
   &__svg {
@@ -257,12 +261,15 @@
 .yhontr {
   @include font(4);
 
-  margin: getRem(26px) 0; // line-height
   padding-left: calc(#{$col} + #{$gap});
   max-width: calc(#{getCols(5)});
 
   font-size: 16px;
   line-height: 1.6;
+
+  &:not(:first-child) {
+    margin-top: getRem(26px); // line-height
+  }
 }
 
 // progress card
@@ -511,4 +518,18 @@
   &__tags {
     margin-top: getRem(20px);
   }
+}
+
+// gaps
+.ravxnv {
+  margin-top: getRem(80px);
+}
+.avbkdm {
+  margin-top: getRem(60px);
+}
+.nvmuyk {
+  margin-top: getRem(40px);
+}
+.kzgrca {
+  margin-top: getRem(20px);
 }

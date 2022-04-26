@@ -30,13 +30,35 @@ mixin kwcrsv-svg
 block content
   .chkzqs
     .chkzqs__content
-      .nugtcb
-        .nugtcb
-
       .ndxzhy.ndxzhy--jbjufj
-        - for (let i = 0; i < 5; i++)
+        -
+          var items = [
+            'Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)',
+            'Доставка до терминала транспортной компании (оплата транспортных расходов  покупателем)',
+            'Доставка «до двери» (оплата транспортных расходов  покупателем)',
+          ]
+        each item, index in items
           .ndxzhy__place
-            |123
+            .nugtcb
+              input.nugtcb__input(id=`radio-${index}` type="radio" name="radio" checked=(index === 0))
+              label.nugtcb__label(for=`radio-${index}`)
+                .nugtcb__mark
+                .nugtcb__text
+                  |#{item}
+
+      .nugtcb
+        input.nugtcb__input#radio(type="radio")
+        label.nugtcb__label(for="radio")
+          .nugtcb__mark
+          .nugtcb__text
+            |Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)
+
+      .nugtcb
+        input.nugtcb__input#checkbox(type="checkbox")
+        label.nugtcb__label(for="checkbox")
+          .nugtcb__mark
+          .nugtcb__text
+            |Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)
 
       h2.pfwgww.pfwgww--wiwhvt
         |Способ доставки

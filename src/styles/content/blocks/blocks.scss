@@ -891,8 +891,8 @@
   &__col {
     &:last-child {
       margin-left: $gap;
-      flex-grow: 1;
-      max-width: getRem(217px);
+      width: getRem(217px);
+      flex-shrink: 0;
     }
   }
 }

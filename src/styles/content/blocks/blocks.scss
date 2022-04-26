@@ -1,0 +1,89 @@
+// title
+.bbapqc {
+  @include font(3);
+
+  font-size: getRem(72px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+// left arrow circle button
+.ommfre {
+  @include getSize(getRem(54px));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-blue);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &__svg {
+    @include getSize(getRem(22px), getRem(15px));
+  }
+}
+
+// title with back button block
+.elfadi {
+  padding-bottom: getRem(20px);
+  display: flex;
+
+  border-bottom: 1px solid var(--color-gray-2);
+
+  &__back {
+    margin-right: getRem(12px);
+  }
+
+  &__title {
+  }
+}
+
+// sub title (h2, h3)
+.pfwgww {
+  @include font(2);
+
+  font-size: getRem(18px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+// feature card # 1
+.fcpzms {
+  padding: getRem(20px);
+  height: 100%;
+  min-height: getRem(108px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid var(--color-gray-2);
+  box-sizing: border-box;
+  border-radius: 0px getRem(12px) getRem(12px) getRem(12px);
+
+  &__title {
+    @include font(2);
+
+    font-size: getRem(32px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    @include font(4);
+
+    margin-top: getRem(4px);
+
+    font-size: getRem(12px);
+    line-height: 1.3;
+    text-align: right;
+  }
+}
+
+// features grid (or other staff)
+.ndxzhy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: $gap;
+  row-gap: $gap;
+}

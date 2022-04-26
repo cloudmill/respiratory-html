@@ -3,6 +3,51 @@ extends ../layouts/master
 block header
 block footer
 
+//- white left arrow svg
+mixin venams-svg
+  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='23' height='17' viewBox='0 0 23 17' fill='none')
+    path(d='M8.31822 0.874897L3.70343 5.48969C2.14133 7.05178 2.14133 9.58444 3.70343 11.1465L8.31822 15.7613' stroke='white' stroke-width='1.5')
+    line(x1='5.875' y1='8.12476' x2='22.875' y2='8.12476' stroke='white' stroke-width='1.5')
+
+
 block content
   .container
-    |test
+    h1.bbapqc
+      |АЛИНА®-100
+    
+    .ommfre
+      +venams-svg.ommfre__svg
+    a.ommfre(href="#")
+      +venams-svg.ommfre__svg
+    
+    .elfadi
+      .elfadi__back
+        a.ommfre(href="#")
+          +venams-svg.ommfre__svg
+      .elfadi__title
+        h1.bbapqc
+          |АЛИНА®-100
+    .elfadi
+      .elfadi__title
+        h1.bbapqc
+          |АЛИНА®-100
+
+    h2.pfwgww
+      |Класс защиты
+    h3.pfwgww
+      |Класс защиты
+
+    .fcpzms
+      .fcpzms__title
+        |FFP1
+      .fcpzms__text
+        |Предельно допустимая концентрация до 4
+
+    .ndxzhy
+      - for (let i = 0; i < 5; i++)
+        .ndxzhy__place
+          .fcpzms
+            .fcpzms__title
+              |FFP1
+            .fcpzms__text
+              |Предельно допустимая концентрация до 4

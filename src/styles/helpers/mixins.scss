@@ -18,6 +18,9 @@
     font-family: "Manrope";
     font-weight: 600;
     letter-spacing: -0.02em;
+  } @else if $configuration == 7 {
+    font-family: "Manrope";
+    font-weight: 600;
   }
 }
 

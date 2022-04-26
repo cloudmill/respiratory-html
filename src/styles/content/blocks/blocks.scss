@@ -9,6 +9,8 @@
 
 // left arrow circle button
 .ommfre {
+  $component: &;
+
   @include getSize(getRem(54px));
 
   display: flex;
@@ -18,6 +20,16 @@
   background-color: var(--color-blue);
   border-radius: 50%;
   cursor: pointer;
+
+  &--iifmew {
+    @include getSize(getRem(44px));
+
+    #{$component} {
+      &__svg {
+        @include getSize(getRem(17px));
+      }
+    }
+  }
 
   &__svg {
     @include getSize(getRem(22px), getRem(15px));
@@ -89,6 +101,10 @@
   grid-template-columns: repeat(3, 1fr);
   column-gap: $gap;
   row-gap: $gap;
+
+  &--zoxaue {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 // feature card # 2
@@ -151,5 +167,195 @@
 
     font-size: getRem(14px);
     line-height: 1.3;
+  }
+}
+
+// badge
+.dqnoxb {
+  display: flex;
+
+  &__button {
+    @include font(4);
+
+    padding: getRem(7px) getRem(12px);
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(6px);
+    font-size: getRem(12px);
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+}
+
+// badge list
+.lhqxmb {
+  $gap: getRem(4px);
+
+  &__list {
+    margin-top: -$gap;
+    margin-left: -$gap;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-top: $gap;
+    margin-left: $gap;
+  }
+}
+
+// info card
+.ulbfcv {
+  padding-top: getRem(12px);
+
+  border-top: 1px solid var(--color-gray-2);
+
+  &__property {
+    @include font(4);
+
+    font-size: getRem(14px);
+    line-height: 1.3;
+  }
+
+  &__value {
+    @include font(2);
+
+    margin-top: getRem(12px);
+
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+}
+
+// article
+.yhontr {
+  @include font(4);
+
+  margin: getRem(26px) 0; // line-height
+  padding-left: calc(#{$col} + #{$gap});
+  max-width: calc(#{getCols(5)});
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+// progress card
+.syirtg {
+  display: flex;
+  align-items: stretch;
+
+  &__image {
+    position: relative;
+    z-index: 0;
+
+    width: calc(#{getCols(4)});
+    min-height: getRem(398px);
+    display: flex;
+    overflow: hidden;
+
+    border-radius: 0px 0px getRem(40px) 0px;
+  }
+
+  &__img {
+    @include getSize(100%);
+
+    object-fit: cover;
+  }
+
+  &__label {
+    position: absolute;
+    bottom: getRem(20px);
+    right: getRem(20px);
+  }
+
+  &__content {
+    margin-left: $gap;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__col {
+    width: 50%;
+
+    &:not(:first-child) {
+      margin-left: $gap;
+    }
+  }
+
+  &__progress {
+    display: flex;
+  }
+
+  &__current,
+  &__all {
+    @include font(2);
+  }
+
+  &__current {
+    color: var(--color-blue);
+
+    font-size: getRem(40px);
+    line-height: 1;
+  }
+
+  &__all {
+    margin-left: getRem(10px);
+
+    font-size: getRem(16px);
+    line-height: 1;
+  }
+
+  &__title {
+    @include font(2);
+
+    margin-top: getRem(40px);
+    width: calc(#{getCols(2)});
+
+    font-size: getRem(20px);
+    line-height: 1.3;
+  }
+}
+
+// doc
+.gmjvle {
+  position: relative;
+  z-index: 0;
+
+  padding: $gap;
+  padding-right: getRem(70px);
+  min-height: getRem(215px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-2);
+  border-radius: getRem(8px);
+
+  &__title,
+  &__weight {
+    @include font(7);
+
+    font-size: getRem(16px);
+    line-height: 1.3;
+  }
+
+  &__title {
+  }
+
+  &__weight {
+    color: var(--color-gray-3);
+  }
+
+  &__svg {
+    @include getSize(getRem(30px), getRem(37px));
+
+    position: absolute;
+    bottom: $gap;
+    right: $gap;
   }
 }

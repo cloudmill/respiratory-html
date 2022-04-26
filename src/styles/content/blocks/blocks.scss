@@ -31,6 +31,18 @@
     }
   }
 
+  &--rtluns {
+    #{$component} {
+      &__svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &--rxljso {
+    background-color: var(--color-black);
+  }
+
   &__svg {
     @include getSize(getRem(22px), getRem(15px));
   }
@@ -153,6 +165,14 @@
 .onipfv {
   display: flex;
 
+  &--wkdqck {
+    padding: getRem(6px);
+    padding-right: getRem(16px);
+
+    border: 1px solid var(--color-gray-2);
+    border-radius: getRem(8px);
+  }
+
   &__img {
     @include getSize(getRem(48px));
 
@@ -185,6 +205,10 @@
     font-size: getRem(12px);
     line-height: 1.3;
     white-space: nowrap;
+
+    &:hover {
+      border-color: var(--color-blue);
+    }
   }
 }
 
@@ -357,5 +381,134 @@
     position: absolute;
     bottom: $gap;
     right: $gap;
+  }
+}
+
+// блок с подзаголовком и контроллами слайдера + бордер
+.baxwyj {
+  padding-top: getRem(16px);
+  display: flex;
+
+  border-top: 1px solid var(--color-gray-2);
+
+  &__col {
+    width: 50%;
+
+    &:not(:first-child) {
+      margin-left: $gap;
+    }
+  }
+}
+
+// controls
+.amaqvj {
+  display: flex;
+
+  &__col {
+    &:not(:first-child) {
+      margin-left: getRem(8px);
+    }
+  }
+}
+
+// slider
+.usgkhj {
+}
+
+// slide
+.yzunuk {
+  position: relative;
+  z-index: 0;
+
+  padding: $pad;
+  width: 50vw;
+  display: flex;
+
+  background-color: var(--color-white);
+
+  &::before {
+    @include inset(0);
+
+    position: absolute;
+    z-index: -1;
+
+    content: "";
+    margin-left: -1px;
+    pointer-events: none;
+
+    border: 1px solid var(--color-gray-2);
+  }
+
+  &:hover {
+    z-index: 1;
+
+    &::before {
+      border-color: var(--color-blue);
+    }
+  }
+
+  &__img {
+    width: calc(#{getCols(3)});
+    flex-shrink: 0;
+    min-height: getRem(552px);
+    object-fit: cover;
+  }
+
+  &__content {
+    margin-left: $gap;
+    flex-grow: 1;
+  }
+
+  &__title {
+    @include font(3);
+
+    font-size: getRem(54px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__props {
+    margin-top: getRem(40px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: $gap;
+    row-gap: $gap;
+  }
+
+  &__prop {
+    &-title {
+      @include font(4);
+
+      font-size: getRem(14px);
+      line-height: 1.3;
+    }
+
+    &-value {
+      @include font(2);
+
+      margin-top: getRem(9px);
+
+      font-size: getRem(16px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  &__feature {
+    margin-top: getRem(40px);
+  }
+
+  &__sub-title {
+    @include font(2);
+
+    margin-top: getRem(40px);
+
+    font-size: getRem(13px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__tags {
+    margin-top: getRem(20px);
   }
 }

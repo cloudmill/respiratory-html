@@ -177,3 +177,63 @@ block content
             .gmjvle__weight
               |235 КБ
             +lbiuaj-svg.gmjvle__svg
+
+    .amaqvj
+      .amaqvj__col
+        .ommfre.ommfre--rxljso
+          +venams-svg.ommfre__svg
+      .amaqvj__col
+        .ommfre.ommfre--rtluns.ommfre--rxljso
+          +venams-svg.ommfre__svg
+
+    .baxwyj
+      .baxwyj__col
+        h2.pfwgww
+          |аналоги
+      .baxwyj__col
+        .amaqvj
+          .amaqvj__col
+            .ommfre.ommfre--rxljso(data-usgkhj-prev)
+              +venams-svg.ommfre__svg
+          .amaqvj__col
+            .ommfre.ommfre--rtluns.ommfre--rxljso(data-usgkhj-next)
+              +venams-svg.ommfre__svg
+
+  .usgkhj.swiper(data-usgkhj)
+    .swiper-wrapper
+      - for (let i = 0; i < 3; i++)
+        .yzunuk.swiper-slide
+          img.yzunuk__img(src="assets/images/photo.jpg")
+          .yzunuk__content
+            .yzunuk__title
+              |RK 9000
+            .yzunuk__props
+              - for (let j = 0; j < 2; j++)
+                .yzunuk__prop
+                  .yzunuk__prop-title
+                    |Класс защиты
+                  .yzunuk__prop-value
+                    |FFP1 NR D
+            .yzunuk__feature
+              .onipfv.onipfv--wkdqck
+                img.onipfv__img(src="assets/images/svg/feature-3.svg")
+                .onipfv__text
+                  |Защита от всех видов аэрозолей
+            .yzunuk__sub-title
+              |Дополнительная защита
+            .yzunuk__tags
+              .lhqxmb
+                .lhqxmb__list
+                  -
+                    var items = [
+                      'Кислые газы',
+                      'Неорганические газы',
+                      'Основные газы',
+                      'Пары ртути',
+                    ]
+                  each item in items
+                    .lhqxmb__item
+                      .dqnoxb
+                        a.dqnoxb__button(href="#")
+                          |#{item}
+            

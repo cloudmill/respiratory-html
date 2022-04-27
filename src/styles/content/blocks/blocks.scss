@@ -901,3 +901,44 @@
 .ozbbnq {
   max-width: calc(#{getCols(3)});
 }
+
+// close button
+.ppdaco {
+  @include getSize(getRem(48px));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-2);
+  border-radius: getRem(40px);
+  box-shadow: 0px getRem(12px) getRem(20px) var(--color-shadow);
+  cursor: pointer;
+
+  &__svg {
+    @include getSize(getRem(17px));
+  }
+}
+
+// block с селектами из Оформление заказа
+.qjwxwp {
+  position: relative;
+
+  padding: getRem(24px);
+
+  background-color: var(--color-gray-1);
+  border-radius: getRem(12px);
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+}
+
+// селект
+.twhudo {
+  
+}

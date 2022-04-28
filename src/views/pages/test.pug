@@ -30,337 +30,384 @@ mixin dapfjq-svg
   svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='17' height='11' viewBox='0 0 17 11' fill='none')
     path(d='M1 5.5L4.58579 9.08579C5.36684 9.86684 6.63316 9.86684 7.41421 9.08579L15.5 1' stroke='white' stroke-width='1.5')
 
+mixin vptwok-svg
+  svg(class=attributes.class xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17' fill='none')
+    path(d='M2.50479 14.5256L5.70184 11.3285C7.26394 9.76645 7.26394 7.2338 5.70185 5.6717L2.50479 2.47465' stroke='#191A1C' stroke-width='1.5')
+    path(d='M14.4952 2.47465L11.2982 5.6717C9.73606 7.23379 9.73606 9.76645 11.2982 11.3285L14.4952 14.5256' stroke='#191A1C' stroke-width='1.5')
+
 block content
-  .chkzqs
-    .chkzqs__content
-      .pcvkpe
-        .pcvkpe__col
-          .aoabcj
-            label.aoabcj__label
-              input.aoabcj__input(type="checkbox")
-              .aoabcj__mark
-                +dapfjq-svg.aoabcj__svg
-              .aoabcj__text
-                |Даю согласие на обработку 
-                a.aoabcj__link(href="#")
-                  |персональных данных
-        .pcvkpe__col
-          button.mcusad(disabled)
-            .mcusad__decoration
-            .mcusad__text
-              |оформить заказ
-
-      button.mcusad(disabled)
-        .mcusad__decoration
-        .mcusad__text
-          |оформить заказ
-      button.mcusad
-        .mcusad__decoration
-        .mcusad__text
-          |оформить заказ
-      button.mcusad.mcusad--antzhn(disabled)
-        +kwcrsv-svg.mcusad__svg
-        .mcusad__text
-          |Добавить респиратор в заказ
-
-      .aoabcj
-        label.aoabcj__label
-          input.aoabcj__input(type="checkbox")
-          .aoabcj__mark
-            +dapfjq-svg.aoabcj__svg
-          .aoabcj__text
-            |Даю согласие на обработку 
-            a.aoabcj__link(href="#")
-              |персональных данных
-
-      textarea.lpxpkk.lpxpkk--vkvfwb(placeholder="Комментарий к заказу")
-
-      .kzgrca
-        .cmjcvs
-          |Вы можете добавить адрес пункта назначения, выбрать транспортную компанию (ПЭК или Деловые линии) или дать дополнительные пояснения к заявке
-
-      h2.pfwgww.pfwgww--wiwhvt
-        |Дата отгрузки
-      
+  .nvmuyk
+    .qjwxwp
+      .qjwxwp__close
+        .ppdaco
+          +vptwok-svg.ppdaco__svg
       .ndxzhy.ndxzhy--jbjufj
-        -
-          var items = [
-            'Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)',
-            'Доставка до терминала транспортной компании (оплата транспортных расходов  покупателем)',
-            'Доставка «до двери» (оплата транспортных расходов  покупателем)',
-          ]
-        each item, index in items
-          .ndxzhy__place
-            .nugtcb
-              input.nugtcb__input(id=`radio-${index}` type="radio" name="radio" checked=(index === 0))
-              label.nugtcb__label(for=`radio-${index}`)
-                .nugtcb__mark
-                .nugtcb__text
-                  |#{item}
+        .ndxzhy__place
+          .eks(data-select-component)
+            .eks__mask(data-select-mask)
+              .eks__panel(data-select-panel)
+                .eks__text(data-select-text)
+                  |placeholder
+                .eks__icon
+                  |icon
+              .eks__drop
+                -
+                  var values = [
+                    'value-1',
+                    'value-2',
+                    'value-3',
+                  ]
+                each value in values
+                  .eks__value(data-select-value=value)
+                    |#{value}
+        .ndxzhy__place
+          .eks.eks--drop(data-select-component)
+            .eks__mask(data-select-mask)
+              .eks__panel(data-select-panel)
+                .eks__text(data-select-text)
+                  |placeholder
+                .eks__icon
+                  |icon
+              .eks__drop
+                -
+                  var values = [
+                    'value-1',
+                    'value-2',
+                    'value-3',
+                  ]
+                each value in values
+                  .eks__value(data-select-value=value)
+                    |#{value}
+  //- .chkzqs
+  //-   .chkzqs__content
+  //-     .pcvkpe
+  //-       .pcvkpe__col
+  //-         .aoabcj
+  //-           label.aoabcj__label
+  //-             input.aoabcj__input(type="checkbox")
+  //-             .aoabcj__mark
+  //-               +dapfjq-svg.aoabcj__svg
+  //-             .aoabcj__text
+  //-               |Даю согласие на обработку 
+  //-               a.aoabcj__link(href="#")
+  //-                 |персональных данных
+  //-       .pcvkpe__col
+  //-         button.mcusad(disabled)
+  //-           .mcusad__decoration
+  //-           .mcusad__text
+  //-             |оформить заказ
 
-      .nugtcb
-        input.nugtcb__input#radio(type="radio")
-        label.nugtcb__label(for="radio")
-          .nugtcb__mark
-          .nugtcb__text
-            |Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)
+  //-     button.mcusad(disabled)
+  //-       .mcusad__decoration
+  //-       .mcusad__text
+  //-         |оформить заказ
+  //-     button.mcusad
+  //-       .mcusad__decoration
+  //-       .mcusad__text
+  //-         |оформить заказ
+  //-     button.mcusad.mcusad--antzhn(disabled)
+  //-       +kwcrsv-svg.mcusad__svg
+  //-       .mcusad__text
+  //-         |Добавить респиратор в заказ
 
-      .nugtcb
-        input.nugtcb__input#checkbox(type="checkbox")
-        label.nugtcb__label(for="checkbox")
-          .nugtcb__mark
-          .nugtcb__text
-            |Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)
+  //-     .aoabcj
+  //-       label.aoabcj__label
+  //-         input.aoabcj__input(type="checkbox")
+  //-         .aoabcj__mark
+  //-           +dapfjq-svg.aoabcj__svg
+  //-         .aoabcj__text
+  //-           |Даю согласие на обработку 
+  //-           a.aoabcj__link(href="#")
+  //-             |персональных данных
 
-      h2.pfwgww.pfwgww--wiwhvt
-        |Способ доставки
+  //-     textarea.lpxpkk.lpxpkk--vkvfwb(placeholder="Комментарий к заказу")
 
-      .ndxzhy.ndxzhy--zoxaue
-        - for (let i = 0; i < 5; i++)
-          .ndxzhy__place
-            input.lpxpkk(placeholder="Название организации")
+  //-     .kzgrca
+  //-       .cmjcvs
+  //-         |Вы можете добавить адрес пункта назначения, выбрать транспортную компанию (ПЭК или Деловые линии) или дать дополнительные пояснения к заявке
 
-      h2.pfwgww.pfwgww--wiwhvt
-        |Контактная информация
+  //-     h2.pfwgww.pfwgww--wiwhvt
+  //-       |Дата отгрузки
+      
+  //-     .ndxzhy.ndxzhy--jbjufj
+  //-       -
+  //-         var items = [
+  //-           'Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)',
+  //-           'Доставка до терминала транспортной компании (оплата транспортных расходов  покупателем)',
+  //-           'Доставка «до двери» (оплата транспортных расходов  покупателем)',
+  //-         ]
+  //-       each item, index in items
+  //-         .ndxzhy__place
+  //-           .nugtcb
+  //-             input.nugtcb__input(id=`radio-${index}` type="radio" name="radio" checked=(index === 0))
+  //-             label.nugtcb__label(for=`radio-${index}`)
+  //-               .nugtcb__mark
+  //-               .nugtcb__text
+  //-                 |#{item}
 
-      .mcusad.mcusad--antzhn
-        +kwcrsv-svg.mcusad__svg
-        .mcusad__text
-          |Добавить респиратор в заказ
+  //-     .nugtcb
+  //-       input.nugtcb__input#radio(type="radio")
+  //-       label.nugtcb__label(for="radio")
+  //-         .nugtcb__mark
+  //-         .nugtcb__text
+  //-           |Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)
 
-      h2.pfwgww.pfwgww--wiwhvt
-        |Класс защиты
+  //-     .nugtcb
+  //-       input.nugtcb__input#checkbox(type="checkbox")
+  //-       label.nugtcb__label(for="checkbox")
+  //-         .nugtcb__mark
+  //-         .nugtcb__text
+  //-           |Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)
 
-  .container
-    h1.bbapqc
-      |Оформить заказ
+  //-     h2.pfwgww.pfwgww--wiwhvt
+  //-       |Способ доставки
 
-    .lhqxmb.lhqxmb--okgqtd
-      .lhqxmb__list
-        -
-          var items = [
-            'Главная',
-          ]
-        each item in items
-          .lhqxmb__item
-            .dqnoxb.dqnoxb--hjdvot
-              a.dqnoxb__button(href="#")
-                |#{item}
-        .lhqxmb__item
-          .dqnoxb.dqnoxb--hjdvot.dqnoxb--vjzfip
-            .dqnoxb__button
-              |Оформить заказ
+  //-     .ndxzhy.ndxzhy--zoxaue
+  //-       - for (let i = 0; i < 5; i++)
+  //-         .ndxzhy__place
+  //-           input.lpxpkk(placeholder="Название организации")
 
-    h1.bbapqc
-      |АЛИНА®-100
+  //-     h2.pfwgww.pfwgww--wiwhvt
+  //-       |Контактная информация
+
+  //-     .mcusad.mcusad--antzhn
+  //-       +kwcrsv-svg.mcusad__svg
+  //-       .mcusad__text
+  //-         |Добавить респиратор в заказ
+
+  //-     h2.pfwgww.pfwgww--wiwhvt
+  //-       |Класс защиты
+
+  //- .container
+  //-   h1.bbapqc
+  //-     |Оформить заказ
+
+  //-   .lhqxmb.lhqxmb--okgqtd
+  //-     .lhqxmb__list
+  //-       -
+  //-         var items = [
+  //-           'Главная',
+  //-         ]
+  //-       each item in items
+  //-         .lhqxmb__item
+  //-           .dqnoxb.dqnoxb--hjdvot
+  //-             a.dqnoxb__button(href="#")
+  //-               |#{item}
+  //-       .lhqxmb__item
+  //-         .dqnoxb.dqnoxb--hjdvot.dqnoxb--vjzfip
+  //-           .dqnoxb__button
+  //-             |Оформить заказ
+
+  //-   h1.bbapqc
+  //-     |АЛИНА®-100
     
-    .ommfre
-      +venams-svg.ommfre__svg
-    a.ommfre(href="#")
-      +venams-svg.ommfre__svg
-    .ommfre.ommfre--iifmew
-      +dbwgve-svg.ommfre__svg
+  //-   .ommfre
+  //-     +venams-svg.ommfre__svg
+  //-   a.ommfre(href="#")
+  //-     +venams-svg.ommfre__svg
+  //-   .ommfre.ommfre--iifmew
+  //-     +dbwgve-svg.ommfre__svg
     
-    .elfadi
-      .elfadi__back
-        a.ommfre(href="#")
-          +venams-svg.ommfre__svg
-      .elfadi__title
-        h1.bbapqc
-          |АЛИНА®-100
-    .elfadi
-      .elfadi__title
-        h1.bbapqc
-          |АЛИНА®-100
+  //-   .elfadi
+  //-     .elfadi__back
+  //-       a.ommfre(href="#")
+  //-         +venams-svg.ommfre__svg
+  //-     .elfadi__title
+  //-       h1.bbapqc
+  //-         |АЛИНА®-100
+  //-   .elfadi
+  //-     .elfadi__title
+  //-       h1.bbapqc
+  //-         |АЛИНА®-100
 
-    h2.pfwgww
-      |Класс защиты
-    h3.pfwgww
-      |Класс защиты
+  //-   h2.pfwgww
+  //-     |Класс защиты
+  //-   h3.pfwgww
+  //-     |Класс защиты
 
-    .fcpzms
-      .fcpzms__title
-        |FFP1
-      .fcpzms__text
-        |Предельно допустимая концентрация до 4
+  //-   .fcpzms
+  //-     .fcpzms__title
+  //-       |FFP1
+  //-     .fcpzms__text
+  //-       |Предельно допустимая концентрация до 4
 
-    .ndxzhy
-      - for (let i = 0; i < 5; i++)
-        .ndxzhy__place
-          .fcpzms.fcpzms--ysocmh
-            .fcpzms__title
-              |FFP1
-            .fcpzms__text
-              |Предельно допустимая концентрация до 4
+  //-   .ndxzhy
+  //-     - for (let i = 0; i < 5; i++)
+  //-       .ndxzhy__place
+  //-         .fcpzms.fcpzms--ysocmh
+  //-           .fcpzms__title
+  //-             |FFP1
+  //-           .fcpzms__text
+  //-             |Предельно допустимая концентрация до 4
     
-    .izboxg
-      img.izboxg__img(src="assets/images/svg/feature-2.svg")
-      .izboxg__content
-        .izboxg__property
-          |Клапан выдоха
-        .izboxg__value
-          |Есть
+  //-   .izboxg
+  //-     img.izboxg__img(src="assets/images/svg/feature-2.svg")
+  //-     .izboxg__content
+  //-       .izboxg__property
+  //-         |Клапан выдоха
+  //-       .izboxg__value
+  //-         |Есть
 
-    .ndxzhy
-      - for (let i = 0; i < 5; i++)
-        .ndxzhy__place
-          .izboxg.izboxg--zsdtwh
-            img.izboxg__img(src="assets/images/svg/feature-2.svg")
-            .izboxg__content
-              .izboxg__property
-                |Клапан выдоха
-              .izboxg__value
-                |Есть
+  //-   .ndxzhy
+  //-     - for (let i = 0; i < 5; i++)
+  //-       .ndxzhy__place
+  //-         .izboxg.izboxg--zsdtwh
+  //-           img.izboxg__img(src="assets/images/svg/feature-2.svg")
+  //-           .izboxg__content
+  //-             .izboxg__property
+  //-               |Клапан выдоха
+  //-             .izboxg__value
+  //-               |Есть
 
-    .onipfv
-      img.onipfv__img(src="assets/images/svg/feature-3.svg")
-      .onipfv__text
-        |Защита от всех видов аэрозолей
+  //-   .onipfv
+  //-     img.onipfv__img(src="assets/images/svg/feature-3.svg")
+  //-     .onipfv__text
+  //-       |Защита от всех видов аэрозолей
 
-    .ndxzhy
-      - for (let i = 0; i < 5; i++)
-        .ndxzhy__place
-          .onipfv
-            img.onipfv__img(src="assets/images/svg/feature-3.svg")
-            .onipfv__text
-              |Защита от всех видов аэрозолей
+  //-   .ndxzhy
+  //-     - for (let i = 0; i < 5; i++)
+  //-       .ndxzhy__place
+  //-         .onipfv
+  //-           img.onipfv__img(src="assets/images/svg/feature-3.svg")
+  //-           .onipfv__text
+  //-             |Защита от всех видов аэрозолей
 
-    .dqnoxb
-      .dqnoxb__button
-        |ГОСТ 12.4.294-2015
-    .dqnoxb
-      a.dqnoxb__button(href="#")
-        |ГОСТ 12.4.294-2015
+  //-   .dqnoxb
+  //-     .dqnoxb__button
+  //-       |ГОСТ 12.4.294-2015
+  //-   .dqnoxb
+  //-     a.dqnoxb__button(href="#")
+  //-       |ГОСТ 12.4.294-2015
 
-    .lhqxmb
-      .lhqxmb__list
-        - for (let i = 0; i < 15; i++)
-          .lhqxmb__item
-            .dqnoxb
-              a.dqnoxb__button(href="#")
-                |ГОСТ 12.4.294-2015 #{i * i}
+  //-   .lhqxmb
+  //-     .lhqxmb__list
+  //-       - for (let i = 0; i < 15; i++)
+  //-         .lhqxmb__item
+  //-           .dqnoxb
+  //-             a.dqnoxb__button(href="#")
+  //-               |ГОСТ 12.4.294-2015 #{i * i}
 
-    .ulbfcv
-      .ulbfcv__property
-        |Упаковка
-      .ulbfcv__value
-        |Индивидуальная
+  //-   .ulbfcv
+  //-     .ulbfcv__property
+  //-       |Упаковка
+  //-     .ulbfcv__value
+  //-       |Индивидуальная
 
-    .ndxzhy
-      - for (let i = 0; i < 3; i++)
-        .ndxzhy__place
-          .ulbfcv
-            .ulbfcv__property
-              |Упаковка
-            .ulbfcv__value
-              |Индивидуальная
+  //-   .ndxzhy
+  //-     - for (let i = 0; i < 3; i++)
+  //-       .ndxzhy__place
+  //-         .ulbfcv
+  //-           .ulbfcv__property
+  //-             |Упаковка
+  //-           .ulbfcv__value
+  //-             |Индивидуальная
 
-    p.yhontr
-      |Алина-210 – фильтрующее средство индивидуальной защиты органов дыхания одноразового применения с клапаном выдоха. Класс защиты FFP2.
-    p.yhontr
-      |Благодаря неформованной конструкции и эластичному фильтрующему контуру респиратор адаптируется к любому типу и размеру лица, не смещается и не допускает проникновения загрязненного воздуха по полосе прилегания при мимических движениях и поворотах головы.
-    p.yhontr
-      |Регулируемые ленты оголовья и гибкая носовая пластина помогают индивидуально настраивать посадку респиратора. Клапан выдоха выводит тепло и влагу из подмасочного пространства, делая использование респиратора более комфортным.
+  //-   p.yhontr
+  //-     |Алина-210 – фильтрующее средство индивидуальной защиты органов дыхания одноразового применения с клапаном выдоха. Класс защиты FFP2.
+  //-   p.yhontr
+  //-     |Благодаря неформованной конструкции и эластичному фильтрующему контуру респиратор адаптируется к любому типу и размеру лица, не смещается и не допускает проникновения загрязненного воздуха по полосе прилегания при мимических движениях и поворотах головы.
+  //-   p.yhontr
+  //-     |Регулируемые ленты оголовья и гибкая носовая пластина помогают индивидуально настраивать посадку респиратора. Клапан выдоха выводит тепло и влагу из подмасочного пространства, делая использование респиратора более комфортным.
 
-    .syirtg
-      .syirtg__image
-        img.syirtg__img(src="assets/images/slide-1.jpg")
-        .syirtg__label
-          .ommfre.ommfre--iifmew
-            +dbwgve-svg.ommfre__svg
-      .syirtg__content
-        .syirtg__row
-          .syirtg__col
-            .syirtg__progress
-              .syirtg__current
-                |29
-              .syirtg__all
-                |/11
-          .syirtg__col
-            .dqnoxb
-              .dqnoxb__button
-                |Статьи
-        .syirtg__title
-          |Как правильно использовать респиратор
+  //-   .syirtg
+  //-     .syirtg__image
+  //-       img.syirtg__img(src="assets/images/slide-1.jpg")
+  //-       .syirtg__label
+  //-         .ommfre.ommfre--iifmew
+  //-           +dbwgve-svg.ommfre__svg
+  //-     .syirtg__content
+  //-       .syirtg__row
+  //-         .syirtg__col
+  //-           .syirtg__progress
+  //-             .syirtg__current
+  //-               |29
+  //-             .syirtg__all
+  //-               |/11
+  //-         .syirtg__col
+  //-           .dqnoxb
+  //-             .dqnoxb__button
+  //-               |Статьи
+  //-       .syirtg__title
+  //-         |Как правильно использовать респиратор
 
-    .gmjvle
-      .gmjvle__title
-        |Сертификат ТР ТС 019/2011
-      .gmjvle__weight
-        |235 КБ
-      +lbiuaj-svg.gmjvle__svg
-    a.gmjvle(href="#")
-      .gmjvle__title
-        |Сертификат ТР ТС 019/2011
-      .gmjvle__weight
-        |235 КБ
-      +lbiuaj-svg.gmjvle__svg
+  //-   .gmjvle
+  //-     .gmjvle__title
+  //-       |Сертификат ТР ТС 019/2011
+  //-     .gmjvle__weight
+  //-       |235 КБ
+  //-     +lbiuaj-svg.gmjvle__svg
+  //-   a.gmjvle(href="#")
+  //-     .gmjvle__title
+  //-       |Сертификат ТР ТС 019/2011
+  //-     .gmjvle__weight
+  //-       |235 КБ
+  //-     +lbiuaj-svg.gmjvle__svg
 
-    .ndxzhy.ndxzhy--zoxaue
-      - for (let i = 0; i < 5; i++)
-        .ndxzhy__place
-          a.gmjvle(href="#")
-            .gmjvle__title
-              |Сертификат ТР ТС 019/2011
-            .gmjvle__weight
-              |235 КБ
-            +lbiuaj-svg.gmjvle__svg
+  //-   .ndxzhy.ndxzhy--zoxaue
+  //-     - for (let i = 0; i < 5; i++)
+  //-       .ndxzhy__place
+  //-         a.gmjvle(href="#")
+  //-           .gmjvle__title
+  //-             |Сертификат ТР ТС 019/2011
+  //-           .gmjvle__weight
+  //-             |235 КБ
+  //-           +lbiuaj-svg.gmjvle__svg
 
-    .amaqvj
-      .amaqvj__col
-        .ommfre.ommfre--rxljso
-          +venams-svg.ommfre__svg
-      .amaqvj__col
-        .ommfre.ommfre--rtluns.ommfre--rxljso
-          +venams-svg.ommfre__svg
+  //-   .amaqvj
+  //-     .amaqvj__col
+  //-       .ommfre.ommfre--rxljso
+  //-         +venams-svg.ommfre__svg
+  //-     .amaqvj__col
+  //-       .ommfre.ommfre--rtluns.ommfre--rxljso
+  //-         +venams-svg.ommfre__svg
 
-    .baxwyj
-      .baxwyj__col
-        h2.pfwgww
-          |аналоги
-      .baxwyj__col
-        .amaqvj
-          .amaqvj__col
-            .ommfre.ommfre--rxljso(data-usgkhj-prev)
-              +venams-svg.ommfre__svg
-          .amaqvj__col
-            .ommfre.ommfre--rtluns.ommfre--rxljso(data-usgkhj-next)
-              +venams-svg.ommfre__svg
+  //-   .baxwyj
+  //-     .baxwyj__col
+  //-       h2.pfwgww
+  //-         |аналоги
+  //-     .baxwyj__col
+  //-       .amaqvj
+  //-         .amaqvj__col
+  //-           .ommfre.ommfre--rxljso(data-usgkhj-prev)
+  //-             +venams-svg.ommfre__svg
+  //-         .amaqvj__col
+  //-           .ommfre.ommfre--rtluns.ommfre--rxljso(data-usgkhj-next)
+  //-             +venams-svg.ommfre__svg
 
-  .usgkhj.swiper(data-usgkhj)
-    .swiper-wrapper
-      - for (let i = 0; i < 3; i++)
-        .yzunuk.swiper-slide
-          img.yzunuk__img(src="assets/images/photo.jpg")
-          .yzunuk__content
-            .yzunuk__title
-              |RK 9000
-            .yzunuk__props
-              - for (let j = 0; j < 2; j++)
-                .yzunuk__prop
-                  .yzunuk__prop-title
-                    |Класс защиты
-                  .yzunuk__prop-value
-                    |FFP1 NR D
-            .yzunuk__feature
-              .onipfv.onipfv--wkdqck
-                img.onipfv__img(src="assets/images/svg/feature-3.svg")
-                .onipfv__text
-                  |Защита от всех видов аэрозолей
-            .yzunuk__sub-title
-              |Дополнительная защита
-            .yzunuk__tags
-              .lhqxmb
-                .lhqxmb__list
-                  -
-                    var items = [
-                      'Кислые газы',
-                      'Неорганические газы',
-                      'Основные газы',
-                      'Пары ртути',
-                    ]
-                  each item in items
-                    .lhqxmb__item
-                      .dqnoxb
-                        a.dqnoxb__button(href="#")
-                          |#{item}
+  //- .usgkhj.swiper(data-usgkhj)
+  //-   .swiper-wrapper
+  //-     - for (let i = 0; i < 3; i++)
+  //-       .yzunuk.swiper-slide
+  //-         img.yzunuk__img(src="assets/images/photo.jpg")
+  //-         .yzunuk__content
+  //-           .yzunuk__title
+  //-             |RK 9000
+  //-           .yzunuk__props
+  //-             - for (let j = 0; j < 2; j++)
+  //-               .yzunuk__prop
+  //-                 .yzunuk__prop-title
+  //-                   |Класс защиты
+  //-                 .yzunuk__prop-value
+  //-                   |FFP1 NR D
+  //-           .yzunuk__feature
+  //-             .onipfv.onipfv--wkdqck
+  //-               img.onipfv__img(src="assets/images/svg/feature-3.svg")
+  //-               .onipfv__text
+  //-                 |Защита от всех видов аэрозолей
+  //-           .yzunuk__sub-title
+  //-             |Дополнительная защита
+  //-           .yzunuk__tags
+  //-             .lhqxmb
+  //-               .lhqxmb__list
+  //-                 -
+  //-                   var items = [
+  //-                     'Кислые газы',
+  //-                     'Неорганические газы',
+  //-                     'Основные газы',
+  //-                     'Пары ртути',
+  //-                   ]
+  //-                 each item in items
+  //-                   .lhqxmb__item
+  //-                     .dqnoxb
+  //-                       a.dqnoxb__button(href="#")
+  //-                         |#{item}

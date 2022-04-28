@@ -4,7 +4,7 @@ import { useDebug } from "./useDebug";
 const SWIPER_SPEED = 500;
 const SWIPER_LOOP = true;
 
-const [log, logError] = useDebug(true);
+const [log, logError] = useDebug(false);
 
 log("usgkhj");
 

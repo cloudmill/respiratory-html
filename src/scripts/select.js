@@ -1,6 +1,6 @@
 import { useDebug } from "./useDebug";
 
-const [log, logError] = useDebug(true);
+const [log, logError] = useDebug(false);
 
 log("select");
 

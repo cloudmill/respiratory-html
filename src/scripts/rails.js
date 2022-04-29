@@ -1,11 +1,9 @@
 import debounce from "lodash.debounce";
+import { useDebug } from "./useDebug";
 
 const DEBOUNCE_DURATION = 100;
 
-const DEBUG = false;
-
-const log = (...msgs) => DEBUG && console.log(...msgs);
-const logError = (...msgs) => DEBUG && console.error(...msgs);
+const [log, logError] = useDebug(false);
 
 log("rails");
 
@@ -28,13 +26,17 @@ window.addEventListener("DOMContentLoaded", () => {
     const getPx = (number) => `${number}px`;
 
     const updateRailsTop = () => {
-      const headerHeight = getHeaderHeight();
+      try {
+        const headerHeight = getHeaderHeight();
 
-      rails.style.top = getPx(headerHeight);
+        rails.style.top = getPx(headerHeight);
 
-      log("updateRailsTop", {
-        hh: getHeaderHeight(),
-      });
+        log("updateRailsTop", {
+          hh: getHeaderHeight(),
+        });
+      } catch (error) {
+        logError();
+      }
     };
 
     const updateRailsTopDebounce = debounce(updateRailsTop, DEBOUNCE_DURATION);

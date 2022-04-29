@@ -1,0 +1,25 @@
+extends ../layouts/master
+
+block footer
+
+block content
+  .container
+    .ctn
+      .ctn__col
+        h2.jwg
+          |Внедряем культуру профессионального использования СИЗОД
+      .ctn__col
+        .amaqvj
+          .amaqvj__col
+            .ommfre.ommfre--rxljso(data-hsu-prev)
+              +venams-svg.ommfre__svg
+          .amaqvj__col
+            .ommfre.ommfre--rtluns.ommfre--rxljso(data-hsu-next)
+              +venams-svg.ommfre__svg
+    .mqp
+      .hsu.swiper(data-hsu-component)
+        .swiper-wrapper
+          - for (let i = 0; i < 10; i++)
+            .rrf.swiper-slide
+              .rrf__container
+                |#{i}

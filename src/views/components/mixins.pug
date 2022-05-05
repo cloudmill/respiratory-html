@@ -1,0 +1,11 @@
+mixin picture(filename)
+  -
+    var getTitle = function (filename) {
+      var segments = filename.split(".");
+      segments.pop();
+      return segments.join(".");
+    }
+
+  picture.lcq(class=attributes.class)
+    source(type="image/webp" srcset=`assets/images/webp/${getTitle(filename)}.webp`)
+    img(src=`assets/images/${filename}`)

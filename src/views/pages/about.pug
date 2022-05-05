@@ -1,9 +1,5 @@
 extends ../layouts/master
 
-mixin img(fileName)
-  picture.lcq(class=attributes.class)
-    source(srcset=`assets/images/webp/${fileName}.webp` type="image/webp")
-    img(src=`assets/images/${fileName}.jpg`)
-
 block content
-  +img('about-top').krd
+  +picture("about-top.jpg").krd
+  +picture("about-top.png").krd

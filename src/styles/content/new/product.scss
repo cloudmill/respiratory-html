@@ -152,6 +152,11 @@
   text-indent: getRem(150px);
   text-transform: uppercase;
 
+  &--small {
+    font-size: getRem(32px);
+    line-height: 1.2;
+  }
+
   &__link {
     color: var(--color-blue);
   }

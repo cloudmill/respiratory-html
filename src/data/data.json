@@ -3,24 +3,16 @@
 
   "routes": [
     {
-      "title": "Главная",
-      "path": "main"
+      "title": "Промышленным предприятиям",
+      "path": "industry"
     },
     {
       "title": "Каталог",
       "path": "catalog"
     },
     {
-      "title": "Карточка товара",
-      "path": "product"
-    },
-    {
-      "title": "Оформление заказа",
-      "path": "order"
-    },
-    {
-      "title": "О компании",
-      "path": "about"
+      "title": "UI Kit",
+      "path": "ui"
     },
     {
       "title": "Тестовая",

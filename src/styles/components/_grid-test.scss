@@ -1,0 +1,39 @@
+.grid-test {
+  @include inset;
+
+  position: fixed;
+  z-index: 1000;
+
+  pointer-events: none;
+  user-select: none;
+
+  &__desktop,
+  &__mobile {
+    display: grid;
+  }
+
+  &__desktop {
+    grid-template-columns: repeat($colCount, 1fr);
+    column-gap: $colGap;
+
+    @media #{maxWidth($br)} {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    grid-template-columns: repeat($colCountM, 1fr);
+    column-gap: $colGapM;
+
+    @media #{minWidth($br)} {
+      display: none;
+    }
+  }
+
+  &__col {
+    height: 100vh;
+
+    background-color: black;
+    opacity: 0.1;
+  }
+}

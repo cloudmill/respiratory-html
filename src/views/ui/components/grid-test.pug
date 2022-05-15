@@ -1,4 +1,9 @@
 mixin grid-test
   .grid-test
     .container
-      |grid-test
+      .grid-test__desktop
+        - for (var i = 0; i < 12; i++)
+          .grid-test__col
+      .grid-test__mobile
+        - for (var i = 0; i < 4; i++)
+          .grid-test__col

@@ -2,10 +2,7 @@ doctype html
 
 block variables
 
-include ./components/svg
-
-include ./components/header
-include ./components/footer
+include ./svg/*
 
 html.html(lang='ru')
   head
@@ -14,7 +11,7 @@ html.html(lang='ru')
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body.body
     block header
-      +header
+      |header
     block content
     block footer
-      +footer
+      |footer

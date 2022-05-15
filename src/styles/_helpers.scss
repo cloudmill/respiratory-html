@@ -65,7 +65,7 @@ $fontFamilyContent: "Manrope";
   font-size: rem($fs);
 
   @if $lh {
-    line-height: $lh / 100%;
+    line-height: math.div($lh, 100%);
   }
 }
 

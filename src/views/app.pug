@@ -1,18 +1,20 @@
 doctype html
 
-block variables
+- var options = {}
+block options
 
-include ./svg/hub
-include ./ui/hub
+include ./svg/index
+include ./ui/index
 
-html.html(lang="ru")
+html.html(lang='ru')
   head
-    meta(charset="utf-8")
-    title= title || data.title
-    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(charset='utf-8')
+    title= options.title || data.title
+    meta(name='viewport' content='width=device-width, initial-scale=1')
   body.body
-    block header
-      |header
-    block content
-    block footer
-      |footer
+    .wrapper
+      block header
+        |header
+      block content
+      block footer
+        |footer

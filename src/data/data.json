@@ -7,16 +7,12 @@
       "path": "industry"
     },
     {
-      "title": "Каталог",
-      "path": "catalog"
-    },
-    {
-      "title": "UI Kit",
+      "title": "UI",
       "path": "ui"
     },
     {
-      "title": "Тестовая",
-      "path": "test"
+      "title": "Dev",
+      "path": "dev"
     }
   ]
 }

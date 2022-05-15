@@ -1,8 +1,16 @@
 import "./styles/app";
-import "./scripts/aside";
-import "./scripts/rails";
-import "./scripts/masks";
-import "./scripts/gallery";
-import "./scripts/usgkhj";
-import "./scripts/select";
-import "./scripts/hsu";
+
+import { loaded } from "./scripts/loaded";
+import { useDebug } from "./scripts/useDebug";
+
+const [log, logError] = useDebug(true, "[app.js]");
+
+window.addEventListener("DOMContentLoaded", () => {
+  log("DOMContentLoaded");
+});
+
+window.addEventListener("load", () => {
+  log("load");
+
+  loaded();
+});

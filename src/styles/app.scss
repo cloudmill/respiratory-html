@@ -2,16 +2,13 @@
 @use "sass:list";
 @use "sass:string";
 
-@import "./fonts.scss";
-
-@import "./helpers/index.scss";
 @import "./helpers";
 
-@import "./layout/index.scss";
+@import "./fonts";
 
-@import "./libs/index.scss";
+@import "./layout/index";
 
-@import "./content/index.scss";
+@import "./libs/index";
 
 @import "./components/*";
 

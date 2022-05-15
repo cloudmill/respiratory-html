@@ -1,8 +1,84 @@
-$font-size: 16px;
+// font
 
-@function rem($sizeInPx) {
-  @return math.div($sizeInPx, $font-size) * 1rem;
+$fontSize: 16px;
+
+@function rem($size) {
+  @return math.div($size, $fontSize) * 1rem;
 }
+
+@mixin size($width, $height: false) {
+  @if $height {
+    width: $width;
+    height: $height;
+  } @else {
+    width: $width;
+    height: $width;
+  }
+}
+
+$fontFamilyTitle: "ALS Gorizont";
+$fontFamilyContent: "Manrope";
+
+/*
+  configurations
+
+    title-1 - ALS Gorizont 550 UC
+    title-2 - ALS Gorizont 550 UC -0.02em
+    title-3 - ALS Gorizont 550 UC -0.06em
+
+    content-1 - Manrope 500
+    content-2 - Manrope 500 -0.01em
+    content-3 - Manrope 600
+    content-4 - Manrope 600 -0.02em
+*/
+
+@mixin font($configuration: "title-1") {
+  @if $configuration == "title-1" {
+    font-family: $fontFamilyTitle;
+    text-transform: uppercase;
+  } @else if $configuration == "title-2" {
+    font-family: $fontFamilyTitle;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  } @else if $configuration == "title-3" {
+    font-family: $fontFamilyTitle;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+  } @else if $configuration == "content-1" {
+    font-family: $fontFamilyContent;
+    font-weight: 500;
+  } @else if $configuration == "content-2" {
+    font-family: $fontFamilyContent;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  } @else if $configuration == "content-3" {
+    font-family: $fontFamilyContent;
+    font-weight: 600;
+  } @else if $configuration == "content-4" {
+    font-family: $fontFamilyContent;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@mixin fsl($fs: $fontSize, $lh: false) {
+  font-size: rem($fs);
+
+  @if $lh {
+    line-height: $lh / 100%;
+  }
+}
+
+@mixin fontFsl($config: "title-1", $fs: $fontSize, $lh: false) {
+  @include font($config);
+  @include fsl($fs, $lh);
+}
+
+@function fontUrl($filename) {
+  @return url("../assets/fonts/#{$filename}.woff");
+}
+
+// grid
 
 $colPad: rem(40px);
 $colPadM: rem(20px);
@@ -16,4 +92,136 @@ $colGapM: rem(16px);
 $col: "((100vw - (#{$colPad} * 2) - (#{$colGap} * (#{$colCount} - 1))) / #{$colCount})";
 $colM: "((100vw - (#{$colPadM} * 2) - (#{$colGapM} * (#{$colCountM} - 1))) / #{$colCountM})";
 
+@function cols($colsCount) {
+  @return "(#{$col} * #{$colsCount} + #{$colGap} * (#{$colsCount} - 1))";
+}
+
+@function colsM($colsCount) {
+  @return "(#{$colM} * #{$colsCount} + #{$colGapM} * (#{$colsCount} - 1))";
+}
+
+@mixin area($x, $y, $width, $height) {
+  grid-column: $x unquote("/") span $width;
+  grid-row: $y unquote("/") span $height;
+}
+
+@mixin inset($offset: 0) {
+  top: $offset;
+  bottom: $offset;
+  left: $offset;
+  right: $offset;
+}
+
+// breakpoints
+
 $br-min: 320px;
+$br-xs: 375px;
+$br-s: 576px;
+$br-m: 768px;
+$br-t: 1024px;
+$br: 1280px;
+$br-l: 1366px;
+$br-ll: 1440px;
+$br-xl: 1680px;
+$br-max: 1920px;
+
+@function minWidth($breakpoint: $br) {
+  @return "(min-width: #{$breakpoint})";
+}
+
+@function maxWidth($breakpoint: $br) {
+  @return "(max-width: #{$breakpoint - 1px})";
+}
+
+@function vw($size, $breakpoint: $br-max) {
+  @return math.div($size, $breakpoint) * 100vw;
+}
+
+// colors
+
+$color-black: #191a1c;
+$color-white: #ffffff;
+
+$color-transparent: rgba(0, 0, 0, 0);
+
+:root {
+  --color-blue: #2967eb;
+  --color-yellow: #ffed49;
+  --color-shadow: rgba(42, 46, 55, 0.12);
+
+  --color-white: white;
+  --color-black: #191a1c;
+
+  --color-gray-1: #f2f5f8;
+  --color-gray-2: #e5e9ef;
+  --color-gray-3: #87909b;
+  --color-gray-4: #5d6064;
+  --color-gray-5: #333333;
+
+  --color-gray: #333333;
+  --color-gray-dark: #5d6064;
+  --color-gray-light: #e5e9ef;
+}
+
+// prefixes
+
+@mixin prefix($declarations, $prefixes: webkit moz ms o) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    #{$property}: $value;
+  }
+}
+
+// placeholder
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}
+
+// scrollbar hidden
+
+@mixin scrollbarHidden() {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// crop text
+
+@mixin cropText($lineCount) {
+  display: -moz-box;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: $lineCount;
+  line-clamp: $lineCount;
+}
+
+// transition
+
+$transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+$transition-duration: 0.5s;
+$transition: $transition-duration $transition-timing-function;

@@ -1,4 +1,16 @@
 .html {
+  font-size: vw($fontSize, $br-max);
+
+  @each $breakpoint
+    in ($br-max, $br-xl, $br-ll, $br-l, $br, $br-t, $br-m, $br-s, $br-xs)
+  {
+    @media #{maxWidth($breakpoint)} {
+      font-size: vw($fontSize, $breakpoint);
+    }
+  }
+
+  -webkit-tap-highlight-color: $color-transparent;
+
   &:not(.loaded) {
     * {
       @include prefix(

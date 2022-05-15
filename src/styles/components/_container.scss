@@ -1,4 +1,9 @@
 .container {
   padding-left: $colPad;
   padding-right: $colPad;
+
+  @media #{maxWidth($br)} {
+    padding-left: $colPadM;
+    padding-right: $colPadM;
+  }
 }

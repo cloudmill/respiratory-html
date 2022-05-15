@@ -54,3 +54,13 @@ $col: "((100vw - (#{$pad} * 2) - (#{$gap} * 11)) / 12)";
 @function getCols($count: 1) {
   @return "((#{$col} * #{$count}) + (#{$gap} * #{$count - 1}))";
 }
+
+@mixin prefix($declarations, $prefixes: (webkit, moz, ms, o)) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    #{$property}: $value;
+  }
+}

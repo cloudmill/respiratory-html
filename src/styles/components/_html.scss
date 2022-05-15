@@ -1,0 +1,11 @@
+.html {
+  &:not(.loaded) {
+    * {
+      @include prefix(
+        (
+          transition: none !important,
+        )
+      );
+    }
+  }
+}

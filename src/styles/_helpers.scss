@@ -1,0 +1,17 @@
+$font-size: 16px;
+
+@function rem($sizeInPx) {
+  @return math.div($sizeInPx, $font-size) * 1rem;
+}
+
+$colPad: rem(40px);
+$colPadM: rem(20px);
+
+$colCount: 12;
+$colCountM: 4;
+
+$colGap: rem(20px);
+$colGapM: rem(16px);
+
+$col: "((100vw - (#{$colPad} * 2) - (#{$colGap} * (#{$colCount} - 1))) / #{$colCount})";
+$colM: "((100vw - (#{$colPadM} * 2) - (#{$colGapM} * (#{$colCountM} - 1))) / #{$colCountM})";

@@ -1,0 +1,25 @@
+-
+  var Picture = {
+    dir: "assets/images/",
+
+    getTitle(file) {
+      var segments = file.split('.');
+      segments.pop();
+      var title = segments.join('.');
+
+      return title;
+    },
+
+    getExtension(file) {
+      var segments = file.split('.');
+      var extension = segments.pop();
+
+      return extension;
+    },
+
+    getPath(title, extension) {
+      var path = this.dir + title + "." + extension;
+
+      return path;
+    },
+  }

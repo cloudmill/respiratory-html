@@ -1,0 +1,14 @@
+mixin picture(file)
+  -
+    var title = Picture.getTitle(file);
+    var extension = Picture.getExtension(file);
+
+  picture.picture(class=attributes.class)
+    source(
+      type="image/webp"
+      srcset=(Picture.getPath(title, "webp") + " 1x, " + Picture.getPath(title + "_2x", "webp") + " 2x")
+    )
+    img.picture__img(
+      src=(Picture.getPath(title, extension))
+      srcset=(Picture.getPath(title + "_2x", extension) + " 2x")
+    )

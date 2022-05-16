@@ -1,0 +1,20 @@
+.feature-section {
+  &__row {
+    padding-right: calc(#{$col} + #{$colGap});
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    &:nth-child(1) {
+      width: calc(#{cols(4)});
+      overflow: hidden;
+
+      border-radius: 0 rem(12px) rem(80px) 0;
+    }
+
+    &:nth-child(2) {
+      width: calc(#{cols(5)});
+    }
+  }
+}

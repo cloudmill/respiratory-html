@@ -171,6 +171,7 @@ $section-slider-height: rem(920px);
     z-index: 1;
     top: rem(166px);
     left: calc(#{cols(3)} + #{$colGap});
+    mix-blend-mode: exclusion;
 
     width: calc(#{cols(6)});
   }

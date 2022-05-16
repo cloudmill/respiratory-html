@@ -25,7 +25,7 @@ const sectionSlider = () => {
 
       loop: true,
 
-      speed: 500,
+      speed: 750,
 
       allowTouchMove: false,
 

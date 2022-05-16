@@ -1,25 +1,68 @@
-mixin section-slide
-  .section-slide
-    .container
-      .section-slide__row
-        .section-slide__col
-          .section-slide__content
-            |content
-        .section-slide__col
-          .section-slide__picture-container
-            +picture("feature-section.jpg").section-slide__picture
-
 mixin section-slider
-  section.section-slider(data-section-slider-component)
+  section.section-slider(class=attributes.class data-section-slider-component)
     .swiper.section-slider__swiper(data-section-slider-container)
       .swiper-wrapper
-        - for (var i = 0; i < 3; i++)
-          .swiper-slide
-            +section-slide
+        .swiper-slide
+          .section-slide
+            .container
+              .section-slide__row
+                .section-slide__content
+                  p.section-slide__text
+                    |Разнообразие конструкций и защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и условия труда:
+                  ul.section-slide__list
+                    -
+                      var items = [
+                        'Аэрозоли концентрацией до 50 ПДК',
+                        'Кислые и органические пары и газы',
+                        'Пары аммиака, ртути и прочие вещества',
+                      ]
+                    each item in items
+                      li.section-slide__list-item
+                        +li-svg.section-slide__list-svg
+                        |#{item}
+                .section-slide__image
+                  +picture("section-slider-1.jpeg").section-slide__picture
+                h2.section-slide__title
+                  |Ассортимент
+        .swiper-slide
+          .section-slide
+            .container
+              .section-slide__row
+                .section-slide__content
+                  p.section-slide__text
+                    |Наш профессиональный интерес — индивидуальные требования заказчиков. Благодаря технологическому уровню предприятия компания решает задачи клиентов:
+                  ul.section-slide__list
+                    -
+                      var items = [
+                        'Особая упаковка и комплектация продукции',
+                        'Дополнительная маркировка',
+                        'Нанесение логотипа',
+                        'Размещение меток радиочастотной идентификации',
+                        'Новый продукт по техническому заданию заказчика',
+                      ]
+                    each item in items
+                      li.section-slide__list-item
+                        +li-svg.section-slide__list-svg
+                        |#{item}
+                .section-slide__image
+                  +picture("section-slider-2.jpeg").section-slide__picture
+                h2.section-slide__title
+                  |Кастомизация
+        .swiper-slide
+          .section-slide
+            .container
+              .section-slide__row
+                .section-slide__content
+                  p.section-slide__text
+                    |Качество нашей продукции обеспечивается лучшими фильтрующими и сорбционными материалами, современным оборудованием и опытным персоналом, а стабильность - технологичностью производства, отлаженными процессами и постоянным контролем.
+                .section-slide__image
+                  +picture("section-slider-3.jpeg").section-slide__picture
+                h2.section-slide__title
+                  |Качество
     .section-slider__surface
       .container.section-slider__surface-container
         .section-slider__surface-top
-          h2.section-slider__title
+          h3.section-slider__title
             |Мы предлагаем
           .controls.section-slider__controls
             .controls__item

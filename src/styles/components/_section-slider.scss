@@ -1,8 +1,10 @@
+$slider-height: rem(920px);
+
 .section-slider {
   position: relative;
   z-index: 0;
 
-  height: rem(920px);
+  height: $slider-height;
   overflow: hidden;
 
   background-color: $color-black;
@@ -13,14 +15,6 @@
     z-index: 1;
 
     height: 100%;
-
-    // test
-    .swiper-slide {
-      display: flex;
-      align-items: center;
-
-      color: white;
-    }
   }
 
   &__surface {
@@ -104,5 +98,61 @@
 
       color: $color-white;
     }
+  }
+}
+
+/*
+.section-slide {
+  &__container {
+    height: 100%;
+  }
+
+  &__row {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $colGap;
+  }
+
+  &__col {
+    &:nth-child(1) {
+      padding: 0 rem(40px) rem(80px) rem(40px);
+      align-self: end;
+    }
+
+    &:nth-child(2) {
+      padding: rem(40px) 0;
+      height: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__picture {
+    height: calc(#{rem(920px)} - (#{rem(40px)} * 2));
+  }
+}
+*/
+
+.section-slide {
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $colGap;
+  }
+
+  &__col {
+  }
+
+  &__content {
+    padding: 0 rem(40px) rem(80px) rem(40px);
+    height: $slider-height;
+  }
+
+  &__picture-container {
+    padding: rem(40px) 0;
+  }
+
+  &__picture {
+    height: calc(#{$slider-height} - (#{rem(40px)} * 2));
   }
 }

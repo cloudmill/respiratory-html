@@ -1,9 +1,21 @@
+mixin section-slide
+  .section-slide
+    .container
+      .section-slide__row
+        .section-slide__col
+          .section-slide__content
+            |content
+        .section-slide__col
+          .section-slide__picture-container
+            +picture("feature-section.jpg").section-slide__picture
+
 mixin section-slider
   section.section-slider(data-section-slider-component)
     .swiper.section-slider__swiper(data-section-slider-container)
       .swiper-wrapper
-        - for (var i = 0; i < 5; i++)
-          .swiper-slide= "slider-" + i
+        - for (var i = 0; i < 3; i++)
+          .swiper-slide
+            +section-slide
     .section-slider__surface
       .container.section-slider__surface-container
         .section-slider__surface-top
@@ -21,7 +33,7 @@ mixin section-slider
             .section-slider__pagination-current(data-section-slider-current)
               |1
             .section-slider__pagination-total
-              span.section-slider__pagination-total-separatop
+              span
                 |/
-              span.section-slider__pagination-total-value(data-section-slider-total)
+              span(data-section-slider-total)
                 |3

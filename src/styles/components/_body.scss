@@ -1,6 +1,4 @@
 .body {
-  @include fontFsl("title-1", 13px, 100%);
-
   width: 100vw;
   min-width: $br-min;
   overflow-x: hidden;

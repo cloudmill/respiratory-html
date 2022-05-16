@@ -2,8 +2,6 @@
   position: relative;
   z-index: 0;
 
-  margin-bottom: rem(-180px);
-
   &__picture {
     @include inset;
 

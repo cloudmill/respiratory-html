@@ -1,77 +1,44 @@
-.features-list {
+.controls {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: $colGap;
+  grid-template-columns: repeat(2, auto);
+  column-gap: rem(8px);
+  justify-content: start;
 
   &__item {
   }
 }
 
-.features-item {
-  position: relative;
-  z-index: 0;
+.control {
+  $component: &;
 
-  padding: rem(40px) rem(60px) rem(40px) rem(40px);
+  @include size(rem(64px));
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: $color-blue;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-yellow;
+
+    #{$component} {
+      &__svg {
+        path,
+        line {
+          stroke: $color-black;
+        }
+      }
+    }
+  }
 
   &__svg {
-    @include size(rem(90px));
-
-    display: block;
-  }
-
-  &__text {
-    @include fontFsl("content-1", 24px, 130%);
-
-    margin-top: rem(40px);
-  }
-
-  &__decoration {
-    @include size(rem(20px));
-
-    position: absolute;
-    z-index: -1;
-
-    user-select: none;
-    pointer-events: none;
-
-    border: 2px solid $color-black;
-    border-bottom: none;
-    border-right: none;
-    border-radius: rem(10px) 0 0 0;
-
-    &:nth-child(2),
-    &:nth-child(3) {
-      border-color: $color-gray;
-    }
-
-    &:nth-child(1) {
-      top: 0;
-      left: 0;
-    }
-
-    &:nth-child(2) {
-      top: 0;
-      right: 0;
-      transform: rotate(90deg);
-    }
-
-    &:nth-child(3) {
-      bottom: 0;
-      right: 0;
+    &--reverse {
       transform: rotate(180deg);
     }
-  }
-}
-
-.page-industry {
-  &-top-section {
-    margin-bottom: rem(-180px);
-  }
-
-  &-features-section {
-    margin-top: rem(180px);
   }
 }

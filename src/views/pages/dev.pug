@@ -4,51 +4,14 @@ block header
 block footer
 
 mixin features-section
-  section.container
+  section.container.page-industry-features-section
     ul.features-list
-      li.features-list__item
-        .feature-item
-          - for (var j = 0; j < 3; j++)
-            .feature-item__decoration
-          +feature-1-svg.feature-item__svg
-          p.feature-item__text
-            |Собственный научный центр, конструкторское бюро, лаборатории, склады
-      li.features-list__item
-        .feature-item
-          - for (var j = 0; j < 3; j++)
-            .feature-item__decoration
-          +feature-2-svg.feature-item__svg
-          p.feature-item__text
-            |Производственная мощность достигает 100 миллионов респираторов в год
-      li.features-list__item
-        .feature-item
-          - for (var j = 0; j < 3; j++)
-            .feature-item__decoration
-          +feature-3-svg.feature-item__svg
-          p.feature-item__text
-            |Налаженные цепочки поставок сырья и комплектующих. Опытный логистический дивизион
+      +features-item-1
+      +features-item-1
+      +features-item-2
 
 block content
     +top-section.page-industry-top-section
     +feature-section
-    section.container.page-industry-features-section
-      ul.features-list
-        li.features-item
-          - for (var j = 0; j < 3; j++)
-            .features-item__decoration
-          +feature-1-svg.features-item__svg
-          p.features-item__text
-            |Собственный научный центр, конструкторское бюро, лаборатории, склады
-        li.features-item
-          - for (var j = 0; j < 3; j++)
-            .features-item__decoration
-          +feature-2-svg.features-item__svg
-          p.features-item__text
-            |Производственная мощность достигает 100 миллионов респираторов в год
-        li.features-item
-          - for (var j = 0; j < 3; j++)
-            .features-item__decoration
-          +feature-3-svg.features-item__svg
-          p.features-item__text
-            |Налаженные цепочки поставок сырья и комплектующих. Опытный логистический дивизион
-    
+    +features-section
+    +section-slider

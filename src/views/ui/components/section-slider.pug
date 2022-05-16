@@ -1,0 +1,27 @@
+mixin section-slider
+  section.section-slider(data-section-slider-component)
+    .swiper.section-slider__swiper(data-section-slider-container)
+      .swiper-wrapper
+        - for (var i = 0; i < 5; i++)
+          .swiper-slide= "slider-" + i
+    .section-slider__surface
+      .container.section-slider__surface-container
+        .section-slider__surface-top
+          h2.section-slider__title
+            |Мы предлагаем
+          .controls.section-slider__controls
+            .controls__item
+              .control.section-slider__control(data-section-slider-prev)
+                +arrow-left-svg.control__svg
+            .controls__item
+              .control.section-slider__control(data-section-slider-next)
+                +arrow-left-svg.control__svg.control__svg--reverse
+        .section-slider__surface-bottom
+          .section-slider__pagination(data-section-slider-pagination)
+            .section-slider__pagination-current(data-section-slider-current)
+              |1
+            .section-slider__pagination-total
+              span.section-slider__pagination-total-separatop
+                |/
+              span.section-slider__pagination-total-value(data-section-slider-total)
+                |3

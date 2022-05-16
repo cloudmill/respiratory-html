@@ -1,0 +1,23 @@
+mixin features-item-1
+  li.features-item
+    - for (var j = 0; j < 3; j++)
+      .features-item__decoration
+    +feature-1-svg.features-item__svg
+    p.features-item__text
+      |Собственный научный центр, конструкторское бюро, лаборатории, склады
+
+mixin features-item-2
+  li.features-item
+    - for (var j = 0; j < 3; j++)
+      .features-item__decoration
+    +feature-2-svg.features-item__svg
+    p.features-item__text
+      |Производственная мощность достигает 100 миллионов респираторов в год
+
+mixin features-item-3
+  li.features-item
+    - for (var j = 0; j < 3; j++)
+      .features-item__decoration
+    +feature-3-svg.features-item__svg
+    p.features-item__text
+      |Налаженные цепочки поставок сырья и комплектующих. Опытный логистический дивизион

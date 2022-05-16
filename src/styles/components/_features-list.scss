@@ -1,0 +1,5 @@
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(3, calc(#{cols(4)}));
+  column-gap: $colGap;
+}

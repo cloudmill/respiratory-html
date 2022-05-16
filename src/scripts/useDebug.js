@@ -1,10 +1,22 @@
-const useDebug = (enadled, location) => [
-  (...args) =>
-    enadled &&
-    ((location && console.log(location, ...args)) || console.log(...args)),
-  (...args) =>
-    enadled &&
-    ((location && console.error(location, ...args)) || console.error(...args)),
+const useDebug = (enabled, location) => [
+  (...args) => {
+    if (enabled) {
+      if (location) {
+        console.log(location, ...args);
+      } else {
+        console.log(...args);
+      }
+    }
+  },
+  (...args) => {
+    if (enabled) {
+      if (location) {
+        console.error(location, ...args);
+      } else {
+        console.error(...args);
+      }
+    }
+  },
 ];
 
 export { useDebug };

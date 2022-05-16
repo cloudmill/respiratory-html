@@ -1,0 +1,9 @@
+mixin breadcrumbs(items)
+  .breadcrumbs
+    ul.breadcrumbs__list
+      - var current = items.pop();
+      each item in items
+        li.breadcrumbs__item
+          a.breadcrumbs__link(href="#")= item
+      li.breadcrumbs__item
+          .breadcrumbs__link.breadcrumbs__link--current= current

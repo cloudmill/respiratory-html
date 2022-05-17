@@ -1,0 +1,237 @@
+.border-block {
+  padding-top: rem(16px);
+
+  border-top: 1px solid $color-gray;
+}
+
+.sub-title {
+  @include fontFsl("title-2", 18px, 120%);
+}
+
+.info-block {
+  display: grid;
+  grid-template-columns: calc(#{cols(7)}) calc(#{cols(5)});
+  column-gap: $colGap;
+
+  &__col {
+    &:nth-child(1) {
+      max-width: calc(#{cols(5)});
+    }
+
+    &:nth-child(2) {
+      max-width: calc(#{cols(4)});
+    }
+  }
+
+  &__text {
+    @include fontFsl("content-1", 20px, 160%);
+
+    &:not(:first-child) {
+      margin-top: rem(32px);
+    }
+  }
+
+  &__feature {
+    position: relative;
+    z-index: 0;
+
+    padding: rem(40px);
+
+    &::before {
+      @include size(rem(20px));
+
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+
+      content: "";
+      pointer-events: none;
+      user-select: none;
+
+      border: 2px solid $color-black;
+      border-bottom: none;
+      border-right: none;
+      border-radius: rem(10px) 0 0 0;
+    }
+  }
+}
+
+.article {
+  @include fontFsl("title-2", 32px, 120%);
+
+  &__highlight {
+    color: $color-blue;
+  }
+}
+
+.information-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: $colGap;
+}
+
+.information-card {
+  $component: &;
+
+  display: block;
+
+  cursor: pointer;
+
+  &:hover {
+    #{$component} {
+      &__image {
+        &::before {
+          border-color: $color-yellow;
+        }
+      }
+
+      &__picture {
+        transform: scale(1.15);
+      }
+
+      &__download {
+        background-color: $color-yellow;
+
+        path,
+        line {
+          stroke: $color-black;
+        }
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 0;
+
+    height: rem(310px);
+    overflow: hidden;
+
+    border-radius: 0 rem(16px) rem(16px) rem(16px);
+
+    &::before {
+      @include size(rem(20px));
+
+      position: absolute;
+      z-index: 2;
+      top: rem(40px);
+      right: rem(40px);
+
+      content: "";
+      pointer-events: none;
+      user-select: none;
+
+      border: 2px solid $color-blue;
+      border-bottom: none;
+      border-left: none;
+      border-radius: 0 rem(10px) 0 0;
+    }
+  }
+
+  &__picture {
+    @include size(100%);
+
+    position: relative;
+    z-index: 1;
+  }
+
+  &__download {
+    position: absolute;
+    z-index: 2;
+    bottom: rem(40px);
+    right: rem(40px);
+  }
+
+  &__title {
+    @include fontFsl("title-2", 18px, 120%);
+
+    margin-top: rem(24px);
+  }
+
+  &__size {
+    @include fontFsl("content-3", 16px, 130%);
+
+    margin-top: rem(4px);
+
+    color: $color-gray-dark;
+  }
+}
+
+.slider-panel {
+  display: grid;
+  grid-template-columns: calc(#{cols(5)}) calc(#{cols(7)});
+  column-gap: $colGap;
+
+  &__col {
+    &:nth-child(2) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__sub-col {
+    &:nth-child(2) {
+      margin-left: $colGap;
+    }
+  }
+}
+
+.btn {
+  display: flex;
+
+  &__btn {
+    @include fontFsl("title-1", 13px, 100%);
+
+    position: relative;
+    z-index: 0;
+
+    padding: 0 rem(40px);
+    height: rem(60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $color-blue;
+    border-radius: rem(12px);
+    color: $color-white;
+
+    &::before,
+    &::after {
+      @include size(rem(10px));
+
+      position: absolute;
+      z-index: -1;
+
+      content: "";
+      pointer-events: none;
+      user-select: none;
+
+      border: 1.5px solid $color-yellow;
+      border-bottom: none;
+      border-left: none;
+      border-radius: 0 rem(5px) 0 0;
+    }
+
+    &::before {
+      top: rem(10px);
+      right: rem(10px);
+    }
+
+    &::after {
+      bottom: rem(10px);
+      left: rem(10px);
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      background-color: $color-yellow;
+      color: $color-black;
+      
+      &::before,
+      &::after {
+        border-color: $color-black;
+      }
+    }
+  }
+}

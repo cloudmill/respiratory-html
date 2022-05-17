@@ -36,7 +36,17 @@
     }
   }
 
+  &--dark {
+    background-color: $color-black;
+
+    #{$component} {
+      
+    }
+  }
+
   &__svg {
+    @include size(rem(24px));
+
     &--reverse {
       transform: rotate(180deg);
     }

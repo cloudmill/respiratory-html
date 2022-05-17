@@ -10,4 +10,20 @@
   &-section-slider {
     margin-top: rem(180px);
   }
+
+  &-info-block {
+    margin-top: rem(96px);
+  }
+
+  &-section {
+    margin-top: rem(180px);
+
+    @media #{maxWidth()} {
+      margin-top: rem(48px);
+    }
+  }
+
+  &-information-block {
+    margin-top: rem(32px);
+  }
 }

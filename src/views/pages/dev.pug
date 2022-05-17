@@ -3,7 +3,7 @@ extends ../app
 block header
 block footer
 
-//- block grid-test
+block grid-test
 
 mixin features-section
   section.container.page-industry-features-section
@@ -13,39 +13,39 @@ mixin features-section
       +features-item-2
 
 block content
-    //- +top-section.page-industry-top-section
-    //- +feature-section
-    //- +features-section
-    //- +section-slider.page-industry-section-slider
-    //- section.page-industry-section
-    //-   .container
-    //-     .border-block
-    //-       h2.sub-title
-    //-         |Клиентский сервис
-    //-       .info-blocks.page-industry-info-blocks
-    //-         .info-blocks__item
-    //-           .info-block
-    //-             .info-block__col
-    //-               .info-block__feature
-    //-                 .article
-    //-                   span.article__highlight
-    //-                     |Измеряем эффективность СИЗ
-    //-                   |#{" "}органов дыхания на рабочих местах сотрудников
-    //-             .info-block__col
-    //-               .info-block__text
-    //-                 |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
-    //-         .info-blocks__item
-    //-           .info-block
-    //-             .info-block__col
-    //-               .info-block__feature
-    //-                 .article
-    //-                   span.article__highlight
-    //-                     |Измеряем эффективность СИЗ
-    //-                   |#{" "}органов дыхания на рабочих местах сотрудников
-    //-             .info-block__col
-    //-               .info-block__text
-    //-                 |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
-    //- section.page-industry-section
+    +top-section.page-industry-top-section
+    +feature-section
+    +features-section
+    +section-slider.page-industry-section-slider
+    section.page-industry-section
+      .container
+        .border-block
+          h2.sub-title
+            |Клиентский сервис
+          .info-blocks.page-industry-info-blocks
+            .info-blocks__item
+              .info-block
+                .info-block__col
+                  .info-block__feature
+                    .article
+                      span.article__highlight
+                        |Измеряем эффективность СИЗ
+                      |#{" "}органов дыхания на рабочих местах сотрудников
+                .info-block__col
+                  .info-block__text
+                    |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
+            .info-blocks__item
+              .info-block
+                .info-block__col
+                  .info-block__feature
+                    .article
+                      span.article__highlight
+                        |Измеряем эффективность СИЗ
+                      |#{" "}органов дыхания на рабочих местах сотрудников
+                .info-block__col
+                  .info-block__text
+                    |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
+    section.page-industry-section
       .container
         .border-block
           h2.sub-title
@@ -185,4 +185,5 @@ block content
                                   |#{item}
             .control.examples-slider__label
               +arrow-left-svg.control__svg.control__svg--tilt
-
+    section.form-section
+      |form-section

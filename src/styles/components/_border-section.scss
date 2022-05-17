@@ -70,6 +70,14 @@
 .article {
   @include fontFsl("title-2", 32px, 120%);
 
+  &--large {
+    @include fontFsl("title-3", 54px, 100%);
+  }
+
+  &--indent {
+    text-indent: calc(#{$col} + #{$colGap});
+  }
+
   &__highlight {
     color: $color-blue;
   }
@@ -188,7 +196,17 @@
 }
 
 .btn {
+  $component: &;
+
   display: flex;
+
+  &--submit {
+    #{$component} {
+      &__btn {
+        min-width: calc(#{cols(2)});
+      }
+    }
+  }
 
   &__btn {
     @include fontFsl("title-1", 13px, 100%);
@@ -203,8 +221,10 @@
     align-items: center;
 
     background-color: $color-blue;
+    border: none;
     border-radius: rem(12px);
     color: $color-white;
+    cursor: pointer;
 
     &::before,
     &::after {

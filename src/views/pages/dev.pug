@@ -3,7 +3,7 @@ extends ../app
 block header
 block footer
 
-block grid-test
+//- block grid-test
 
 mixin features-section
   section.container.page-industry-features-section
@@ -147,11 +147,11 @@ block content
           a.swiper-slide.examples-slider__slide(href="#")
             .examples-slider__row
               .examples-slider__image
-                +picture('example.jpeg').examples-slider__picture
+                +picture('example-2.jpeg').examples-slider__picture
               .examples-slider__content
                 .examples-slider__content-item
                   h3.examples-slider__title
-                    |RK 9010
+                    |RK 9011
                 .examples-slider__content-item
                   .examples-slider__table
                     .examples-slider__table-row
@@ -186,4 +186,62 @@ block content
             .control.examples-slider__label
               +arrow-left-svg.control__svg.control__svg--tilt
     section.form-section
-      |form-section
+      .form-section__content
+        .form-section__content-item
+          .form-section__title-container
+            h2.sub-title.form-section__title
+              |связаться с нами
+        .form-section__content-item
+          .form-section__article-container
+            .article.article--large.article--indent
+              span.article__highlight
+                |Измеряем эффективность СИЗ
+              |#{" "}органов дыхания на рабочих местах сотрудников
+        .form-section__content-item
+          form.section-form
+            .section-form__grid
+              .section-form__item
+                .form-field.form-field--error
+                  input.form-field__input(placeholder='Имя')
+                  .form-field__error
+                    |Допустимы только буквы
+              .section-form__item
+                .form-field
+                  input.form-field__input(placeholder='Название компании')
+                  .form-field__error
+                    |Допустимы только буквы
+              .section-form__item
+                .form-field
+                  input.form-field__input(placeholder='Телефон')
+                  .form-field__error
+                    |Допустимы только буквы
+              .section-form__item
+                .form-field
+                  input.form-field__input(placeholder='E-mail')
+                  .form-field__error
+                    |Допустимы только буквы
+              .section-form__item.section-form__item--row
+                .form-field.form-field--textarea.form-field--error
+                  textarea.form-field__input(placeholder='Сообщение')
+                  .form-field__error
+                    |Допустимы только буквы
+              .section-form__item.section-form__item--right.section-form__bottom
+                .section-form__agrement
+                  .simple-checkbox.simple-checkbox--error
+                    label.simple-checkbox__label
+                      input.simple-checkbox__input(name='agreement' type='checkbox')
+                      .simple-checkbox__box
+                        +check-svg.simple-checkbox__svg
+                      .simple-checkbox__content
+                        |Даю согласие на обработку 
+                        a.simple-checkbox__link(href="#")
+                          |персональных данных
+                      .simple-checkbox__error
+                        |Допустимы только буквы
+                .section-form__submit
+                  .btn.btn--submit
+                    button.btn__btn
+                      |отправить
+                
+                
+

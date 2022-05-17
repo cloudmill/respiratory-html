@@ -1,7 +1,7 @@
 import { useDebug } from "./useDebug";
 import Swiper, { Navigation, Pagination } from "swiper";
 
-const [log] = useDebug(true, "[sectionSlider.js]");
+const [log] = useDebug(false, "[sectionSlider.js]");
 
 const getSelector = (attr) => `[data-section-slider-${attr}]`;
 

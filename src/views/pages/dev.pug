@@ -3,6 +3,8 @@ extends ../app
 block header
 block footer
 
+//- block grid-test
+
 mixin features-section
   section.container.page-industry-features-section
     ul.features-list
@@ -11,39 +13,39 @@ mixin features-section
       +features-item-2
 
 block content
-    +top-section.page-industry-top-section
-    +feature-section
-    +features-section
-    +section-slider.page-industry-section-slider
-    section.page-industry-section
-      .container
-        .border-block
-          h2.sub-title
-            |Клиентский сервис
-          .info-blocks.page-industry-info-blocks
-            .info-blocks__item
-              .info-block
-                .info-block__col
-                  .info-block__feature
-                    .article
-                      span.article__highlight
-                        |Измеряем эффективность СИЗ
-                      |#{" "}органов дыхания на рабочих местах сотрудников
-                .info-block__col
-                  .info-block__text
-                    |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
-            .info-blocks__item
-              .info-block
-                .info-block__col
-                  .info-block__feature
-                    .article
-                      span.article__highlight
-                        |Измеряем эффективность СИЗ
-                      |#{" "}органов дыхания на рабочих местах сотрудников
-                .info-block__col
-                  .info-block__text
-                    |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
-    section.page-industry-section
+    //- +top-section.page-industry-top-section
+    //- +feature-section
+    //- +features-section
+    //- +section-slider.page-industry-section-slider
+    //- section.page-industry-section
+    //-   .container
+    //-     .border-block
+    //-       h2.sub-title
+    //-         |Клиентский сервис
+    //-       .info-blocks.page-industry-info-blocks
+    //-         .info-blocks__item
+    //-           .info-block
+    //-             .info-block__col
+    //-               .info-block__feature
+    //-                 .article
+    //-                   span.article__highlight
+    //-                     |Измеряем эффективность СИЗ
+    //-                   |#{" "}органов дыхания на рабочих местах сотрудников
+    //-             .info-block__col
+    //-               .info-block__text
+    //-                 |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
+    //-         .info-blocks__item
+    //-           .info-block
+    //-             .info-block__col
+    //-               .info-block__feature
+    //-                 .article
+    //-                   span.article__highlight
+    //-                     |Измеряем эффективность СИЗ
+    //-                   |#{" "}органов дыхания на рабочих местах сотрудников
+    //-             .info-block__col
+    //-               .info-block__text
+    //-                 |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
+    //- section.page-industry-section
       .container
         .border-block
           h2.sub-title
@@ -79,7 +81,7 @@ block content
                   |Плакат по надеванию респиратора
                 p.information-card__size
                   |235 КБ
-    section.page-industry-section
+    section.page-industry-section(data-examples-slider-component)
       .container
         .border-block
           .slider-panel
@@ -90,14 +92,97 @@ block content
               .slider-panel__sub-col
                 .controls
                   .controls__item
-                    .control.control--dark
+                    .control.control--dark(data-examples-slider-prev)
                       +arrow-left-svg.control__svg
                   .controls__item
-                    .control.control--dark
+                    .control.control--dark(data-examples-slider-next)
                       +arrow-left-svg.control__svg.control__svg--reverse
               .slider-panel__sub-col
                 .btn
                   a.btn__btn(href="#")
                     |Перейти в каталог
-          h2.sub-title
-            |Наиболее востребованные модели продукции
+      .swiper.examples-slider.page-industry-examples-slider(data-examples-slider-container)
+        .swiper-wrapper
+          a.swiper-slide.examples-slider__slide(href="#")
+            .examples-slider__row
+              .examples-slider__image
+                +picture('example.jpeg').examples-slider__picture
+              .examples-slider__content
+                .examples-slider__content-item
+                  h3.examples-slider__title
+                    |RK 9010
+                .examples-slider__content-item
+                  .examples-slider__table
+                    .examples-slider__table-row
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                    .examples-slider__table-row
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                      p.examples-slider__table-value
+                        |Нет
+                .examples-slider__content-item
+                  .examples-slider__feature
+                    +feature-4-svg.examples-slider__feature-svg
+                    .examples-slider__feature-content
+                      h4.examples-slider__feature-title
+                        |Защита от всех видов аэрозолей
+                      .wrap-list.examples-slider__feature-value
+                        .wrap-list__list
+                          -
+                            var items = [
+                              'Пыль',
+                              'Дым',
+                              'Туман',
+                            ]
+                          each item in items
+                            .wrap-list__item
+                              .tag
+                                .tag__tag
+                                  |#{item}
+            .control.examples-slider__label
+              +arrow-left-svg.control__svg.control__svg--tilt
+          a.swiper-slide.examples-slider__slide(href="#")
+            .examples-slider__row
+              .examples-slider__image
+                +picture('example.jpeg').examples-slider__picture
+              .examples-slider__content
+                .examples-slider__content-item
+                  h3.examples-slider__title
+                    |RK 9010
+                .examples-slider__content-item
+                  .examples-slider__table
+                    .examples-slider__table-row
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                    .examples-slider__table-row
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                      p.examples-slider__table-value
+                        |Нет
+                .examples-slider__content-item
+                  .examples-slider__feature
+                    +feature-4-svg.examples-slider__feature-svg
+                    .examples-slider__feature-content
+                      h4.examples-slider__feature-title
+                        |Защита от всех видов аэрозолей
+                      .wrap-list.examples-slider__feature-value
+                        .wrap-list__list
+                          -
+                            var items = [
+                              'Пыль',
+                              'Дым',
+                              'Туман',
+                            ]
+                          each item in items
+                            .wrap-list__item
+                              .tag
+                                .tag__tag
+                                  |#{item}
+            .control.examples-slider__label
+              +arrow-left-svg.control__svg.control__svg--tilt
+

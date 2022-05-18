@@ -56,13 +56,31 @@
           &__fake {
             height: 100%;
           }
+
+          &__original-container,
+          &__fake-container {
+            &::before,
+            &::after {
+              @keyframes gtaqua {
+                from {
+                  opacity: 1;
+                }
+
+                to {
+                  opacity: 0;
+                }
+              }
+
+              animation: gtaqua math.div($trd, 3) $trf-c 6 alternate;
+            }
+          }
         }
       }
     }
 
     &:disabled {
       cursor: not-allowed;
-    
+
       #{$comp} {
         &__background {
           background-color: $color-gray-light;
@@ -75,6 +93,14 @@
         &__text {
           color: $color-gray-dark;
           opacity: 0.3;
+        }
+
+        &__original-container,
+        &__fake-container {
+          &::before,
+          &::after {
+            border-color: $color-gray;
+          }
         }
       }
     }
@@ -105,14 +131,57 @@
 
   &__texts {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 
     height: $height;
   }
 
   &__original-container,
   &__fake-container {
+    position: relative;
+    z-index: 0;
+
     padding: 0 rem(40px);
+
+    &::before,
+    &::after {
+      @include size(rem(10px));
+
+      position: absolute;
+
+      content: "";
+
+      border: 1.5px solid transparent;
+      border-top: none;
+      border-right: none;
+      border-radius: 0 0 0 rem(5px);
+      transition: border-color $tr-c;
+    }
+
+    &::before {
+      bottom: rem(10px);
+      left: rem(10px);
+    }
+
+    &::after {
+      top: rem(10px);
+      right: rem(10px);
+      transform: rotate(180deg);
+    }
+  }
+
+  &__original-container {
+    &::before,
+    &::after {
+      border-color: $color-yellow;
+    }
+  }
+
+  &__fake-container {
+    &::before,
+    &::after {
+      border-color: $color-black;
+    }
   }
 
   &__original,

@@ -13,6 +13,10 @@
     {
       "title": "Development",
       "path": "dev"
+    },
+    {
+      "title": "Test",
+      "path": "test"
     }
   ]
 }

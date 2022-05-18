@@ -233,6 +233,10 @@ $color-transparent: rgba(0, 0, 0, 0);
 
 // transition
 
-$transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
-$transition-duration: 0.5s;
-$transition: $transition-duration $transition-timing-function;
+$trd: 0.6s;
+
+$trf-q: cubic-bezier(0.83, 0, 0.17, 1);
+$trf-c: cubic-bezier(0.33, 1, 0.68, 1);
+
+$tr-q: $trd $trf-q;
+$tr-c: $trd $trf-c;

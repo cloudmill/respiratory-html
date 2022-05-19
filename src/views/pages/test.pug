@@ -3,9 +3,59 @@ extends ../app
 block header
 block footer
 
+block grid-test
+
+mixin button(props = {})
+  -
+    var defaultProps = {
+      tag: 'a',
+      href: '#',
+      buttonType: 'submit',
+      disabled: false,
+    };
+    props = Object.assign({}, defaultProps, props);
+
+  mixin button-inner
+    .button__background
+    .button__texts
+      .button__original
+        .button__original-container
+          .button__text.button__text--light
+            block
+      .button__fake
+        .button__fake-container
+          .button__text.button__text--dark
+            block
+
+  .button(class=attributes.class)
+    if props.tag === 'a'
+      a.button__button(href=props.href)
+        +button-inner
+          block
+    else if props.tag === 'button'
+      button.button__button(type=props.buttonType disabled=props.disabled)
+        +button-inner
+          block
+    else
+      .button__button
+        +button-inner
+          block
+
 block content
-  ul
-    li
-      input.test(type='checkbox')
-    li
-      input.test.test--alt(type='checkbox')
+  .container
+    .sxbcpu
+      +button({ href: '#hello' })
+        |a
+    .sxbcpu
+      +button({ tag: 'div' })
+        |div
+    form.sxbcpu
+      .sxbcpu
+        +button({ tag: 'button', buttonType: 'button' }).button--fluid.buttonTest
+          |click me
+      .sxbcpu
+        +button({ tag: 'button', buttonType: 'button' }).button--fluid
+          |button
+      .sxbcpu
+        +button({ tag: 'button' })
+          |submit

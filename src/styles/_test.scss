@@ -1,16 +1,247 @@
-.test {
-  $size: rem(100px);
+.button {
+  $comp: &;
+  $tr: $tr-q;
+  // $tr: 10s $trf-q;
+  $height: rem(60px);
 
-  @include size($size);
+  display: flex;
 
-  background-color: black;
-  transition: $tr-q;
+  &--fluid {
+    #{$comp} {
+      &__button {
+        width: 100%;
+      }
 
-  &:checked {
-    transform: translateX(calc(100vw - #{$size}));
+      &__original {
+        &-container {
+          width: 100%;
+        }
+      }
+
+      &__fake {
+        &-container {
+          width: 100%;
+        }
+      }
+    }
   }
 
-  &--alt {
-    transition: $tr-c;
+  &__button {
+    $el: &;
+
+    position: relative;
+    z-index: 0;
+
+    height: $height;
+    overflow: hidden;
+
+    border: none;
+    border-radius: rem(12px);
+    cursor: pointer;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        #{$comp} {
+          &__background {
+            &::before {
+              transform: translateY(-100%);
+            }
+          }
+
+          &__original {
+            height: 0;
+          }
+
+          &__fake {
+            height: 100%;
+          }
+
+          &__original-container,
+          &__fake-container {
+            &::before,
+            &::after {
+              @keyframes gtaqua {
+                from {
+                  opacity: 1;
+                }
+
+                to {
+                  opacity: 0;
+                }
+              }
+
+              animation: gtaqua math.div($trd, 3) $trf-c 6 alternate;
+            }
+          }
+        }
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      #{$comp} {
+        &__background {
+          background-color: $color-gray-light;
+
+          &::before {
+            background-color: $color-gray-light;
+          }
+        }
+
+        &__text {
+          color: $color-gray-dark;
+          opacity: 0.3;
+        }
+
+        &__original-container,
+        &__fake-container {
+          &::before,
+          &::after {
+            border-color: $color-gray;
+          }
+        }
+      }
+    }
   }
+
+  &__background {
+    @include inset;
+
+    position: absolute;
+    z-index: 1;
+
+    overflow: hidden;
+
+    background-color: $color-yellow;
+    transition: background-color $tr;
+
+    &::before {
+      @include inset;
+
+      position: absolute;
+
+      content: "";
+
+      background-color: $color-blue;
+      transition: transform $tr, background-color $tr;
+    }
+  }
+
+  &__texts {
+    position: relative;
+    z-index: 3;
+
+    height: $height;
+  }
+
+  &__original-container,
+  &__fake-container {
+    position: relative;
+    z-index: 0;
+
+    padding: 0 rem(40px);
+
+    &::before,
+    &::after {
+      @include size(rem(10px));
+
+      position: absolute;
+
+      content: "";
+
+      border: 1.5px solid transparent;
+      border-top: none;
+      border-right: none;
+      border-radius: 0 0 0 rem(5px);
+      transition: border-color $tr-c;
+    }
+
+    &::before {
+      bottom: rem(10px);
+      left: rem(10px);
+    }
+
+    &::after {
+      top: rem(10px);
+      right: rem(10px);
+      transform: rotate(180deg);
+    }
+  }
+
+  &__original-container {
+    &::before,
+    &::after {
+      border-color: $color-yellow;
+    }
+  }
+
+  &__fake-container {
+    &::before,
+    &::after {
+      border-color: $color-black;
+    }
+  }
+
+  &__original,
+  &__fake {
+    transition: height $tr;
+  }
+
+  &__original {
+    position: relative;
+    z-index: 1;
+
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+
+    &-container {
+      height: $height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__text {
+    @include fontFsl("title-1", 13px, 100%);
+
+    transition: color $tr, opacity $tr;
+
+    &--dark {
+      color: $color-black;
+    }
+
+    &--light {
+      color: $color-white;
+    }
+  }
+
+  &__fake {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 0;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+
+    &-container {
+      height: $height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+// test
+.sxbcpu {
+  margin: rem(10px) 0;
 }

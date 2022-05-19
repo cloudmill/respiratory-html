@@ -71,7 +71,15 @@
                 }
               }
 
-              animation: gtaqua math.div($trd, 3) $trf-c 6 alternate;
+              animation: gtaqua math.div($trd, 2) $trf-c 6 alternate;
+            }
+
+            &::before {
+              transform: translate(rem(4px), rem(-4px));
+            }
+
+            &::after {
+              transform: rotate(180deg) translate(rem(4px), rem(-4px));
             }
           }
         }
@@ -155,7 +163,7 @@
       border-top: none;
       border-right: none;
       border-radius: 0 0 0 rem(5px);
-      transition: border-color $tr-c;
+      transition: border-color $tr-c, transform $tr-c;
     }
 
     &::before {

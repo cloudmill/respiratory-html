@@ -1,13 +1,11 @@
 .button {
-  $comp: &;
-  $tr: $tr-q;
-  // $tr: 10s $trf-q;
+  $component: &;
   $height: rem(60px);
 
   display: flex;
 
   &--fluid {
-    #{$comp} {
+    #{$component} {
       &__button {
         width: 100%;
       }
@@ -27,7 +25,7 @@
   }
 
   &--light {
-    #{$comp} {
+    #{$component} {
       &__button {
         border: 1px solid color(gray);
       }
@@ -35,7 +33,7 @@
   }
 
   &__button {
-    $el: &;
+    $element: &;
 
     position: relative;
     z-index: 0;
@@ -50,7 +48,7 @@
     &:not(:disabled) {
       &:hover,
       &:focus {
-        #{$comp} {
+        #{$component} {
           &__background {
             &::before {
               transform: translateY(-100%);
@@ -79,7 +77,8 @@
                 }
               }
 
-              animation: gtaqua math.div($trd, 2) $trf-c 6 alternate;
+              animation: gtaqua math.div(duration(default), 2)
+                timing-function(minor) 6 alternate;
             }
 
             &::before {
@@ -97,7 +96,7 @@
     &:disabled {
       cursor: not-allowed;
 
-      #{$comp} {
+      #{$component} {
         &__background {
           background-color: color(gray-light);
 
@@ -131,7 +130,7 @@
     overflow: hidden;
 
     background-color: color(yellow);
-    transition: background-color $tr;
+    transition: background-color transition(minor);
 
     &::before {
       @include inset;
@@ -141,7 +140,8 @@
       content: "";
 
       background-color: color(blue);
-      transition: transform $tr, background-color $tr;
+      transition: transform transition(minor),
+        background-color transition(minor);
     }
   }
 
@@ -171,7 +171,7 @@
       border-top: none;
       border-right: none;
       border-radius: 0 0 0 rem(5px);
-      transition: border-color $tr-c, transform $tr-c;
+      transition: border-color transition(minor), transform transition(minor);
     }
 
     &::before {
@@ -202,7 +202,7 @@
 
   &__original,
   &__fake {
-    transition: height $tr;
+    transition: height transition(minor);
   }
 
   &__original {
@@ -225,7 +225,7 @@
   &__text {
     @include font-fsl("title-1", 13px, 100%);
 
-    transition: color $tr, opacity $tr;
+    transition: color transition(minor), opacity transition(minor);
 
     &--dark {
       color: color(black);

@@ -41,89 +41,30 @@ $colors: (
   transparent: rgba(0, 0, 0, 0),
 );
 
-:root {
-  --color-blue: #2967eb;
-  --color-yellow: #ffed49;
-  --color-shadow: rgba(42, 46, 55, 0.12);
+// transition and animation parameters
 
-  --color-white: white;
-  --color-black: #191a1c;
-
-  --color-gray-1: #f2f5f8;
-  --color-gray-2: #e5e9ef;
-  --color-gray-3: #87909b;
-  --color-gray-4: #5d6064;
-  --color-gray-5: #333333;
-
-  --color-gray: #333333;
-  --color-gray-dark: #5d6064;
-  --color-gray-light: #e5e9ef;
+$durations: (
+  default: 0.6s,
+);
+@function duration($variant: default) {
+  @return map.get($durations, $variant);
 }
 
-// prefix
-
-@mixin prefix($property, $value, $prefixes: (webkit, moz, ms, o)) {
-  @each $prefix in $prefixes {
-    #{'-' + $prefix + '-' + $property}: $value;
-  }
-
-  #{$property}: $value;
+$timing-functions: (
+  major: cubic-bezier(0.83, 0, 0.17, 1),
+  minor: cubic-bezier(0.33, 1, 0.68, 1),
+);
+@function timing-function($variant: major) {
+  @return map.get($timing-functions, $variant);
 }
 
-// placeholder
-
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
-    @content;
-  }
-  &::placeholder {
-    @content;
-  }
+$transitions: (
+  major: duration(default) timing-function(major),
+  minor: duration(default) timing-function(minor),
+);
+@function transition($variant: major) {
+  @return map.get($transitions, $variant);
 }
-
-// scrollbar hidden
-
-@mixin scrollbarHidden() {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-// crop text
-
-@mixin cropText($lineCount) {
-  display: -moz-box;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -moz-box-orient: vertical;
-  -webkit-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-line-clamp: $lineCount;
-  line-clamp: $lineCount;
-}
-
-// transition
-
-$trd: 0.6s;
-
-$trf-q: cubic-bezier(0.83, 0, 0.17, 1);
-$trf-c: cubic-bezier(0.33, 1, 0.68, 1);
-
-$tr-q: $trd $trf-q;
-$tr-c: $trd $trf-c;
 
 // FUNCTIONS
 
@@ -247,6 +188,57 @@ $tr-c: $trd $trf-c;
   @each $property in (top, bottom, left, right) {
     #{$property}: $margin;
   }
+}
+
+// property, value, prefixes -> property set with prefixes
+@mixin prefix($property, $value, $prefixes: (webkit, moz, ms, o)) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+// placeholder styles
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}
+
+// hide scrollbar
+@mixin scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin crop-text($lines-count) {
+  display: -webkit-box;
+  display: -moz-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines-count;
+  line-clamp: $lines-count;
 }
 
 // VARIABLES

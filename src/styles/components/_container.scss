@@ -2,7 +2,7 @@
   padding-left: $column-padding;
   padding-right: $column-padding;
 
-  @media #{max-width()} {
+  @media #{media("<")} {
     padding-left: $column-padding-small;
     padding-right: $column-padding-small;
   }

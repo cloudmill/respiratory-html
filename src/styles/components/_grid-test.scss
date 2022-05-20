@@ -17,7 +17,7 @@
     grid-template-columns: repeat($column-count, 1fr);
     column-gap: $column-gap;
 
-    @media #{max-width()} {
+    @media #{media("<")} {
       display: none;
     }
   }
@@ -26,7 +26,7 @@
     grid-template-columns: repeat($column-count-small, 1fr);
     column-gap: $column-gap-small;
 
-    @media #{min-width($breakpoint-t)} {
+    @media #{media(">")} {
       display: none;
     }
   }

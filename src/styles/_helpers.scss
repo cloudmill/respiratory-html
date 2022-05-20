@@ -1,12 +1,14 @@
 // VARIABLES
 
 // font
+
 $font-size: 16px;
 
 $font-family-title: "ALS Gorizont";
 $font-family-content: "Manrope";
 
 // breakpoints
+
 $breakpoints: (
   xxs: 320px,
   xs: 375px,
@@ -20,26 +22,8 @@ $breakpoints: (
   xxl: 1920px,
 );
 
-@function breakpoint($variant: d) {
-  @return map.get($map: $breakpoints, $key: $variant);
-}
-
-@function min-width($variant: d) {
-  @return "(min-width: #{breakpoint($variant)})";
-}
-
-@function max-width($variant: d) {
-  @return "(max-width: #{breakpoint($variant) - 1px})";
-}
-
-@function vw($size, $breakpoint: $breakpoint-xxl) {
+@function vw($size, $breakpoint: breakpoint(xxl)) {
   @return math.div($size, $breakpoint) * 100vw;
-}
-
-.sxbcpu {
-  @media #{min-width(t)} and #{max-width(ll)} {
-    color: red;
-  }
 }
 
 // colors
@@ -157,6 +141,18 @@ $tr-c: $trd $trf-c;
 // count, padding, gap -> column width for calc()
 @function column($count, $padding, $gap) {
   @return "((100vw - (#{$padding} * 2) - (#{$gap} * (#{$count} - 1))) / #{$count})";
+}
+// breakpoint variant -> breakpoint
+@function breakpoint($variant: d) {
+  @return map.get($breakpoints, $variant);
+}
+// direction, breakpoint variant -> media condition
+@function media($direction: ">", $variant: d) {
+  @if $direction == ">" {
+    @return "(min-width: #{breakpoint($variant)})";
+  }
+
+  @return "(max-width: #{breakpoint($variant) - 1px})";
 }
 
 // MIXINS

@@ -18,7 +18,7 @@
   &-section {
     margin-top: rem(180px);
 
-    @media #{max-width()} {
+    @media #{media("<")} {
       margin-top: rem(48px);
     }
   }

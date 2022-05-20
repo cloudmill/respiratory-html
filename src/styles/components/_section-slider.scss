@@ -6,9 +6,9 @@ $section-slider-height: rem(920px);
 
   overflow: hidden;
 
-  background-color: $color-black;
+  background-color: color(black);
   border-radius: 0 0 rem(120px) 0;
-  color: $color-white;
+  color: color(white);
 
   &__swiper {
     position: relative;
@@ -35,7 +35,7 @@ $section-slider-height: rem(920px);
     &-top {
       padding-top: rem(16px);
 
-      border-top: 1px solid $color-border-white;
+      border-top: 1px solid color(border)-white;
     }
 
     &-bottom {
@@ -53,7 +53,7 @@ $section-slider-height: rem(920px);
 
         content: "";
 
-        border: 2px solid $color-white;
+        border: 2px solid color(white);
         border-top: none;
         border-right: none;
         border-radius: 0 0 0 rem(10px);
@@ -89,7 +89,7 @@ $section-slider-height: rem(920px);
       top: 0;
       left: 0;
 
-      color: $color-blue;
+      color: color(blue);
     }
 
     &-total {

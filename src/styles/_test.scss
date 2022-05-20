@@ -29,7 +29,7 @@
   &--light {
     #{$comp} {
       &__button {
-        border: 1px solid $color-gray;
+        border: 1px solid color(gray);
       }
     }
   }
@@ -99,15 +99,15 @@
 
       #{$comp} {
         &__background {
-          background-color: $color-gray-light;
+          background-color: color(gray-light);
 
           &::before {
-            background-color: $color-gray-light;
+            background-color: color(gray-light);
           }
         }
 
         &__text {
-          color: $color-gray-dark;
+          color: color(gray-dark);
           opacity: 0.3;
         }
 
@@ -115,7 +115,7 @@
         &__fake-container {
           &::before,
           &::after {
-            border-color: $color-gray;
+            border-color: color(gray);
           }
         }
       }
@@ -130,7 +130,7 @@
 
     overflow: hidden;
 
-    background-color: $color-yellow;
+    background-color: color(yellow);
     transition: background-color $tr;
 
     &::before {
@@ -140,7 +140,7 @@
 
       content: "";
 
-      background-color: $color-blue;
+      background-color: color(blue);
       transition: transform $tr, background-color $tr;
     }
   }
@@ -189,14 +189,14 @@
   &__original-container {
     &::before,
     &::after {
-      border-color: $color-yellow;
+      border-color: color(yellow);
     }
   }
 
   &__fake-container {
     &::before,
     &::after {
-      border-color: $color-black;
+      border-color: color(black);
     }
   }
 
@@ -228,11 +228,11 @@
     transition: color $tr, opacity $tr;
 
     &--dark {
-      color: $color-black;
+      color: color(black);
     }
 
     &--light {
-      color: $color-white;
+      color: color(white);
     }
   }
 

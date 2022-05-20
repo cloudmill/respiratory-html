@@ -1,7 +1,7 @@
 .border-block {
   padding-top: rem(16px);
 
-  border-top: 1px solid $color-gray;
+  border-top: 1px solid color(gray);
 }
 
 .sub-title {
@@ -59,7 +59,7 @@
       pointer-events: none;
       user-select: none;
 
-      border: 2px solid $color-black;
+      border: 2px solid color(black);
       border-bottom: none;
       border-right: none;
       border-radius: rem(10px) 0 0 0;
@@ -79,7 +79,7 @@
   }
 
   &__highlight {
-    color: $color-blue;
+    color: color(blue);
   }
 }
 
@@ -100,7 +100,7 @@
     #{$component} {
       &__image {
         &::before {
-          border-color: $color-yellow;
+          border-color: color(yellow);
         }
       }
 
@@ -109,11 +109,11 @@
       }
 
       &__download {
-        background-color: $color-yellow;
+        background-color: color(yellow);
 
         path,
         line {
-          stroke: $color-black;
+          stroke: color(black);
         }
       }
     }
@@ -140,7 +140,7 @@
       pointer-events: none;
       user-select: none;
 
-      border: 2px solid $color-blue;
+      border: 2px solid color(blue);
       border-bottom: none;
       border-left: none;
       border-radius: 0 rem(10px) 0 0;
@@ -172,7 +172,7 @@
 
     margin-top: rem(4px);
 
-    color: $color-gray-dark;
+    color: color(gray-dark);
   }
 }
 
@@ -220,10 +220,10 @@
     justify-content: center;
     align-items: center;
 
-    background-color: $color-blue;
+    background-color: color(blue);
     border: none;
     border-radius: rem(12px);
-    color: $color-white;
+    color: color(white);
     cursor: pointer;
 
     &::before,
@@ -237,7 +237,7 @@
       pointer-events: none;
       user-select: none;
 
-      border: 1.5px solid $color-yellow;
+      border: 1.5px solid color(yellow);
       border-bottom: none;
       border-left: none;
       border-radius: 0 rem(5px) 0 0;
@@ -255,12 +255,12 @@
     }
 
     &:hover {
-      background-color: $color-yellow;
-      color: $color-black;
+      background-color: color(yellow);
+      color: color(black);
 
       &::before,
       &::after {
-        border-color: $color-black;
+        border-color: color(black);
       }
     }
   }

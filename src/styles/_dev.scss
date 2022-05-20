@@ -18,26 +18,26 @@
   align-items: center;
   overflow: hidden;
 
-  background-color: $color-blue;
+  background-color: color(blue);
   border-radius: 50%;
 
   cursor: pointer;
 
   &:hover {
-    background-color: $color-yellow;
+    background-color: color(yellow);
 
     #{$component} {
       &__svg {
         path,
         line {
-          stroke: $color-black;
+          stroke: color(black);
         }
       }
     }
   }
 
   &--dark {
-    background-color: $color-black;
+    background-color: color(black);
 
     #{$component} {
     }
@@ -62,8 +62,8 @@
   position: relative;
   z-index: 0;
 
-  border-top: 1px solid $color-gray;
-  border-bottom: 1px solid $color-gray;
+  border-top: 1px solid color(gray);
+  border-bottom: 1px solid color(gray);
 
   &::before {
     position: absolute;
@@ -75,7 +75,7 @@
     content: "";
     width: 1px;
 
-    background-color: $color-white;
+    background-color: color(white);
   }
 
   &__slide {
@@ -86,7 +86,7 @@
     height: auto;
     min-height: rem(632px);
 
-    border-right: 1px solid $color-gray;
+    border-right: 1px solid color(gray);
 
     &:hover {
       #{$component} {
@@ -95,11 +95,11 @@
         }
 
         &__label {
-          background-color: $color-yellow;
+          background-color: color(yellow);
 
           path,
           line {
-            stroke: $color-black;
+            stroke: color(black);
           }
         }
       }
@@ -216,7 +216,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: $color-gray-light;
+    background-color: color(gray-light);
     cursor: pointer;
   }
 }
@@ -224,7 +224,7 @@
 .form-section {
   padding: rem(180px) calc(#{$column-padding} + #{$column} + #{$column-gap});
 
-  background-color: $color-gray-light;
+  background-color: color(gray-light);
 
   &__content {
     position: relative;
@@ -242,7 +242,7 @@
       pointer-events: none;
       user-select: none;
 
-      border: 2px solid $color-black;
+      border: 2px solid color(black);
       border-bottom: none;
       border-right: none;
       border-radius: rem(10px) 0 0 0;
@@ -335,21 +335,21 @@
     @include font-fsl("content-1", 16px, 130%);
 
     @include placeholder {
-      color: $color-gray-dark;
+      color: color(gray-dark);
     }
 
     padding: 0 rem(24px);
     width: 100%;
     height: rem(60px);
 
-    background: $color-white;
-    border: 1px solid $color-gray;
+    background: color(white);
+    border: 1px solid color(gray);
     border-radius: rem(12px);
-    color: $color-black;
+    color: color(black);
 
     &:hover,
     &:focus {
-      border-color: $color-blue;
+      border-color: color(blue);
     }
   }
 
@@ -359,7 +359,7 @@
     margin-top: rem(8px);
     display: none;
 
-    color: $color-red;
+    color: color(red);
   }
 }
 
@@ -389,7 +389,7 @@
     &:hover {
       #{$component} {
         &__box {
-          border-color: $color-blue;
+          border-color: color(blue);
         }
       }
     }
@@ -408,7 +408,7 @@
       & ~ {
         #{$component} {
           &__box {
-            border-color: $color-blue;
+            border-color: color(blue);
           }
         }
       }
@@ -418,8 +418,8 @@
       & ~ {
         #{$component} {
           &__box {
-            border-color: $color-blue;
-            background-color: $color-blue;
+            border-color: color(blue);
+            background-color: color(blue);
 
             #{$component} {
               &__svg {
@@ -439,8 +439,8 @@
     justify-content: center;
     align-items: center;
 
-    background-color: $color-white;
-    border: 1px solid $color-gray;
+    background-color: color(white);
+    border: 1px solid color(gray);
     border-radius: rem(4px);
   }
 
@@ -453,7 +453,7 @@
   }
 
   &__link {
-    color: $color-blue;
+    color: color(blue);
   }
 
   &__error {
@@ -463,6 +463,6 @@
     display: none;
     grid-column: 1 / span 2;
 
-    color: $color-red;
+    color: color(red);
   }
 }

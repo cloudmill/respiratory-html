@@ -10,39 +10,36 @@ $font-family-content: "Manrope";
 // breakpoints
 
 $breakpoints: (
-  xxs: 320px,
-  xs: 375px,
-  s: 576px,
-  m: 768px,
-  t: 1024px,
-  d: 1280px,
-  l: 1366px,
-  ll: 1440px,
-  xl: 1680px,
   xxl: 1920px,
+  xl: 1680px,
+  ll: 1440px,
+  l: 1366px,
+  d: 1280px,
+  t: 1024px,
+  m: 768px,
+  s: 576px,
+  xs: 375px,
+  xxs: 320px,
 );
-
-@function vw($size, $breakpoint: breakpoint(xxl)) {
-  @return math.div($size, $breakpoint) * 100vw;
-}
 
 // colors
 
-$color-black: #191a1c;
-$color-white: #ffffff;
+$colors: (
+  black: #191a1c,
+  white: #ffffff,
 
-$color-blue: #2967eb;
-$color-yellow: #ffed49;
-$color-red: #e53b10;
+  blue: #2967eb,
+  yellow: #ffed49,
+  red: #e53b10,
 
-$color-border: rgba(229, 233, 239, 0.3);
-$color-border-white: rgba(255, 255, 255, 0.2);
+  border: rgba(229, 233, 239, 0.3),
+  border-white: rgba(255, 255, 255, 0.2),
+  gray: #e5e9ef,
+  gray-dark: #87909b,
+  gray-light: #f2f5f8,
 
-$color-gray: #e5e9ef;
-$color-gray-dark: #87909b;
-$color-gray-light: #f2f5f8;
-
-$color-transparent: rgba(0, 0, 0, 0);
+  transparent: rgba(0, 0, 0, 0),
+);
 
 :root {
   --color-blue: #2967eb;
@@ -134,18 +131,22 @@ $tr-c: $trd $trf-c;
 @function rem($size) {
   @return math.div($size, $font-size) * 1rem;
 }
+
 // font filename -> url
 @function font-url($filename-without-extension) {
   @return url("../assets/fonts/#{$filename-without-extension}.woff");
 }
+
 // count, padding, gap -> column width for calc()
 @function column($count, $padding, $gap) {
   @return "((100vw - (#{$padding} * 2) - (#{$gap} * (#{$count} - 1))) / #{$count})";
 }
+
 // breakpoint variant -> breakpoint
 @function breakpoint($variant: d) {
   @return map.get($breakpoints, $variant);
 }
+
 // direction, breakpoint variant -> media condition
 @function media($direction: ">", $variant: d) {
   @if $direction == ">" {
@@ -153,6 +154,16 @@ $tr-c: $trd $trf-c;
   }
 
   @return "(max-width: #{breakpoint($variant) - 1px})";
+}
+
+// size in px, breakpoint variant -> size in vw
+@function vw($size: $font-size, $variant: xxl) {
+  @return math.div($size, breakpoint($variant)) * 100vw;
+}
+
+// color variant -> color
+@function color($variant: black) {
+  @return map.get($colors, $variant);
 }
 
 // MIXINS
@@ -167,6 +178,7 @@ $tr-c: $trd $trf-c;
     height: $width;
   }
 }
+
 // font-family, font-weight, letter-spacing, text-transform
 @mixin font($configuration: "title-1") {
   /*
@@ -209,6 +221,7 @@ $tr-c: $trd $trf-c;
     letter-spacing: -0.02em;
   }
 }
+
 // font-size [line-height]
 @mixin fsl($fs: $font-size, $lh: false) {
   font-size: rem($fs);
@@ -217,15 +230,18 @@ $tr-c: $trd $trf-c;
     line-height: math.div($lh, 100%);
   }
 }
+
 // font + fsl
 @mixin font-fsl($configuration: "title-1", $fs: $font-size, $lh: false) {
   @include font($configuration);
   @include fsl($fs, $lh);
 }
+
 // x, y, width, height -> grid-area
 @mixin grid-area($x, $y, $width, $height) {
   grid-area: unquote("#{$y} / #{$x} / span #{$height} / span #{$width}");
 }
+
 // margin -> top, bottom, left, right
 @mixin inset($margin: 0) {
   @each $property in (top, bottom, left, right) {

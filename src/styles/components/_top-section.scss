@@ -21,6 +21,6 @@
   &__title {
     @include font-fsl("title-3", 130px, 100%);
 
-    color: $color-yellow;
+    color: color(yellow);
   }
 }

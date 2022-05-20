@@ -1,9 +1,9 @@
 .html {
-  font-size: vw($font-size);
+  font-size: $font-size;
 
   @each $variant, $breakpoint in $breakpoints {
-    @media #{media(">", $variant)} {
-      font-size: vw($font-size, $breakpoint);
+    @media #{media("<", $variant)} {
+      font-size: vw($font-size, $variant);
     }
   }
 

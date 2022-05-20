@@ -26,14 +26,14 @@
     user-select: none;
     pointer-events: none;
 
-    border: 2px solid $color-black;
+    border: 2px solid color(black);
     border-bottom: none;
     border-right: none;
     border-radius: rem(10px) 0 0 0;
 
     &:nth-child(2),
     &:nth-child(3) {
-      border-color: $color-gray;
+      border-color: color(gray);
     }
 
     &:nth-child(1) {

@@ -21,20 +21,20 @@
 
     padding: rem(8px) rem(12px);
 
-    border: 1px solid $color-border;
+    border: 1px solid color(border);
     border-radius: rem(4px);
-    color: $color-white;
+    color: color(white);
 
     &--current {
-      background-color: $color-black;
-      border-color: $color-black;
+      background-color: color(black);
+      border-color: color(black);
     }
 
     &:not(#{$element}--current) {
       &:hover {
-        background-color: $color-yellow;
-        border-color: $color-yellow;
-        color: $color-black;
+        background-color: color(yellow);
+        border-color: color(yellow);
+        color: color(black);
       }
     }
   }

@@ -1,23 +1,18 @@
 .html {
-  font-size: vw($fontSize, $br-max);
+  font-size: vw($font-size, $breakpoint-xxl);
 
-  @each $breakpoint
-    in ($br-max, $br-xl, $br-ll, $br-l, $br, $br-t, $br-m, $br-s, $br-xs)
-  {
-    @media #{maxWidth($breakpoint)} {
-      font-size: vw($fontSize, $breakpoint);
+  @each $variant, $breakpoint in $breakpoints {
+    @media #{min-width($variant)} {
+      font-size: vw($font-size, $breakpoint);
     }
   }
 
-  -webkit-tap-highlight-color: $color-transparent;
-
-  &:not(.loaded) {
+  &--preload {
     * {
-      @include prefix(
-        (
-          transition: none !important,
-        )
-      );
+      @include prefix(transition, none !important);
     }
+  }
+
+  &--loaded {
   }
 }

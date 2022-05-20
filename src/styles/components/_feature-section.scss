@@ -8,7 +8,7 @@
     position: relative;
     z-index: 0;
 
-    padding-right: calc(#{$col} + #{$colGap});
+    padding-right: calc(#{$column} + #{$column-gap});
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -20,13 +20,13 @@
     &:nth-child(1) {
       z-index: 2;
 
-      width: calc(#{cols(4)});
+      width: calc(#{columns(4)});
     }
 
     &:nth-child(2) {
       z-index: 1;
 
-      width: calc(#{cols(5)});
+      width: calc(#{columns(5)});
 
       &::before {
         position: absolute;
@@ -60,7 +60,7 @@
 
     &::before,
     &::after {
-      @include size(rem(20px));
+      @include rectangle(rem(20px));
 
       position: absolute;
       z-index: -1;
@@ -87,13 +87,13 @@
   }
 
   &__title {
-    @include fontFsl("title-3", 130px, 100%);
+    @include font-fsl("title-3", 130px, 100%);
 
     color: $color-yellow;
   }
 
   &__text {
-    @include fontFsl("title-2", 18px, 120%);
+    @include font-fsl("title-2", 18px, 120%);
 
     margin-top: rem(20px);
     max-width: 84%;

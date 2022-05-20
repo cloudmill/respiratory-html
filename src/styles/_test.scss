@@ -161,7 +161,7 @@
 
     &::before,
     &::after {
-      @include size(rem(10px));
+      @include rectangle(rem(10px));
 
       position: absolute;
 
@@ -223,7 +223,7 @@
   }
 
   &__text {
-    @include fontFsl("title-1", 13px, 100%);
+    @include font-fsl("title-1", 13px, 100%);
 
     transition: color $tr, opacity $tr;
 

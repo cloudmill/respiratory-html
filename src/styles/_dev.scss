@@ -11,7 +11,7 @@
 .control {
   $component: &;
 
-  @include size(rem(64px));
+  @include rectangle(rem(64px));
 
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@
   }
 
   &__svg {
-    @include size(rem(24px));
+    @include rectangle(rem(24px));
 
     &--reverse {
       transform: rotate(180deg);
@@ -109,8 +109,8 @@
   &__row {
     min-height: 100%;
     display: grid;
-    grid-template-columns: calc(#{cols(3)}) auto;
-    column-gap: $colGap;
+    grid-template-columns: calc(#{columns(3)}) auto;
+    column-gap: $column-gap;
   }
 
   &__image {
@@ -133,7 +133,7 @@
   }
 
   &__title {
-    @include fontFsl("title-3", 54px, 100%);
+    @include font-fsl("title-3", 54px, 100%);
   }
 
   &__label {
@@ -146,8 +146,8 @@
   &__table {
     &-row {
       display: grid;
-      grid-template-columns: repeat(2, calc(#{$col}));
-      column-gap: $colGap;
+      grid-template-columns: repeat(2, calc(#{$column}));
+      column-gap: $column-gap;
 
       &:not(:first-child) {
         margin-top: rem(9px);
@@ -155,11 +155,11 @@
     }
 
     &-title {
-      @include fontFsl("content-1", 14px, 130%);
+      @include font-fsl("content-1", 14px, 130%);
     }
 
     &-value {
-      @include fontFsl("title-2", 16px, 100%);
+      @include font-fsl("title-2", 16px, 100%);
     }
   }
 
@@ -169,14 +169,14 @@
     column-gap: rem(12px);
 
     &-svg {
-      @include size(rem(60px));
+      @include rectangle(rem(60px));
     }
 
     &-content {
     }
 
     &-title {
-      @include fontFsl("title-2", 13px, 100%);
+      @include font-fsl("title-2", 13px, 100%);
     }
 
     &-value {
@@ -208,7 +208,7 @@
   display: flex;
 
   &__tag {
-    @include fontFsl("content-1", 12px, 130%);
+    @include font-fsl("content-1", 12px, 130%);
 
     padding: 0 rem(12px);
     height: rem(30px);
@@ -222,7 +222,7 @@
 }
 
 .form-section {
-  padding: rem(180px) calc(#{$colPad} + #{$col} + #{$colGap});
+  padding: rem(180px) calc(#{$column-padding} + #{$column} + #{$column-gap});
 
   background-color: $color-gray-light;
 
@@ -232,7 +232,7 @@
 
     &::before,
     &::after {
-      @include size(rem(20px));
+      @include rectangle(rem(20px));
 
       position: absolute;
       z-index: -1;
@@ -265,15 +265,15 @@
   }
 
   &__title {
-    max-width: calc(#{cols(5)});
+    max-width: calc(#{columns(5)});
 
     &-container {
-      padding-left: calc(#{cols(2)} + #{$colGap});
+      padding-left: calc(#{columns(2)} + #{$column-gap});
     }
   }
 
   &__article-container {
-    padding-left: calc(#{$col} + #{$colGap});
+    padding-left: calc(#{$column} + #{$column-gap});
   }
 }
 
@@ -282,8 +282,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    column-gap: $colGap;
-    row-gap: $colGap;
+    column-gap: $column-gap;
+    row-gap: $column-gap;
   }
 
   &__item {
@@ -306,7 +306,7 @@
   }
 
   &__submit {
-    margin-left: $colGap;
+    margin-left: $column-gap;
   }
 }
 
@@ -332,7 +332,7 @@
   }
 
   &__input {
-    @include fontFsl("content-1", 16px, 130%);
+    @include font-fsl("content-1", 16px, 130%);
 
     @include placeholder {
       color: $color-gray-dark;
@@ -354,7 +354,7 @@
   }
 
   &__error {
-    @include fontFsl("content-1", 12px, 130%);
+    @include font-fsl("content-1", 12px, 130%);
 
     margin-top: rem(8px);
     display: none;
@@ -433,7 +433,7 @@
   }
 
   &__box {
-    @include size(rem(24px));
+    @include rectangle(rem(24px));
 
     display: flex;
     justify-content: center;
@@ -449,7 +449,7 @@
   }
 
   &__content {
-    @include fontFsl("content-1", 12px, 160%);
+    @include font-fsl("content-1", 12px, 160%);
   }
 
   &__link {
@@ -457,7 +457,7 @@
   }
 
   &__error {
-    @include fontFsl("content-1", 12px, 130%);
+    @include font-fsl("content-1", 12px, 130%);
 
     margin-top: rem(8px);
     display: none;

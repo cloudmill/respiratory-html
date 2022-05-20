@@ -1,140 +1,45 @@
+// VARIABLES
+
 // font
+$font-size: 16px;
 
-$fontSize: 16px;
-
-@function rem($size) {
-  @return math.div($size, $fontSize) * 1rem;
-}
-
-@mixin size($width, $height: false) {
-  @if $height {
-    width: $width;
-    height: $height;
-  } @else {
-    width: $width;
-    height: $width;
-  }
-}
-
-$fontFamilyTitle: "ALS Gorizont";
-$fontFamilyContent: "Manrope";
-
-/*
-  configurations
-
-    title-1 - ALS Gorizont 550 UC
-    title-2 - ALS Gorizont 550 UC -0.02em
-    title-3 - ALS Gorizont 550 UC -0.06em
-
-    content-1 - Manrope 500
-    content-2 - Manrope 500 -0.01em
-    content-3 - Manrope 600
-    content-4 - Manrope 600 -0.02em
-*/
-
-@mixin font($configuration: "title-1") {
-  @if $configuration == "title-1" {
-    font-family: $fontFamilyTitle;
-    text-transform: uppercase;
-  } @else if $configuration == "title-2" {
-    font-family: $fontFamilyTitle;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-  } @else if $configuration == "title-3" {
-    font-family: $fontFamilyTitle;
-    letter-spacing: -0.06em;
-    text-transform: uppercase;
-  } @else if $configuration == "content-1" {
-    font-family: $fontFamilyContent;
-    font-weight: 500;
-  } @else if $configuration == "content-2" {
-    font-family: $fontFamilyContent;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-  } @else if $configuration == "content-3" {
-    font-family: $fontFamilyContent;
-    font-weight: 600;
-  } @else if $configuration == "content-4" {
-    font-family: $fontFamilyContent;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-}
-
-@mixin fsl($fs: $fontSize, $lh: false) {
-  font-size: rem($fs);
-
-  @if $lh {
-    line-height: math.div($lh, 100%);
-  }
-}
-
-@mixin fontFsl($config: "title-1", $fs: $fontSize, $lh: false) {
-  @include font($config);
-  @include fsl($fs, $lh);
-}
-
-@function fontUrl($filename) {
-  @return url("../assets/fonts/#{$filename}.woff");
-}
-
-// grid
-
-$colPad: rem(40px);
-$colPadM: rem(20px);
-
-$colCount: 12;
-$colCountM: 4;
-
-$colGap: rem(20px);
-$colGapM: rem(16px);
-
-$col: "((100vw - (#{$colPad} * 2) - (#{$colGap} * (#{$colCount} - 1))) / #{$colCount})";
-$colM: "((100vw - (#{$colPadM} * 2) - (#{$colGapM} * (#{$colCountM} - 1))) / #{$colCountM})";
-
-@function cols($colsCount) {
-  @return "(#{$col} * #{$colsCount} + #{$colGap} * (#{$colsCount} - 1))";
-}
-
-@function colsM($colsCount) {
-  @return "(#{$colM} * #{$colsCount} + #{$colGapM} * (#{$colsCount} - 1))";
-}
-
-@mixin area($x, $y, $width, $height) {
-  grid-column: $x unquote("/") span $width;
-  grid-row: $y unquote("/") span $height;
-}
-
-@mixin inset($offset: 0) {
-  top: $offset;
-  bottom: $offset;
-  left: $offset;
-  right: $offset;
-}
+$font-family-title: "ALS Gorizont";
+$font-family-content: "Manrope";
 
 // breakpoints
+$breakpoints: (
+  xxs: 320px,
+  xs: 375px,
+  s: 576px,
+  m: 768px,
+  t: 1024px,
+  d: 1280px,
+  l: 1366px,
+  ll: 1440px,
+  xl: 1680px,
+  xxl: 1920px,
+);
 
-$br-min: 320px;
-$br-xs: 375px;
-$br-s: 576px;
-$br-m: 768px;
-$br-t: 1024px;
-$br: 1280px;
-$br-l: 1366px;
-$br-ll: 1440px;
-$br-xl: 1680px;
-$br-max: 1920px;
-
-@function minWidth($breakpoint: $br) {
-  @return "(min-width: #{$breakpoint})";
+@function breakpoint($variant: d) {
+  @return map.get($map: $breakpoints, $key: $variant);
 }
 
-@function maxWidth($breakpoint: $br) {
-  @return "(max-width: #{$breakpoint - 1px})";
+@function min-width($variant: d) {
+  @return "(min-width: #{breakpoint($variant)})";
 }
 
-@function vw($size, $breakpoint: $br-max) {
+@function max-width($variant: d) {
+  @return "(max-width: #{breakpoint($variant) - 1px})";
+}
+
+@function vw($size, $breakpoint: $breakpoint-xxl) {
   @return math.div($size, $breakpoint) * 100vw;
+}
+
+.sxbcpu {
+  @media #{min-width(t)} and #{max-width(ll)} {
+    color: red;
+  }
 }
 
 // colors
@@ -174,16 +79,14 @@ $color-transparent: rgba(0, 0, 0, 0);
   --color-gray-light: #e5e9ef;
 }
 
-// prefixes
+// prefix
 
-@mixin prefix($declarations, $prefixes: webkit moz ms o) {
-  @each $property, $value in $declarations {
-    @each $prefix in $prefixes {
-      #{'-' + $prefix + '-' + $property}: $value;
-    }
-
-    #{$property}: $value;
+@mixin prefix($property, $value, $prefixes: (webkit, moz, ms, o)) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
   }
+
+  #{$property}: $value;
 }
 
 // placeholder
@@ -240,3 +143,125 @@ $trf-c: cubic-bezier(0.33, 1, 0.68, 1);
 
 $tr-q: $trd $trf-q;
 $tr-c: $trd $trf-c;
+
+// FUNCTIONS
+
+// px -> rem
+@function rem($size) {
+  @return math.div($size, $font-size) * 1rem;
+}
+// font filename -> url
+@function font-url($filename-without-extension) {
+  @return url("../assets/fonts/#{$filename-without-extension}.woff");
+}
+// count, padding, gap -> column width for calc()
+@function column($count, $padding, $gap) {
+  @return "((100vw - (#{$padding} * 2) - (#{$gap} * (#{$count} - 1))) / #{$count})";
+}
+
+// MIXINS
+
+// width, height
+@mixin rectangle($width, $height: false) {
+  width: $width;
+
+  @if $height {
+    height: $height;
+  } @else {
+    height: $width;
+  }
+}
+// font-family, font-weight, letter-spacing, text-transform
+@mixin font($configuration: "title-1") {
+  /*
+    configurations:
+
+      title-1 === ALS Gorizont 550 uppercase
+      title-2 === ALS Gorizont 550 uppercase -0.02em
+      title-3 === ALS Gorizont 550 uppercase -0.06em
+
+      content-1 === Manrope 500
+      content-2 === Manrope 500 -0.01em
+      content-3 === Manrope 600
+      content-4 === Manrope 600 -0.02em
+  */
+
+  @if $configuration == "title-1" {
+    font-family: $font-family-title;
+    text-transform: uppercase;
+  } @else if $configuration == "title-2" {
+    font-family: $font-family-title;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  } @else if $configuration == "title-3" {
+    font-family: $font-family-title;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+  } @else if $configuration == "content-1" {
+    font-family: $font-family-content;
+    font-weight: 500;
+  } @else if $configuration == "content-2" {
+    font-family: $font-family-content;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  } @else if $configuration == "content-3" {
+    font-family: $font-family-content;
+    font-weight: 600;
+  } @else if $configuration == "content-4" {
+    font-family: $font-family-content;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+// font-size [line-height]
+@mixin fsl($fs: $font-size, $lh: false) {
+  font-size: rem($fs);
+
+  @if $lh {
+    line-height: math.div($lh, 100%);
+  }
+}
+// font + fsl
+@mixin font-fsl($configuration: "title-1", $fs: $font-size, $lh: false) {
+  @include font($configuration);
+  @include fsl($fs, $lh);
+}
+// x, y, width, height -> grid-area
+@mixin grid-area($x, $y, $width, $height) {
+  grid-area: unquote("#{$y} / #{$x} / span #{$height} / span #{$width}");
+}
+// margin -> top, bottom, left, right
+@mixin inset($margin: 0) {
+  @each $property in (top, bottom, left, right) {
+    #{$property}: $margin;
+  }
+}
+
+// VARIABLES
+
+// grid
+$column-count: 12;
+$column-count-small: 4;
+
+$column-padding: rem(40px);
+$column-padding-small: rem(20px);
+
+$column-gap: rem(20px);
+$column-gap-small: rem(16px);
+
+$column: column($column-count, $column-padding, $column-gap);
+$column-small: column(
+  $column-count-small,
+  $column-padding-small,
+  $column-gap-small
+);
+
+// FUNCTIONS
+
+// columns count -> columns width
+@function columns($count: 1, $col: $column, $gap: $column-gap) {
+  @return "((#{$col} * #{$count}) + (#{$gap} * (#{$count} - 1)))";
+}
+@function columns-small($count: 1) {
+  @return columns($count, $column-small, $column-gap-small);
+}

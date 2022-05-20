@@ -19,7 +19,7 @@
   }
 
   &__title {
-    @include fontFsl("title-3", 130px, 100%);
+    @include font-fsl("title-3", 130px, 100%);
 
     color: $color-yellow;
   }

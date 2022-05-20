@@ -17,7 +17,7 @@
   &__link {
     $element: &;
 
-    @include fontFsl("title-2", 13px, 100%);
+    @include font-fsl("title-2", 13px, 100%);
 
     padding: rem(8px) rem(12px);
 

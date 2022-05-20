@@ -42,10 +42,10 @@ $section-slider-height: rem(920px);
       position: relative;
       z-index: 0;
 
-      padding-left: calc(#{cols(5)} + #{$colGap});
+      padding-left: calc(#{columns(5)} + #{$column-gap});
 
       &::before {
-        @include size(rem(20px));
+        @include rectangle(rem(20px));
 
         position: absolute;
         bottom: 0;
@@ -62,7 +62,7 @@ $section-slider-height: rem(920px);
   }
 
   &__title {
-    @include fontFsl("title-2", 18px, 120%);
+    @include font-fsl("title-2", 18px, 120%);
 
     pointer-events: all;
   }
@@ -76,7 +76,7 @@ $section-slider-height: rem(920px);
   }
 
   &__pagination {
-    @include fontFsl("title-2", 40px, 100%);
+    @include font-fsl("title-2", 40px, 100%);
 
     position: relative;
     z-index: 0;
@@ -104,8 +104,8 @@ $section-slider-height: rem(920px);
     z-index: 0;
 
     display: grid;
-    grid-template-columns: repeat(2, calc(#{cols(6)}));
-    column-gap: $colGap;
+    grid-template-columns: repeat(2, calc(#{columns(6)}));
+    column-gap: $column-gap;
   }
 
   &__content {
@@ -135,7 +135,7 @@ $section-slider-height: rem(920px);
   &__text {
     @include fsl(20px, 130%);
 
-    max-width: calc(#{cols(3)});
+    max-width: calc(#{columns(3)});
   }
 
   &__list {
@@ -148,7 +148,7 @@ $section-slider-height: rem(920px);
       z-index: 0;
 
       padding-left: rem(48px);
-      max-width: calc(#{rem(48px)} + #{cols(3)});
+      max-width: calc(#{rem(48px)} + #{columns(3)});
 
       &:not(:first-child) {
         margin-top: rem(8px);
@@ -156,7 +156,7 @@ $section-slider-height: rem(920px);
     }
 
     &-svg {
-      @include size(rem(24px));
+      @include rectangle(rem(24px));
 
       position: absolute;
       top: 0;
@@ -165,14 +165,14 @@ $section-slider-height: rem(920px);
   }
 
   &__title {
-    @include fontFsl("title-3", 72px, 100%);
+    @include font-fsl("title-3", 72px, 100%);
 
     position: absolute;
     z-index: 1;
     top: rem(166px);
-    left: calc(#{cols(3)} + #{$colGap});
+    left: calc(#{columns(3)} + #{$column-gap});
     mix-blend-mode: exclusion;
 
-    width: calc(#{cols(6)});
+    width: calc(#{columns(6)});
   }
 }

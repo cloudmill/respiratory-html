@@ -8,17 +8,17 @@
   justify-content: space-between;
 
   &__svg {
-    @include size(rem(90px));
+    @include rectangle(rem(90px));
   }
 
   &__text {
-    @include fontFsl("content-1", 24px, 130%);
+    @include font-fsl("content-1", 24px, 130%);
 
     margin-top: rem(40px);
   }
 
   &__decoration {
-    @include size(rem(20px));
+    @include rectangle(rem(20px));
 
     position: absolute;
     z-index: -1;

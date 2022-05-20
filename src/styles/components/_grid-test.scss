@@ -14,19 +14,19 @@
   }
 
   &__desktop {
-    grid-template-columns: repeat($colCount, 1fr);
-    column-gap: $colGap;
+    grid-template-columns: repeat($column-count, 1fr);
+    column-gap: $column-gap;
 
-    @media #{maxWidth($br)} {
+    @media #{max-width()} {
       display: none;
     }
   }
 
   &__mobile {
-    grid-template-columns: repeat($colCountM, 1fr);
-    column-gap: $colGapM;
+    grid-template-columns: repeat($column-count-small, 1fr);
+    column-gap: $column-gap-small;
 
-    @media #{minWidth($br)} {
+    @media #{min-width($breakpoint-t)} {
       display: none;
     }
   }

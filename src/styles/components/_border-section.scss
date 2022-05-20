@@ -5,7 +5,7 @@
 }
 
 .sub-title {
-  @include fontFsl("title-2", 18px, 120%);
+  @include font-fsl("title-2", 18px, 120%);
 }
 
 .info-blocks {
@@ -19,22 +19,22 @@
 .info-block {
   padding-bottom: rem(60px);
   display: grid;
-  grid-template-columns: calc(#{cols(7)}) calc(#{cols(5)});
-  column-gap: $colGap;
+  grid-template-columns: calc(#{columns(7)}) calc(#{columns(5)});
+  column-gap: $column-gap;
 
   &__col {
     &:nth-child(1) {
-      max-width: calc(#{cols(5)});
+      max-width: calc(#{columns(5)});
     }
 
     &:nth-child(2) {
       padding-top: rem(40px);
-      max-width: calc(#{cols(4)});
+      max-width: calc(#{columns(4)});
     }
   }
 
   &__text {
-    @include fontFsl("content-1", 20px, 160%);
+    @include font-fsl("content-1", 20px, 160%);
 
     &:not(:first-child) {
       margin-top: rem(32px);
@@ -48,7 +48,7 @@
     padding: rem(40px) rem(40px) 0 rem(40px);
 
     &::before {
-      @include size(rem(20px));
+      @include rectangle(rem(20px));
 
       position: absolute;
       z-index: -1;
@@ -68,14 +68,14 @@
 }
 
 .article {
-  @include fontFsl("title-2", 32px, 120%);
+  @include font-fsl("title-2", 32px, 120%);
 
   &--large {
-    @include fontFsl("title-3", 54px, 100%);
+    @include font-fsl("title-3", 54px, 100%);
   }
 
   &--indent {
-    text-indent: calc(#{$col} + #{$colGap});
+    text-indent: calc(#{$column} + #{$column-gap});
   }
 
   &__highlight {
@@ -86,7 +86,7 @@
 .information-block {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: $colGap;
+  column-gap: $column-gap;
 }
 
 .information-card {
@@ -129,7 +129,7 @@
     border-radius: 0 rem(16px) rem(16px) rem(16px);
 
     &::before {
-      @include size(rem(20px));
+      @include rectangle(rem(20px));
 
       position: absolute;
       z-index: 2;
@@ -148,7 +148,7 @@
   }
 
   &__picture {
-    @include size(100%);
+    @include rectangle(100%);
 
     position: relative;
     z-index: 1;
@@ -162,13 +162,13 @@
   }
 
   &__title {
-    @include fontFsl("title-2", 18px, 120%);
+    @include font-fsl("title-2", 18px, 120%);
 
     margin-top: rem(24px);
   }
 
   &__size {
-    @include fontFsl("content-3", 16px, 130%);
+    @include font-fsl("content-3", 16px, 130%);
 
     margin-top: rem(4px);
 
@@ -178,8 +178,8 @@
 
 .slider-panel {
   display: grid;
-  grid-template-columns: calc(#{cols(5)}) calc(#{cols(7)});
-  column-gap: $colGap;
+  grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
+  column-gap: $column-gap;
 
   &__col {
     &:nth-child(2) {
@@ -190,7 +190,7 @@
 
   &__sub-col {
     &:nth-child(2) {
-      margin-left: $colGap;
+      margin-left: $column-gap;
     }
   }
 }
@@ -203,13 +203,13 @@
   &--submit {
     #{$component} {
       &__btn {
-        min-width: calc(#{cols(2)});
+        min-width: calc(#{columns(2)});
       }
     }
   }
 
   &__btn {
-    @include fontFsl("title-1", 13px, 100%);
+    @include font-fsl("title-1", 13px, 100%);
 
     position: relative;
     z-index: 0;
@@ -228,7 +228,7 @@
 
     &::before,
     &::after {
-      @include size(rem(10px));
+      @include rectangle(rem(10px));
 
       position: absolute;
       z-index: -1;

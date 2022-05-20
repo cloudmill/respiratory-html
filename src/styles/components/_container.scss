@@ -1,9 +1,9 @@
 .container {
-  padding-left: $colPad;
-  padding-right: $colPad;
+  padding-left: $column-padding;
+  padding-right: $column-padding;
 
-  @media #{maxWidth($br)} {
-    padding-left: $colPadM;
-    padding-right: $colPadM;
+  @media #{max-width()} {
+    padding-left: $column-padding-small;
+    padding-right: $column-padding-small;
   }
 }

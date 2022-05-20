@@ -26,6 +26,14 @@
     }
   }
 
+  &--light {
+    #{$comp} {
+      &__button {
+        border: 1px solid $color-gray;
+      }
+    }
+  }
+
   &__button {
     $el: &;
 

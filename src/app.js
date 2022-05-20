@@ -1,25 +1,51 @@
+// style import
+
 import "./styles/app";
 
-import { loaded } from "./scripts/loaded";
+// script import
+
 import { useDebug } from "./scripts/useDebug";
+import { htmlPreloadLoaded } from "./scripts/htmlPreloadLoaded";
 import { aos } from "./scripts/aos";
 import { sectionSlider } from "./scripts/sectionSlider";
 import { examplesSlider } from "./scripts/examplesSlider";
 import { buttonTest } from "./scripts/buttonTest";
 
-const [log, logError] = useDebug(false, "[app.js]");
+// data
+
+const [log, logError] = useDebug(true, "[app.js]");
+
+// handlers
+
+const DOMContentLoadedHandler = () => {
+  sectionSlider();
+  examplesSlider();
+  buttonTest();
+};
+
+const loadHandler = () => {
+  htmlPreloadLoaded();
+  aos();
+};
+
+// events
 
 window.addEventListener("DOMContentLoaded", () => {
   log("DOMContentLoaded");
 
-  sectionSlider();
-  examplesSlider();
-  buttonTest();
+  try {
+    DOMContentLoadedHandler();
+  } catch (error) {
+    logError(error);
+  }
 });
 
 window.addEventListener("load", () => {
   log("load");
 
-  loaded();
-  aos();
+  try {
+    loadHandler();
+  } catch (error) {
+    logError(error);
+  }
 });

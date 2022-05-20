@@ -266,6 +266,8 @@ $column-small: column(
 @function columns($count: 1, $col: $column, $gap: $column-gap) {
   @return "((#{$col} * #{$count}) + (#{$gap} * (#{$count} - 1)))";
 }
+
+// small columns count -> small columns width
 @function columns-small($count: 1) {
   @return columns($count, $column-small, $column-gap-small);
 }

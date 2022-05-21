@@ -3,7 +3,7 @@ extends ../app
 block header
 block footer
 
-//- block grid-test
+block grid-test
 
 mixin button(props = {})
   -
@@ -44,7 +44,92 @@ mixin button(props = {})
           block
 
 block content
+  //- .container(style="background-color: gray;")
   .container
+    .button.button--radius--large
+      button.button__button(type="button")
+        .button__back
+          .button__back-mask.button__back-mask--under
+            .button__background.button__background--border--small.button__background--blue
+          .button__back-mask.button__back-mask--above
+            .button__background.button__background--border--small.button__background--transparent
+        .button__content
+          .button__mask.button__mask--under
+            .button__container.button__container--under.button__container--icon-text
+              .button__text.button__text--white-black
+                |text
+          .button__mask.button__mask--above
+            .button__container.button__container--above.button__container--icon-text
+              .button__text.button__text--white-black
+                |text
+    .button.button--radius--large
+      button.button__button(type="button")
+        .button__back
+          .button__back-mask.button__back-mask--under
+            .button__background.button__background--border--large.button__background--yellow
+          .button__back-mask.button__back-mask--above
+            .button__background.button__background--border--large.button__background--white
+        .button__content
+          .button__mask.button__mask--under
+            .button__container.button__container--under.button__container--icon-text
+              .button__text.button__text--white-black
+                |text
+          .button__mask.button__mask--above
+            .button__container.button__container--above.button__container--icon-text
+              .button__text.button__text--white-black
+                |text
+    .button.button--radius--middle
+      a.button__button(href="#")
+        .button__back
+          .button__back-mask.button__back-mask--under
+            .button__background.button__background--border--small.button__background--white
+          .button__back-mask.button__back-mask--above
+            .button__background.button__background--border--small.button__background--yellow
+        .button__content
+          .button__mask.button__mask--under
+            .button__container.button__container--under.button__container--icon-text
+              .button__icon
+                +map-svg.button__svg.button__svg--map
+              .button__text.button__text--black
+                |text
+          .button__mask.button__mask--above
+            .button__container.button__container--above.button__container--icon-text
+              .button__icon
+                +map-svg.button__svg.button__svg--map
+              .button__text.button__text--black
+                |text
+    .button.button--radius--small
+      button.button__button(type="submit" disabled)
+        .button__content
+          .button__mask.button__mask--under
+            .button__container.button__container--under.button__container--icon-text
+              .button__icon.button__icon--motionless
+                +map-svg.button__svg.button__svg--map
+              .button__text.button__text--white-black
+                |text
+          .button__mask.button__mask--above
+            .button__container.button__container--above.button__container--icon-text
+              .button__icon.button__icon--motionless
+                +map-svg.button__svg.button__svg--map
+              .button__text.button__text--white-black
+                |text
+    .button.button--radius--micro
+      .button__button
+        .button__content
+          .button__mask.button__mask--under
+            .button__container.button__container--under.button__container--text-icon
+              .button__text.button__text--white-black
+                |text
+              .button__icon
+                +map-svg.button__svg.button__svg--map
+          .button__mask.button__mask--above
+            .button__container.button__container--above.button__container--text-icon
+              .button__text.button__text--white-black
+                |text            
+              .button__icon
+                +map-svg.button__svg.button__svg--map
+
+  //- .container
     .sxbcpu
       +button({ tag: 'div', light: true })
         |div light

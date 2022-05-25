@@ -661,3 +661,40 @@
 //     @include rectangle(rem(24px));
 //   }
 // }
+
+.bbtn {
+  $component: &;
+  
+  display: flex;
+
+  &__btn {
+    padding: 0 rem(40px);
+    height: rem(60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background-color: color(blue);
+    border-radius: rem(12px);
+    cursor: pointer;
+    transition: background-color transition(minor);
+
+    &:hover {
+      background-color: color(yellow);
+
+      #{$component} {
+        &__text {
+          color: color(black);
+        }
+      }
+    }
+  }
+
+  &__text {
+    @include font-fsl("title-1", 13px, 100%);
+
+    color: color(white);
+    transition: color transition(minor);
+  }
+}

@@ -3,24 +3,37 @@ extends ../app
 block header
 block footer
 
+block grid-test
+
 block content
   .container
     ul
-      li
-        a(href="https://cloudmill.github.io/respiratory-html-old/dist/main")
-          |Главная
-      li
-        a(href="https://cloudmill.github.io/respiratory-html-old/dist/catalog")
-          |Каталог
-      li
-        a(href="https://cloudmill.github.io/respiratory-html-old/dist/product")
-          |Карточка товара
-      li
-        a(href="https://cloudmill.github.io/respiratory-html-old/dist/order")
-          |Оформление заказа
-      li
-        a(href="https://cloudmill.github.io/respiratory-html-old-2/dist/dev")
-          |Промышленным предприятиям
-      li
-        a(href="https://cloudmill.github.io/respiratory-html-old/dist/about")
-          |О компании
+      -
+        var items = [
+          {
+            title: 'Главная',
+            href: 'https://cloudmill.github.io/respiratory-html-old/dist/main',
+          },
+          {
+            title: 'Каталог',
+            href: 'https://cloudmill.github.io/respiratory-html-old/dist/catalog',
+          },
+          {
+            title: 'Карточка товара',
+            href: 'https://cloudmill.github.io/respiratory-html-old/dist/product',
+          },
+          {
+            title: 'Оформление заказа',
+            href: 'https://cloudmill.github.io/respiratory-html-old/dist/order',
+          },
+          {
+            title: 'О компании',
+            href: 'https://cloudmill.github.io/respiratory-html-old/dist/about',
+          },
+        ]
+      each item in items
+        li(style="margin: 10px 0;")
+          .bbtn
+            a.bbtn__btn(href=item.href)
+              .bbtn__text
+                |#{item.title}

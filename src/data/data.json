@@ -3,19 +3,31 @@
 
   "routes": [
     {
-      "title": "Промышленным предприятиям",
-      "path": "industry"
+      "title": "Главная",
+      "path": "https://cloudmill.github.io/respiratory-html-old/dist/main"
     },
     {
-      "title": "UI Kit",
-      "path": "ui"
+      "title": "Каталог",
+      "path": "https://cloudmill.github.io/respiratory-html-old/dist/catalog"
     },
     {
-      "title": "Development",
-      "path": "dev"
+      "title": "Карточка товара",
+      "path": "https://cloudmill.github.io/respiratory-html-old/dist/product"
     },
     {
-      "title": "Test",
+      "title": "Оформление заказа",
+      "path": "https://cloudmill.github.io/respiratory-html-old/dist/order"
+    },
+    {
+      "title": "О компании",
+      "path": "https://cloudmill.github.io/respiratory-html-old/dist/about"
+    },
+    {
+      "title": "Потребителям",
+      "path": "consumers"
+    },
+    {
+      "title": "Тестовая",
       "path": "test"
     }
   ]

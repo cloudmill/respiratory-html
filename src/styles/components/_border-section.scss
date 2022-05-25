@@ -4,10 +4,6 @@
   border-top: 1px solid color(gray);
 }
 
-.sub-title {
-  @include font-fsl("title-2", 18px, 120%);
-}
-
 .info-blocks {
   &__item {
     &:not(:first-child) {
@@ -195,73 +191,73 @@
   }
 }
 
-.btn {
-  $component: &;
+// .btn {
+//   $component: &;
 
-  display: flex;
+//   display: flex;
 
-  &--submit {
-    #{$component} {
-      &__btn {
-        min-width: calc(#{columns(2)});
-      }
-    }
-  }
+//   &--submit {
+//     #{$component} {
+//       &__btn {
+//         min-width: calc(#{columns(2)});
+//       }
+//     }
+//   }
 
-  &__btn {
-    @include font-fsl("title-1", 13px, 100%);
+//   &__btn {
+//     @include font-fsl("title-1", 13px, 100%);
 
-    position: relative;
-    z-index: 0;
+//     position: relative;
+//     z-index: 0;
 
-    padding: 0 rem(40px);
-    height: rem(60px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+//     padding: 0 rem(40px);
+//     height: rem(60px);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    background-color: color(blue);
-    border: none;
-    border-radius: rem(12px);
-    color: color(white);
-    cursor: pointer;
+//     background-color: color(blue);
+//     border: none;
+//     border-radius: rem(12px);
+//     color: color(white);
+//     cursor: pointer;
 
-    &::before,
-    &::after {
-      @include rectangle(rem(10px));
+//     &::before,
+//     &::after {
+//       @include rectangle(rem(10px));
 
-      position: absolute;
-      z-index: -1;
+//       position: absolute;
+//       z-index: -1;
 
-      content: "";
-      pointer-events: none;
-      user-select: none;
+//       content: "";
+//       pointer-events: none;
+//       user-select: none;
 
-      border: 1.5px solid color(yellow);
-      border-bottom: none;
-      border-left: none;
-      border-radius: 0 rem(5px) 0 0;
-    }
+//       border: 1.5px solid color(yellow);
+//       border-bottom: none;
+//       border-left: none;
+//       border-radius: 0 rem(5px) 0 0;
+//     }
 
-    &::before {
-      top: rem(10px);
-      right: rem(10px);
-    }
+//     &::before {
+//       top: rem(10px);
+//       right: rem(10px);
+//     }
 
-    &::after {
-      bottom: rem(10px);
-      left: rem(10px);
-      transform: rotate(180deg);
-    }
+//     &::after {
+//       bottom: rem(10px);
+//       left: rem(10px);
+//       transform: rotate(180deg);
+//     }
 
-    &:hover {
-      background-color: color(yellow);
-      color: color(black);
+//     &:hover {
+//       background-color: color(yellow);
+//       color: color(black);
 
-      &::before,
-      &::after {
-        border-color: color(black);
-      }
-    }
-  }
-}
+//       &::before,
+//       &::after {
+//         border-color: color(black);
+//       }
+//     }
+//   }
+// }

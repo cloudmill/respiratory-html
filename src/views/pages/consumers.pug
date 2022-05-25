@@ -1,0 +1,60 @@
+extends ../app
+
+block header
+  |header
+block footer
+  |footer
+
+mixin btn(props = {})
+  -
+    props = Object.assign({}, {
+      fluid: false,
+      tag: 'div',
+      href: '#',
+      buttonType: 'submit',
+    }, props);
+
+  mixin btn-inner
+    .btn__slider
+      .btn__slider-slide
+        .btn__slider-place
+          .btn__content
+            .btn__content-text
+              block
+      .btn__slider-slide
+        .btn__slider-place
+          .btn__content.btn__content--dark
+            .btn__content-text.btn__content-text--dark
+              block
+
+  .btn
+    .btn__btn
+      +btn-inner
+        block
+    //- case props.tag
+      when 'div'
+        .btn__btn(class=(props.fluid && "btn--fluid"))
+          +inner
+            block
+      when 'a'
+        a.btn__btn(class=(props.fluid && "btn--fluid") href=props.href)
+          +inner
+            block
+      when 'button'
+        button.btn__btn(class=(props.fluid && "btn--fluid") type=props.buttonType)
+          +inner
+            block
+
+block content
+  section.section.container
+    +btn({ fluid: true })
+      |привет
+  section.section.container
+    +btn
+      |123
+  section.section.container
+    .hr.space-between
+      h2.sub-title
+        |Где купить в розницу
+      +btn
+        |123

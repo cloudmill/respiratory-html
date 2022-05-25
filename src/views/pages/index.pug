@@ -8,32 +8,9 @@ block grid-test
 block content
   .container
     ul
-      -
-        var items = [
-          {
-            title: 'Главная',
-            href: 'https://cloudmill.github.io/respiratory-html-old/dist/main',
-          },
-          {
-            title: 'Каталог',
-            href: 'https://cloudmill.github.io/respiratory-html-old/dist/catalog',
-          },
-          {
-            title: 'Карточка товара',
-            href: 'https://cloudmill.github.io/respiratory-html-old/dist/product',
-          },
-          {
-            title: 'Оформление заказа',
-            href: 'https://cloudmill.github.io/respiratory-html-old/dist/order',
-          },
-          {
-            title: 'О компании',
-            href: 'https://cloudmill.github.io/respiratory-html-old/dist/about',
-          },
-        ]
-      each item in items
+      each route in data.routes
         li(style="margin: 10px 0;")
           .bbtn
-            a.bbtn__btn(href=item.href)
+            a.bbtn__btn(href=route.path)
               .bbtn__text
-                |#{item.title}
+                |#{route.title}

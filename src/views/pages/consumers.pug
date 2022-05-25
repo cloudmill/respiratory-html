@@ -5,54 +5,84 @@ block header
 block footer
   |footer
 
+block grid-test
+
 mixin btn(props = {})
   -
-    props = Object.assign({}, {
+    var defaultProps = {
       fluid: false,
-      tag: 'div',
-      href: '#',
-      buttonType: 'submit',
-    }, props);
+      tag: "div",
+      href: "#",
+      buttonType: "submit",
+    }
+    
+    props = Object.assign({}, defaultProps, props);
 
   mixin btn-inner
-    .btn__slider
-      .btn__slider-slide
-        .btn__slider-place
+    .btn__block.btn__block--content
+    
+      .btn__mask
+        .btn__holder
+        
           .btn__content
-            .btn__content-text
-              block
-      .btn__slider-slide
-        .btn__slider-place
-          .btn__content.btn__content--dark
-            .btn__content-text.btn__content-text--dark
+            .btn__text
               block
 
-  .btn
-    .btn__btn
-      +btn-inner
-        block
-    //- case props.tag
-      when 'div'
-        .btn__btn(class=(props.fluid && "btn--fluid"))
-          +inner
-            block
-      when 'a'
-        a.btn__btn(class=(props.fluid && "btn--fluid") href=props.href)
-          +inner
-            block
-      when 'button'
-        button.btn__btn(class=(props.fluid && "btn--fluid") type=props.buttonType)
-          +inner
-            block
+      .btn__mask
+        .btn__holder
 
+          .btn__content
+            .btn__text.btn__text--dark
+              block
+
+    .btn__block.btn__block--layout.btn__block--background
+    
+      .btn__mask
+        .btn__holder
+        
+          .btn__background.btn__background--blue
+
+      .btn__mask
+        .btn__holder
+
+          .btn__background.btn__background--yellow
+
+    .btn__block.btn__block--layout.btn__block--decorations
+    
+      .btn__mask
+        .btn__holder
+    
+      .btn__mask
+        .btn__holder
+
+  .btn(class=(props.fluid && "btn--fluid"))
+    case props.tag
+      when "div"
+        .btn__btn
+          +btn-inner
+            block
+      when "a"
+        a.btn__btn(href=props.href)
+          +btn-inner
+            block
+      when "button"
+        button.btn__btn(type=props.buttonType)
+          +btn-inner
+            block
+    
 block content
   section.section.container
     +btn({ fluid: true })
-      |привет
+      |div fluid
   section.section.container
-    +btn
-      |123
+    +btn({ tag: 'a', href: '#hello' })
+      |a
   section.section.container
+    form
+      +btn({ tag: 'button' })
+        |button
+
+  //- section.section.container
     .hr.space-between
       h2.sub-title
         |Где купить в розницу

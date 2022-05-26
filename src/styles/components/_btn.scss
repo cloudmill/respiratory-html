@@ -108,46 +108,69 @@
 
     cursor: pointer;
 
-    &:hover,
-    &:focus {
-      #{$component} {
-        &__mask {
-          &--main {
-            height: 0;
-          }
+    &:disabled {
+      cursor: not-allowed;
 
-          &--second {
-            height: var(--height);
-          }
+      #{$component} {
+        &__text {
+          color: color(gray-dark);
+          opacity: 0.3;
+        }
+
+        &__background {
+          background-color: color(gray-light);
         }
 
         &__decoration {
-          $move: rem(4px);
-
           &::before {
-            $count: 3;
+            border-color: color(gray);
+          }
+        }
+      }
+    }
 
-            @keyframes btn-decoration-opacity {
-              from {
-                opacity: 1;
-              }
-
-              to {
-                opacity: 0;
-              }
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        #{$component} {
+          &__mask {
+            &--main {
+              height: 0;
             }
 
-            animation: btn-decoration-opacity
-              math.div(duration(default), $count) timing-function(minor)
-              ($count * 2) alternate;
+            &--second {
+              height: var(--height);
+            }
           }
 
-          &:nth-child(1) {
-            transform: translate($move, -$move);
-          }
+          &__decoration {
+            $move: rem(4px);
 
-          &:nth-child(2) {
-            transform: translate(-$move, $move);
+            &::before {
+              $count: 3;
+
+              @keyframes btn-decoration-opacity {
+                from {
+                  opacity: 1;
+                }
+
+                to {
+                  opacity: 0;
+                }
+              }
+
+              animation: btn-decoration-opacity
+                math.div(duration(default), $count) timing-function(minor)
+                ($count * 2) alternate;
+            }
+
+            &:nth-child(1) {
+              transform: translate($move, -$move);
+            }
+
+            &:nth-child(2) {
+              transform: translate(-$move, $move);
+            }
           }
         }
       }
@@ -216,6 +239,8 @@
   &__text {
     @include font-fsl("title-1", 13px, 100%);
 
+    transition: color $transition, opacity $transition;
+
     &--white {
       color: color(white);
     }
@@ -231,6 +256,7 @@
     position: absolute;
 
     border-radius: var(--radius);
+    transition: background-color $transition;
 
     &--blue {
       background-color: color(blue);
@@ -263,6 +289,7 @@
       border-top: none;
       border-right: none;
       border-radius: 0 0 0 50%;
+      transition: border-color $transition;
     }
 
     &:nth-child(1) {

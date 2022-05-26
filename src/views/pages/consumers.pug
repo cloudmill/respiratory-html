@@ -5,56 +5,46 @@ block header
 block footer
   |footer
 
-mixin btn(props = {})
-  -
-    props = Object.assign({}, {
-      fluid: false,
-      tag: 'div',
-      href: '#',
-      buttonType: 'submit',
-    }, props);
+mixin sub-title
+  h2.sub-title(class=attributes.class)
+    block
 
-  mixin btn-inner
-    .btn__slider
-      .btn__slider-slide
-        .btn__slider-place
-          .btn__content
-            .btn__content-text
-              block
-      .btn__slider-slide
-        .btn__slider-place
-          .btn__content.btn__content--dark
-            .btn__content-text.btn__content-text--dark
-              block
-
+mixin btn
   .btn
-    .btn__btn
-      +btn-inner
-        block
-    //- case props.tag
-      when 'div'
-        .btn__btn(class=(props.fluid && "btn--fluid"))
-          +inner
-            block
-      when 'a'
-        a.btn__btn(class=(props.fluid && "btn--fluid") href=props.href)
-          +inner
-            block
-      when 'button'
-        button.btn__btn(class=(props.fluid && "btn--fluid") type=props.buttonType)
-          +inner
-            block
+    a.btn__btn(href="#")
+      block
+
+mixin company(index)
+  -
+    var texts = [
+      'Интернет-магазин OZON',
+      'Интернет-магазин WILDBERRIES',
+      'Торговая сеть «Максидом»',
+      'Торговая сеть «Леруа Мерлен»',
+      'Сеть магазинов «Строитель»',
+      'Торговый дом «Вимос»',
+    ]
+
+  a.company(href=("#company-" + index))
+    .company__frame
+      img.company__img(src="assets/images/company-" + index + ".jpeg")
+    .company__text
+      |#{texts[index]}
+
+mixin companies(count = 6)
+  -
+    var maxCount = 6;
+
+  .companies(class=attributes.class)
+    - for (var index = 0; index < count; index++)
+      .companies__place
+        +company(index % maxCount)
 
 block content
   section.section.container
-    +btn({ fluid: true })
-      |привет
-  section.section.container
-    +btn
-      |123
-  section.section.container
     .hr.space-between
-      h2.sub-title
+      +sub-title
         |Где купить в розницу
       +btn
-        |123
+        |полный список
+    +companies.companies--margin--default

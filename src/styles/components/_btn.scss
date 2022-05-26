@@ -1,106 +1,210 @@
+// .btn {
+//   $component: &;
+//   $transition: transition(minor);
+
+//   --height: #{rem(60px)};
+//   --radius: #{rem(12px)};
+
+//   display: flex;
+
+//   &--fluid {
+//     #{$component} {
+//       &__btn {
+//         width: 100%;
+//       }
+
+//       &__slider {
+//         &-slide,
+//         &-place {
+//           width: 100%;
+//         }
+//       }
+//     }
+//   }
+
+//   &__btn {
+//     pointer-events: none;
+
+//     cursor: pointer;
+
+//     &:hover,
+//     &:focus {
+//       #{$component} {
+//         &__slider {
+//           &-slide {
+//             &:nth-child(1) {
+//               height: 0;
+//             }
+
+//             &:nth-child(2) {
+//               height: var(--height);
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   &__slider {
+//     position: relative;
+//     z-index: 0;
+
+//     height: var(--height);
+
+//     &-slide {
+//       will-change: auto;
+
+//       overflow: hidden;
+
+//       transition: height $transition;
+
+//       &:nth-child(1) {
+//         height: var(--height);
+//       }
+
+//       &:nth-child(2) {
+//         position: absolute;
+//         bottom: 0;
+
+//         height: 0;
+//         display: flex;
+//         align-items: flex-end;
+//       }
+//     }
+
+//     &-place {
+//       height: var(--height);
+//     }
+//   }
+
+//   &__content {
+//     padding: 0 rem(40px);
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     overflow: hidden;
+//     pointer-events: all;
+
+//     background-color: color(blue); // test
+//     border-radius: var(--radius);
+
+//     &--dark {
+//       background-color: color(yellow); // test
+//     }
+
+//     &-text {
+//       @include font-fsl("title-1", 13px, 100%);
+
+//       color: color(white);
+
+//       &--dark {
+//         color: color(black);
+//       }
+//     }
+//   }
+// }
+
 .btn {
-  $component: &;
-  $transition: transition(minor);
-
-  --height: #{rem(60px)};
-  --radius: #{rem(12px)};
-
   display: flex;
 
-  &--fluid {
-    #{$component} {
-      &__btn {
-        width: 100%;
-      }
-
-      &__slider {
-        &-slide,
-        &-place {
-          width: 100%;
-        }
-      }
-    }
-  }
-
   &__btn {
-    pointer-events: none;
+    @include font-fsl("title-1", 13px, 100%);
 
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      #{$component} {
-        &__slider {
-          &-slide {
-            &:nth-child(1) {
-              height: 0;
-            }
-
-            &:nth-child(2) {
-              height: var(--height);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &__slider {
-    position: relative;
-    z-index: 0;
-
-    height: var(--height);
-
-    &-slide {
-      will-change: auto;
-
-      overflow: hidden;
-
-      transition: height $transition;
-
-      &:nth-child(1) {
-        height: var(--height);
-      }
-
-      &:nth-child(2) {
-        position: absolute;
-        bottom: 0;
-
-        height: 0;
-        display: flex;
-        align-items: flex-end;
-      }
-    }
-
-    &-place {
-      height: var(--height);
-    }
-  }
-
-  &__content {
     padding: 0 rem(40px);
-    height: 100%;
+    height: rem(60px);
     display: flex;
-    justify-content: center;
     align-items: center;
     overflow: hidden;
-    pointer-events: all;
 
-    background-color: color(blue); // test
-    border-radius: var(--radius);
+    background-color: color(blue);
+    border-radius: rem(12px);
+    color: color(white);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
 
-    &--dark {
-      background-color: color(yellow); // test
-    }
+.companies {
+  --columns-count: 6;
 
-    &-text {
-      @include font-fsl("title-1", 13px, 100%);
+  --column-gap: #{$column-gap};
+  --row-gap: #{$column-gap};
 
-      color: color(white);
+  display: grid;
+  grid-template-columns: repeat(var(--columns-count), 1fr);
+  column-gap: var(--column-gap);
+  row-gap: var(--row-gap);
 
-      &--dark {
-        color: color(black);
+  @media #{media("<")} {
+    --columns-count: 2;
+
+    --column-gap: #{$column-gap-small};
+  }
+
+  &--margin {
+    &--default {
+      margin-top: rem(100px);
+
+      @media #{media("<")} {
+        margin-top: rem(20px);
       }
     }
+  }
+
+  &__place {
+  }
+}
+
+.company {
+  $component: &;
+  $transition: transition(major);
+
+  display: block;
+
+  &:hover,
+  &:focus {
+    #{$component} {
+      &__frame {
+        border-color: color(yellow);
+      }
+
+      &__img {
+        transform: scale(1.1);
+      }
+
+      &__text {
+        color: color(blue);
+      }
+    }
+  }
+
+  &__frame {
+    height: rem(180px);
+    overflow: hidden;
+
+    background-color: color(white);
+    border: 1px solid color(gray);
+    border-radius: 0 rem(12px) rem(12px) rem(12px);
+    transition: border-color $transition;
+  }
+
+  &__img {
+    @include rectangle(100%);
+
+    transform: scale(1);
+
+    display: block;
+    object-fit: contain;
+
+    transition: transform $transition;
+  }
+
+  &__text {
+    @include font-fsl("content-1", 16px, 130%);
+
+    margin-top: rem(16px);
+
+    transition: color $transition;
   }
 }

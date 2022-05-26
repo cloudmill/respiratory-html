@@ -87,7 +87,6 @@
   $transition: transition(minor);
 
   --height: #{rem(60px)};
-  --radius: #{rem(12px)};
   --padding: #{rem(40px)};
 
   display: flex;
@@ -97,6 +96,24 @@
       &__btn {
         width: 100%;
       }
+    }
+  }
+
+  &--radius {
+    &--s {
+      --radius: #{rem(4px)};
+    }
+
+    &--m {
+      --radius: #{rem(6px)};
+    }
+
+    &--l {
+      --radius: #{rem(8px)};
+    }
+
+    &--xl {
+      --radius: #{rem(12px)};
     }
   }
 
@@ -239,6 +256,7 @@
   &__text {
     @include font-fsl("title-1", 13px, 100%);
 
+    white-space: nowrap;
     transition: color $transition, opacity $transition;
 
     &--white {
@@ -264,6 +282,15 @@
 
     &--yellow {
       background-color: color(yellow);
+    }
+
+    &--white {
+      background-color: color(white);
+      border: 1px solid color(gray);
+    }
+
+    &--transparent {
+      border: 2px solid color(white);
     }
   }
 

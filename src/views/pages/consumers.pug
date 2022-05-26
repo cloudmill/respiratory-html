@@ -19,6 +19,8 @@ mixin btn(props = {})
       buttonType: 'submit',
       disabled: false,
 
+      radius: 'l',
+
       texts: [
         'white',
         'black',
@@ -87,7 +89,7 @@ mixin btn(props = {})
     +btn-content(props).z-index-3
       block
 
-  .btn(class=(props.fluid && 'btn--fluid'))
+  .btn(class=(props.fluid && 'btn--fluid') class=('btn--radius--' + props.radius))
     case props.tag
       when 'div'
         .btn__btn
@@ -132,6 +134,11 @@ mixin companies(count = 6)
 
 block content
   section.section.container
+    div(style="background-color: black;")
+      +btn({ backgrounds: ['transparent', 'yellow'], radius: 'xl' })
+        |test 123
+    +btn({ tag: 'a', backgrounds: ['white', 'yellow'], texts: ['black', 'black'], radius: 'xl' })
+      |test
     +btn
       |div
     +btn({ tag: "a", href: "#wow", fluid: true })

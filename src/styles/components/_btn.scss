@@ -345,6 +345,38 @@
       }
     }
   }
+
+  &__icon {
+    &--modifier {
+      &--map {
+
+      }
+    }
+
+    &--side {
+      &--left {
+        margin-right: rem(10px);
+      }
+
+      &--right {
+        margin-left: rem(10px);
+      }
+    }
+
+    &--move {
+      &--yes {
+
+      }
+
+      &--no {
+        
+      }
+    }
+  }
+
+  &__svg {
+
+  }
 }
 
 .z-index {

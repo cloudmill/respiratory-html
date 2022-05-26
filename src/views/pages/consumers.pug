@@ -21,6 +21,14 @@ mixin btn(props = {})
 
       radius: 'l',
 
+      icon: {
+        name: 'map',
+
+        modifier: 'map',
+        side: 'left',
+        move: 'yes',
+      },
+
       texts: [
         'white',
         'black',
@@ -39,6 +47,16 @@ mixin btn(props = {})
 
     props = Object.assign({}, defaultProps, props);
 
+  mixin btn-svg(name)
+    case name
+      when 'map'
+        +map-svg.btn__svg
+      when 'li'
+        +li-svg.btn__svg
+  mixin btn-icon(icon)
+    .btn__icon(class=('btn__icon--modifier--' + icon.modifier) class=('btn__icon--side--' + icon.side) class=('btn__icon--move--' + icon.move))
+      +btn-svg(icon.name)
+
   mixin btn-mask(modifier)
     .btn__mask(class=("btn__mask--" + modifier))
       .btn__place
@@ -51,15 +69,28 @@ mixin btn(props = {})
     .btn__text(class=("btn__text--" + modifier))
       block
   mixin btn-content(props)
+    -
+      var icon = props.icon;
+      var left = icon && icon.side === 'left';
+      var right = icon && icon.side === 'right';
+
     +btn-block("relative")(class=attributes.class)
       +btn-mask("main")
         .btn__content
+          if left
+            +btn-icon(props.icon)
           +btn-text(props.texts[0])
             block
+          if right
+            +btn-icon(props.icon)
       +btn-mask("second")
         .btn__content
+          if left
+            +btn-icon(props.icon)
           +btn-text(props.texts[1])
             block
+          if right
+            +btn-icon(props.icon)
 
   mixin btn-background(modifier)
     .btn__background(class=("btn__background--" + modifier))
@@ -134,6 +165,11 @@ mixin companies(count = 6)
 
 block content
   section.section.container
+    +btn
+      |qwe
+    +btn({ icon: { name: 'map', modifier: 'map', side: 'right', move: 'no' } })
+      |ewq
+  //- section.section.container
     div(style="background-color: black;")
       +btn({ backgrounds: ['transparent', 'yellow'], radius: 'xl' })
         |test 123

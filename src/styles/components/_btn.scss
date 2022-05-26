@@ -1,130 +1,3 @@
-// .btn {
-//   $component: &;
-//   $transition: transition(minor);
-
-//   --height: #{rem(60px)};
-//   --radius: #{rem(12px)};
-
-//   display: flex;
-
-//   &--fluid {
-//     #{$component} {
-//       &__btn {
-//         width: 100%;
-//       }
-
-//       &__slider {
-//         &-slide,
-//         &-place {
-//           width: 100%;
-//         }
-//       }
-//     }
-//   }
-
-//   &__btn {
-//     pointer-events: none;
-
-//     cursor: pointer;
-
-//     &:hover,
-//     &:focus {
-//       #{$component} {
-//         &__slider {
-//           &-slide {
-//             &:nth-child(1) {
-//               height: 0;
-//             }
-
-//             &:nth-child(2) {
-//               height: var(--height);
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   &__slider {
-//     position: relative;
-//     z-index: 0;
-
-//     height: var(--height);
-
-//     &-slide {
-//       will-change: auto;
-
-//       overflow: hidden;
-
-//       transition: height $transition;
-
-//       &:nth-child(1) {
-//         height: var(--height);
-//       }
-
-//       &:nth-child(2) {
-//         position: absolute;
-//         bottom: 0;
-
-//         height: 0;
-//         display: flex;
-//         align-items: flex-end;
-//       }
-//     }
-
-//     &-place {
-//       height: var(--height);
-//     }
-//   }
-
-//   &__content {
-//     padding: 0 rem(40px);
-//     height: 100%;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     overflow: hidden;
-//     pointer-events: all;
-
-//     background-color: color(blue); // test
-//     border-radius: var(--radius);
-
-//     &--dark {
-//       background-color: color(yellow); // test
-//     }
-
-//     &-text {
-//       @include font-fsl("title-1", 13px, 100%);
-
-//       color: color(white);
-
-//       &--dark {
-//         color: color(black);
-//       }
-//     }
-//   }
-// }
-
-.btn {
-  display: flex;
-
-  &__btn {
-    @include font-fsl("title-1", 13px, 100%);
-
-    padding: 0 rem(40px);
-    height: rem(60px);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-
-    background-color: color(blue);
-    border-radius: rem(12px);
-    color: color(white);
-    white-space: nowrap;
-    cursor: pointer;
-  }
-}
-
 .companies {
   --columns-count: 6;
 
@@ -210,14 +83,75 @@
 }
 
 .btn {
+  $component: &;
+  $transition: transition(minor);
+
   --height: #{rem(60px)};
+  --radius: #{rem(12px)};
+  --padding: #{rem(40px)};
 
   display: flex;
 
+  &--fluid {
+    #{$component} {
+      &__btn {
+        width: 100%;
+      }
+    }
+  }
+
   &__btn {
+    position: relative;
+    z-index: 0;
+
     pointer-events: none;
 
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      #{$component} {
+        &__mask {
+          &--main {
+            height: 0;
+          }
+
+          &--second {
+            height: var(--height);
+          }
+        }
+
+        &__decoration {
+          $move: rem(4px);
+
+          &::before {
+            $count: 3;
+
+            @keyframes btn-decoration-opacity {
+              from {
+                opacity: 1;
+              }
+
+              to {
+                opacity: 0;
+              }
+            }
+
+            animation: btn-decoration-opacity
+              math.div(duration(default), $count) timing-function(minor)
+              ($count * 2) alternate;
+          }
+
+          &:nth-child(1) {
+            transform: translate($move, -$move);
+          }
+
+          &:nth-child(2) {
+            transform: translate(-$move, $move);
+          }
+        }
+      }
+    }
   }
 
   &__block {
@@ -225,14 +159,136 @@
 
     height: var(--height);
 
-    &--content {
+    &--relative {
       position: relative;
     }
 
-    &--layout {
+    &--absolute {
       @include inset;
 
       position: absolute;
+    }
+  }
+
+  &__mask {
+    will-change: auto;
+
+    overflow: hidden;
+
+    transition: height $transition;
+
+    &--main {
+      height: var(--height);
+    }
+
+    &--second {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      height: 0;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  &__place {
+    position: relative;
+    z-index: 0;
+
+    width: 100%;
+    height: var(--height);
+  }
+
+  &__content {
+    padding: 0 var(--padding);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+    overflow: hidden;
+
+    border-radius: var(--radius);
+  }
+
+  &__text {
+    @include font-fsl("title-1", 13px, 100%);
+
+    &--white {
+      color: color(white);
+    }
+
+    &--black {
+      color: color(black);
+    }
+  }
+
+  &__background {
+    @include inset;
+
+    position: absolute;
+
+    border-radius: var(--radius);
+
+    &--blue {
+      background-color: color(blue);
+    }
+
+    &--yellow {
+      background-color: color(yellow);
+    }
+  }
+
+  &__decoration {
+    $offset: rem(10px);
+    $size: rem(10px);
+
+    @include rectangle($size);
+
+    position: absolute;
+    transform: translate(0, 0);
+
+    transition: transform $transition;
+
+    &::before {
+      @include inset;
+
+      position: absolute;
+
+      content: "";
+
+      border: 1.5px solid transparent;
+      border-top: none;
+      border-right: none;
+      border-radius: 0 0 0 50%;
+    }
+
+    &:nth-child(1) {
+      bottom: $offset;
+      left: $offset;
+    }
+
+    &:nth-child(2) {
+      top: $offset;
+      right: $offset;
+
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+
+    &--yellow {
+      &::before {
+        border-color: color(yellow);
+      }
+    }
+
+    &--black {
+      &::before {
+        border-color: color(black);
+      }
     }
   }
 }

@@ -92,10 +92,12 @@ mixin btn(props = {})
         .btn__btn
           +btn-inner(props)
             block
+
       when 'a'
         a.btn__btn(href=props.href)
           +btn-inner(props)
             block
+
       when 'button'
         button.btn__btn(type=props.buttonType)
           +btn-inner(props)
@@ -131,17 +133,11 @@ block content
   section.section.container
     +btn
       |div
-  
-  section.section.container
     +btn({ tag: "a", href: "#wow", fluid: true })
       |a fluid
-  
-  section.section.container
     form
       +btn({ tag: "button", buttonType: "button" })
         |button button
-      
-  section.section.container
     form
       +btn({ tag: "button" })
         |button submit
@@ -152,5 +148,4 @@ block content
           |Где купить в розницу
         +btn({ tag: 'a' })
           |полный список
-      
       +companies.companies--margin--default

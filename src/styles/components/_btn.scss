@@ -208,3 +208,39 @@
     transition: color $transition;
   }
 }
+
+.btn {
+  --height: #{rem(60px)};
+
+  display: flex;
+
+  &__btn {
+    pointer-events: none;
+
+    cursor: pointer;
+  }
+
+  &__block {
+    z-index: 0;
+
+    height: var(--height);
+
+    &--content {
+      position: relative;
+    }
+
+    &--layout {
+      @include inset;
+
+      position: absolute;
+    }
+  }
+}
+
+.z-index {
+  @for $z-index from -1 through 3 {
+    &-#{$z-index} {
+      z-index: $z-index;
+    }
+  }
+}

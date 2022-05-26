@@ -9,10 +9,97 @@ mixin sub-title
   h2.sub-title(class=attributes.class)
     block
 
-mixin btn
-  .btn
-    a.btn__btn(href="#")
+mixin btn(props = {})
+  -
+    var defaultProps = {
+      fluid: false,
+
+      tag: 'div',
+      href: '#btn',
+      buttonType: 'submit',
+
+      texts: [
+        'white',
+        'black',
+      ],
+
+      backgrounds: [
+        'blue',
+        'yellow',
+      ],
+
+      decorations: [
+        'yellow',
+        'black',
+      ],
+    };
+
+    props = Object.assign({}, defaultProps, props);
+
+  mixin btn-mask(modifier)
+    .btn__mask(class=("btn__mask--" + modifier))
+      .btn__place
+        block
+  mixin btn-block(modifier)
+    .btn__block(class=("btn__block--" + modifier))(class=attributes.class)
       block
+
+  mixin btn-text(modifier)
+    .btn__text(class=("btn__text--" + modifier))
+      block
+  mixin btn-content(props)
+    +btn-block("relative")(class=attributes.class)
+      +btn-mask("main")
+        .btn__content
+          +btn-text(props.texts[0])
+            block
+      +btn-mask("second")
+        .btn__content
+          +btn-text(props.texts[1])
+            block
+
+  mixin btn-background(modifier)
+    .btn__background(class=("btn__background--" + modifier))
+  mixin btn-backgrounds(props)
+    if props.backgrounds
+      +btn-block("absolute")(class=attributes.class)
+        +btn-mask("main")
+          +btn-background(props.backgrounds[0])
+        +btn-mask("second")
+          +btn-background(props.backgrounds[1])
+  
+  mixin btn-decoration(modifier)
+    .btn__decoration(class=("btn__decoration--" + modifier))
+  mixin btn-decorations(props)
+    if props.decorations
+      +btn-block("absolute")(class=attributes.class)
+        +btn-mask("main")
+          - for (var i = 0; i < 2; i++)
+            +btn-decoration(props.decorations[0])
+        +btn-mask("second")
+          - for (var i = 0; i < 2; i++)
+            +btn-decoration(props.decorations[1])
+
+  mixin btn-inner(props)
+    +btn-backgrounds(props).z-index-1
+    +btn-decorations(props).z-index-2
+    +btn-content(props).z-index-3
+      block
+
+  .btn(class=(props.fluid && 'btn--fluid'))
+    case props.tag
+      when 'div'
+        .btn__btn
+          +btn-inner(props)
+            block
+      when 'a'
+        a.btn__btn(href=props.href)
+          +btn-inner(props)
+            block
+      when 'button'
+        button.btn__btn(type=props.buttonType)
+          +btn-inner(props)
+            block
 
 mixin company(index)
   -
@@ -42,9 +129,28 @@ mixin companies(count = 6)
 
 block content
   section.section.container
-    .hr.space-between
-      +sub-title
-        |Где купить в розницу
-      +btn
-        |полный список
-    +companies.companies--margin--default
+    +btn
+      |div
+  
+  section.section.container
+    +btn({ tag: "a", href: "#wow", fluid: true })
+      |a fluid
+  
+  section.section.container
+    form
+      +btn({ tag: "button", buttonType: "button" })
+        |button button
+      
+  section.section.container
+    form
+      +btn({ tag: "button" })
+        |button submit
+  
+  section.section.container
+      .hr.space-between
+        +sub-title
+          |Где купить в розницу
+        +btn({ tag: 'a' })
+          |полный список
+      
+      +companies.companies--margin--default

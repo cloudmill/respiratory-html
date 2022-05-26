@@ -9,7 +9,6 @@ import { htmlPreloadLoaded } from "./scripts/htmlPreloadLoaded";
 import { aos } from "./scripts/aos";
 import { sectionSlider } from "./scripts/sectionSlider";
 import { examplesSlider } from "./scripts/examplesSlider";
-import { buttonTest } from "./scripts/buttonTest";
 
 // data
 
@@ -20,7 +19,6 @@ const [log, logError] = useDebug(true, "[app.js]");
 const DOMContentLoadedHandler = () => {
   sectionSlider();
   examplesSlider();
-  buttonTest();
 };
 
 const loadHandler = () => {

@@ -5,86 +5,191 @@ block header
 block footer
   |footer
 
-block grid-test
+mixin sub-title
+  h2.sub-title(class=attributes.class)
+    block
 
 mixin btn(props = {})
   -
     var defaultProps = {
       fluid: false,
-      tag: "div",
-      href: "#",
-      buttonType: "submit",
-    }
-    
+
+      tag: 'div',
+      href: '#btn',
+      buttonType: 'submit',
+      disabled: false,
+
+      radius: 'l',
+
+      icon: {
+        name: 'map',
+
+        modifier: 'map',
+        side: 'left',
+        move: 'yes',
+      },
+
+      texts: [
+        'white',
+        'black',
+      ],
+
+      backgrounds: [
+        'blue',
+        'yellow',
+      ],
+
+      decorations: [
+        'yellow',
+        'black',
+      ],
+    };
+
     props = Object.assign({}, defaultProps, props);
 
-  mixin btn-inner
-    .btn__block.btn__block--content
-    
-      .btn__mask
-        .btn__holder
-        
-          .btn__content
-            .btn__text
-              block
+  mixin btn-svg(name)
+    case name
+      when 'map'
+        +map-svg.btn__svg
+      when 'li'
+        +li-svg.btn__svg
+  mixin btn-icon(icon)
+    .btn__icon(class=('btn__icon--modifier--' + icon.modifier) class=('btn__icon--side--' + icon.side) class=('btn__icon--move--' + icon.move))
+      +btn-svg(icon.name)
 
-      .btn__mask
-        .btn__holder
+  mixin btn-mask(modifier)
+    .btn__mask(class=("btn__mask--" + modifier))
+      .btn__place
+        block
+  mixin btn-block(modifier)
+    .btn__block(class=("btn__block--" + modifier))(class=attributes.class)
+      block
 
-          .btn__content
-            .btn__text.btn__text--dark
-              block
+  mixin btn-text(modifier)
+    .btn__text(class=("btn__text--" + modifier))
+      block
+  mixin btn-content(props)
+    -
+      var icon = props.icon;
+      var left = icon && icon.side === 'left';
+      var right = icon && icon.side === 'right';
 
-    .btn__block.btn__block--layout.btn__block--background
-    
-      .btn__mask
-        .btn__holder
-        
-          .btn__background.btn__background--blue
+    +btn-block("relative")(class=attributes.class)
+      +btn-mask("main")
+        .btn__content
+          if left
+            +btn-icon(props.icon)
+          +btn-text(props.texts[0])
+            block
+          if right
+            +btn-icon(props.icon)
+      +btn-mask("second")
+        .btn__content
+          if left
+            +btn-icon(props.icon)
+          +btn-text(props.texts[1])
+            block
+          if right
+            +btn-icon(props.icon)
 
-      .btn__mask
-        .btn__holder
+  mixin btn-background(modifier)
+    .btn__background(class=("btn__background--" + modifier))
+  mixin btn-backgrounds(props)
+    if props.backgrounds
+      +btn-block("absolute")(class=attributes.class)
+        +btn-mask("main")
+          +btn-background(props.backgrounds[0])
+        +btn-mask("second")
+          +btn-background(props.backgrounds[1])
+  
+  mixin btn-decoration(modifier)
+    .btn__decoration(class=("btn__decoration--" + modifier))
+  mixin btn-decorations(props)
+    if props.decorations
+      +btn-block("absolute")(class=attributes.class)
+        +btn-mask("main")
+          - for (var i = 0; i < 2; i++)
+            +btn-decoration(props.decorations[0])
+        +btn-mask("second")
+          - for (var i = 0; i < 2; i++)
+            +btn-decoration(props.decorations[1])
 
-          .btn__background.btn__background--yellow
+  mixin btn-inner(props)
+    +btn-backgrounds(props).z-index-1
+    +btn-decorations(props).z-index-2
+    +btn-content(props).z-index-3
+      block
 
-    .btn__block.btn__block--layout.btn__block--decorations
-    
-      .btn__mask
-        .btn__holder
-    
-      .btn__mask
-        .btn__holder
-
-  .btn(class=(props.fluid && "btn--fluid"))
+  .btn(class=(props.fluid && 'btn--fluid') class=('btn--radius--' + props.radius))
     case props.tag
-      when "div"
+      when 'div'
         .btn__btn
-          +btn-inner
+          +btn-inner(props)
             block
-      when "a"
+
+      when 'a'
         a.btn__btn(href=props.href)
-          +btn-inner
+          +btn-inner(props)
             block
-      when "button"
-        button.btn__btn(type=props.buttonType)
-          +btn-inner
+
+      when 'button'
+        button.btn__btn(type=props.buttonType disabled=props.disabled)
+          +btn-inner(props)
             block
-    
+
+mixin company(index)
+  -
+    var texts = [
+      'Интернет-магазин OZON',
+      'Интернет-магазин WILDBERRIES',
+      'Торговая сеть «Максидом»',
+      'Торговая сеть «Леруа Мерлен»',
+      'Сеть магазинов «Строитель»',
+      'Торговый дом «Вимос»',
+    ]
+
+  a.company(href=("#company-" + index))
+    .company__frame
+      img.company__img(src="assets/images/company-" + index + ".jpeg")
+    .company__text
+      |#{texts[index]}
+
+mixin companies(count = 6)
+  -
+    var maxCount = 6;
+
+  .companies(class=attributes.class)
+    - for (var index = 0; index < count; index++)
+      .companies__place
+        +company(index % maxCount)
+
 block content
   section.section.container
-    +btn({ fluid: true })
-      |div fluid
-  section.section.container
-    +btn({ tag: 'a', href: '#hello' })
-      |a
-  section.section.container
-    form
-      +btn({ tag: 'button' })
-        |button
-
+    +btn
+      |qwe
+    +btn({ icon: { name: 'map', modifier: 'map', side: 'right', move: 'no' } })
+      |ewq
   //- section.section.container
-    .hr.space-between
-      h2.sub-title
-        |Где купить в розницу
-      +btn
-        |123
+    div(style="background-color: black;")
+      +btn({ backgrounds: ['transparent', 'yellow'], radius: 'xl' })
+        |test 123
+    +btn({ tag: 'a', backgrounds: ['white', 'yellow'], texts: ['black', 'black'], radius: 'xl' })
+      |test
+    +btn
+      |div
+    +btn({ tag: "a", href: "#wow", fluid: true })
+      |a fluid
+    form
+      +btn({ tag: "button", buttonType: "button", disabled: true })
+        |button button
+    form
+      +btn({ tag: "button" })
+        |button submit
+  
+  section.section.container
+      .hr.space-between
+        +sub-title
+          |Где купить в розницу
+        +btn({ tag: 'a' })
+          |полный список
+      +companies.companies--margin--default

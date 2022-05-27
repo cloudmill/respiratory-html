@@ -143,13 +143,12 @@ mixin companies(count = 6)
         +company(index % maxCount)
 
 mixin drop(items)
-  .drop(data-drop)
+  .drop(class=attributes.class data-drop data-qwe=attributes.small)
     .drop__wrap
       .drop__btn(data-drop-btn)
         .drop__cur
           block
-        .drop__icon
-          |>
+        +arrow-drop-svg.drop__svg
       nav.drop__nav(data-drop-nav)
         ul.drop__list
           each item, index in items
@@ -157,13 +156,14 @@ mixin drop(items)
               a.drop__link(href=`#drop-${index}`)= item
 
 block content
-  div(style="overflow-y: hidden;")
-    - for (var i = 0; i < 15; i++)
-      section.section.container
-        +drop(['Промышленным предприятиям', 'Медицинским учреждениям', 'Торговым организациям'])
-          |Партнерам-#{i}
-
-  //- section.section.container
+  section.section.container
+    +drop(['en', 'Fr', 'Kaz', 'JP', 'UZ']).drop--small.drop--yellow(small, yellow)
+      |Ru
+  section.section.container
+    +drop(['Промышленным предприятиям', 'Медицинским учреждениям', 'Торговым организациям'])
+          |Партнерам
+  
+  section.section.container
     +btn({ tag: 'a', href: '#watch' })
       |Смотреть серию
     +btn({ tag: 'button', disabled: true })
@@ -180,7 +180,7 @@ block content
     +btn({ tag: 'button', buttonType: 'reset', icons: ['reset-yellow', 'reset-black'], backgrounds: ['white', 'yellow'], texts: ['black', 'black'], fluid: true, decorations: false, radius: 'l' })
       |сбросить
 
-  //- section.section.container
+  section.section.container
       .hr.space-between
         +sub-title
           |Где купить в розницу

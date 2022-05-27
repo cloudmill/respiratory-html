@@ -142,14 +142,26 @@ mixin companies(count = 6)
       .companies__place
         +company(index % maxCount)
 
-mixin drop
+mixin drop(items)
   .drop
-    |drop
+    .drop__container
+      .drop__content
+        a.drop__link(href="#")
+          block
+        .drop__icon
+          |>
+      nav.drop__drop
+        ul.drop__list
+          each item in items
+            li.drop__item
+              a.drop__item-link(href="#")
+                |#{item}
 
 block content
+  //- section.section.container
+  //-   +drop(['en', 'Fr', 'Kaz', 'JP', 'UZ'])
+  //-     |Ru
   section.section.container
-    +drop(['en', 'Fr', 'Kaz', 'JP', 'UZ'])
-      |Ru
     +drop(['Промышленным предприятиям', 'Медицинским учреждениям', 'Торговым организациям'])
       |Партнерам 
 

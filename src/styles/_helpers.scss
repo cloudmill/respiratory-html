@@ -7,6 +7,11 @@ $font-size: 16px;
 $font-family-title: "ALS Gorizont";
 $font-family-content: "Manrope";
 
+// px -> rem
+@function rem($size) {
+  @return math.div($size, $font-size) * 1rem;
+}
+
 // breakpoints
 
 $breakpoints: (
@@ -39,7 +44,22 @@ $colors: (
   gray-light: #f2f5f8,
 
   transparent: rgba(0, 0, 0, 0),
+  shadow-drop: rgba(42, 46, 55, 0.12),
 );
+
+@function color($variant: black) {
+  @return map.get($colors, $variant);
+}
+
+// box shadow
+
+$box-shadows: (
+  drop: 0 rem(24px) rem(30px) color(shadow-drop),
+);
+
+@function box-shadow($variant: drop) {
+  @return map.get($box-shadows, $variant);
+}
 
 // transition and animation parameters
 
@@ -68,11 +88,6 @@ $transitions: (
 
 // FUNCTIONS
 
-// px -> rem
-@function rem($size) {
-  @return math.div($size, $font-size) * 1rem;
-}
-
 // font filename -> url
 @function font-url($filename-without-extension) {
   @return url("../assets/fonts/#{$filename-without-extension}.woff");
@@ -100,11 +115,6 @@ $transitions: (
 // size in px, breakpoint variant -> size in vw
 @function vw($size: $font-size, $variant: xxl) {
   @return math.div($size, breakpoint($variant)) * 100vw;
-}
-
-// color variant -> color
-@function color($variant: black) {
-  @return map.get($colors, $variant);
 }
 
 // MIXINS

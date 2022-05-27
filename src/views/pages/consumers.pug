@@ -143,27 +143,25 @@ mixin companies(count = 6)
         +company(index % maxCount)
 
 mixin drop(items)
-  .drop
-    .drop__container
-      .drop__content
-        a.drop__link(href="#")
+  .drop(data-drop)
+    .drop__wrap
+      .drop__btn(data-drop-btn)
+        .drop__cur
           block
         .drop__icon
           |>
-      nav.drop__drop
+      nav.drop__nav(data-drop-nav)
         ul.drop__list
-          each item in items
+          each item, index in items
             li.drop__item
-              a.drop__item-link(href="#")
-                |#{item}
+              a.drop__link(href=`#drop-${index}`)= item
 
 block content
-  //- section.section.container
-  //-   +drop(['en', 'Fr', 'Kaz', 'JP', 'UZ'])
-  //-     |Ru
-  section.section.container
-    +drop(['Промышленным предприятиям', 'Медицинским учреждениям', 'Торговым организациям'])
-      |Партнерам 
+  div(style="overflow-y: hidden;")
+    - for (var i = 0; i < 15; i++)
+      section.section.container
+        +drop(['Промышленным предприятиям', 'Медицинским учреждениям', 'Торговым организациям'])
+          |Партнерам-#{i}
 
   //- section.section.container
     +btn({ tag: 'a', href: '#watch' })

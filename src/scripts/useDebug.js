@@ -1,6 +1,6 @@
-const useDebug = (enabled, location) => [
+const useDebug = ([enabledLog, enabledLogError], location) => [
   (...args) => {
-    if (enabled) {
+    if (enabledLog) {
       if (location) {
         console.log(location, ...args);
       } else {
@@ -9,7 +9,7 @@ const useDebug = (enabled, location) => [
     }
   },
   (...args) => {
-    if (enabled) {
+    if (enabledLogError) {
       if (location) {
         console.error(location, ...args);
       } else {

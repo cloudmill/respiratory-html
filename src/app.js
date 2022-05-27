@@ -9,16 +9,18 @@ import { htmlPreloadLoaded } from "./scripts/htmlPreloadLoaded";
 import { aos } from "./scripts/aos";
 import { sectionSlider } from "./scripts/sectionSlider";
 import { examplesSlider } from "./scripts/examplesSlider";
+import { startDrops } from "./scripts/drop";
 
 // data
 
-const [log, logError] = useDebug(true, "[app.js]");
+const [log, logError] = useDebug([false, true], "[app.js]");
 
 // handlers
 
 const DOMContentLoadedHandler = () => {
   sectionSlider();
   examplesSlider();
+  startDrops();
 };
 
 const loadHandler = () => {

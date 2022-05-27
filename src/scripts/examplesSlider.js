@@ -2,7 +2,7 @@ import { useDebug } from "./useDebug";
 import Swiper, { Navigation } from "swiper";
 import autoprefixer from "autoprefixer";
 
-const [log] = useDebug(true, "[examplesSlider.js]");
+const [log] = useDebug([false, true], "[examplesSlider.js]");
 
 const getSelector = (attr) => `[data-examples-slider-${attr}]`;
 

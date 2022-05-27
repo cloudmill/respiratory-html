@@ -31,7 +31,7 @@
 
 .company {
   $component: &;
-  $transition: transition(major);
+  $transition: transition(minor);
 
   display: block;
 
@@ -188,6 +188,10 @@
             &:nth-child(2) {
               transform: translate(-$move, $move);
             }
+          }
+
+          &__icon {
+            transform: translateX(rem(-8px)); 
           }
         }
       }
@@ -347,35 +351,17 @@
   }
 
   &__icon {
-    &--modifier {
-      &--map {
+    transform: translateX(0);
 
-      }
-    }
+    margin-right: rem(8px);
 
-    &--side {
-      &--left {
-        margin-right: rem(10px);
-      }
-
-      &--right {
-        margin-left: rem(10px);
-      }
-    }
-
-    &--move {
-      &--yes {
-
-      }
-
-      &--no {
-        
-      }
-    }
+    transition: transform $transition;
   }
 
-  &__svg {
+  &__img {
+    @include rectangle(rem(24px));
 
+    display: block;
   }
 }
 

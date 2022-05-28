@@ -32,19 +32,23 @@ $breakpoints: (
 $colors: (
   black: #191a1c,
   white: #ffffff,
-
+  // ---
   blue: #2967eb,
   yellow: #ffed49,
   red: #e53b10,
-
+  // ---
   border: rgba(229, 233, 239, 0.3),
   border-white: rgba(255, 255, 255, 0.2),
+  // ---
   gray: #e5e9ef,
   gray-dark: #87909b,
   gray-light: #f2f5f8,
-
+  // ---
   transparent: rgba(0, 0, 0, 0),
+  // ---
   shadow-drop: rgba(42, 46, 55, 0.12),
+  // ---
+  grid-test: rgba(0, 0, 0, 0.1),
 );
 
 @function color($variant: black) {

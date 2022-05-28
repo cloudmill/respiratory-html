@@ -1,40 +1,37 @@
 .grid-test {
+  $column-count-difference: math.abs($column-count - $column-count-small);
+
+  --column-count: #{$column-count};
+  --column-gap: #{$column-gap};
+
   @include inset;
 
   position: fixed;
-  z-index: 1000;
+  z-index: 0;
 
   width: 100vw;
   pointer-events: none;
-  user-select: none;
 
-  &__desktop,
-  &__mobile {
+  @media #{media("<")} {
+    --column-count: #{$column-count-small};
+    --column-gap: #{$column-gap-small};
+  }
+
+  &__row {
     display: grid;
-  }
-
-  &__desktop {
-    grid-template-columns: repeat($column-count, 1fr);
-    column-gap: $column-gap;
-
-    @media #{media("<")} {
-      display: none;
-    }
-  }
-
-  &__mobile {
-    grid-template-columns: repeat($column-count-small, 1fr);
-    column-gap: $column-gap-small;
-
-    @media #{media(">")} {
-      display: none;
-    }
+    grid-template-columns: repeat(var(--column-count), 1fr);
+    column-gap: var(--column-gap);
   }
 
   &__col {
     height: 100vh;
 
-    background-color: black;
-    opacity: 0.1;
+    background-color: color(grid-test);
+
+    @media #{media("<")} {
+      &:nth-child(-n + #{$column-count-difference}) {
+        display: none;
+      }
+    }
   }
 }

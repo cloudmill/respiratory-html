@@ -68,7 +68,7 @@ $box-shadows: (
 // transition and animation parameters
 
 $durations: (
-  default: 0.2s,
+  default: 0.6s,
 );
 @function duration($variant: default) {
   @return map.get($durations, $variant);

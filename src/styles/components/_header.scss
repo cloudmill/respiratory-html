@@ -1,3 +1,71 @@
 .header {
-  // background-color: black;
+  &__block {
+    padding: rem(24px) 0;
+
+    border-bottom: 1px solid color(gray);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: calc(#{columns(3)}) calc(#{columns(2)}) calc(
+        #{columns(4)}
+      ) calc(#{columns(3)});
+    column-gap: $column-gap;
+    align-items: center;
+  }
+
+  &__col {
+    &--right {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__logo {
+    display: flex;
+
+    &-link {
+    }
+
+    &-svg {
+      @include rectangle(rem(194px), rem(49px));
+
+      path {
+        fill: color(blue);
+      }
+    }
+  }
+
+  &__sub {
+    &-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: $column-gap;
+      align-items: baseline;
+    }
+
+    &-col {
+      &--right {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+
+    &-link {
+      @include font-fsl("title-1", 13px, 100%);
+
+      &:hover,
+      &:focus {
+        color: color(blue);
+      }
+
+      &--large {
+        @include fsl(18px, 100%);
+      }
+    }
+  }
 }

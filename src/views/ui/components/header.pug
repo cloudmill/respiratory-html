@@ -1,14 +1,39 @@
 mixin header
   header.header
-    .header__top
-      |top
-    .header__bottom
-      |bottom
-
+    .header__block
+      .container
+        .header__row
+          each i in repeat(4)
+            .header__col
+              |col
+    .header__block
+      .container
+        .header__row
+          .header__col
+            .header__logo
+              a.header__logo-link(href="#")
+                +logo-svg.header__logo-svg
+          .header__col
+            +btn({ icons: ['menu-open', 'menu-close'], decorations: false })
+              |Продукция
+          .header__col
+            .header__sub-row
+              .header__sub-col
+                +drop(['Промышленным предприятиям', 'Медицинским учреждениям', 'Торговым организациям'])
+                  |Партнерам
+              .header__sub-col
+                .header__link
+                  a.header__link-link.header__link-link--large(href="#")
+                    |Потребителям
+              .header__sub-col.header__sub-col--right
+                +search-svg
+          .header__col.header__col--right
+            +btn({ backgrounds: ['transparent-white', 'yellow'], texts: ['black', 'black'] })
+              |оформить заказ
 
 
 //-
-  header
+  header 
     modifiers
       --transparent
       --white

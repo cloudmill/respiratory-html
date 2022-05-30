@@ -296,6 +296,10 @@
     &--transparent {
       border: 2px solid color(white);
     }
+
+    &--transparent-white {
+      border: 2px solid color(gray);
+    }
   }
 
   &__decoration {
@@ -354,6 +358,7 @@
     transform: translateX(0);
 
     margin-right: rem(8px);
+    flex-shrink: 0;
 
     transition: transform $transition;
   }

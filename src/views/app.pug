@@ -2,23 +2,23 @@ doctype html
 
 include ./logic/index
 
-- var options = {}
-block options
+- var appProps = {}
+block appProps
 
 include ./ui/index
 
 html.html.html--preload(lang="ru")
   head
     meta(charset="utf-8")
-    title= options.title || data.title
+    title= appProps.title || data.title
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body.body
+    block header
+      +header
     .wrapper
-      block header
-        +header
       block content
         |content
       block footer
         +footer
-      block grid-test
-        +grid-test
+    block grid-test
+      +grid-test

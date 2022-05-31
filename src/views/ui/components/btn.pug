@@ -1,40 +1,39 @@
 mixin btn(props = {})
   -
     var defaultProps = {
-      fluid: false,
-
       tag: 'div',
       href: '#btn',
-      buttonType: 'submit',
+      type: false,
       disabled: false,
+
+      noHover: false,
+
+      full: false,
 
       radius: 'xl',
 
-      icons: false,
+      txt: ['white','black'],
 
-      texts: [
-        'white',
-        'black',
-      ],
+      bg: [['blue'],['yellow']],
 
-      backgrounds: [
-        'blue',
-        'yellow',
-      ],
+      dec: false,
 
-      decorations: [
-        'yellow',
-        'black',
-      ],
+      icon: false,
     };
 
     props = Object.assign({}, defaultProps, props);
 
-  mixin btn-img(name)
-    img.btn__img(src=("assets/images/" + name + ".svg"))
-  mixin btn-icon(name)
-    .btn__icon
-      +btn-img(name)
+  mixin btn-img(source)
+    img.btn__img(src=source)
+  mixin btn-icon(icon)
+    -
+      var name = icon[0];
+      var mods = icon[1];
+
+      var source = 'assets/images/' + name + '.svg';
+      var classes = mods.map(mod => 'btn__icon--' + mod);
+    .btn__icon(class=classes)
+      +btn-img(source)
 
   mixin btn-mask(modifier)
     .btn__mask(class=("btn__mask--" + modifier))
@@ -51,38 +50,42 @@ mixin btn(props = {})
     +btn-block("relative")(class=attributes.class)
       +btn-mask("main")
         .btn__content
-          if props.icons
-            +btn-icon(props.icons[0])
-          +btn-text(props.texts[0])
+          if props.icon
+            +btn-icon(props.icon[0])
+          +btn-text(props.txt[0])
             block
       +btn-mask("second")
         .btn__content
-          if props.icons
-            +btn-icon(props.icons[1])
-          +btn-text(props.texts[1])
+          if props.icon
+            +btn-icon(props.icon[1])
+          +btn-text(props.txt[1])
             block
 
-  mixin btn-background(modifier)
-    .btn__background(class=("btn__background--" + modifier))
+  mixin btn-background(mods)
+    -
+      var classes = mods.map(mod => 'btn__background--' + mod)
+    .btn__background(class=classes)
   mixin btn-backgrounds(props)
-    if props.backgrounds
+    if props.bg
       +btn-block("absolute")(class=attributes.class)
         +btn-mask("main")
-          +btn-background(props.backgrounds[0])
+          +btn-background(props.bg[0])
         +btn-mask("second")
-          +btn-background(props.backgrounds[1])
+          +btn-background(props.bg[1])
   
-  mixin btn-decoration(modifier)
-    .btn__decoration(class=("btn__decoration--" + modifier))
+  mixin btn-decoration(mods)
+    -
+      var classes = mods.map(mod => 'btn__decoration--' + mod)
+    .btn__decoration(class=classes)
   mixin btn-decorations(props)
-    if props.decorations
+    if props.dec
       +btn-block("absolute")(class=attributes.class)
         +btn-mask("main")
-          - for (var i = 0; i < 2; i++)
-            +btn-decoration(props.decorations[0])
+          each i in repeat(2)
+            +btn-decoration(props.dec[0])
         +btn-mask("second")
-          - for (var i = 0; i < 2; i++)
-            +btn-decoration(props.decorations[1])
+          each i in repeat(2)
+            +btn-decoration(props.dec[1])
 
   mixin btn-inner(props)
     +btn-backgrounds(props).z-index-1
@@ -90,17 +93,21 @@ mixin btn(props = {})
     +btn-content(props).z-index-3
       block
 
-  .btn(class=(props.fluid && 'btn--fluid') class=('btn--radius--' + props.radius))
+  .btn(class=(props.full && 'btn--full') class=('btn--radius--' + props.radius) class=(props.noHover && 'btn--no-hover'))
+    -
+      var classes = '';
+      classes += props.active && 'btn__btn--active' || '';
+      classes += props.noHover && 'btn__btn--no-hover' || '';
     case props.tag
       when 'div'
-        .btn__btn
+        .btn__btn(class=classes)
           +btn-inner(props)
             block
       when 'a'
-        a.btn__btn(href=props.href)
+        a.btn__btn(class=classes href=props.href)
           +btn-inner(props)
             block
       when 'button'
-        button.btn__btn(type=props.buttonType disabled=props.disabled)
+        button.btn__btn(class=classes type=props.type disabled=(props.disabled && ""))
           +btn-inner(props)
             block

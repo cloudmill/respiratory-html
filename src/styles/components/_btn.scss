@@ -7,7 +7,7 @@
 
   display: flex;
 
-  &--fluid {
+  &--full {
     #{$component} {
       &__btn {
         width: 100%;
@@ -34,6 +34,8 @@
   }
 
   &__btn {
+    $element: &;
+
     position: relative;
     z-index: 0;
 
@@ -62,54 +64,66 @@
       }
     }
 
-    &:not(:disabled) {
-      &:hover,
-      &:focus {
-        #{$component} {
-          &__mask {
-            &--main {
-              height: 0;
-            }
-
-            &--second {
-              height: var(--height);
-            }
+    @mixin hover {
+      #{$component} {
+        &__mask {
+          &--main {
+            height: 0;
           }
 
-          &__decoration {
-            $move: rem(4px);
-
-            &::before {
-              $count: 3;
-
-              @keyframes btn-decoration-opacity {
-                from {
-                  opacity: 1;
-                }
-
-                to {
-                  opacity: 0;
-                }
-              }
-
-              animation: btn-decoration-opacity
-                math.div(duration(default), $count) timing-function(minor)
-                ($count * 2) alternate;
-            }
-
-            &:nth-child(1) {
-              transform: translate($move, -$move);
-            }
-
-            &:nth-child(2) {
-              transform: translate(-$move, $move);
-            }
-          }
-
-          &__icon {
-            transform: translateX(rem(-8px)); 
+          &--second {
+            height: var(--height);
           }
         }
+
+        &__decoration {
+          $move: rem(4px);
+
+          &::before {
+            $count: 3;
+
+            @keyframes btn-decoration-opacity {
+              from {
+                opacity: 1;
+              }
+
+              to {
+                opacity: 0;
+              }
+            }
+
+            animation: btn-decoration-opacity
+              math.div(duration(default), $count) timing-function(minor)
+              ($count * 2) alternate;
+          }
+
+          &:nth-child(1) {
+            transform: translate($move, -$move);
+          }
+
+          &:nth-child(2) {
+            transform: translate(-$move, $move);
+          }
+        }
+
+        &__icon {
+          &:not(#{$component}__icon--static) {
+            transform: translateX(rem(-8px));
+          }
+        }
+      }
+    }
+
+    &:not(:disabled, #{$element}--no-hover, #{$element}--active) {
+      &:hover,
+      &:focus {
+        @include hover;
+      }
+    }
+
+    &--active {
+      &:not(:disabled) {
+        @include hover;
       }
     }
   }
@@ -196,6 +210,8 @@
     border-radius: var(--radius);
     transition: background-color $transition;
 
+    // background
+
     &--blue {
       background-color: color(blue);
     }
@@ -206,15 +222,24 @@
 
     &--white {
       background-color: color(white);
-      border: 1px solid color(gray);
     }
 
     &--transparent {
-      border: 2px solid color(white);
+      background-color: color(transparent);
     }
 
-    &--transparent-white {
-      border: 2px solid color(gray);
+    // border
+
+    &--border {
+      @each $color in (gray, white) {
+        &-#{$color} {
+          border: 1px solid color($color);
+
+          &-xl {
+            border: 2px solid color($color);
+          }
+        }
+      }
     }
   }
 
@@ -270,18 +295,27 @@
     }
   }
 
+  // ###
+
   &__icon {
     transform: translateX(0);
 
-    margin-right: rem(8px);
     flex-shrink: 0;
 
     transition: transform $transition;
+
+    &--default {
+      margin-right: rem(8px);
+
+      #{$component} {
+        &__img {
+          @include rectangle(rem(24px));
+        }
+      }
+    }
   }
 
   &__img {
-    @include rectangle(rem(24px));
-
     display: block;
   }
 }

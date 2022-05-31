@@ -1,0 +1,52 @@
+.company {
+  $component: &;
+  $transition: transition(minor);
+
+  display: block;
+
+  &:hover,
+  &:focus {
+    #{$component} {
+      &__frame {
+        border-color: color(yellow);
+      }
+
+      &__img {
+        transform: scale(1.1);
+      }
+
+      &__text {
+        color: color(blue);
+      }
+    }
+  }
+
+  &__frame {
+    height: rem(180px);
+    overflow: hidden;
+
+    background-color: color(white);
+    border: 1px solid color(gray);
+    border-radius: 0 rem(12px) rem(12px) rem(12px);
+    transition: border-color $transition;
+  }
+
+  &__img {
+    @include rectangle(100%);
+
+    transform: scale(1);
+
+    display: block;
+    object-fit: contain;
+
+    transition: transform $transition;
+  }
+
+  &__text {
+    @include font-fsl("content-1", 16px, 130%);
+
+    margin-top: rem(16px);
+
+    transition: color $transition;
+  }
+}

@@ -3,12 +3,37 @@ mixin picture(fileName)
     var fileTitle = File.getTitle(fileName);
     var fileExtension = File.getExtension(fileName);
 
-  picture.picture(class=attributes.class)
+  picture.picture(class=attributes.class)&attributes(attributes)
     source(
       type="image/webp"
       srcset=(File.getPath(fileTitle, "webp") + " 1x, " + File.getPath(fileTitle + "_2x", "webp") + " 2x")
     )
     img.picture__img(
+      src=(File.getPath(fileTitle, fileExtension))
+      srcset=(File.getPath(fileTitle + "_2x", fileExtension) + " 2x")
+    )
+
+mixin picture2(props = {})
+  -
+    var defaultProps = {
+      src: 'top.jpeg',
+
+      imgClasses: false,
+    };
+
+    props = Object.assign({}, defaultProps, props);
+
+    var fileName = props.src;
+    var fileTitle = File.getTitle(fileName);
+    var fileExtension = File.getExtension(fileName);
+
+  picture.picture(class=attributes.class)&attributes(attributes)
+    source(
+      type="image/webp"
+      srcset=(File.getPath(fileTitle, "webp") + " 1x, " + File.getPath(fileTitle + "_2x", "webp") + " 2x")
+    )
+    img.picture__img(
+      class=props.imgClasses
       src=(File.getPath(fileTitle, fileExtension))
       srcset=(File.getPath(fileTitle + "_2x", fileExtension) + " 2x")
     )

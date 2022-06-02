@@ -10,6 +10,7 @@ import { updateHtmlModifiers } from "./scripts/html";
 import { initDrop } from "./scripts/drop";
 import { progressPreloader, hidePreloader } from "./scripts/preloader";
 import { initAos } from "./scripts/aos";
+import { start as startTop } from "./scripts/top";
 
 window.addEventListener("DOMContentLoaded", () => {
   handleDOMContentLoaded();
@@ -36,12 +37,15 @@ function handleDOMContentLoaded() {
 
 function handleLoad() {
   updateHtmlModifiers();
+  startTop();
 
   if (preloader) {
     progressPreloader(preloader, () => {
       setTimeout(() => {
         scrollToTop();
         unlockScroll();
+
+        startTop();
 
         hidePreloader(preloader);
       }, 500);

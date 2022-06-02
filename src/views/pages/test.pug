@@ -3,15 +3,24 @@ extends ../app
 block header
 block footer
 
-//- block preloader
+block preloader
 
 block content
-  .container
-    div(style="overflow-y: hidden")
-      each i in repeat(5)
-        +top
+  div(style="overflow-y: hidden")
+    each i in repeat(5)
+      +top
 
 mixin top
-  .top(data-aos="fade-up")
-    +drop(['q', 'w', 'e'])
-      |qwe
+  .top(data-aos="fade-up" data-top)
+    .top__layout
+      .swiper.top__swiper(data-top-swiper)
+        .swiper-wrapper
+          each i in repeat(5)
+            .swiper-slide.top__slide
+              .top__parallax
+                +picture2({imgClasses:['top__img']}).top__picture(data-swiper-parallax="28%")
+    .top__layout
+      .container
+        each i in repeat(3)
+          +drop(['qwe','qwe','qwe']).top__drop
+            |qwe

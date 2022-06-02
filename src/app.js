@@ -37,7 +37,7 @@ function handleDOMContentLoaded() {
 
 function handleLoad() {
   updateHtmlModifiers();
-  startTop();
+  // startTop();
 
   if (preloader) {
     progressPreloader(preloader, () => {
@@ -45,9 +45,9 @@ function handleLoad() {
         scrollToTop();
         unlockScroll();
 
-        startTop();
-
-        hidePreloader(preloader);
+        hidePreloader(preloader, () => {
+          startTop();
+        });
       }, 500);
     });
   }

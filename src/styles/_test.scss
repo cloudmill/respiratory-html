@@ -145,10 +145,26 @@
   }
 
   &__swiper {
+    counter-reset: slide-index;
+
     height: 100%;
   }
 
   &__slide {
+    position: relative;
+    z-index: 0;
+
+    &-label {
+      @include font-fsl("title-1", 24px, 100%);
+
+      position: absolute;
+      z-index: 1;
+      top: rem(40px);
+      right: rem(40px);
+
+      color: color(white);
+    }
+
     #{$component} {
       &__img {
         transform: scale(1);
@@ -181,6 +197,61 @@
   }
 
   &__drop {
+    pointer-events: all;
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    padding: 0 0 rem(40px) rem(40px);
+    display: flex;
+  }
+
+  &__control {
+    position: relative;
+    z-index: 0;
+
+    padding-bottom: rem(40px);
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translate3d(0, 0, 0);
+      will-change: width;
+
+      content: "";
+      height: rem(20px);
+      width: 0;
+
+      background-color: color(white);
+    }
+
+    &:not(:first-child) {
+      margin-left: rem(20px);
+    }
+
+    &--active {
+      &::before {
+        @keyframes top-content {
+          0% {
+            width: 0;
+          }
+
+          100% {
+            width: 100%;
+          }
+        }
+
+        animation: top-content 1.5s timing-function(minor) forwards;
+      }
+    }
+  }
+
+  &__content {
     pointer-events: all;
   }
 }

@@ -3,24 +3,29 @@ extends ../app
 block header
 block footer
 
-block preloader
+//- block preloader
 
 block content
   div(style="overflow-y: hidden")
-    each i in repeat(5)
+    each i in repeat(1)
       +top
 
-mixin top
+mixin top(count = 3)
   .top(data-aos="fade-up" data-top)
     .top__layout
       .swiper.top__swiper(data-top-swiper)
         .swiper-wrapper
-          each i in repeat(5)
+          each i, index in repeat(count)
             .swiper-slide.top__slide
+              .top__slide-label
+                |#{index}
               .top__parallax
                 +picture2({imgClasses:['top__img']}).top__picture(data-swiper-parallax="28%")
     .top__layout
-      .container
-        each i in repeat(3)
-          +drop(['qwe','qwe','qwe']).top__drop
-            |qwe
+      .container.top__content
+        |content
+      .top__controls
+        each i, index in repeat(count)
+          .top__control(data-top-control)
+            +btn
+              |#{`slide ${index}`}

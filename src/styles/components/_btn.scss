@@ -231,7 +231,7 @@
     // border
 
     &--border {
-      @each $color in (gray, white) {
+      @each $color in ("gray", "white") {
         &-#{$color} {
           border: 1px solid color($color);
 

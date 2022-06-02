@@ -69,6 +69,9 @@ $box-shadows: (
 
 $durations: (
   default: 0.6s,
+
+  preloader-progress: 1.5s,
+  preloader-hide: 2s,
 );
 @function duration($variant: default) {
   @return map.get($durations, $variant);

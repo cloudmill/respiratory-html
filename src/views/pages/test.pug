@@ -3,34 +3,5 @@ extends ../app
 block header
 block footer
 
-//- block grid-test
-
 block content
-  .container
-    +btn
-      |qwe
-    +btn({radius:'s'})
-      |qwe
-    +btn({tag:'a'})
-      |qwe
-    +btn({tag:'button',type:'submit'})
-      |qwe
-    +btn({tag:'button',type:'reset',disabled:true})
-      |qwe
-    +btn({full:true})
-      |qwe
-    +btn({icon:[['map-blue',['default','static']],['map-black',['default','static']]]})
-      |qwe
-    +btn({icon:[['map-blue',['default']],['map-black',['default']]]})
-      |qwe
-    +btn({bg:[['blue','border-white-xl'],['yellow','border-gray']]})
-      |qwe
-    div(style="background-color: black")
-      +btn({bg:[['transparent','border-white-xl'],['yellow']]})
-        |qwe
-    +btn({dec:[['yellow'],['black']]})
-      |qwe
-    +btn({noHover:true})
-      |qwe
-    +btn({active:true,icon:[['map-blue',['default','static']],['map-black',['default','static']]],dec:[['yellow'],['black']]})
-      |qwe
+  div(style="min-height: 300vh; background-color: darkgray; cursor: pointer;")

@@ -1,0 +1,97 @@
+.preloader {
+  $component: &;
+
+  // progress
+  $progress-duration: duration(preloader-progress);
+  $progress-timing-function: timing-function(major);
+
+  --preloader-progress-duration: #{math.div($progress-duration, 1s) * 1000};
+  --preloader-progress-easing: #{$progress-timing-function};
+  --preloader-progress-value: 0%;
+
+  // hide
+  $hide-duration: duration(preloader-hide);
+  $hide-timing-function: timing-function(major);
+  $hide-transition: $hide-duration $hide-timing-function;
+
+  --preloader-hide-duration: #{math.div($hide-duration, 1s) * 1000};
+
+  @keyframes preloader-hide {
+    0% {
+      height: 100%;
+    }
+
+    100% {
+      height: 0;
+    }
+  }
+
+  @include inset;
+
+  position: absolute;
+  z-index: 0;
+
+  width: 100vw;
+
+  pointer-events: none;
+
+  &--hide {
+    #{$component} {
+      &__container {
+        animation: preloader-hide $hide-transition forwards;
+      }
+    }
+  }
+
+  &__container {
+    transform: translate3d(0, 0, 0);
+    will-change: height;
+
+    height: 100%;
+    pointer-events: all;
+    overflow: hidden;
+  }
+
+  &__layout {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: color(white);
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 0;
+  }
+
+  &__svg {
+    @include rectangle(rem(258px), rem(65px));
+
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    &:hover {
+      path {
+        fill: red;
+      }
+    }
+
+    &:nth-child(1) {
+      clip-path: inset(0 0 0 var(--preloader-progress-value));
+
+      path {
+        fill: color(gray);
+      }
+    }
+
+    &:nth-child(2) {
+      clip-path: inset(0 calc(100% - var(--preloader-progress-value)) 0 0);
+
+      path {
+        fill: color(blue);
+      }
+    }
+  }
+}

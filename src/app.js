@@ -10,10 +10,11 @@ import { aos } from "./scripts/aos";
 import { sectionSlider } from "./scripts/sectionSlider";
 import { examplesSlider } from "./scripts/examplesSlider";
 import { startDrops } from "./scripts/drop";
+import { progressPreloader, hidePreloader } from "./scripts/preloader";
 
 // data
 
-const [log, logError] = useDebug([false, true], "[app.js]");
+const [log, logError] = useDebug([false, false], "[app.js]");
 
 // handlers
 
@@ -26,6 +27,15 @@ const DOMContentLoadedHandler = () => {
 const loadHandler = () => {
   htmlPreloadLoaded();
   aos();
+
+  const preloader = document.querySelector("[data-preloader]");
+  progressPreloader(preloader, () => {
+    setTimeout(() => {
+      hidePreloader(preloader, () => {
+        console.log("preloader done");
+      });
+    }, 500);
+  });
 };
 
 // events
@@ -33,19 +43,9 @@ const loadHandler = () => {
 window.addEventListener("DOMContentLoaded", () => {
   log("DOMContentLoaded");
 
-  try {
-    DOMContentLoadedHandler();
-  } catch (error) {
-    logError(error);
-  }
+  DOMContentLoadedHandler();
 });
 
 window.addEventListener("load", () => {
-  log("load");
-
-  try {
-    loadHandler();
-  } catch (error) {
-    logError(error);
-  }
+  loadHandler();
 });

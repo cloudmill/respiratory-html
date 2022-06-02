@@ -40,6 +40,8 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",
+    "@magic/cases": "^0.0.8",
+    "animejs": "^3.2.1",
     "aos": "^2.3.4",
     "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",

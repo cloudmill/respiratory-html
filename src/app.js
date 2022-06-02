@@ -1,51 +1,50 @@
-// style import
+import "./styles/app.scss";
 
-import "./styles/app";
-
-// script import
-
-import { useDebug } from "./scripts/useDebug";
-import { htmlPreloadLoaded } from "./scripts/htmlPreloadLoaded";
-import { aos } from "./scripts/aos";
-import { sectionSlider } from "./scripts/sectionSlider";
-import { examplesSlider } from "./scripts/examplesSlider";
-import { startDrops } from "./scripts/drop";
+import {
+  scrollToTop,
+  scrollToLeftBeforeUnload,
+  lockScroll,
+  unlockScroll,
+} from "./scripts/scroll";
+import { updateHtmlModifiers } from "./scripts/html";
+import { initDrop } from "./scripts/drop";
 import { progressPreloader, hidePreloader } from "./scripts/preloader";
-
-// data
-
-const [log, logError] = useDebug([false, false], "[app.js]");
-
-// handlers
-
-const DOMContentLoadedHandler = () => {
-  sectionSlider();
-  examplesSlider();
-  startDrops();
-};
-
-const loadHandler = () => {
-  htmlPreloadLoaded();
-  aos();
-
-  const preloader = document.querySelector("[data-preloader]");
-  progressPreloader(preloader, () => {
-    setTimeout(() => {
-      hidePreloader(preloader, () => {
-        console.log("preloader done");
-      });
-    }, 500);
-  });
-};
-
-// events
+import { initAos } from "./scripts/aos";
 
 window.addEventListener("DOMContentLoaded", () => {
-  log("DOMContentLoaded");
-
-  DOMContentLoadedHandler();
+  handleDOMContentLoaded();
 });
 
 window.addEventListener("load", () => {
-  loadHandler();
+  handleLoad();
 });
+
+let preloader;
+
+initAos();
+scrollToLeftBeforeUnload();
+
+function handleDOMContentLoaded() {
+  preloader = document.querySelector("[data-preloader]");
+
+  initDrop();
+
+  if (preloader) {
+    lockScroll();
+  }
+}
+
+function handleLoad() {
+  updateHtmlModifiers();
+
+  if (preloader) {
+    progressPreloader(preloader, () => {
+      setTimeout(() => {
+        scrollToTop();
+        unlockScroll();
+
+        hidePreloader(preloader);
+      }, 500);
+    });
+  }
+}

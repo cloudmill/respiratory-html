@@ -3,5 +3,15 @@ extends ../app
 block header
 block footer
 
+//- block preloader
+
 block content
-  div(style="min-height: 300vh; background-color: darkgray; cursor: pointer;")
+  .container
+    div(style="overflow-y: hidden")
+      each i in repeat(5)
+        +top
+
+mixin top
+  .top(data-aos="fade-up")
+    +drop(['q', 'w', 'e'])
+      |qwe

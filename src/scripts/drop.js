@@ -1,56 +1,46 @@
-import { useDebug } from "./useDebug";
+const initDrop = () => {
+  const components = document.querySelectorAll("[data-drop]");
 
-const [log, logError] = useDebug([true, true], "[drop.js]");
+  components.forEach((component) => {
+    // init
+    const btn = component.querySelector("[data-drop-btn]");
+    const nav = component.querySelector("[data-drop-nav]");
 
-const startDrops = () => {
-  log("startDrops");
+    // state
+    const state = {
+      isOpen: false,
+    };
 
-  try {
-    const components = document.querySelectorAll("[data-drop]");
+    const ACTION = {
+      BTN_CLICK: "BTN_CLICK",
+      CLICK_OUTSIDE: "CLICK_OUTSIDE",
+    };
 
-    components.forEach((component) => {
-      // init
-      const btn = component.querySelector("[data-drop-btn]");
-      const nav = component.querySelector("[data-drop-nav]");
+    const reducer = (action) => {
+      switch (action) {
+        case ACTION.BTN_CLICK:
+          component.classList.toggle("drop--open");
+          state.isOpen = !state.isOpen;
+          break;
+        case ACTION.CLICK_OUTSIDE:
+          state.isOpen = false;
+          component.classList.remove("drop--open");
+          break;
+      }
+    };
 
-      // state
-      const state = {
-        isOpen: false,
-      };
+    // methods
+    const checkBtn = (target) => {
+      const targetBtn = target.closest("[data-drop-btn]");
 
-      const ACTION = {
-        BTN_CLICK: "BTN_CLICK",
-        CLICK_OUTSIDE: "CLICK_OUTSIDE",
-      };
+      return !!targetBtn && targetBtn === btn;
+    };
 
-      const reducer = (action) => {
-        switch (action) {
-          case ACTION.BTN_CLICK:
-            component.classList.toggle("drop--open");
-            state.isOpen = !state.isOpen;
-            break;
-          case ACTION.CLICK_OUTSIDE:
-            state.isOpen = false;
-            component.classList.remove("drop--open");
-            break;
-        }
-      };
-
-      // methods
-      const checkBtn = (target) => {
-        const targetBtn = target.closest("[data-drop-btn]");
-
-        return !!targetBtn && targetBtn === btn;
-      };
-
-      // events
-      window.addEventListener("click", ({ target }) => {
-        reducer(checkBtn(target) ? ACTION.BTN_CLICK : ACTION.CLICK_OUTSIDE);
-      });
+    // events
+    window.addEventListener("click", ({ target }) => {
+      reducer(checkBtn(target) ? ACTION.BTN_CLICK : ACTION.CLICK_OUTSIDE);
     });
-  } catch (error) {
-    logError(error);
-  }
+  });
 };
 
-export { startDrops };
+export { initDrop };

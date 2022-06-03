@@ -12,7 +12,6 @@ const start = () => {
 
     const swiper = new Swiper(swiperEl, {
       parallax: true,
-      loop: true,
       speed: 1500,
       autoplay: {
         delay: 1500,

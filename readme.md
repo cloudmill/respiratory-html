@@ -1,87 +1,80 @@
-# Bundler
+text mask
+  pug
+    .text
+      - for (var i = 0; i < 10; i++)
+        each word in ['wqe', 'ewq', '123']
+          span.text__outer
+            span.text__inner
+              |#{word + " "}
+        |#{'\n'}
+  scss
+    .text {
+      overflow: hidden;
+      resize: both;
+      
+      white-space: pre-wrap;
+      
+      &__outer {
+        display: inline-block;
+        overflow: hidden;
+      }
+      
+      &__inner {
+        @keyframes qwe {
+          0% {
+            transform: translateY(100%);
+            
+            opacity: 0;
+          }
+          
+          100% {
+            transform: translateY(0);
+            
+            opacity: 1;
+          }
+        }
+        
+        display: inline-block;
+        
+        animation: qwe 0.5s infinite alternate;
+        
+        &--active {
+          
+        }
+      }
+    }
 
-```
-Инструмент упрощающий разработку клиентской части веб-сайтов и приложений
-```
+flow
+  html
+    control (#1) active
+      DOMContentLoaded
+        load
+          transition on
+          
+          preloader progress 1500
+            init swiper without autoplay
+            start parallax
 
-### Стек
+            delay 500
+              preloader hide 2000
 
-```
-Pug, SCSS, BEM, JavaScript, Webpack
-```
+              zoom out top image 2000
 
-### Структура
+              delay 1000
+                reveal text mask 1000
+                fade other 1000
 
-```
-/src - исходники
-  /assets - ресурсы
-    /fonts - шрифты
-      - ttf, eot, otf, woff/woff2
-      - предпочтительно woff (можно использовать конвертер)
-      - https://html5css.ru/css/css3_fonts.php
-    /images - картинки
-      - png, jpg, jpeg, gif, ico, webp
-      /svg - отдельная папка для svg, как загружаемых (например img src=...), так и используемых в виде верстки
-    /videos - видео
-      - mp4
-  /data - данные
-    data.json - данные используемые в верстке (pug) и js модулях
-    - другие json, используемые в js модулях
-  /scripts - скрипты
-    - js файлы (поддиректории с js файлами), описывающие js модули логики (компоненты)
-  /styles - стили
-    app - входная точка, порядок
-    fonts - подключение шрифтов
-    /helpers
-      index - порядок
-      variables - scss vars & :root css custom props
-      functions - функции, а-ля преобразование единиц
-      mixins - переиспользуемые блоки стилей без привязки к конкретному компоненту
-    /layout
-      normalize - сторонняя библиотека, нормализация
-      reset - сторонняя библиотека, сброс
-      my-reset - собственная нормализация/сброк (если требуется)
-      base - базовые стили, а-ля h1, h2, h3 { ... }, body { ... } (если требуется, подобные стили лучше выносить в компоненты и использовать классы - больше контроля, меньше зависимостей)
-    /libs
-      - файлы содержащие/подключающие стили сторонних библиотек (например из node_modules), содержащие настройки сторонних библиотек (например переопределение scss переменных)
-    /content
-      /utils - утилитарные стили, а-ля .only-desktop { ... }
-      /components - непосредственно стили компонентов, а-ля .container { ... }
-  /views - верстка
-    /components - компоненты (переиспользуемые блоки, например миксины)
-    /layouts - шаблоны для страниц (общая, не контентная часть)
-    /pages - непосредственно компилируемые в html страницы, наследуются от шаблона, используют компоненты
-  app.js - входная точка в приложение, здесь подключаются входная точка стилей и js модули
+                delay 1000
+                  control (#1) progress
+                  image active
 
-/webpack
-  utils.js - логика работы pug компилятора
-  webpack.config.js - логика сборки входной точки /src/app.js, подключение pug компилятора
-```
-
-### Верстка
-
-```
-  line height
-    html 1.15
-    body 1
-    > * inherit
-
-  100vw - не учитывает скроллбар
-
-  .html
-    font size getVw(16px, 1920px)
-      подвязались к ширине экрана
-        чтобы подвязавать остальные эл-ты
-          через rem
-
-  .body
-    width 100vw
-      1) не учитываем скроллбар
-      2) так как сетка привязана к 100vw
-    min-width 320px
-      предполагается, что интерфейс не может быть
-      меньше некого минимального брейкпоинта
-    overflow-x hidden
-      чтобы не было горизонтального скролла
-      если какие-либо эл-ты выходят за экран
-```
+                  swiper play
+                    autoplay turn on
+                    change slide
+                      update control progress, active
+                      update image active
+                      update content
+                        update reveal text mask
+                        update fade other
+                    control click [non active]
+                      change slide

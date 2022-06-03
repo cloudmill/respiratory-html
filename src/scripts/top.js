@@ -1,67 +1,82 @@
-import Swiper from "swiper/bundle";
+import Swiper, { Parallax, Autoplay } from "swiper";
+import { easeOutCubic as easing } from "./easing";
+import throttle from "lodash/throttle";
 
-const start = () => {
-  console.log("top start");
+const SPEED = 1500;
+const DELAY = 2000;
 
-  const tops = document.querySelectorAll("[data-top]");
+const PARALLAX = 0.25;
 
-  tops.forEach((top) => {
-    const swiperEl = top.querySelector("[data-top-swiper]");
+const initParallaxY = (top) => {
+  const findElements = throttle(() => {
+    console.log("find elements");
 
-    const controls = top.querySelectorAll("[data-top-control]");
+    return top.querySelectorAll("[data-top-parallax-y]");
+  }, 1000);
 
-    const swiper = new Swiper(swiperEl, {
-      parallax: true,
-      speed: 1500,
-      autoplay: {
-        delay: 1500,
-        disableOnInteraction: false,
-      },
-      allowTouchMove: false,
-    });
-
-    swiper.on("slideChange", () => {
-      const ACTIVE_CLASS = "top__control--active";
-      controls.forEach((control) => control.classList.remove(ACTIVE_CLASS));
-      controls[swiper.realIndex].classList.add(ACTIVE_CLASS);
-    });
-
-    const ACTIVE_CLASS = "top__control--active";
-    controls.forEach((control) => control.classList.remove(ACTIVE_CLASS));
-    controls[swiper.realIndex].classList.add(ACTIVE_CLASS);
-
-    controls.forEach((control, index) =>
-      control.addEventListener("click", (event) => {
-        swiper.slideToLoop(index);
-
-        const ACTIVE_CLASS = "top__control--active";
-        controls.forEach((control) => control.classList.remove(ACTIVE_CLASS));
-        event.currentTarget.classList.add(ACTIVE_CLASS);
-      })
+  const updateElements = (elements, y) => {
+    elements.forEach(
+      (element) => (element.style.transform = `translate3d(0, ${y}px, 0)`)
     );
+  };
 
-    // test
-    window.addEventListener("keydown", (event) => {
-      switch (event.key) {
-        case "ArrowLeft":
-          {
-            let newRealIndex = swiper.realIndex - 1;
-            newRealIndex < 0 ? swiper.slides.length - 1 : newRealIndex;
+  let elements = findElements();
 
-            swiper.slideToLoop(newRealIndex);
-          }
-          break;
-        case "ArrowRight":
-          {
-            let newRealIndex = swiper.realIndex + 1;
-            newRealIndex >= swiper.slides.length ? 0 : newRealIndex;
+  window.addEventListener("scroll", () => {
+    elements = findElements();
 
-            swiper.slideToLoop(newRealIndex);
-          }
-          break;
-      }
-    });
+    const y = scrollY;
+    const height = innerHeight;
+
+    const progress = Math.min(y / height, 1);
+    const easeProgress = easing(progress);
+
+    const easeY = height * easeProgress;
+
+    updateElements(elements, easeY * PARALLAX);
   });
 };
 
-export { start };
+const initSwiper = (top) => {
+  const swiperEl = top.querySelector("[data-top-swiper]");
+
+  const swiper = new Swiper(swiperEl, {
+    modules: [Parallax, Autoplay],
+
+    parallax: true,
+
+    speed: SPEED,
+    loop: true,
+    allowTouchMove: false,
+
+    autoplay: {
+      delay: DELAY,
+      disableOnInteraction: false,
+    },
+  });
+
+  const stopAutoplay = () => {
+    swiper.autoplay.stop();
+  };
+  const startAutoplay = () => {
+    swiper.autoplay.start();
+  };
+
+  stopAutoplay();
+
+  return { stopAutoplay, startAutoplay };
+};
+
+const init = () => {
+  const tops = document.querySelectorAll("[data-top]");
+
+  tops.forEach((top) => {
+    const { startAutoplay } = initSwiper(top);
+
+    setTimeout(startAutoplay, 2500);
+
+    initParallaxY(top);
+  });
+};
+
+export { init };

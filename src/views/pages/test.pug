@@ -3,62 +3,64 @@ extends ../app
 block header
 block footer
 
-block preloader
+//- block preloader
 
 block content
-  .container
-    //- text
-    .text-container
-      .text.text--active.fade
-        - var words = ("Российский производитель фильтрующих респираторов").split(" ");
-        each word, index in words
-          .text__mask
-            .text__word
-              .text__text.text__text--yellow
-                |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
-      .text.fade
-        - var words = ("Российский производитель фильтрующих респираторов").split(" ");
-        each word, index in words
-          .text__mask
-            .text__word
-              .text__text.text__text--yellow
-                |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
-      .text.fade.fade--active
-        each i, index in repeat(30)
-          .text__mask
-            .text__word
-              .text__text.text__text--large
-                |25
-              .text__text.text__text--top
-                |лет
+  +top
+
+  each i in repeat(100)
+    div
+      |div
+
+  //- text
+    .container
+      .text-container
+        .text.text--active.fade
+          - var words = ("Российский производитель фильтрующих респираторов").split(" ");
+          each word, index in words
+            .text__mask
+              .text__word
+                .text__text.text__text--yellow
+                  |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
+        .text.fade
+          - var words = ("Российский производитель фильтрующих респираторов").split(" ");
+          each word, index in words
+            .text__mask
+              .text__word
+                .text__text.text__text--yellow
+                  |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
+        .text.fade.fade--active
+          each i, index in repeat(30)
+            .text__mask
+              .text__word
+                .text__text.text__text--large
+                  |25
+                .text__text.text__text--top
+                  |лет
 
   //- fade
-  .container
-    .fade
-      |qweewq
-    .fade.fade--active
-      |qweewq
+    .container
+      .fade
+        |qweewq
+      .fade.fade--active
+        |qweewq
 
-  //- div(style="overflow-y: hidden")
-    each i in repeat(1)
-      +top
-
-mixin top(count = 3)
-  .top(data-aos="fade-up" data-top)
-    .top__layout
-      .swiper.top__swiper(data-top-swiper)
-        .swiper-wrapper
-          each i, index in repeat(count)
-            .swiper-slide.top__slide
-              .top__slide-label
-                |#{index}
-              .top__parallax
-                +picture2({imgClasses:['top__img']}).top__picture(data-swiper-parallax="28%")
-    .top__layout
-      .container.top__content
-        |content
-      .top__controls
-        each i, index in repeat(count)
-          .top__control(data-top-control)
-            +btn
-              |#{`slide ${index}`}
+mixin top
+  .top(data-top)
+    .swiper(data-top-swiper)
+      .swiper-wrapper
+        each i in repeat(3)
+          .swiper-slide
+            .top__mask
+              .top__parallax-y(data-top-parallax-y)
+                .top__parallax-x(data-swiper-parallax="28%")
+                  .top__zoom(data-top-zoom)
+                    +picture("top.jpeg").picture--cover
+            .top__content
+              .container.container--tall.container--relative
+                .top__top
+                  |top
+                .top__aside
+                  |aside
+                .top__bottom
+                  |bottom

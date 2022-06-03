@@ -3,10 +3,43 @@ extends ../app
 block header
 block footer
 
-//- block preloader
+block preloader
 
 block content
-  div(style="overflow-y: hidden")
+  .container
+    //- text
+    .text-container
+      .text.text--active.fade
+        - var words = ("Российский производитель фильтрующих респираторов").split(" ");
+        each word, index in words
+          .text__mask
+            .text__word
+              .text__text.text__text--yellow
+                |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
+      .text.fade
+        - var words = ("Российский производитель фильтрующих респираторов").split(" ");
+        each word, index in words
+          .text__mask
+            .text__word
+              .text__text.text__text--yellow
+                |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
+      .text.fade.fade--active
+        each i, index in repeat(30)
+          .text__mask
+            .text__word
+              .text__text.text__text--large
+                |25
+              .text__text.text__text--top
+                |лет
+
+  //- fade
+  .container
+    .fade
+      |qweewq
+    .fade.fade--active
+      |qweewq
+
+  //- div(style="overflow-y: hidden")
     each i in repeat(1)
       +top
 

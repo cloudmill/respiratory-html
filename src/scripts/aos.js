@@ -1,7 +1,5 @@
 import AOS from "aos";
 
-const initAos = () => {
-  AOS.init();
-};
+const init = AOS.init;
 
-export { initAos };
+export { init };

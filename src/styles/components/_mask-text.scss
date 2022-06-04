@@ -1,0 +1,70 @@
+.mask-text {
+  // test
+  &-container {
+    overflow: hidden;
+    resize: both;
+
+    background-color: color(black);
+  }
+
+  $component: &;
+
+  $easing: timing-function(major);
+  $duration: 1s;
+  $transition: $duration $easing;
+
+  @mixin active {
+    #{$component} {
+      &__word {
+        transform: translate3d(0, 15%, 0);
+      }
+    }
+  }
+
+  &--active {
+    @include active;
+  }
+
+  // test
+  &:hover {
+    @include active;
+  }
+
+  &__mask {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  &__word {
+    transform: translate3d(0, 115%, 0);
+    will-change: transform;
+
+    display: inline-block;
+
+    white-space: nowrap;
+    transition: transform $transition;
+  }
+
+  &__text {
+    @include font-fsl("title-3", 24px, 100%);
+
+    display: inline-block;
+
+    color: color(white);
+
+    &--large {
+      @include fsl(80px);
+    }
+
+    &--top {
+      vertical-align: top;
+      line-height: 1.22;
+    }
+
+    &--yellow {
+      @include fsl(54px, 110%);
+
+      color: color(yellow);
+    }
+  }
+}

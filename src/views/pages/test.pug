@@ -3,40 +3,35 @@ extends ../app
 block header
 block footer
 
-//- block preloader
+block preloader
 
 block content
-  +top
-
-  each i in repeat(100)
-    div
-      |div
+  //- +top
 
   //- text
-    .container
-      .text-container
-        .text.text--active.fade
-          - var words = ("Российский производитель фильтрующих респираторов").split(" ");
-          each word, index in words
-            .text__mask
-              .text__word
-                .text__text.text__text--yellow
-                  |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
-        .text.fade
-          - var words = ("Российский производитель фильтрующих респираторов").split(" ");
-          each word, index in words
-            .text__mask
-              .text__word
-                .text__text.text__text--yellow
-                  |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
-        .text.fade.fade--active
-          each i, index in repeat(30)
-            .text__mask
-              .text__word
-                .text__text.text__text--large
-                  |25
-                .text__text.text__text--top
-                  |лет
+  .container
+    .mask-text-container
+      .mask-text.mask-text--active.fade
+        each word, index in (("Российский производитель фильтрующих респираторов123").split(" "))
+          .mask-text__mask
+            .mask-text__word
+              .mask-text__text.mask-text__text--yellow
+                |!{word + "&nbsp;"}
+      .mask-text.fade
+        - var words = ("Российский производитель фильтрующих респираторов123").split(" ");
+        each word, index in words
+          .mask-text__mask
+            .mask-text__word
+              .mask-text__text.mask-text__text--yellow
+                |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
+      .mask-text.fade.fade--active
+        each i, index in repeat(30)
+          .mask-text__mask
+            .mask-text__word
+              .mask-text__text.mask-text__text--large
+                |25
+              .mask-text__text.mask-text__text--top
+                |лет
 
   //- fade
     .container

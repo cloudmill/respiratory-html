@@ -1,54 +1,48 @@
 import "./styles/app.scss";
 
-import {
-  scrollToTop,
-  scrollToLeftBeforeUnload,
-  lockScroll,
-  unlockScroll,
-} from "./scripts/scroll";
-import { updateHtmlModifiers } from "./scripts/html";
-import { initDrop } from "./scripts/drop";
-import { progressPreloader, hidePreloader } from "./scripts/preloader";
-import { initAos } from "./scripts/aos";
-import { init as initTop } from "./scripts/top";
+import * as scrollPage from "./scripts/scrollPage";
+import * as aos from "./scripts/aos";
+// import { updateHtmlModifiers } from "./scripts/html";
+// import { initDrop } from "./scripts/drop";
+// import { progressPreloader, hidePreloader } from "./scripts/preloader";
+// import { init as initTop } from "./scripts/top";
 
-window.addEventListener("DOMContentLoaded", () => {
-  handleDOMContentLoaded();
-});
+scrollPage.toLeftBeforeUnload();
+aos.init();
 
-window.addEventListener("load", () => {
-  handleLoad();
-});
+window.addEventListener("DOMContentLoaded", () => {});
 
-let preloader;
+window.addEventListener("load", () => {});
 
-initAos();
-scrollToLeftBeforeUnload();
+// let preloader;
 
-function handleDOMContentLoaded() {
-  preloader = document.querySelector("[data-preloader]");
+// scrollPage.toLeftBeforeUnload();
+// aos.init();
 
-  initDrop();
+// function handleDOMContentLoaded() {
+//   preloader = document.querySelector("[data-preloader]");
 
-  if (preloader) {
-    lockScroll();
-  }
-}
+//   initDrop();
 
-function handleLoad() {
-  updateHtmlModifiers();
+//   if (preloader) {
+//     scrollPage.lockScroll();
+//   }
+// }
 
-  if (preloader) {
-    progressPreloader(preloader, () => {
-      setTimeout(() => {
-        scrollToTop();
-        unlockScroll();
-        initTop();
+// function handleLoad() {
+//   updateHtmlModifiers();
 
-        hidePreloader(preloader, () => {
-          console.log("preloader hide complete");
-        });
-      }, 500);
-    });
-  }
-}
+//   if (preloader) {
+//     progressPreloader(preloader, () => {
+//       setTimeout(() => {
+//         scrollPage.scrollToTop();
+//         scrollPage.unlockScroll();
+//         initTop();
+
+//         hidePreloader(preloader, () => {
+//           console.log("preloader hide complete");
+//         });
+//       }, 500);
+//     });
+//   }
+// }

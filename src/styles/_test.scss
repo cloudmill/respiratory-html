@@ -113,149 +113,6 @@
   }
 }
 
-// .top {
-//   $component: &;
-
-//   $slide-duration: 3s;
-//   $slide-zoom-in: 1.5;
-
-//   position: relative;
-//   z-index: 0;
-
-//   height: 100vh;
-//   overflow: hidden;
-
-//   border: 1px solid black; // test
-//   border-radius: 0 0 rem(120px) 0;
-
-//   &__layout {
-//     @include inset;
-
-//     position: absolute;
-
-//     &:nth-child(1) {
-//       z-index: 1;
-//     }
-
-//     &:nth-child(2) {
-//       z-index: 2;
-
-//       pointer-events: none;
-//     }
-//   }
-
-//   &__swiper {
-//     counter-reset: slide-index;
-
-//     height: 100%;
-//   }
-
-//   &__slide {
-//     position: relative;
-//     z-index: 0;
-
-//     &-label {
-//       @include font-fsl("title-1", 24px, 100%);
-
-//       position: absolute;
-//       z-index: 1;
-//       top: rem(40px);
-//       right: rem(40px);
-
-//       color: color(white);
-//     }
-
-//     #{$component} {
-//       &__img {
-//         transform: scale(1);
-
-//         transition: transform $slide-duration timing-function(minor);
-//       }
-//     }
-
-//     &.swiper-slide-active {
-//       #{$component} {
-//         &__img {
-//           transform: scale($slide-zoom-in);
-//         }
-//       }
-//     }
-//   }
-
-//   &__parallax {
-//     position: relative;
-//     z-index: 0;
-
-//     height: 100%;
-//     overflow: hidden;
-//   }
-
-//   &__picture {
-//     @include inset;
-
-//     position: absolute;
-//   }
-
-//   &__drop {
-//     pointer-events: all;
-//   }
-
-//   &__controls {
-//     position: absolute;
-//     bottom: 0;
-//     left: 0;
-
-//     padding: 0 0 rem(40px) rem(40px);
-//     display: flex;
-//   }
-
-//   &__control {
-//     position: relative;
-//     z-index: 0;
-
-//     padding-bottom: rem(40px);
-
-//     &::before {
-//       position: absolute;
-//       bottom: 0;
-//       left: 0;
-//       right: 0;
-//       transform: translate3d(0, 0, 0);
-//       will-change: width;
-
-//       content: "";
-//       height: rem(20px);
-//       width: 0;
-
-//       background-color: color(white);
-//     }
-
-//     &:not(:first-child) {
-//       margin-left: rem(20px);
-//     }
-
-//     &--active {
-//       &::before {
-//         @keyframes top-content {
-//           0% {
-//             width: 0;
-//           }
-
-//           100% {
-//             width: 100%;
-//           }
-//         }
-
-//         animation: top-content 3s timing-function(minor) forwards;
-//       }
-//     }
-//   }
-
-//   &__content {
-//     pointer-events: all;
-//   }
-// }
-
 // fade
 .fade {
   $easing: timing-function(major);
@@ -264,72 +121,13 @@
   opacity: 0;
   transition: opacity $duration $easing;
 
-  &--active,
-  &:hover {
+  &--active {
     opacity: 1;
   }
-}
 
-// reveal-text test
-.text {
-  &-container {
-    overflow: hidden;
-    resize: both;
-
-    background-color: color(black);
-  }
-
-  $component: &;
-
-  $easing: timing-function(major);
-  $duration: 1s;
-  $transition: $duration $easing;
-
-  &--active,
+  // test
   &:hover {
-    #{$component} {
-      &__word {
-        transform: translate3d(0, 15%, 0);
-      }
-    }
-  }
-
-  &__mask {
-    display: inline-block;
-    overflow: hidden;
-  }
-
-  &__word {
-    transform: translate3d(0, 115%, 0);
-    will-change: transform;
-
-    display: inline-block;
-
-    white-space: nowrap;
-    transition: transform $transition;
-  }
-
-  &__text {
-    @include font-fsl("title-3", 24px, 100%);
-
-    display: inline-block;
-
-    color: color(white);
-
-    &--large {
-      @include fsl(80px);
-    }
-
-    &--top {
-      vertical-align: top;
-      line-height: 1.22;
-    }
-
-    &--yellow {
-      @include fsl(54px, 110%);
-
-      color: color(yellow);
-    }
+    opacity: 1;
   }
 }
 
@@ -363,7 +161,7 @@
   &__parallax {
     &-y {
       @include inset;
-  
+
       position: absolute;
       z-index: 0;
       transform: translate3d(0, 0, 0);
@@ -372,7 +170,7 @@
 
     &-x {
       @include inset;
-  
+
       position: absolute;
       z-index: 0;
     }
@@ -380,7 +178,7 @@
 
   &__zoom {
     @include inset;
-  
+
     position: absolute;
     z-index: 0;
   }

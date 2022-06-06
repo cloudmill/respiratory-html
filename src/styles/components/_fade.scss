@@ -1,0 +1,16 @@
+.fade {
+  $timing-function: timing-function(major);
+  $duration: 1s;
+
+  opacity: 0;
+  transition: opacity $duration $timing-function;
+
+  &--active {
+    opacity: 1;
+  }
+
+  // test
+  &:hover {
+    opacity: 1;
+  }
+}

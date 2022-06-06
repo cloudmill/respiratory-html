@@ -76,110 +76,11 @@
   }
 }
 
-.bbtn {
-  $component: &;
 
-  display: flex;
-
-  &__btn {
-    padding: 0 rem(40px);
-    height: rem(60px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-    background-color: color(blue);
-    border-radius: rem(12px);
-    cursor: pointer;
-    transition: background-color transition(minor);
-
-    &:hover {
-      background-color: color(yellow);
-
-      #{$component} {
-        &__text {
-          color: color(black);
-        }
-      }
-    }
-  }
-
-  &__text {
-    @include font-fsl("title-1", 13px, 100%);
-
-    color: color(white);
-    transition: color transition(minor);
-  }
-}
-
-// fade
-.fade {
-  $easing: timing-function(major);
-  $duration: 1s;
-
-  opacity: 0;
-  transition: opacity $duration $easing;
-
-  &--active {
-    opacity: 1;
-  }
-
-  // test
-  &:hover {
-    opacity: 1;
-  }
-}
-
-.top {
-  position: relative;
-  z-index: 0;
-
-  height: 100vh;
+// mask-text container
+.ezpqbn {
   overflow: hidden;
+  resize: both;
 
-  border-radius: 0 0 rem(120px) 0;
-
-  .swiper {
-    height: 100%;
-
-    &-slide {
-      position: relative;
-      z-index: 0;
-    }
-  }
-
-  &__mask {
-    @include inset;
-
-    position: absolute;
-    z-index: 0;
-
-    overflow: hidden;
-  }
-
-  &__parallax {
-    &-y {
-      @include inset;
-
-      position: absolute;
-      z-index: 0;
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
-    }
-
-    &-x {
-      @include inset;
-
-      position: absolute;
-      z-index: 0;
-    }
-  }
-
-  &__zoom {
-    @include inset;
-
-    position: absolute;
-    z-index: 0;
-  }
+  background-color: color(black);
 }

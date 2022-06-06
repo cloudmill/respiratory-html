@@ -3,7 +3,8 @@
   "scripts": {
     "build": "rimraf dist && webpack --config webpack/webpack.config.js --env NODE_ENV=production --mode=production --progress",
     "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open",
-    "i": "npm i --force"
+    "installation": "npm i --force",
+    "push": "git push"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",

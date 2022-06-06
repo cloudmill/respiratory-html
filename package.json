@@ -1,9 +1,10 @@
 {
   "main": "app.js",
   "scripts": {
-    "build": "rimraf dist && webpack --config webpack/webpack.config.js --env NODE_ENV=production --mode=production --progress",
-    "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open",
     "installation": "npm i --force",
+    "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open",
+    "dist": "rimraf dist && webpack --config webpack/webpack.config.js --env NODE_ENV=production --mode=production --progress",
+    "pull": "git pull",
     "push": "git push"
   },
   "devDependencies": {

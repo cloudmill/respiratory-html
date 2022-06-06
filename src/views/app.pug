@@ -2,15 +2,18 @@ doctype html
 
 include ./logic/index
 
-- var appProps = {}
-block appProps
+-
+  var options = {
+    title: 'respiratory-html',
+  };
+block options
 
 include ./ui/index
 
 html.html.no-transition(lang="ru")
   head
     meta(charset="utf-8")
-    title= appProps.title || data.title
+    title= options.title
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body.body
     block header

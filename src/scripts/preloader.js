@@ -1,20 +1,28 @@
 import anime from "animejs";
 import cases from "@magic/cases";
 
-const progressPreloader = (preloader, callback) => {
+const exist = () => Boolean(document.querySelector("[data-preloader]"));
+
+const animate = () => {
+  const preloader = document.querySelector("[data-preloader]");
   const preloaderStyle = getComputedStyle(preloader);
 
-  const progress = {
-    duration: +preloaderStyle
-      .getPropertyValue("--preloader-progress-duration")
-      .trim(),
-    easing: cases.camel(
-      preloaderStyle.getPropertyValue("--preloader-progress-easing").trim()
-    ),
-    value: preloaderStyle.getPropertyValue("--preloader-progress-value").trim(),
+  const getCustomPropName = (propName) => `--preloader-progress-${propName}`;
+  const getCustomPropValue = (propName) => style.getPropertyValue(getCustomPropName(propName));
+
+  const customProps = {}
+  ['value', 'duration', 'easing'].forEach(propName => customProps[propName] = getCustomPropValue(propName).trim());
+
+  const state = {
+    // строка а-ля "10%"
+    value: customProps.value,
+    // число а-ля 1500 (мс)
+    duration: Number(customProps.duration),
+    // строка а-ля "cubicBezier(.5, .05, .1, .3)"
+    easing: cases.camel(customProps.easing),
   };
 
-  const updatePreloaderProgress = () => {
+  const updatePreloader = () => {
     preloader.style.setProperty("--preloader-progress-value", progress.value);
   };
 
@@ -34,7 +42,7 @@ const progressPreloader = (preloader, callback) => {
   });
 };
 
-const hidePreloader = (preloader, callback) => {
+const hide = (preloader, callback) => {
   const preloaderStyle = getComputedStyle(preloader);
 
   const hide = {
@@ -48,4 +56,4 @@ const hidePreloader = (preloader, callback) => {
   callback && setTimeout(callback, hide.duration);
 };
 
-export { progressPreloader, hidePreloader };
+export { exist, animate, hide };

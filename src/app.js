@@ -17,35 +17,35 @@ window.addEventListener("load", () => {
   noTransition.remove();
 });
 
-// let preloader;
+let preloader;
 
-// scrollPage.toLeftBeforeUnload();
-// aos.init();
+scrollPage.toLeftBeforeUnload();
+aos.init();
 
-// function handleDOMContentLoaded() {
-//   preloader = document.querySelector("[data-preloader]");
+function handleDOMContentLoaded() {
+  preloader = document.querySelector("[data-preloader]");
 
-//   initDrop();
+  initDrop();
 
-//   if (preloader) {
-//     scrollPage.lockScroll();
-//   }
-// }
+  if (preloader) {
+    scrollPage.lockScroll();
+  }
+}
 
-// function handleLoad() {
-//   updateHtmlModifiers();
+function handleLoad() {
+  updateHtmlModifiers();
 
-//   if (preloader) {
-//     progressPreloader(preloader, () => {
-//       setTimeout(() => {
-//         scrollPage.scrollToTop();
-//         scrollPage.unlockScroll();
-//         initTop();
+  if (preloader) {
+    progressPreloader(preloader, () => {
+      setTimeout(() => {
+        scrollPage.scrollToTop();
+        scrollPage.unlockScroll();
+        initTop();
 
-//         hidePreloader(preloader, () => {
-//           console.log("preloader hide complete");
-//         });
-//       }, 500);
-//     });
-//   }
-// }
+        hidePreloader(preloader, () => {
+          console.log("preloader hide complete");
+        });
+      }, 500);
+    });
+  }
+}

@@ -1,4 +1,19 @@
 mixin top
-  .top
-    .container
-      +map-svg.vzktjl(data-qweqweqwe)
+  .top(data-top)
+    .swiper(data-top-swiper)
+      .swiper-wrapper
+        each i in repeat(3)
+          .swiper-slide
+            .top__mask
+              .top__parallax-y(data-top-parallax-y)
+                .top__parallax-x(data-swiper-parallax="28%")
+                  .top__zoom(data-top-zoom)
+                    +picture("top.jpeg").picture--cover
+            .top__content
+              .container.container--tall.container--relative
+                .top__top
+                  |top
+                .top__aside
+                  |aside
+                .top__bottom
+                  |bottom

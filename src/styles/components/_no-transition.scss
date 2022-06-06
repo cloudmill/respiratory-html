@@ -1,0 +1,5 @@
+.no-transition {
+  * {
+    @include prefix(transition, none !important);
+  }
+}

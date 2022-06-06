@@ -1,6 +1,8 @@
 -
-  var app {
+  var data = {
     title: 'respiratory-html',
+
+    imagesDir: "assets/images/",
 
     routes: [
       {
@@ -36,4 +38,31 @@
         "path": "test"
       },
     ],
+  }
+
+  var repeat = function (count) {
+    return new Array(count);
+  };
+
+  var file = {
+    getTitle(filename) {
+      var segments = filename.split('.');
+      segments.pop();
+      var title = segments.join('.');
+
+      return title;
+    },
+
+    getExtension(filename) {
+      var segments = filename.split('.');
+      var extension = segments.pop();
+
+      return extension;
+    },
+
+    getPath(title, extension) {
+      var path = data.imagesDir + title + "." + extension;
+
+      return path;
+    },
   };

@@ -1,14 +1,14 @@
 doctype html
 
-include ./defs
-block defs
+include ./definitions
+block definitions
 include ./svg
-include ./components/index
+include ./components
 
 html.html.no-transition(lang="ru")
   head
     meta(charset="utf-8")
-    title= app.title
+    title= data.title
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body.body
     block header

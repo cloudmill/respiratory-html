@@ -1,17 +1,19 @@
 import anime from "animejs";
 import cases from "@magic/cases";
 
-const exist = () => Boolean(document.querySelector("[data-preloader]"));
+const get = () => document.querySelector("[data-preloader]");
+const exist = () => Boolean(get());
+const style = () => getComputedStyle(get());
 
-const animate = () => {
-  const preloader = document.querySelector("[data-preloader]");
-  const preloaderStyle = getComputedStyle(preloader);
-
+const animate = (callback) => {
   const getCustomPropName = (propName) => `--preloader-progress-${propName}`;
-  const getCustomPropValue = (propName) => style.getPropertyValue(getCustomPropName(propName));
+  const getCustomPropValue = (propName) =>
+    style().getPropertyValue(getCustomPropName(propName));
 
-  const customProps = {}
-  ['value', 'duration', 'easing'].forEach(propName => customProps[propName] = getCustomPropValue(propName).trim());
+  const customProps = {};
+  ["value", "duration", "easing"].forEach(
+    (propName) => (customProps[propName] = getCustomPropValue(propName).trim())
+  );
 
   const state = {
     // строка а-ля "10%"
@@ -23,37 +25,35 @@ const animate = () => {
   };
 
   const updatePreloader = () => {
-    preloader.style.setProperty("--preloader-progress-value", progress.value);
+    get().style.setProperty("--preloader-progress-value", state.value);
   };
 
   anime({
-    targets: progress,
-    value: "100%",
-    easing: progress.easing,
-    duration: progress.duration,
+    targets: state,
 
-    update: updatePreloaderProgress,
+    value: "100%",
+
+    duration: state.duration,
+    easing: state.easing,
+
+    update: updatePreloader,
 
     complete: () => {
-      updatePreloaderProgress();
+      updatePreloader();
 
       callback && callback();
     },
   });
 };
 
-const hide = (preloader, callback) => {
-  const preloaderStyle = getComputedStyle(preloader);
+const hide = (callback) => {
+  const duration = +style()
+    .getPropertyValue("--preloader-hide-duration")
+    .trim();
 
-  const hide = {
-    duration: +preloaderStyle
-      .getPropertyValue("--preloader-hide-duration")
-      .trim(),
-  };
+  get().classList.add("preloader--hide");
 
-  preloader.classList.add("preloader--hide");
-
-  callback && setTimeout(callback, hide.duration);
+  callback && setTimeout(callback, duration);
 };
 
 export { exist, animate, hide };

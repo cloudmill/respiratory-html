@@ -1,4 +1,4 @@
-const initDrop = () => {
+const init = () => {
   const components = document.querySelectorAll("[data-drop]");
 
   components.forEach((component) => {
@@ -43,4 +43,4 @@ const initDrop = () => {
   });
 };
 
-export { initDrop };
+export { init };

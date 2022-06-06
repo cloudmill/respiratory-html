@@ -1,61 +1,13 @@
 extends ../app
 
+block options
+  -
+    options.title = 'Тестовая'
+
 block header
 block footer
 
 block preloader
 
 block content
-  //- +top
-
-  //- text
-  .container
-    .mask-text-container
-      .mask-text.mask-text--active.fade
-        each word, index in (("Российский производитель фильтрующих респираторов123").split(" "))
-          .mask-text__mask
-            .mask-text__word
-              .mask-text__text.mask-text__text--yellow
-                |!{word + "&nbsp;"}
-      .mask-text.fade
-        - var words = ("Российский производитель фильтрующих респираторов123").split(" ");
-        each word, index in words
-          .mask-text__mask
-            .mask-text__word
-              .mask-text__text.mask-text__text--yellow
-                |!{word + (index < (words.length - 1) ? "&nbsp;" : "")}
-      .mask-text.fade.fade--active
-        each i, index in repeat(30)
-          .mask-text__mask
-            .mask-text__word
-              .mask-text__text.mask-text__text--large
-                |25
-              .mask-text__text.mask-text__text--top
-                |лет
-
-  //- fade
-    .container
-      .fade
-        |qweewq
-      .fade.fade--active
-        |qweewq
-
-mixin top
-  .top(data-top)
-    .swiper(data-top-swiper)
-      .swiper-wrapper
-        each i in repeat(3)
-          .swiper-slide
-            .top__mask
-              .top__parallax-y(data-top-parallax-y)
-                .top__parallax-x(data-swiper-parallax="28%")
-                  .top__zoom(data-top-zoom)
-                    +picture("top.jpeg").picture--cover
-            .top__content
-              .container.container--tall.container--relative
-                .top__top
-                  |top
-                .top__aside
-                  |aside
-                .top__bottom
-                  |bottom
+  +top

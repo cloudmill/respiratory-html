@@ -10,7 +10,7 @@ block grid-test
 block content
   .container
     ul
-      each route in data.routes
+      each route in app.routes
         li(style="margin: 10px 0;")
           +btn({tag:'a',href:route.path})
             |#{route.title}

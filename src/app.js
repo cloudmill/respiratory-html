@@ -2,6 +2,7 @@ import "./styles/app.scss";
 
 import * as scrollPage from "./scripts/scrollPage";
 import * as aos from "./scripts/aos";
+import * as noTransition from "./scripts/noTransition";
 // import { updateHtmlModifiers } from "./scripts/html";
 // import { initDrop } from "./scripts/drop";
 // import { progressPreloader, hidePreloader } from "./scripts/preloader";
@@ -12,7 +13,9 @@ aos.init();
 
 window.addEventListener("DOMContentLoaded", () => {});
 
-window.addEventListener("load", () => {});
+window.addEventListener("load", () => {
+  noTransition.remove();
+});
 
 // let preloader;
 

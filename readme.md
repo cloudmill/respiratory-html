@@ -1,3 +1,24 @@
+views
+  pages/
+    examples
+    ...
+  components/
+    btn
+    ...
+  app
+    definitions
+      app = {}
+      file = {}
+      repeat()
+      ...
+    svg
+      map-svg
+      ...
+    components
+      btn
+      ...
+    
+
 flow
   html
     control (#1) active

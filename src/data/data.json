@@ -27,6 +27,10 @@
       "path": "consumers"
     },
     {
+      "title": "Примеры",
+      "path": "examples"
+    },
+    {
       "title": "Тестовая",
       "path": "test"
     }

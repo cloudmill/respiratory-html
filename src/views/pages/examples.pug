@@ -1,0 +1,36 @@
+extends ../app
+
+block options
+  -
+    options.title = 'Примеры'
+
+block header
+block footer
+
+block preloader
+
+//- block grid-test
+
+block content
+  .container
+    .ezpqbn
+      .mask-text.fade
+        each word, index in ("Российский производитель фильтрующих респираторов").split(" ")
+          .mask-text__mask
+            .mask-text__word
+              .mask-text__text.mask-text__text--title
+                |!{word + '&nbsp;'}
+      .mask-text.mask-text--active.fade.fade--active
+        each i, index in repeat(30)
+          .mask-text__mask
+            .mask-text__word
+              .mask-text__text.mask-text__text--large
+                |25
+              .mask-text__text.mask-text__text--top
+                |лет
+      .mask-text.mask-text--active.fade.fade--active
+        each i, index in repeat(30)
+          .mask-text__mask
+            .mask-text__word
+              .mask-text__text.mask-text__text--large
+                |35%

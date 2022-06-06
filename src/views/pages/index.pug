@@ -3,6 +3,8 @@ extends ../app
 block header
 block footer
 
+block preloader
+
 block grid-test
 
 block content
@@ -10,7 +12,5 @@ block content
     ul
       each route in data.routes
         li(style="margin: 10px 0;")
-          .bbtn
-            a.bbtn__btn(href=route.path)
-              .bbtn__text
-                |#{route.title}
+          +btn({tag:'a',href:route.path})
+            |#{route.title}

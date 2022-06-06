@@ -100,11 +100,6 @@ module.exports = (env) => {
             "pug-loader",
             {
               loader: "pug-html-loader",
-              options: {
-                data: {
-                  data: require("../src/data/data.json"),
-                },
-              },
             },
           ],
         },

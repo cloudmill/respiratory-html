@@ -6,13 +6,4 @@
       font-size: vw($font-size, $variant);
     }
   }
-
-  &--preload {
-    * {
-      @include prefix(transition, none !important);
-    }
-  }
-
-  &--loaded {
-  }
 }

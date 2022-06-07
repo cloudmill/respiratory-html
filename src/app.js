@@ -5,9 +5,6 @@ import * as aos from "./scripts/aos";
 import * as noTransition from "./scripts/noTransition";
 import * as preloader from "./scripts/preloader";
 import * as drop from "./scripts/drop";
-// import { updateHtmlModifiers } from "./scripts/html";
-// import { progressPreloader, hidePreloader } from "./scripts/preloader";
-// import { init as initTop } from "./scripts/top";
 
 scrollPage.toLeftBeforeUnload();
 aos.init();
@@ -18,7 +15,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener("load", () => {
   // загрузились
-  
+  console.log(gsap, MorphSVGPlugin);
+
   // активировали переходы
   noTransition.remove();
 
@@ -34,9 +32,7 @@ window.addEventListener("load", () => {
           console.log("qwe");
         });
 
-        setTimeout(() => {
-
-        });
+        setTimeout(() => {});
       }, 500);
     });
   }

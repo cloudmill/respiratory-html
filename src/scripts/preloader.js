@@ -1,11 +1,7 @@
 import anime from "animejs";
 import cases from "@magic/cases";
 
-const get = (() => {
-  let preloader;
-
-  return () => preloader || document.querySelector("[data-preloader]");
-})();
+const get = () => document.querySelector("[data-preloader]");
 const exist = () => Boolean(get());
 const style = () => getComputedStyle(get());
 

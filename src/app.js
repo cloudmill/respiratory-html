@@ -17,13 +17,25 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", () => {
+  // загрузились
+  
+  // активировали переходы
   noTransition.remove();
 
+  // если прелоадер существует
   if (preloader.exist()) {
+    // начинаем цепочку, анимируем прогресс прелоадера
     preloader.animate(() => {
+      // init swiper without autoplay
+      // start parallax
+
       setTimeout(() => {
         preloader.hide(() => {
           console.log("qwe");
+        });
+
+        setTimeout(() => {
+
         });
       }, 500);
     });

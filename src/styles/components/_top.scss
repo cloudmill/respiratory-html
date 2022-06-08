@@ -1,0 +1,199 @@
+.top {
+  position: relative;
+  z-index: 0;
+
+  height: 100vh;
+  overflow: hidden;
+
+  border-radius: 0 0 rem(120px) 0;
+
+  &__layout {
+    @include inset;
+
+    position: absolute;
+    z-index: 0;
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: rem(40px);
+    left: rem(40px);
+
+    width: calc(#{columns(6)});
+    // width: calc(#{columns-small(3)}); // test
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-end;
+
+    background-color: gray;
+  }
+
+  &__control {
+    $el: &;
+
+    --height: #{rem(80px)};
+
+    --background-color: #{color(white)};
+
+    --border-radius: 0;
+    --border-opacity: 1;
+    --border-color: #{color(gray)};
+
+    --text-color: #{color(black)};
+    --text-offset: #{rem(6px)};
+
+    --progress-opacity: 0;
+
+    --transition: #{transition(major)};
+
+    @keyframes progress {
+      0% {
+        transform: scaleX(0);
+      }
+
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    position: relative;
+    z-index: 0;
+    transform: translate3d(0, 0, 0);
+    will-change: height, background-color, border-radius, padding;
+
+    padding: rem(25px) rem(20px);
+    height: var(--height);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    background-color: var(--background-color);
+    transition: height var(--transition), background-color var(--transition),
+      border-radius var(--transition), padding var(--transition);
+    cursor: pointer;
+
+    &:nth-child(1) {
+      border-radius: var(--border-radius) var(--border-radius) 0
+        var(--border-radius);
+    }
+
+    &:nth-child(2) {
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    &:nth-child(3) {
+      border-radius: var(--border-radius) var(--border-radius)
+        var(--border-radius) 0;
+    }
+
+    &:not(:first-child) {
+      &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        will-change: opacity, background-color;
+
+        content: "";
+        width: 1px;
+        pointer-events: none;
+
+        background-color: var(--border-color);
+        opacity: var(--border-opacity);
+        transition: opacity var(--transition),
+          background-color var(--transition);
+      }
+    }
+
+    &--active,
+    &:hover {
+      --height: #{rem(105px)};
+
+      --background-color: #{color(blue)};
+
+      --border-radius: #{rem(12px)};
+      --border-opacity: 0;
+      --border-color: #{color(blue)};
+
+      --text-color: #{color(white)};
+      --text-offset: 0;
+
+      --progress-opacity: 1;
+
+      padding: rem(25px) rem(20px) rem(40px);
+
+      & + {
+        #{$el} {
+          --border-opacity: 0;
+        }
+      }
+    }
+
+    &--progress,
+    &:hover {
+      #{$el} {
+        &-progress {
+          &::before,
+          &::after {
+            animation-name: progress;
+          }
+        }
+      }
+    }
+
+    &-text {
+      @include font-fsl("title-2", 18px, 100%);
+
+      transform: translate3d(0, var(--text-offset), 0);
+      will-change: color, transform;
+
+      color: var(--text-color);
+      transition: color var(--transition), transform var(--transition);
+    }
+
+    &-progress {
+      position: absolute;
+      z-index: 0;
+      top: rem(85px);
+      left: rem(20px);
+      right: rem(20px);
+      will-change: opacity;
+
+      pointer-events: none;
+
+      opacity: var(--progress-opacity);
+      transition: opacity var(--transition);
+
+      &::before,
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        will-change: transform;
+
+        content: "";
+        height: 2px;
+
+        animation-duration: 6s;
+        animation-fill-mode: forwards;
+        animation-timing-function: timing-function(major);
+        animation-timing-function: linear;
+      }
+
+      &::before {
+        transform-origin: left;
+
+        background-color: color(black);
+      }
+
+      &::after {
+        transform-origin: right;
+
+        background-color: color(white);
+
+        animation-direction: reverse;
+      }
+    }
+  }
+}

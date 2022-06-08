@@ -17,3 +17,19 @@ mixin top
                   |aside
                 .top__bottom
                   |bottom
+
+mixin top
+  .top(data-top)
+    .top__layout
+      .swiper(data-top-swiper)
+        .swiper-wrapper
+          each i in repeat(3)
+            .swiper-slide
+              |qwe
+    .top__layout
+      .top__controls
+        each item in ['Предприятие', 'производство', 'сервис']
+          .top__control
+            .top__control-text
+              |#{item}
+            .top__control-progress

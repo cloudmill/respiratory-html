@@ -5,8 +5,9 @@ import * as aos from "./scripts/aos";
 import * as noTransition from "./scripts/noTransition";
 import * as preloader from "./scripts/preloader";
 import * as drop from "./scripts/drop";
+import * as top from "./scripts/top";
 
-scrollPage.toLeftBeforeUnload();
+// scrollPage.toLeftBeforeUnload();
 aos.init();
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -14,25 +15,24 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", () => {
-  // загрузились
-  console.log(gsap, MorphSVGPlugin);
-
-  // активировали переходы
   noTransition.remove();
 
-  // если прелоадер существует
   if (preloader.exist()) {
-    // начинаем цепочку, анимируем прогресс прелоадера
     preloader.animate(() => {
-      // init swiper without autoplay
-      // start parallax
+      top.swiper.init();
+      top.image.parallax();
 
       setTimeout(() => {
-        preloader.hide(() => {
-          console.log("qwe");
-        });
+        top.image.zoomOut();
 
-        setTimeout(() => {});
+        setTimeout(() => {
+          top.reveal.start();
+        }, 1000);
+
+        preloader.hide(() => {
+          top.swiper.play();
+          top.image.zoomIn();
+        });
       }, 500);
     });
   }

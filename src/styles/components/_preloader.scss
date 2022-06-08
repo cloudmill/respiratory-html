@@ -1,20 +1,9 @@
 .preloader {
   $component: &;
 
-  // progress
-  $progress-duration: duration(preloader-progress);
-  $progress-timing-function: timing-function(major);
+  $hide-transition: 2s timing-function(major);
 
-  --preloader-progress-duration: #{math.div($progress-duration, 1s) * 1000};
-  --preloader-progress-easing: #{$progress-timing-function};
-  --preloader-progress-value: 0%;
-
-  // hide
-  $hide-duration: duration(preloader-hide);
-  $hide-timing-function: timing-function(major);
-  $hide-transition: $hide-duration $hide-timing-function;
-
-  --preloader-hide-duration: #{math.div($hide-duration, 1s) * 1000};
+  --progress: 0%;
 
   @keyframes preloader-hide {
     0% {
@@ -79,7 +68,7 @@
     }
 
     &:nth-child(1) {
-      clip-path: inset(0 0 0 var(--preloader-progress-value));
+      clip-path: inset(0 0 0 var(--progress));
 
       path {
         fill: color(gray);
@@ -87,7 +76,7 @@
     }
 
     &:nth-child(2) {
-      clip-path: inset(0 calc(100% - var(--preloader-progress-value)) 0 0);
+      clip-path: inset(0 calc(100% - var(--progress)) 0 0);
 
       path {
         fill: color(blue);

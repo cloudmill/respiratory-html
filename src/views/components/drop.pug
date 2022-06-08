@@ -1,11 +1,11 @@
 mixin drop(items)
-  .drop(class=attributes.class data-drop data-qwe=attributes.small)
+  .drop(data-drop)&attributes(attributes)
     .drop__wrap
       .drop__btn(data-drop-btn)
         .drop__cur
           block
         +arrow-drop-svg.drop__svg
-      nav.drop__nav(data-drop-nav)
+      nav.drop__nav
         ul.drop__list
           each item, index in items
             li.drop__item

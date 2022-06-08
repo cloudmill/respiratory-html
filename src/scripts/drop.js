@@ -1,10 +1,9 @@
-const init = () => {
+const start = () => {
   const components = document.querySelectorAll("[data-drop]");
 
   components.forEach((component) => {
-    // init
+    // data
     const btn = component.querySelector("[data-drop-btn]");
-    const nav = component.querySelector("[data-drop-nav]");
 
     // state
     const state = {
@@ -23,8 +22,8 @@ const init = () => {
           state.isOpen = !state.isOpen;
           break;
         case ACTION.CLICK_OUTSIDE:
-          state.isOpen = false;
           component.classList.remove("drop--open");
+          state.isOpen = false;
           break;
       }
     };
@@ -43,4 +42,4 @@ const init = () => {
   });
 };
 
-export { init };
+export { start };

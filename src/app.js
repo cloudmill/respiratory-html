@@ -5,33 +5,39 @@ import * as aos from "./scripts/aos";
 import * as noTransition from "./scripts/noTransition";
 import * as preloader from "./scripts/preloader";
 import * as drop from "./scripts/drop";
-import * as top from "./scripts/top";
+import { Top } from "./scripts/newTop";
 
-// scrollPage.toLeftBeforeUnload();
+scrollPage.toLeftBeforeUnload();
 aos.init();
 
 window.addEventListener("DOMContentLoaded", () => {
-  drop.init();
+  drop.start();
+
+  if (preloader.exist()) {
+    scrollPage.lock();
+  }
 });
 
 window.addEventListener("load", () => {
   noTransition.remove();
 
   if (preloader.exist()) {
-    preloader.animate(() => {
-      top.swiper.init();
-      top.image.parallax();
+    scrollPage.toTopAsync();
+
+    preloader.progress(() => {
+      const top = new Top();
 
       setTimeout(() => {
-        top.image.zoomOut();
+        top.zoomOut();
 
         setTimeout(() => {
-          top.reveal.start();
+          top.reveal();
         }, 1000);
 
         preloader.hide(() => {
-          top.swiper.play();
-          top.image.zoomIn();
+          top.start();
+
+          scrollPage.unlock();
         });
       }, 500);
     });

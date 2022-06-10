@@ -5,9 +5,9 @@ import * as aos from "./scripts/aos";
 import * as noTransition from "./scripts/noTransition";
 import * as preloader from "./scripts/preloader";
 import * as drop from "./scripts/drop";
-import * as top from "./scripts/top";
+import * as top from "./scripts/newTop";
 
-// scrollPage.toLeftBeforeUnload();
+scrollPage.toLeftBeforeUnload();
 aos.init();
 
 window.addEventListener("DOMContentLoaded", () => {

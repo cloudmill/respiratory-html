@@ -4,8 +4,8 @@ import * as scrollPage from "./scripts/scrollPage";
 import AOS from "aos";
 import * as noTransition from "./scripts/noTransition";
 import * as preloader from "./scripts/preloader";
-import * as drop from "./scripts/drop";
-import { Top } from "./scripts/newTop";
+// import * as drop from "./scripts/drop";
+import * as top from "./scripts/top";
 
 AOS.init();
 

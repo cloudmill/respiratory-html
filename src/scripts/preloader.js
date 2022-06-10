@@ -29,6 +29,7 @@ const progress = (callback) => {
 
     complete: () => {
       update();
+      
       callback && callback();
     },
   });

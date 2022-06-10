@@ -1,45 +1,45 @@
 import "./styles/app.scss";
 
 import * as scrollPage from "./scripts/scrollPage";
-import * as aos from "./scripts/aos";
+import AOS from "aos";
 import * as noTransition from "./scripts/noTransition";
 import * as preloader from "./scripts/preloader";
 import * as drop from "./scripts/drop";
 import { Top } from "./scripts/newTop";
 
-scrollPage.toLeftBeforeUnload();
-aos.init();
+AOS.init();
 
-window.addEventListener("DOMContentLoaded", () => {
-  drop.start();
-
+addEventListener("DOMContentLoaded", () => {
   if (preloader.exist()) {
     scrollPage.lock();
   }
 });
 
-window.addEventListener("load", () => {
+addEventListener("load", () => {
   noTransition.remove();
 
   if (preloader.exist()) {
-    scrollPage.toTopAsync();
-
     preloader.progress(() => {
-      const top = new Top();
+      // const top = new Top();
 
       setTimeout(() => {
-        top.zoomOut();
+        // top.zoomOut();
 
         setTimeout(() => {
-          top.reveal();
+          // top.reveal();
         }, 1000);
 
-        preloader.hide(() => {
-          top.start();
+        scrollPage.toTop();
+        scrollPage.unlock();
 
-          scrollPage.unlock();
+        preloader.hide(() => {
+          // top.start();
         });
       }, 500);
     });
   }
+});
+
+addEventListener("beforeunload", () => {
+  scrollPage.toLeft();
 });

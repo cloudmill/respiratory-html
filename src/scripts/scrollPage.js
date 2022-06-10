@@ -1,16 +1,6 @@
-const toTop = () => (document.documentElement.scrollTop = 0);
-const toTopAsync = (callback) =>
-  setTimeout(() => {
-    toTop();
-    callback && callback();
-  });
-const toLeft = () => (document.documentElement.scrollLeft = 0);
-const toStart = () => scrollTo(0, 0);
+export const toTop = () => scrollTo({ top: 0 });
+export const toLeft = () => scrollTo({ left: 0 });
+export const toStart = () => scrollTo({ top: 0, left: 0 });
 
-const lock = () => (document.body.style.overflow = "hidden");
-const unlock = () => (document.body.style.overflow = "");
-
-const toLeftBeforeUnload = () =>
-  window.addEventListener("beforeunload", toLeft);
-
-export { toTop, toTopAsync, toLeft, toStart, lock, unlock, toLeftBeforeUnload };
+export const lock = () => (document.body.style.overflow = "hidden");
+export const unlock = () => (document.body.style.overflow = "");

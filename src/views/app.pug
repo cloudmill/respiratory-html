@@ -10,7 +10,7 @@ html.html.no-transition(lang="ru")
     meta(charset="utf-8")
     title= `Респираторный: ${app.title}`
     meta(name="viewport" content="width=device-width, initial-scale=1")
-  body.body
+  body.body(class=app.bodyClasses)
     block header
       +header
     .wrapper

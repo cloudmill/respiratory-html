@@ -14,7 +14,9 @@
     position: absolute;
     z-index: 0;
 
-    pointer-events: none;
+    &--root {
+      pointer-events: none;
+    }
   }
 
   &__controls {
@@ -27,8 +29,6 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: flex-end;
     pointer-events: all;
-
-    background-color: gray;
   }
 
   &__control {
@@ -110,6 +110,8 @@
     }
 
     &--active {
+      --progress-opacity: 1;
+
       --height: #{rem(105px)};
 
       --background-color: #{color(blue)};
@@ -131,8 +133,6 @@
     }
 
     &--progress {
-      --progress-opacity: 1;
-
       #{$el} {
         &-progress {
           transition: opacity var(--transition);
@@ -190,7 +190,7 @@
         content: "";
         height: 2px;
 
-        animation-duration: 6s;
+        animation-duration: 5s;
         animation-fill-mode: forwards;
         animation-timing-function: timing-function(major);
         animation-timing-function: linear;
@@ -218,5 +218,14 @@
     &-slide {
       pointer-events: all;
     }
+  }
+
+  &__mask {
+    overflow: hidden;
+  }
+
+  &__parallax {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 }

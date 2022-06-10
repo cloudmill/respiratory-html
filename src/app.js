@@ -5,7 +5,7 @@ import AOS from "aos";
 import * as noTransition from "./scripts/noTransition";
 import * as preloader from "./scripts/preloader";
 // import * as drop from "./scripts/drop";
-import * as top from "./scripts/top";
+import * as top from "./scripts/newTop";
 
 AOS.init();
 
@@ -20,20 +20,25 @@ addEventListener("load", () => {
 
   if (preloader.exist()) {
     preloader.progress(() => {
-      // const top = new Top();
+      top.slider.initSwiper();
+
+      top.slider.pauseSwiper();
 
       setTimeout(() => {
+        // top.parallaxY();
         // top.zoomOut();
-
-        setTimeout(() => {
-          // top.reveal();
-        }, 1000);
 
         scrollPage.toTop();
         scrollPage.unlock();
 
+        setTimeout(() => {
+          // top.revealMask();
+          // top.revealFade();
+        }, 1000);
+
         preloader.hide(() => {
-          // top.start();
+          top.slider.playSwiper();
+          // top.startZoomIn();
         });
       }, 500);
     });

@@ -1,4 +1,4 @@
-mixin top
+//- mixin top
   .top(data-top)
     .swiper(data-top-swiper)
       .swiper-wrapper
@@ -19,14 +19,18 @@ mixin top
                   |bottom
 
 mixin top
-  .top(data-top)
-    .top__layout
+  .top
+    .top__layout.top__layout--root
       .swiper(data-top-swiper)
         .swiper-wrapper
           each i in repeat(3)
             .swiper-slide
-              |qwe
-    .top__layout
+              .top__layout.top__mask
+                .top__layout.top__parallax(data-top-parallax)
+                  .top__layout(data-swiper-parallax="28%")
+                    .top__layout(data-top-zoom)
+                      +picture('top.jpeg').picture--cover
+    .top__layout.top__layout--root
       .top__controls
         each item, index in ['Предприятие', 'производство', 'сервис']
           .top__control(class=(index === 0 && 'top__control--active'))

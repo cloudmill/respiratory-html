@@ -1,4 +1,10 @@
 .top {
+  $component: &;
+
+  $zoom-start-scale: 1.14;
+  $zoom-start-duration: 2s;
+  $zoom-start-timing-function: timing-function(major);
+
   position: relative;
   z-index: 0;
 
@@ -7,6 +13,16 @@
 
   background-color: gray; // test
   border-radius: 0 0 rem(120px) 0;
+
+  &--zoom {
+    &--start {
+      #{$component} {
+        &__zoom {
+          transform: scale($zoom-start-scale);
+        }
+      }
+    }
+  }
 
   &__layout {
     @include inset;
@@ -228,5 +244,13 @@
   &__parallax {
     transform: translate3d(0, 0, 0);
     will-change: transform;
+  }
+
+  &__zoom {
+    transform: scale(1);
+    transform-origin: center bottom;
+    will-change: transform;
+
+    transition: transform $zoom-start-duration $zoom-start-timing-function;
   }
 }

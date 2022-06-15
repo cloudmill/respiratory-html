@@ -19,7 +19,7 @@
                   |bottom
 
 mixin top
-  .top
+  .top.top--zoom--start(data-top)
     .top__layout.top__layout--root
       .swiper(data-top-swiper)
         .swiper-wrapper
@@ -28,7 +28,7 @@ mixin top
               .top__layout.top__mask
                 .top__layout.top__parallax(data-top-parallax)
                   .top__layout(data-swiper-parallax="28%")
-                    .top__layout(data-top-zoom)
+                    .top__layout.top__zoom
                       +picture('top.jpeg').picture--cover
     .top__layout.top__layout--root
       .top__controls

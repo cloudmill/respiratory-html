@@ -80,7 +80,10 @@ class Parallax {
 export const parallax = new Parallax();
 
 class Zoom {
-  out() {}
+  out() {
+    const top = document.querySelector("[data-top]");
+    top.classList.remove("top--zoom--start");
+  }
 
   in() {}
 }

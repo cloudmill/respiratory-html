@@ -1,9 +1,23 @@
 .top {
   $component: &;
 
-  $zoom-start-scale: 1.14;
-  $zoom-start-duration: 2s;
-  $zoom-start-timing-function: timing-function(major);
+  $zoom-out-scale: 1.14;
+  $zoom-out-duration: 2s;
+  $zoom-out-timing-function: timing-function(major);
+
+  $zoom-in-scale: 1.035;
+  $zoom-in-duration: 6.5s;
+  $zoom-in-timing-function: linear;
+
+  @keyframes top-zoom-in {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale($zoom-in-scale);
+    }
+  }
 
   position: relative;
   z-index: 0;
@@ -15,10 +29,32 @@
   border-radius: 0 0 rem(120px) 0;
 
   &--zoom {
-    &--start {
+    &--out {
       #{$component} {
         &__zoom {
-          transform: scale($zoom-start-scale);
+          transform: scale($zoom-out-scale);
+        }
+      }
+    }
+
+    &--in {
+      #{$component} {
+        &__zoom {
+          $zoom-in-transition: $zoom-in-duration $zoom-in-timing-function;
+
+          transition: transform $zoom-in-transition;
+        }
+      }
+
+      .swiper {
+        &-slide {
+          &-active {
+            #{$component} {
+              &__zoom {
+                transform: scale($zoom-in-scale);
+              }
+            }
+          }
         }
       }
     }
@@ -247,10 +283,12 @@
   }
 
   &__zoom {
+    $zoom-out-transition: $zoom-out-duration $zoom-out-timing-function;
+
     transform: scale(1);
     transform-origin: center bottom;
     will-change: transform;
 
-    transition: transform $zoom-start-duration $zoom-start-timing-function;
+    transition: transform $zoom-out-transition;
   }
 }

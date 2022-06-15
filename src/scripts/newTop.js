@@ -33,8 +33,6 @@ class Slider {
   }
 }
 
-export const slider = new Slider();
-
 class Parallax {
   static RATIO = 0.25;
   static EASING = ease.outCubic;
@@ -77,23 +75,25 @@ class Parallax {
   }
 }
 
-export const parallax = new Parallax();
-
 class Zoom {
   out() {
     const top = document.querySelector("[data-top]");
-    top.classList.remove("top--zoom--start");
+    top.classList.remove("top--zoom--out");
   }
 
-  in() {}
+  in() {
+    const top = document.querySelector("[data-top]");
+    top.classList.add("top--zoom--in");
+  }
 }
-
-export const zoom = new Zoom();
 
 class Reveal {
   mask() {}
-
+  
   fade() {}
 }
 
+export const slider = new Slider();
+export const parallax = new Parallax();
+export const zoom = new Zoom();
 export const reveal = new Reveal();

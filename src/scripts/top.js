@@ -1,5 +1,5 @@
 import Swiper, { Parallax, Autoplay } from "swiper";
-import { easeOutCubic as easing } from "./easing";
+import { easeOutCubic } from "./ease";
 import throttle from "lodash/throttle";
 
 const SPEED = 1500;

@@ -61,12 +61,6 @@
     position: absolute;
     transform: translate(-50%, -50%);
 
-    &:hover {
-      path {
-        fill: red;
-      }
-    }
-
     &:nth-child(1) {
       clip-path: inset(0 0 0 var(--progress));
 

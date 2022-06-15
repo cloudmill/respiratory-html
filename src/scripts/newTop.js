@@ -103,7 +103,8 @@ class Zoom {
 }
 
 class Reveal {
-  static ACTIVE_CLASS = "mask-text--active";
+  static MASK_ACTIVE_CLASS = "mask-text--active";
+  static FADE_ACTIVE_CLASS = "fade--active";
 
   constructor(props) {
     this.slider = props.slider;
@@ -126,21 +127,33 @@ class Reveal {
 
   init() {
     this.slides = document.querySelectorAll("[data-top-slide]");
-    this.slidesElements = [...this.slides].map((slide) =>
+
+    this.slidesElementsMask = [...this.slides].map((slide) =>
       slide.querySelectorAll("[data-top-mask]")
+    );
+    this.slidesElementsFade = [...this.slides].map((slide) =>
+      slide.querySelectorAll("[data-top-fade]")
     );
   }
 
   set(index) {
-    this.slidesElements[index].forEach((element) =>
-      element.classList.add(Reveal.ACTIVE_CLASS)
+    this.slidesElementsMask[index].forEach((element) =>
+      element.classList.add(Reveal.MASK_ACTIVE_CLASS)
+    );
+    this.slidesElementsFade[index].forEach((element) =>
+      element.classList.add(Reveal.FADE_ACTIVE_CLASS)
     );
   }
 
   remove() {
-    this.slidesElements.forEach((slideElements) =>
-      slideElements.forEach((element) =>
-        element.classList.remove(Reveal.ACTIVE_CLASS)
+    this.slidesElementsMask.forEach((slideElementsMask) =>
+      slideElementsMask.forEach((element) =>
+        element.classList.remove(Reveal.MASK_ACTIVE_CLASS)
+      )
+    );
+    this.slidesElementsFade.forEach((slideElementsFade) =>
+      slideElementsFade.forEach((element) =>
+        element.classList.remove(Reveal.FADE_ACTIVE_CLASS)
       )
     );
   }

@@ -1,4 +1,4 @@
-.no-transition {
+.no-transition-child {
   * {
     @include prefix(transition, none !important);
   }

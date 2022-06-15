@@ -1,4 +1,4 @@
-const CLASS = "no-transition";
+const CLASS = "no-transition-child";
 
 const remove = () =>
   document

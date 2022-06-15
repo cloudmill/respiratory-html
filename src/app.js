@@ -1,8 +1,8 @@
 import "./styles/app.scss";
 
-import * as scrollPage from "./scripts/scrollPage";
 import AOS from "aos";
-import * as noTransition from "./scripts/noTransition";
+import * as scrollPage from "./scripts/scrollPage";
+import * as noTransitionChild from "./scripts/noTransitionChild";
 import * as preloader from "./scripts/preloader";
 // import * as drop from "./scripts/drop";
 import * as top from "./scripts/newTop";
@@ -16,7 +16,7 @@ addEventListener("DOMContentLoaded", () => {
 });
 
 addEventListener("load", () => {
-  noTransition.remove();
+  noTransitionChild.remove();
 
   if (preloader.exist()) {
     preloader.progress(() => {

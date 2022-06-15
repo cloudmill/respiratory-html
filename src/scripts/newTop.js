@@ -1,8 +1,8 @@
 import Swiper, { Parallax, Autoplay } from "swiper";
 
 class Slider {
-  static DELAY = 5000;
-  static SPEED = 1500;
+  static SLIDE_DURATION = 5000;
+  static SLIDE_CHANGE = 1500;
 
   initSwiper() {
     this.swiperEl = document.querySelector("[data-top-swiper]");
@@ -10,11 +10,11 @@ class Slider {
     this.swiper = new Swiper(this.swiperEl, {
       modules: [Autoplay, Parallax],
 
-      speed: Slider.SPEED,
+      speed: Slider.SLIDE_CHANGE,
       // allowTouchMove: false,
 
       autoplay: {
-        delay: Slider.DELAY,
+        delay: Slider.SLIDE_DURATION,
 
         disableOnInteraction: false,
       },

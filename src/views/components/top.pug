@@ -64,7 +64,7 @@ mixin top
     .top__layout.top__layout--root
       .top__controls
         each item, index in ['Предприятие', 'производство', 'сервис']
-          .top__control(class=(index === 0 && 'top__control--active'))
+          .top__control(class=(index === 0 && 'top__control--active') data-top-control)
             .top__control-text
               |#{item}
             .top__control-progress

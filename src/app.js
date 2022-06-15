@@ -32,6 +32,8 @@ addEventListener("load", async () => {
     scrollPage.toTop();
     scrollPage.unlock();
 
+    top.controls.start();
+
     preloader.hide();
 
     await wait(1000);
@@ -41,6 +43,7 @@ addEventListener("load", async () => {
     await wait(1000);
 
     top.slider.play();
+    top.controls.startProgress();
     top.zoom.in();
   }
 });

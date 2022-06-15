@@ -159,7 +159,101 @@ class Reveal {
   }
 }
 
+class Controls {
+  static ACTIVE_CLASS = "top__control--active";
+  static PROGRESS_CLASS = "top__control--progress";
+
+  constructor(props) {
+    this.slider = props.slider;
+  }
+
+  start() {
+    this.init();
+    this.subscribeClick();
+    this.subscribeSwiper();
+  }
+
+  startProgress() {
+    if (this.start) {
+      this.start = false;
+      this.setProgress(0);
+    }
+  }
+
+  init() {
+    this.elements = document.querySelectorAll("[data-top-control]");
+    this.start = true;
+  }
+
+  subscribeClick() {
+    this.elements.forEach((element, index) =>
+      element.addEventListener("click", () => this.handleClick(index))
+    );
+  }
+
+  subscribeSwiper() {
+    const { swiper } = this.slider;
+
+    swiper.on("slideChangeTransitionStart", () => {
+      this.updateActive(swiper.activeIndex);
+      this.removeProgress();
+      this.start = false;
+    });
+
+    swiper.on("slideChangeTransitionEnd", () =>
+      this.updateProgress(swiper.activeIndex)
+    );
+  }
+
+  handleClick(clickIndex) {
+    const { swiper } = this.slider;
+    const { activeIndex } = swiper;
+
+    if (clickIndex !== activeIndex) {
+      this.updateActive(clickIndex);
+      this.updateSlider(clickIndex);
+    }
+  }
+
+  removeActive() {
+    this.elements.forEach((element) =>
+      element.classList.remove(Controls.ACTIVE_CLASS)
+    );
+  }
+
+  setActive(index) {
+    this.elements[index].classList.add(Controls.ACTIVE_CLASS);
+  }
+
+  updateActive(index) {
+    this.removeActive();
+    this.setActive(index);
+  }
+
+  updateSlider(index) {
+    const { swiper } = this.slider;
+
+    swiper.slideTo(index);
+  }
+
+  removeProgress() {
+    this.elements.forEach((element) =>
+      element.classList.remove(Controls.PROGRESS_CLASS)
+    );
+  }
+
+  setProgress(index) {
+    this.elements[index].classList.add(Controls.PROGRESS_CLASS);
+  }
+
+  updateProgress(index) {
+    this.removeProgress();
+    this.setProgress(index);
+  }
+}
+
 export const slider = new Slider();
 export const parallax = new Parallax();
 export const reveal = new Reveal({ slider });
 export const zoom = new Zoom();
+export const controls = new Controls({ slider });

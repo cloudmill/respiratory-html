@@ -1,11 +1,11 @@
 .picture {
   display: flex;
+  align-items: flex-start;
 
   &--cover {
     @include inset;
 
     position: absolute;
-    z-index: 0;
   }
 
   &__img {

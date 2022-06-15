@@ -4,8 +4,9 @@ import AOS from "aos";
 import * as scrollPage from "./scripts/scrollPage";
 import * as noTransitionChild from "./scripts/noTransitionChild";
 import * as preloader from "./scripts/preloader";
-// import * as drop from "./scripts/drop";
 import * as top from "./scripts/newTop";
+import { wait } from "./scripts/wait";
+// import * as drop from "./scripts/drop";
 
 AOS.init();
 
@@ -15,33 +16,34 @@ addEventListener("DOMContentLoaded", () => {
   }
 });
 
-addEventListener("load", () => {
+addEventListener("load", async () => {
   noTransitionChild.remove();
 
   if (preloader.exist()) {
-    preloader.progress(() => {
-      top.slider.initSwiper();
+    await preloader.progress();
 
-      top.slider.pauseSwiper();
+    top.slider.init();
+    top.slider.pause();
+    
+    await wait(500);
+    
+    top.parallax.start();
+    top.zoom.out();
 
-      setTimeout(() => {
-        // top.parallaxY();
-        // top.zoomOut();
+    scrollPage.toTop();
+    scrollPage.unlock();
 
-        scrollPage.toTop();
-        scrollPage.unlock();
+    preloader.hide();
 
-        setTimeout(() => {
-          // top.revealMask();
-          // top.revealFade();
-        }, 1000);
+    await wait(1000);
 
-        preloader.hide(() => {
-          top.slider.playSwiper();
-          // top.startZoomIn();
-        });
-      }, 500);
-    });
+    top.reveal.mask();
+    top.reveal.fade();
+
+    await wait(1000);
+
+    top.slider.play();
+    top.zoom.in();
   }
 });
 

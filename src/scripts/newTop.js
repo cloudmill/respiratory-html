@@ -1,14 +1,14 @@
-import Swiper, { Parallax, Autoplay } from "swiper";
+import Swiper, { Parallax as SwiperParallax, Autoplay } from "swiper";
 
 class Slider {
   static SLIDE_DURATION = 5000;
   static SLIDE_CHANGE = 1500;
 
-  initSwiper() {
+  init() {
     this.swiperEl = document.querySelector("[data-top-swiper]");
 
     this.swiper = new Swiper(this.swiperEl, {
-      modules: [Autoplay, Parallax],
+      modules: [Autoplay, SwiperParallax],
 
       speed: Slider.SLIDE_CHANGE,
       // allowTouchMove: false,
@@ -23,13 +23,35 @@ class Slider {
     });
   }
 
-  pauseSwiper() {
+  pause() {
     this.swiper.autoplay.stop();
   }
 
-  playSwiper() {
+  play() {
     this.swiper.autoplay.start();
   }
 }
 
 export const slider = new Slider();
+
+class Parallax {
+  start() {}
+}
+
+export const parallax = new Parallax();
+
+class Zoom {
+  out() {}
+
+  in() {}
+}
+
+export const zoom = new Zoom();
+
+class Reveal {
+  mask() {}
+
+  fade() {}
+}
+
+export const reveal = new Reveal();

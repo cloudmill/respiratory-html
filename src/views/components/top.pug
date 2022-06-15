@@ -24,12 +24,43 @@ mixin top
       .swiper(data-top-swiper)
         .swiper-wrapper
           each i in repeat(3)
-            .swiper-slide
+            .swiper-slide(data-top-slide)
               .top__layout.top__mask
                 .top__layout.top__parallax(data-top-parallax)
                   .top__layout(data-swiper-parallax="28%")
                     .top__layout.top__zoom
                       +picture('top.jpeg').picture--cover
+              .top__layout
+                .top__top
+                  .mask-text(data-top-mask)
+                    each word, index in ("Российский производитель фильтрующих респираторов").split(" ")
+                      .mask-text__mask
+                        .mask-text__word
+                          .mask-text__text.mask-text__text--title
+                            |!{word + '&nbsp;'}
+                .top__bottom
+                  ul.top__list
+                    li.top__item
+                      +li-svg.top__svg.fade(data-top-fade)
+                      .mask-text(data-top-mask)
+                        .mask-text__mask
+                          .mask-text__word
+                            .mask-text__text.mask-text__text--large
+                              |25
+                            .mask-text__text.mask-text__text--top
+                              |лет
+                      .top__text.fade(data-top-fade)
+                        |производим респираторы
+                    li.top__item
+                      +li-svg.top__svg.fade(data-top-fade)
+                      .mask-text(data-top-mask)
+                        .mask-text__mask
+                          .mask-text__word
+                            .mask-text__text.mask-text__text--large
+                              |35%
+                      .top__text.fade(data-top-fade)
+                        |доля в объеме производимых в&nbsp;России полумасок
+                        
     .top__layout.top__layout--root
       .top__controls
         each item, index in ['Предприятие', 'производство', 'сервис']

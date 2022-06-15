@@ -24,9 +24,9 @@ addEventListener("load", async () => {
 
     top.slider.init();
     top.slider.pause();
-    
+
     await wait(500);
-    
+
     top.parallax.start();
     top.zoom.out();
 
@@ -37,8 +37,7 @@ addEventListener("load", async () => {
 
     await wait(1000);
 
-    top.reveal.mask();
-    top.reveal.fade();
+    top.reveal.start();
 
     await wait(1000);
 

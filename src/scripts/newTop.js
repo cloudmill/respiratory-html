@@ -5,6 +5,8 @@ class Slider {
   static SLIDE_DURATION = 5000;
   static SLIDE_CHANGE = 1500;
 
+  static KEYBOARD_CONTROL = true;
+
   init() {
     this.swiperEl = document.querySelector("[data-top-swiper]");
 
@@ -12,7 +14,7 @@ class Slider {
       modules: [Autoplay, SwiperParallax],
 
       speed: Slider.SLIDE_CHANGE,
-      // allowTouchMove: false,
+      allowTouchMove: false,
 
       autoplay: {
         delay: Slider.SLIDE_DURATION,
@@ -22,6 +24,19 @@ class Slider {
 
       parallax: true,
     });
+
+    if (Slider.KEYBOARD_CONTROL) {
+      addEventListener("keydown", ({ key }) => {
+        switch (key) {
+          case "ArrowLeft":
+            this.swiper.slidePrev();
+            break;
+          case "ArrowRight":
+            this.swiper.slideNext();
+            break;
+        }
+      });
+    }
   }
 
   pause() {
@@ -88,12 +103,50 @@ class Zoom {
 }
 
 class Reveal {
-  mask() {}
-  
-  fade() {}
+  static ACTIVE_CLASS = "mask-text--active";
+
+  constructor(props) {
+    this.slider = props.slider;
+
+    this.remove = this.remove.bind(this);
+  }
+
+  start() {
+    this.init();
+    this.set(0);
+    this.subscribe();
+  }
+
+  subscribe() {
+    const swiper = this.slider.swiper;
+
+    swiper.on("slideChangeTransitionStart", this.remove);
+    swiper.on("slideChangeTransitionEnd", () => this.set(swiper.activeIndex));
+  }
+
+  init() {
+    this.slides = document.querySelectorAll("[data-top-slide]");
+    this.slidesElements = [...this.slides].map((slide) =>
+      slide.querySelectorAll("[data-top-mask]")
+    );
+  }
+
+  set(index) {
+    this.slidesElements[index].forEach((element) =>
+      element.classList.add(Reveal.ACTIVE_CLASS)
+    );
+  }
+
+  remove() {
+    this.slidesElements.forEach((slideElements) =>
+      slideElements.forEach((element) =>
+        element.classList.remove(Reveal.ACTIVE_CLASS)
+      )
+    );
+  }
 }
 
 export const slider = new Slider();
 export const parallax = new Parallax();
+export const reveal = new Reveal({ slider });
 export const zoom = new Zoom();
-export const reveal = new Reveal();

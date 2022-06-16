@@ -6,6 +6,7 @@ import * as noTransitionChild from "./scripts/noTransitionChild";
 import * as preloader from "./scripts/preloader";
 import * as top from "./scripts/newTop";
 import { wait } from "./scripts/wait";
+import "./scripts/slider";
 
 AOS.init();
 

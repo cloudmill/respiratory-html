@@ -1,21 +1,57 @@
 mixin slider
-  .container
+  .container.js-slider
     .border
       .slider-panel
         .slider-panel__place
           h2.sub-title
             |Медиа-центр
         .slider-panel__place.slider-panel__place--slider
-          |slider
+          template
+            -
+              var slides = [
+                {
+                  src: 'https://via.placeholder.com/600/24f355',
+                  href: '#slider-1',
+                  day: '25',
+                  month: '11',
+                  label: 'Статьи',
+                  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius labore eos odit possimus, minima, repellendus, eligendi ullam corrupti et voluptates praesentium quibusdam deserunt nisi quam magni ad adipisci debitis enim?',
+                },
+                {
+                  src: 'https://via.placeholder.com/150/d32776',
+                  href: '#slider-2',
+                  day: '10',
+                  month: '9',
+                  label: 'Новости',
+                  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                },
+                {
+                  src: 'https://via.placeholder.com/150/fdf73e',
+                  href: '#slider-3',
+                  day: '5',
+                  month: '1',
+                  label: 'Просто',
+                  text: 'Lorem ipsum dolor',
+                },
+              ];
+            each slide in slides
+              .js-slider-slide
+                img.js-slider-src(src=slide.src)
+                a.js-slider-href(href=slide.href)
+                .js-slider-day= slide.day
+                .js-slider-month= slide.month
+                .js-slider-label= slide.label
+                .js-slider-text= slide.text
+          .js-slider-root
         .slider-panel__place.slider-panel__place--bottom
           .controls.slider-panel__controls
             .controls__item
               .circle
-                button.circle__button(type="button")
+                button.circle__button.js-slider-prev(type="button")
                   +arrow-left-svg.circle__svg.circle__svg--arrow-left
             .controls__item
               .circle
-                button.circle__button(type="button")
+                button.circle__button.js-slider-next(type="button")
                   +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
           .slider-panel__button
             |button

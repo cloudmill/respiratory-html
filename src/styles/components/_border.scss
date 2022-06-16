@@ -1,0 +1,9 @@
+.border {
+  padding-top: rem(16px);
+
+  border-top: 1px solid color(gray);
+
+  @media #{media("<")} {
+    padding-top: rem(12px);
+  }
+}

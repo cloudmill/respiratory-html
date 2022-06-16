@@ -7,12 +7,35 @@ block definitions
 block header
 block footer
 
-//- block preloader
+block preloader
 
 //- block grid-test
 
+mixin slide(props)
+  .slide(class=(props.large && 'slide--large') class=(props.small && 'slide--small'))&attributes(attributes)
+    .slide__top
+      |top
+    .slide__bottom
+      .slide__panel
+        |panel
+      .slide__text
+        .mask-text.mask-text--active
+          each word, index in ("Пневмокониоз как результат воздействия производственной пыли на органы дыхания работников").split(" ")
+            .mask-text__mask
+              .mask-text__word
+                .mask-text__text(class=(props.large && 'mask-text__text--slider--large') class=(props.small && 'mask-text__text--slider--small'))
+                  |!{word + '&nbsp;'}
+
+mixin slider
+  .slider
+    .slider__col
+      +slide({ large: true })
+    each i in repeat(2)
+      .slider__col
+        +slide({ small: true })
+
 block content
-  +top
+  //- +topn
   .container
     .border
       .slider-panel
@@ -20,7 +43,7 @@ block content
           h2.sub-title
             |Медиа-центр
         .slider-panel__place.slider-panel__place--slider
-          |slider
+          +slider
         .slider-panel__place.slider-panel__place--bottom
           .controls.slider-panel__controls
             .controls__item

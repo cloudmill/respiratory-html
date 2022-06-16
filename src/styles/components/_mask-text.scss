@@ -61,5 +61,15 @@
       vertical-align: top;
       color: color(white);
     }
+
+    &--slider {
+      &--large {
+        @include font-fsl("title-2", 20px, 130%);
+      }
+
+      &--small {
+        @include font-fsl("title-2", 14px, 130%);
+      }
+    }
   }
 }

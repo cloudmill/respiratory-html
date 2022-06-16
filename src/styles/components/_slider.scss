@@ -1,0 +1,65 @@
+.slider {
+  display: grid;
+  grid-template-columns: calc(#{columns(6)}) repeat(2, calc(#{columns(2)}));
+  column-gap: calc((#{$column-gap} * 2) + #{$column});
+
+  &__col {
+    border: 1px solid black;
+  }
+}
+
+.slide {
+  $component: &;
+
+  &--small {
+    #{$component} {
+      &__top {
+      }
+    
+      &__bottom {
+        margin-top: rem(16px);
+      }
+    
+      &__panel {
+      }
+    
+      &__text {
+        margin-top: rem(16px);
+      }
+    }
+  }
+
+  &--large {
+    display: flex;
+
+    #{$component} {
+      &__top {
+        width: calc(#{columns(4)});
+        flex-shrink: 0;
+      }
+    
+      &__bottom {
+        margin-left: $column-gap;
+      }
+    
+      &__panel {
+      }
+    
+      &__text {
+        margin-top: rem(40px);
+      }
+    }
+  }
+
+  &__top {
+  }
+
+  &__bottom {
+  }
+
+  &__panel {
+  }
+
+  &__text {
+  }
+}

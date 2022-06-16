@@ -7,40 +7,26 @@ block definitions
 block header
 block footer
 
-block preloader
+//- block preloader
 
 //- block grid-test
 
-
-
 block content
-  //- +top
-  
+  +top
   .container
     .border
       .slider-panel
         .slider-panel__place
           h2.sub-title
             |Медиа-центр
-        .slider-panel__place
-        .slider-panel__place
+        .slider-panel__place.slider-panel__place--slider
           |slider
-
-  .container
-    .circle
-      .circle__button
-        +arrow-left-svg.circle__svg.circle__svg--arrow-left
-    .circle
-      a.circle__button(href="#")
-        +arrow-left-svg.circle__svg.circle__svg--arrow-left
-    form.circle
-      button.circle__button(type="reset")
-        +arrow-left-svg.circle__svg.circle__svg--arrow-left
-      input
-    form.circle
-      button.circle__button(type="reset")
-        +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
-      input
-    form.circle
-      button.circle__button(type="submit" disabled)
-        +arrow-left-svg.circle__svg.circle__svg--arrow-left
+        .slider-panel__place.slider-panel__place--bottom
+          .controls.slider-panel__controls
+            .controls__item
+              button.circle__button(type="button")
+                +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .controls__item
+              button.circle__button(type="button")
+                +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          |btn

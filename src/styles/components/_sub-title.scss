@@ -1,3 +1,7 @@
 .sub-title {
-  @include font-fsl("title-2", 18px, 120%);
+  @include font-fsl("title-2", 18px, 100%);
+
+  @media #{media("<")} {
+    @include fsl(12px);
+  }
 }

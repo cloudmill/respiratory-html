@@ -1,10 +1,39 @@
 .slider-panel {
-  display: grid;
-  grid-template-columns: calc(#{columns(3)}) calc(#{columns(9)});
-  column-gap: $column-gap;
-  row-gap: rem(100px);
+  @media #{media(">")} {
+    display: grid;
+    grid-template-columns: calc(#{columns(3)}) calc(#{columns(9)});
+    column-gap: $column-gap;
+    row-gap: rem(100px);
+  }
 
   &__place {
-    border: 1px solid black; // test
+    &--slider {
+      @media #{media(">")} {
+        @include grid-area(1, 2, 2, 1);
+
+        order: 1;
+      }
+
+      @media #{media("<")} {
+        margin-top: rem(24px);
+      }
+    }
+
+    &--bottom {
+      @media #{media(">")} {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      @media #{media("<")} {
+        margin-top: rem(24px);
+      }
+    }
+  }
+
+  &__controls {
+    @media #{media("<")} {
+      display: none;
+    }
   }
 }

@@ -35,21 +35,5 @@ mixin slider
         +slide({ small: true })
 
 block content
-  //- +topn
-  .container
-    .border
-      .slider-panel
-        .slider-panel__place
-          h2.sub-title
-            |Медиа-центр
-        .slider-panel__place.slider-panel__place--slider
-          +slider
-        .slider-panel__place.slider-panel__place--bottom
-          .controls.slider-panel__controls
-            .controls__item
-              button.circle__button(type="button")
-                +arrow-left-svg.circle__svg.circle__svg--arrow-left
-            .controls__item
-              button.circle__button(type="button")
-                +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
-          |btn
+  //- +top
+  +slider

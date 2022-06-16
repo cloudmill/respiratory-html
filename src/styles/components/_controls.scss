@@ -1,0 +1,10 @@
+.controls {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: rem(8px);
+    }
+  }
+}

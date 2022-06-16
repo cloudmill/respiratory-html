@@ -11,7 +11,7 @@ block preloader
 
 //- block grid-test
 
-mixin slide(props)
+//- mixin slide(props)
   .slide(class=(props.large && 'slide--large') class=(props.small && 'slide--small'))&attributes(attributes)
     .slide__top
       |top
@@ -26,7 +26,7 @@ mixin slide(props)
                 .mask-text__text(class=(props.large && 'mask-text__text--slider--large') class=(props.small && 'mask-text__text--slider--small'))
                   |!{word + '&nbsp;'}
 
-mixin slider
+//- mixin slider
   .slider
     .slider__col
       +slide({ large: true })

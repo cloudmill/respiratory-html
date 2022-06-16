@@ -47,6 +47,8 @@
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "reset-css": "^5.0.1",
     "swiper": "^8.1.3"
   }

@@ -1,0 +1,95 @@
+.circle {
+  $component: &;
+  $transition: transition(major);
+  $size: 64px;
+
+  display: flex;
+
+  &__button {
+    @include rectangle(rem($size));
+
+    position: relative;
+    z-index: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      @include inset;
+
+      position: absolute;
+
+      content: "";
+      pointer-events: none;
+
+      border-radius: 50%;
+      transition: transform $transition, background-color $transition;
+    }
+
+    &::before {
+      z-index: 1;
+
+      background-color: color(black);
+    }
+
+    &::after {
+      z-index: 2;
+      transform: scale(0);
+
+      background-color: color(blue);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+
+      &::before,
+      &::after {
+        background-color: color(gray-light);
+      }
+
+      #{$component} {
+        &__svg {
+          &--arrow-left {
+            path,
+            line {
+              stroke: color(gray-dark);
+            }
+          }
+        }
+      }
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      &:hover {
+        &::after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__svg {
+    z-index: 3;
+
+    &--arrow-left {
+      @include rectangle(rem(24px));
+
+      path,
+      line {
+        stroke: color(white);
+        transition: stroke $transition;
+      }
+    }
+
+    &--invert {
+      transform: rotate(180deg);
+    }
+  }
+}

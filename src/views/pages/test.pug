@@ -13,4 +13,22 @@ block preloader
 
 block content
   //- +top
-  |hello world
+  
+  .container
+    .circle
+      .circle__button
+        +arrow-left-svg.circle__svg.circle__svg--arrow-left
+    .circle
+      a.circle__button(href="#")
+        +arrow-left-svg.circle__svg.circle__svg--arrow-left
+    form.circle
+      button.circle__button(type="reset")
+        +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      input
+    form.circle
+      button.circle__button(type="reset")
+        +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+      input
+    form.circle
+      button.circle__button(type="submit" disabled)
+        +arrow-left-svg.circle__svg.circle__svg--arrow-left

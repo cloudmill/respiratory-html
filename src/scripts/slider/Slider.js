@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Slide } from "./Slide";
 import { normIndex, getTrio } from "../utils";
 
+const DURATION = 600;
+
 export const Slider = () => {
   const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(0);
+  const [isAnimate, setIsAnimate] = useState(false);
 
   useEffect(() => {
     const template = document.querySelector(".js-slider-template");
@@ -34,25 +37,47 @@ export const Slider = () => {
     const prev = document.querySelector(".js-slider-prev");
     const next = document.querySelector(".js-slider-next");
 
-    prev.addEventListener("click", () =>
-      setIndex((index) => normIndex(index - 1, slides))
-    );
-    next.addEventListener("click", () =>
-      setIndex((index) => normIndex(index + 1, slides))
-    );
+    prev.addEventListener("click", () => {
+      if (!prev.classList.contains("js-slider-disabled")) {
+        prev.classList.add("js-slider-disabled");
+
+        setIndex((index) => normIndex(index - 1, slides));
+        setIsAnimate("prev");
+
+        setTimeout(() => {
+          prev.classList.remove("js-slider-disabled");
+
+          setIsAnimate(false);
+        }, DURATION);
+      }
+    });
+    next.addEventListener("click", () => {
+      if (!next.classList.contains("js-slider-disabled")) {
+        next.classList.add("js-slider-disabled");
+
+        setIndex((index) => normIndex(index - 1, slides));
+        setIsAnimate("next");
+
+        setTimeout(() => {
+          next.classList.remove("js-slider-disabled");
+
+          setIsAnimate(false);
+        }, DURATION);
+      }
+    });
   }, []);
 
   return (
     slides.length && (
       <div className="slider">
         <div className="slider__col">
-          <Slide slides={getTrio(index, slides)} large />
+          <Slide slides={getTrio(index, slides)} large {...{ isAnimate }} />
         </div>
         <div className="slider__col">
-          <Slide slides={getTrio(index + 1, slides)} small />
+          <Slide slides={getTrio(index + 1, slides)} small {...{ isAnimate }} />
         </div>
         <div className="slider__col">
-          <Slide slides={getTrio(index + 4, slides)} small />
+          <Slide slides={getTrio(index + 4, slides)} small {...{ isAnimate }} />
         </div>
       </div>
     )

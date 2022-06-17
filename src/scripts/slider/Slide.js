@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-export const Slide = ({ slides, large, small }) => {
+export const Slide = ({ slides, large, small, isAnimate }) => {
   const { prev, current, next } = slides;
 
   return (

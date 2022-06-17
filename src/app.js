@@ -7,6 +7,7 @@ import * as preloader from "./scripts/preloader";
 import * as top from "./scripts/newTop";
 import { wait } from "./scripts/wait";
 import "./scripts/slider";
+import "./scripts/products";
 
 AOS.init();
 

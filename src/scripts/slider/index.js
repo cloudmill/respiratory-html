@@ -9,8 +9,11 @@ addEventListener("DOMContentLoaded", () => {
     console.log("slider desktop");
 
     const rootEl = document.querySelector(".js-slider-root");
-    const root = ReactDOM.createRoot(rootEl);
 
-    root.render(<Slider />);
+    if (rootEl) {
+      const root = ReactDOM.createRoot(rootEl);
+
+      root.render(<Slider />);
+    }
   }
 });

@@ -6,3 +6,5 @@ export const getTrio = (index, items) => ({
   current: items[normIndex(index, items)],
   next: items[normIndex(index + 1, items)],
 });
+
+export const getPercent = (value) => `${value}%`;

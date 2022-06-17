@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Slide } from "./Slide";
 import { normIndex, getTrio } from "../utils";
-
-const DURATION = 600;
+import { SLIDER_DURATION as DURATION } from "../constants";
 
 export const Slider = () => {
   const [slides, setSlides] = useState([]);
@@ -40,28 +39,32 @@ export const Slider = () => {
     prev.addEventListener("click", () => {
       if (!prev.classList.contains("js-slider-disabled")) {
         prev.classList.add("js-slider-disabled");
+        next.classList.add("js-slider-disabled");
 
-        setIndex((index) => normIndex(index - 1, slides));
         setIsAnimate("prev");
 
         setTimeout(() => {
           prev.classList.remove("js-slider-disabled");
+          next.classList.remove("js-slider-disabled");
 
           setIsAnimate(false);
+          setIndex((index) => normIndex(index - 1, slides));
         }, DURATION);
       }
     });
     next.addEventListener("click", () => {
       if (!next.classList.contains("js-slider-disabled")) {
+        prev.classList.add("js-slider-disabled");
         next.classList.add("js-slider-disabled");
 
-        setIndex((index) => normIndex(index - 1, slides));
         setIsAnimate("next");
 
         setTimeout(() => {
+          prev.classList.remove("js-slider-disabled");
           next.classList.remove("js-slider-disabled");
 
           setIsAnimate(false);
+          setIndex((index) => normIndex(index + 1, slides));
         }, DURATION);
       }
     });
@@ -77,7 +80,7 @@ export const Slider = () => {
           <Slide slides={getTrio(index + 1, slides)} small {...{ isAnimate }} />
         </div>
         <div className="slider__col">
-          <Slide slides={getTrio(index + 4, slides)} small {...{ isAnimate }} />
+          <Slide slides={getTrio(index + 2, slides)} small {...{ isAnimate }} />
         </div>
       </div>
     )

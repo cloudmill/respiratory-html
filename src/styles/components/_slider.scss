@@ -15,16 +15,20 @@
     #{$component} {
       &__top {
       }
-    
+
       &__bottom {
         margin-top: rem(16px);
       }
-    
+
       &__panel {
       }
-    
+
       &__text {
         margin-top: rem(16px);
+      }
+
+      &__img {
+        height: rem(150px);
       }
     }
   }
@@ -37,21 +41,26 @@
         width: calc(#{columns(4)});
         flex-shrink: 0;
       }
-    
+
       &__bottom {
         margin-left: $column-gap;
       }
-    
+
       &__panel {
       }
-    
+
       &__text {
         margin-top: rem(40px);
+      }
+
+      &__img {
+        height: rem(300px);
       }
     }
   }
 
   &__top {
+    display: grid;
   }
 
   &__bottom {
@@ -61,5 +70,12 @@
   }
 
   &__text {
+  }
+
+  &__img {
+    @include grid-area(1, 1, 1, 1);
+
+    width: 100%;
+    object-fit: cover;
   }
 }

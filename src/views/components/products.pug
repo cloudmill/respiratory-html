@@ -15,9 +15,21 @@ mixin products
         .products__place.products__place--title
           h2.sub-title
             |продукция
-        .products__place.products__place--buttons
-          .products__buttons
-            |buttons
+        .products__place.products__place--tabs
+          ul.products__tabs
+            -
+              var tabs = [
+                'RK 9000',
+                'RK 6000',
+                'АЛИНА®',
+                'ЮЛИЯ®',
+                'НЕВА®',
+                'GAGARA®',
+              ];
+            each tab, index in tabs
+              .products__tabs-item
+                +tab(class=(index === 0 && 'tab--active'))
+                  |#{tab}
         .products__place.products__place--main
           .products__main
             .products__contents

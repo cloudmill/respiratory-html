@@ -1,0 +1,116 @@
+// pad 16 - 12
+// height 38 - 28
+
+.tab {
+  $component: &;
+  $radius: rem(6px);
+  $transition: transition(major);
+
+  --padding: #{rem(16px)};
+  --height: #{rem(38px)};
+
+  @mixin tab-active {
+    #{$component} {
+      &__bg {
+        &:nth-child(1) {
+          clip-path: inset(0 0 100% 0);
+        }
+
+        &:nth-child(2) {
+          clip-path: inset(0 0 0 0);
+        }
+      }
+    }
+  }
+
+  display: flex;
+
+  @media #{media("<")} {
+    --padding: #{rem(12px)};
+    --height: #{rem(28px)};
+  }
+
+  &:not(#{$component}--active) {
+    #{$component} {
+      &__button {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--active {
+    @include tab-active;
+  }
+
+  &__button,
+  &__bgs,
+  &__bg {
+    overflow: hidden;
+
+    border-radius: $radius;
+  }
+
+  &__button {
+    position: relative;
+    z-index: 0;
+
+    padding: 0 var(--padding);
+    height: var(--height);
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      @include tab-active;
+    }
+  }
+
+  &__bgs {
+    @include inset;
+
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__bg {
+    @include inset;
+
+    position: absolute;
+    will-change: clip-path;
+
+    transition: clip-path $transition;
+
+    &:nth-child(1) {
+      z-index: 1;
+
+      clip-path: inset(0 0 0 0);
+    }
+
+    &:nth-child(2) {
+      z-index: 2;
+
+      clip-path: inset(100% 0 0 0);
+    }
+
+    &--default {
+      background-color: color(white);
+      border: 1px solid color(gray);
+    }
+
+    &--yellow {
+      background-color: color(yellow);
+    }
+  }
+
+  &__text {
+    @include font-fsl("title-2", 18px, 100%);
+
+    position: relative;
+    z-index: 2;
+
+    white-space: nowrap;
+
+    @media #{media("<")} {
+      @include font-fsl("title-1", 12px, 100%);
+    }
+  }
+}

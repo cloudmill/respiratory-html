@@ -4,8 +4,6 @@ import classNames from "classnames";
 export const Slide = ({ slides, large, small }) => {
   const { prev, current, next } = slides;
 
-  console.log(current);
-
   return (
     <div
       className={classNames(

@@ -122,6 +122,9 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
                   className="slide__date"
                   style={{
                     visibility: "hidden",
+                    pointerEvents: "none",
+                    zIndex: -1,
+                    userSelect: "none",
                   }}
                 >
                   <div className="slide__date-day">{slide.day}</div>
@@ -180,10 +183,10 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
                         transform: isAnimate
                           ? isAnimate === "prev"
                             ? `translateY(${getPercent(
-                                Math.min(progress * 2, 100)
+                                GAP * Math.min(progress * 2, 100)
                               )})`
                             : `translateY(${getPercent(
-                                Math.min(progress * 2, 100) * -1
+                                GAP * Math.min(progress * 2, 100) * -1
                               )})`
                           : false,
                       }}
@@ -205,7 +208,7 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
                         className="slide__word-text"
                         style={{
                           transform: `translateY(${getPercent(
-                            (100 - Math.max(0, -50 + progress) * 2) * -1
+                            GAP * (100 - Math.max(0, -50 + progress) * 2) * -1
                           )})`,
                         }}
                       >
@@ -227,7 +230,7 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
                         className="slide__word-text"
                         style={{
                           transform: `translateY(${getPercent(
-                            100 - Math.max(0, -50 + progress) * 2
+                            GAP * (100 - Math.max(0, -50 + progress) * 2)
                           )})`,
                         }}
                       >
@@ -239,6 +242,28 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
               ))}
             </div>
           )}
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className="slide__text"
+              style={{
+                visibility: "hidden",
+                pointerEvents: "none",
+                zIndex: -1,
+                userSelect: "none",
+              }}
+            >
+              {slide.text.split(" ").map((word, index) => (
+                <Fragment key={index}>
+                  <span className="slide__word-wrapper">
+                    <span className="slide__word">
+                      <span className="slide__word-text">{word}</span>
+                    </span>
+                  </span>{" "}
+                </Fragment>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>

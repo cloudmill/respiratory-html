@@ -101,6 +101,9 @@
 
   &__top {
     display: grid;
+    overflow: hidden;
+
+    border-radius: 0 0 rem(40px) 0;
   }
 
   &__bottom {
@@ -163,6 +166,9 @@
 
   &__text {
     &-wrapper {
+      position: relative;
+      z-index: 0;
+
       display: grid;
 
       > * {

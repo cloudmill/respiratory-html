@@ -85,7 +85,7 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
             <path
               d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416"
               stroke="white"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             />
             <line
               y1="-0.75"
@@ -93,7 +93,7 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
               y2="-0.75"
               transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)"
               stroke="white"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             />
           </svg>
         </div>

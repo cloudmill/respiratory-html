@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Slide } from "./Slide";
+import { normIndex, getTrio } from "../utils";
 
 export const Slider = () => {
   const [slides, setSlides] = useState([]);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const template = document.querySelector(".js-slider-template");
@@ -27,20 +30,31 @@ export const Slider = () => {
         },
       ]);
     });
+
+    const prev = document.querySelector(".js-slider-prev");
+    const next = document.querySelector(".js-slider-next");
+
+    prev.addEventListener("click", () =>
+      setIndex((index) => normIndex(index - 1, slides))
+    );
+    next.addEventListener("click", () =>
+      setIndex((index) => normIndex(index + 1, slides))
+    );
   }, []);
 
   return (
-    <ul>
-      {slides.map((slide, index) => (
-        <li key={index}>
-          <img src={slide.src} />
-          <a href={slide.href}>qwe</a>
-          <div>{slide.day}</div>
-          <div>{slide.month}</div>
-          <div>{slide.label}</div>
-          <div>{slide.text}</div>
-        </li>
-      ))}
-    </ul>
+    slides.length && (
+      <div className="slider">
+        <div className="slider__col">
+          <Slide slides={getTrio(index, slides)} large />
+        </div>
+        <div className="slider__col">
+          <Slide slides={getTrio(index + 1, slides)} small />
+        </div>
+        <div className="slider__col">
+          <Slide slides={getTrio(index + 4, slides)} small />
+        </div>
+      </div>
+    )
   );
 };

@@ -35,12 +35,13 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
   const { prev, current, next } = getTrio(index, slides);
 
   return (
-    <div
+    <a
       className={classNames(
         "slide",
         { "slide--large": large },
         { "slide--small": small }
       )}
+      href={current.href}
     >
       <div className="slide__top">
         <img
@@ -72,6 +73,30 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
             }}
           />
         )}
+        <div className="slide__mark">
+          <svg
+            className="slide__mark-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+          >
+            <path
+              d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416"
+              stroke="white"
+              stroke-width="1.5"
+            />
+            <line
+              y1="-0.75"
+              x2="17"
+              y2="-0.75"
+              transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)"
+              stroke="white"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
       </div>
       <div className="slide__bottom">
         <div className="slide__panel">
@@ -266,6 +291,6 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
           ))}
         </div>
       </div>
-    </div>
+    </a>
   );
 };

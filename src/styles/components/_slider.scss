@@ -4,16 +4,39 @@
   column-gap: calc((#{$column-gap} * 2) + #{$column});
 
   &__col {
-    border: 1px solid black;
+    display: flex;
   }
 }
 
 .slide {
   $component: &;
+  $transition: transition(major);
+
+  display: block;
+
+  &:hover {
+    #{$component} {
+      &__img {
+        transform: scale(1.1);
+      }
+
+      &__mark {
+        background-color: color(yellow);
+
+        &-svg {
+          path,
+          line {
+            stroke: color(black);
+          }
+        }
+      }
+    }
+  }
 
   &--small {
     #{$component} {
       &__top {
+        height: rem(193px);
       }
 
       &__bottom {
@@ -35,7 +58,6 @@
       }
 
       &__img {
-        height: rem(193px);
       }
 
       &__date {
@@ -58,6 +80,7 @@
     #{$component} {
       &__top {
         width: calc(#{columns(4)});
+        height: rem(398px);
         flex-shrink: 0;
       }
 
@@ -82,7 +105,6 @@
       }
 
       &__img {
-        height: rem(398px);
       }
 
       &__date {
@@ -100,10 +122,36 @@
   }
 
   &__top {
+    position: relative;
+    z-index: 0;
+
     display: grid;
     overflow: hidden;
 
     border-radius: 0 0 rem(40px) 0;
+  }
+
+  &__mark {
+    @include rectangle(rem(44px));
+
+    position: absolute;
+    bottom: $column-gap;
+    right: $column-gap;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: color(blue);
+    border-radius: 50%;
+    transition: background-color $transition;
+
+    &-svg {
+      path,
+      line {
+        transition: stroke $transition;
+      }
+    }
   }
 
   &__bottom {
@@ -125,9 +173,14 @@
 
   &__img {
     @include grid-area(1, 1, 1, 1);
+    @include rectangle(100%);
 
-    width: 100%;
+    transform: scale(1);
+    will-change: transform;
+
     object-fit: cover;
+
+    transition: transform $transition;
   }
 
   &__date {
@@ -157,8 +210,7 @@
       display: flex;
       align-items: center;
 
-      // background-color: color(gray-light);
-      background-color: color(gray-dark); // test
+      background-color: color(gray-light);
       border-radius: rem(6px);
       white-space: nowrap;
     }

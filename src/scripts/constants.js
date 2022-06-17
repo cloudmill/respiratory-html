@@ -1,1 +1,1 @@
-export const SLIDER_DURATION = 1000;
+export const SLIDER_DURATION = 600;

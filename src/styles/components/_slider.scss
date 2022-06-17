@@ -147,6 +147,8 @@
     transition: background-color $transition;
 
     &-svg {
+      @include rectangle(rem(17px));
+
       path,
       line {
         transition: stroke $transition;

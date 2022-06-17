@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Slide } from "./Slide";
-import { normIndex, getTrio } from "../utils";
+import { normIndex } from "../utils";
 import { SLIDER_DURATION as DURATION } from "../constants";
 
 export const Slider = () => {
@@ -74,13 +74,23 @@ export const Slider = () => {
     slides.length && (
       <div className="slider">
         <div className="slider__col">
-          <Slide slides={getTrio(index, slides)} large {...{ isAnimate }} />
+          <Slide index={index} slides={slides} large isAnimate={isAnimate} />
         </div>
         <div className="slider__col">
-          <Slide slides={getTrio(index + 1, slides)} small {...{ isAnimate }} />
+          <Slide
+            index={index + 1}
+            slides={slides}
+            small
+            isAnimate={isAnimate}
+          />
         </div>
         <div className="slider__col">
-          <Slide slides={getTrio(index + 2, slides)} small {...{ isAnimate }} />
+          <Slide
+            index={index + 2}
+            slides={slides}
+            small
+            isAnimate={isAnimate}
+          />
         </div>
       </div>
     )

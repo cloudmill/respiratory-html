@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import anime from "animejs";
-import { getPercent } from "../utils";
+import { getPercent, getTrio } from "../utils";
 import { SLIDER_DURATION as DURATION } from "../constants";
 
-export const Slide = ({ slides, large, small, isAnimate }) => {
+export const Slide = ({ index, slides, large, small, isAnimate }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -18,21 +18,19 @@ export const Slide = ({ slides, large, small, isAnimate }) => {
 
         value: 100,
 
-        duration: DURATION,
+        duration: DURATION - 100,
         easing: "easeInOutQuint",
 
-        update: () => {
-          setProgress(target.value);
-        },
-
-        complete: () => {
-          setTimeout(() => setProgress(0));
-        },
+        update: () => setProgress(target.value),
       });
     }
   }, [isAnimate]);
 
-  const { prev, current, next } = slides;
+  useEffect(() => {
+    setTimeout(setProgress(0));
+  }, [index]);
+
+  const { prev, current, next } = getTrio(index, slides);
 
   return (
     <div

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import classNames from "classnames";
 import anime from "animejs";
 import { getPercent, getTrio } from "../utils";
 import { SLIDER_DURATION as DURATION } from "../constants";
+
+const GAP = 1.25;
 
 export const Slide = ({ index, slides, large, small, isAnimate }) => {
   const [progress, setProgress] = useState(0);
@@ -73,9 +75,171 @@ export const Slide = ({ index, slides, large, small, isAnimate }) => {
       </div>
       <div className="slide__bottom">
         <div className="slide__panel">
-          {current.day}/{current.month} {current.label}
+          <div className="slide__panel-col">
+            <div
+              className="slide__date"
+              style={{
+                transform: isAnimate
+                  ? isAnimate === "prev"
+                    ? `translateY(${getPercent(progress)})`
+                    : `translateY(${getPercent(-progress)})`
+                  : false,
+              }}
+            >
+              <div className="slide__date-day">{current.day}</div>
+              <div className="slide__date-month">/{current.month}</div>
+            </div>
+            {isAnimate === "prev" && (
+              <div
+                className="slide__date"
+                style={{
+                  transform: `translateY(${getPercent(
+                    GAP * (100 - progress) * -1
+                  )})`,
+                }}
+              >
+                <div className="slide__date-day">{prev.day}</div>
+                <div className="slide__date-month">/{prev.month}</div>
+              </div>
+            )}
+            {isAnimate === "next" && (
+              <div
+                className="slide__date"
+                style={{
+                  transform: `translateY(${getPercent(
+                    GAP * (100 - progress)
+                  )})`,
+                }}
+              >
+                <div className="slide__date-day">{next.day}</div>
+                <div className="slide__date-month">/{next.month}</div>
+              </div>
+            )}
+            {small &&
+              slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className="slide__date"
+                  style={{
+                    visibility: "hidden",
+                  }}
+                >
+                  <div className="slide__date-day">{slide.day}</div>
+                  <div className="slide__date-month">/{slide.month}</div>
+                </div>
+              ))}
+          </div>
+          <div className="slide__panel-col">
+            <div
+              className="slide__label"
+              style={{
+                transform: isAnimate
+                  ? isAnimate === "prev"
+                    ? `translateY(${getPercent(GAP * progress)})`
+                    : `translateY(${getPercent(GAP * progress * -1)})`
+                  : false,
+              }}
+            >
+              <div className="slide__label-button">{current.label}</div>
+            </div>
+            {isAnimate === "prev" && (
+              <div
+                className="slide__label"
+                style={{
+                  transform: `translateY(${getPercent(
+                    GAP * ((100 - progress) * -1)
+                  )})`,
+                }}
+              >
+                <div className="slide__label-button">{prev.label}</div>
+              </div>
+            )}
+            {isAnimate === "next" && (
+              <div
+                className="slide__label"
+                style={{
+                  transform: `translateY(${getPercent(
+                    GAP * (100 - progress)
+                  )})`,
+                }}
+              >
+                <div className="slide__label-button">{next.label}</div>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="slide__text">{current.text}</div>
+        <div className="slide__text-wrapper">
+          <div className="slide__text">
+            {current.text.split(" ").map((word, index) => (
+              <Fragment key={index}>
+                <span className="slide__word-wrapper">
+                  <span className="slide__word">
+                    <span
+                      className="slide__word-text"
+                      style={{
+                        transform: isAnimate
+                          ? isAnimate === "prev"
+                            ? `translateY(${getPercent(
+                                Math.min(progress * 2, 100)
+                              )})`
+                            : `translateY(${getPercent(
+                                Math.min(progress * 2, 100) * -1
+                              )})`
+                          : false,
+                      }}
+                    >
+                      {word}
+                    </span>
+                  </span>
+                </span>{" "}
+              </Fragment>
+            ))}
+          </div>
+          {isAnimate === "prev" && (
+            <div className="slide__text">
+              {prev.text.split(" ").map((word, index) => (
+                <Fragment key={index}>
+                  <span className="slide__word-wrapper">
+                    <span className="slide__word">
+                      <span
+                        className="slide__word-text"
+                        style={{
+                          transform: `translateY(${getPercent(
+                            (100 - Math.max(0, -50 + progress) * 2) * -1
+                          )})`,
+                        }}
+                      >
+                        {word}
+                      </span>
+                    </span>
+                  </span>{" "}
+                </Fragment>
+              ))}
+            </div>
+          )}
+          {isAnimate === "next" && (
+            <div className="slide__text">
+              {next.text.split(" ").map((word, index) => (
+                <Fragment key={index}>
+                  <span className="slide__word-wrapper">
+                    <span className="slide__word">
+                      <span
+                        className="slide__word-text"
+                        style={{
+                          transform: `translateY(${getPercent(
+                            100 - Math.max(0, -50 + progress) * 2
+                          )})`,
+                        }}
+                      >
+                        {word}
+                      </span>
+                    </span>
+                  </span>{" "}
+                </Fragment>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

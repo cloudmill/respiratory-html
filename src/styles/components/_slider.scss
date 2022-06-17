@@ -21,14 +21,33 @@
       }
 
       &__panel {
+        &-col {
+          &:last-child {
+            margin-left: $column-gap;
+          }
+        }
       }
 
       &__text {
+        @include font-fsl("title-2", 14px, 130%);
+
         margin-top: rem(16px);
       }
 
       &__img {
-        height: rem(150px);
+        height: rem(193px);
+      }
+
+      &__date {
+        &-day {
+          @include font-fsl("title-2", 24px, 100%);
+        }
+
+        &-month {
+          @include font-fsl("title-2", 12px, 100%);
+
+          margin-left: rem(12px);
+        }
       }
     }
   }
@@ -47,14 +66,35 @@
       }
 
       &__panel {
+        &-col {
+          width: calc(#{$column});
+
+          &:last-child {
+            margin-left: $column-gap;
+          }
+        }
       }
 
       &__text {
+        @include font-fsl("title-2", 20px, 130%);
+
         margin-top: rem(40px);
       }
 
       &__img {
-        height: rem(300px);
+        height: rem(398px);
+      }
+
+      &__date {
+        &-day {
+          @include font-fsl("title-2", 40px, 100%);
+        }
+
+        &-month {
+          @include font-fsl("title-2", 16px, 100%);
+
+          margin-left: rem(10px);
+        }
       }
     }
   }
@@ -67,9 +107,17 @@
   }
 
   &__panel {
-  }
+    display: flex;
+    align-items: flex-start;
 
-  &__text {
+    &-col {
+      display: grid;
+      overflow: hidden;
+
+      > * {
+        @include grid-area(1, 1, 1, 1);
+      }
+    }
   }
 
   &__img {
@@ -77,5 +125,62 @@
 
     width: 100%;
     object-fit: cover;
+  }
+
+  &__date {
+    display: flex;
+
+    &-day,
+    &-month {
+      flex-shrink: 0;
+    }
+
+    &-day {
+      color: color(blue);
+    }
+
+    &-month {
+    }
+  }
+
+  &__label {
+    display: flex;
+
+    &-button {
+      @include font-fsl("content-1", 12px, 130%);
+
+      padding: 0 rem(12px);
+      height: rem(30px);
+      display: flex;
+      align-items: center;
+
+      // background-color: color(gray-light);
+      background-color: color(gray-dark); // test
+      border-radius: rem(6px);
+      white-space: nowrap;
+    }
+  }
+
+  &__text {
+    &-wrapper {
+      display: grid;
+
+      > * {
+        @include grid-area(1, 1, 1, 1);
+      }
+    }
+  }
+
+  &__word {
+    overflow: hidden;
+
+    &,
+    &-text {
+      display: inline-block;
+    }
+
+    &-wrapper {
+      display: inline-flex;
+    }
   }
 }

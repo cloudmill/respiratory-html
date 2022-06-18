@@ -2,24 +2,33 @@ doctype html
 
 include ./definitions
 block definitions
+
 include ./svg
 include ./components
 
 html.html.no-transition-child(lang="ru")
+  
   head
+    
     meta(charset="utf-8")
     title= `Респираторный: ${app.title}`
     meta(name="viewport" content="width=device-width, initial-scale=1")
-  body.body(class=app.bodyClasses)
+  
+  body.body
+    
     block header
       +header
+    
     .wrapper
       block content
         |content
       block footer
         +footer
+    
     block preloader
       +preloader
+
     block grid-test
       +grid-test
+
     block scripts

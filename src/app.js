@@ -1,11 +1,15 @@
 import "./styles/app.scss";
 
 import AOS from "aos";
+
+import { wait } from "./scripts/wait";
+
 import * as scrollPage from "./scripts/scrollPage";
 import * as noTransitionChild from "./scripts/noTransitionChild";
 import * as preloader from "./scripts/preloader";
 import * as top from "./scripts/newTop";
-import { wait } from "./scripts/wait";
+import * as drop from "./scripts/drop";
+
 import "./scripts/slider";
 import "./scripts/products";
 
@@ -15,6 +19,8 @@ addEventListener("DOMContentLoaded", () => {
   if (preloader.exist()) {
     scrollPage.lock();
   }
+
+  drop.start();
 });
 
 addEventListener("load", async () => {

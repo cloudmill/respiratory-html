@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Slider } from "./Slider";
+import { Slider } from "./Slider.jsx";
 
 console.log("slider");
 

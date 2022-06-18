@@ -1,12 +1,10 @@
 const path = require("path");
-const webpack = require("webpack");
 const WebpackNotifierPlugin = require("webpack-notifier");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const globImporter = require("node-sass-glob-importer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlBeautifyPlugin = require("beautify-html-webpack-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const utils = require("./utils");
 
 module.exports = (env) => {
@@ -50,7 +48,7 @@ module.exports = (env) => {
             {
               loader: "babel-loader",
               options: {
-                presets: ["@babel/preset-env", "@babel/preset-react"],
+                presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
               },
             },
           ],

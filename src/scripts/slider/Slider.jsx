@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Slide } from "./Slide";
+import { Slide } from "./Slide.jsx";
 import { normIndex } from "../utils";
 import { SLIDER_DURATION as DURATION } from "../constants";
 

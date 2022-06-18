@@ -7,9 +7,9 @@ block definitions
 block header
 block footer
 
-block preloader
+//- block preloader
 
-//- block grid-test
+block grid-test
 
 //- mixin slide(props)
   .slide(class=(props.large && 'slide--large') class=(props.small && 'slide--small'))&attributes(attributes)
@@ -35,6 +35,6 @@ block preloader
         +slide({ small: true })
 
 block content
-  //- +top
-  //- +slider
+  +top
+  +slider
   +products

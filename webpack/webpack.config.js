@@ -169,7 +169,6 @@ module.exports = (env) => {
       new CopyWebpackPlugin({
         patterns: [
           { from: "assets/images", to: "assets/images" },
-          { from: "assets/fonts", to: "assets/fonts" },
           { from: "assets/videos", to: "assets/videos" },
         ],
       }),

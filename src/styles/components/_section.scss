@@ -1,7 +1,0 @@
-.section {
-  margin-top: rem(180px);
-
-  @media #{media("<")} {
-    margin-top: rem(48px);
-  }
-}

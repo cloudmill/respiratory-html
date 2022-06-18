@@ -18,7 +18,7 @@ module.exports = (env) => {
     },
 
     output: {
-      path: path.resolve(__dirname, "../dist"),
+      path: path.resolve(__dirname, "../build"),
       publicPath: "",
       filename: "assets/[name].js",
     },

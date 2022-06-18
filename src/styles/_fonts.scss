@@ -1,11 +1,5 @@
 $files: (("Manrope-Medium", 500), ("Manrope-SemiBold", 600));
 
-@font-face {
-  src: font-url($font-family-title);
-
-  font-family: $font-family-title;
-}
-
 @each $filename, $font-weight in $files {
   @font-face {
     src: font-url($filename);
@@ -13,4 +7,10 @@ $files: (("Manrope-Medium", 500), ("Manrope-SemiBold", 600));
     font-family: $font-family-content;
     font-weight: $font-weight;
   }
+}
+
+@font-face {
+  src: font-url($font-family-title);
+
+  font-family: $font-family-title;
 }

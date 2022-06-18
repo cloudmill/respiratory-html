@@ -1,7 +1,0 @@
-.z-index {
-  @for $z-index from -1 through 3 {
-    &-#{$z-index} {
-      z-index: $z-index;
-    }
-  }
-}

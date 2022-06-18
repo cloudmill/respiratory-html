@@ -44,7 +44,7 @@ module.exports = (env) => {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(jsx?|tsx?)$/,
           exclude: [/node_modules/],
           use: [
             {
@@ -103,7 +103,7 @@ module.exports = (env) => {
             },
           ],
         },
-
+        
         {
           test: /\.(png|jpe?g|gif|svg|ico|webp)(\?.*)?$/,
           use: [

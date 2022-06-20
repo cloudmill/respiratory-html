@@ -9,7 +9,7 @@
     фотографии
 
 mixin products
-  .container
+  .container.js-products
     .border
       .products
         .products__place.products__place--title
@@ -28,7 +28,7 @@ mixin products
               ];
             each tab, index in tabs
               .products__tabs-item
-                +tab(class=(index === 0 && 'tab--active'))
+                +tab(class=(index === 0 && 'tab--active') mods=['js-products-tab'])
                   |#{tab}
         .products__place.products__place--main
           .products__main

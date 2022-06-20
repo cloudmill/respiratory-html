@@ -1,42 +1,26 @@
-import { createStore, applyMiddleware, combineReducers, Reducer } from "redux";
-import thunk from "redux-thunk";
+import { store, changeSeries } from "./store";
 
-interface State {
-  series: number;
-}
+export const start = () => {
+  const productsAll = document.querySelectorAll(".js-products");
 
-enum ActionType {
-  CHANGE_SERIES,
-}
+  productsAll.forEach((products) => {
+    const tabAll = products.querySelectorAll(".js-products-tab");
 
-interface Action<PayloadType = any> {
-  type: ActionType;
-  payload: PayloadType;
-}
+    const removeActiveTab = () =>
+      tabAll.forEach((tab) => tab.classList.remove("tab--active"));
 
-const initialState: State = {
-  series: 0,
+    tabAll.forEach((tab, index) =>
+      tab.addEventListener("click", () => store.dispatch(changeSeries(index)))
+    );
+
+    store.subscribe(() => {
+      const { series, isChange } = store.getState().series;
+
+      if (isChange) {
+        removeActiveTab();
+        
+        tabAll[series].classList.add("tab--active");
+      }
+    });
+  });
 };
-
-const rootReducer: Reducer<State, Action> = (
-  state = initialState,
-  { type, payload }
-) => {
-  switch (type) {
-    case ActionType.CHANGE_SERIES:
-      return {
-        ...state,
-        series: payload,
-      };
-      break;
-    default:
-      return {
-        ...state,
-      };
-      break;
-  }
-};
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
-
-console.log(store.getState().series);

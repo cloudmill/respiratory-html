@@ -30,7 +30,7 @@ module.exports = (env) => {
 
     resolve: {
       modules: [path.resolve(__dirname, "../src"), "node_modules"],
-      extensions: [".js", ".css", ".scss"],
+      extensions: [".ts", ".js", ".css", ".scss"],
     },
 
     performance: {
@@ -48,7 +48,11 @@ module.exports = (env) => {
             {
               loader: "babel-loader",
               options: {
-                presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+                presets: [
+                  "@babel/preset-env",
+                  "@babel/preset-react",
+                  "@babel/preset-typescript",
+                ],
               },
             },
           ],
@@ -101,7 +105,7 @@ module.exports = (env) => {
             },
           ],
         },
-        
+
         {
           test: /\.(png|jpe?g|gif|svg|ico|webp)(\?.*)?$/,
           use: [

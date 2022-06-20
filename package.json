@@ -51,6 +51,8 @@
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
     "reset-css": "^5.0.1",
     "swiper": "^8.1.3"
   }

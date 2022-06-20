@@ -1,19 +1,13 @@
-// VARIABLES
+// prefixes
+@mixin prefix($property, $value, $prefixes: (webkit, moz, ms, o)) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
 
-// font
-
-$font-size: 16px;
-
-$font-family-title: "ALS Gorizont";
-$font-family-content: "Manrope";
-
-// px -> rem
-@function rem($size) {
-  @return math.div($size, $font-size) * 1rem;
+  #{$property}: $value;
 }
 
-// breakpoints
-
+// breakpoints, media
 $breakpoints: (
   xxl: 1920px,
   xl: 1680px,
@@ -26,88 +20,9 @@ $breakpoints: (
   xs: 375px,
   xxs: 320px,
 );
-
-// colors
-
-$colors: (
-  black: #191a1c,
-  white: #ffffff,
-  // ---
-  blue: #2967eb,
-  yellow: #ffed49,
-  red: #e53b10,
-  // ---
-  border: rgba(229, 233, 239, 0.3),
-  border-white: rgba(255, 255, 255, 0.2),
-  // ---
-  gray: #e5e9ef,
-  gray-dark: #87909b,
-  gray-light: #f2f5f8,
-  // ---
-  transparent: rgba(0, 0, 0, 0),
-  // ---
-  shadow-drop: rgba(42, 46, 55, 0.12),
-  // ---
-  grid-test: rgba(0, 0, 0, 0.1),
-);
-
-@function color($variant: black) {
-  @return map.get($colors, $variant);
-}
-
-// box shadow
-
-$box-shadows: (
-  drop: 0 rem(24px) rem(30px) color(shadow-drop),
-);
-
-@function box-shadow($variant: drop) {
-  @return map.get($box-shadows, $variant);
-}
-
-// transition and animation parameters
-
-$durations: (
-  default: 0.6s,
-);
-@function duration($variant: default) {
-  @return map.get($durations, $variant);
-}
-
-$timing-functions: (
-  major: cubic-bezier(0.83, 0, 0.17, 1),
-  minor: cubic-bezier(0.33, 1, 0.68, 1),
-);
-@function timing-function($variant: major) {
-  @return map.get($timing-functions, $variant);
-}
-
-$transitions: (
-  major: duration(default) timing-function(major),
-  minor: duration(default) timing-function(minor),
-);
-@function transition($variant: major) {
-  @return map.get($transitions, $variant);
-}
-
-// FUNCTIONS
-
-// font filename -> url
-@function font-url($filename-without-extension) {
-  @return url("../assets/fonts/#{$filename-without-extension}.woff");
-}
-
-// count, padding, gap -> column width for calc()
-@function column($count, $padding, $gap) {
-  @return "((100vw - (#{$padding} * 2) - (#{$gap} * (#{$count} - 1))) / #{$count})";
-}
-
-// breakpoint variant -> breakpoint
 @function breakpoint($variant: d) {
   @return map.get($breakpoints, $variant);
 }
-
-// direction, breakpoint variant -> media condition
 @function media($direction: ">", $variant: d) {
   @if $direction == ">" {
     @return "(min-width: #{breakpoint($variant)})";
@@ -116,39 +31,14 @@ $transitions: (
   @return "(max-width: #{breakpoint($variant) - 1px})";
 }
 
-// size in px, breakpoint variant -> size in vw
-@function vw($size: $font-size, $variant: xxl) {
-  @return math.div($size, breakpoint($variant)) * 100vw;
+// fonts, sizes
+$font-size: 16px;
+$font-family-title: "ALS Gorizont";
+$font-family-content: "Manrope";
+@function rem($size) {
+  @return math.div($size, $font-size) * 1rem;
 }
-
-// MIXINS
-
-// width, height
-@mixin rectangle($width, $height: false) {
-  width: $width;
-
-  @if $height {
-    height: $height;
-  } @else {
-    height: $width;
-  }
-}
-
-// font-family, font-weight, letter-spacing, text-transform
 @mixin font($configuration: "title-1") {
-  /*
-    configurations:
-
-      title-1 === ALS Gorizont 550 uppercase
-      title-2 === ALS Gorizont 550 uppercase -0.02em
-      title-3 === ALS Gorizont 550 uppercase -0.06em
-
-      content-1 === Manrope 500
-      content-2 === Manrope 500 -0.01em
-      content-3 === Manrope 600
-      content-4 === Manrope 600 -0.02em
-  */
-
   @if $configuration == "title-1" {
     font-family: $font-family-title;
     text-transform: uppercase;
@@ -176,8 +66,6 @@ $transitions: (
     letter-spacing: -0.02em;
   }
 }
-
-// font-size [line-height]
 @mixin fsl($fs: $font-size, $lh: false) {
   font-size: rem($fs);
 
@@ -185,63 +73,118 @@ $transitions: (
     line-height: math.div($lh, 100%);
   }
 }
-
-// font + fsl
 @mixin font-fsl($configuration: "title-1", $fs: $font-size, $lh: false) {
   @include font($configuration);
   @include fsl($fs, $lh);
 }
-
-// x, y, width, height -> grid-area
-@mixin grid-area($x, $y, $width, $height) {
-  grid-area: unquote("#{$y} / #{$x} / span #{$height} / span #{$width}");
+@function font-url($filename-without-extension) {
+  @return url("../assets/fonts/#{$filename-without-extension}.woff");
+}
+@function vw($size: $font-size, $variant: xxl) {
+  @return math.div($size, breakpoint($variant)) * 100vw;
 }
 
-// margin -> top, bottom, left, right
+// colors
+$colors: (
+  black: #191a1c,
+  white: #ffffff,
+  blue: #2967eb,
+  yellow: #ffed49,
+  red: #e53b10,
+  border: rgba(229, 233, 239, 0.3),
+  border-white: rgba(255, 255, 255, 0.2),
+  gray: #e5e9ef,
+  gray-dark: #87909b,
+  gray-light: #f2f5f8,
+  transparent: rgba(0, 0, 0, 0),
+  shadow-drop: rgba(42, 46, 55, 0.12),
+  grid-test: rgba(0, 0, 0, 0.1),
+);
+@function color($variant: black) {
+  @return map.get($colors, $variant);
+}
+
+// box-shadows
+$box-shadows: (
+  drop: 0 rem(24px) rem(30px) color(shadow-drop),
+);
+@function box-shadow($variant: drop) {
+  @return map.get($box-shadows, $variant);
+}
+
+// durations
+$durations: (
+  default: 0.6s,
+);
+@function duration($variant: default) {
+  @return map.get($durations, $variant);
+}
+
+// timing-functions
+$timing-functions: (
+  major: cubic-bezier(0.83, 0, 0.17, 1),
+  minor: cubic-bezier(0.33, 1, 0.68, 1),
+);
+@function timing-function($variant: major) {
+  @return map.get($timing-functions, $variant);
+}
+
+// transitions
+$transitions: (
+  major: duration(default) timing-function(major),
+  minor: duration(default) timing-function(minor),
+);
+@function transition($variant: major) {
+  @return map.get($transitions, $variant);
+}
+
+// columns
+@function column($count, $padding, $gap) {
+  @return "((100vw - (#{$padding} * 2) - (#{$gap} * (#{$count} - 1))) / #{$count})";
+}
+$column-count: 12;
+$column-count-small: 4;
+$column-padding: rem(40px);
+$column-padding-small: rem(20px);
+$column-gap: rem(20px);
+$column-gap-small: rem(16px);
+$column: column($column-count, $column-padding, $column-gap);
+$column-small: column(
+  $column-count-small,
+  $column-padding-small,
+  $column-gap-small
+);
+@function columns($count: 1, $col: $column, $gap: $column-gap) {
+  @return "((#{$col} * #{$count}) + (#{$gap} * (#{$count} - 1)))";
+}
+@function columns-small($count: 1) {
+  @return columns($count, $column-small, $column-gap-small);
+}
+
+// rectangle
+@mixin rectangle($width, $height: false) {
+  width: $width;
+
+  @if $height {
+    height: $height;
+  } @else {
+    height: $width;
+  }
+}
+
+// grid placement
+@mixin grid-area($x, $y, $width, $height) {
+  grid-area: string.unquote("#{$y} / #{$x} / span #{$height} / span #{$width}");
+}
+
+// inset
 @mixin inset($margin: 0) {
   @each $property in (top, bottom, left, right) {
     #{$property}: $margin;
   }
 }
 
-// property, value, prefixes -> property set with prefixes
-@mixin prefix($property, $value, $prefixes: (webkit, moz, ms, o)) {
-  @each $prefix in $prefixes {
-    #{'-' + $prefix + '-' + $property}: $value;
-  }
-
-  #{$property}: $value;
-}
-
-// placeholder styles
-@mixin placeholder {
-  &::-webkit-input-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
-    @content;
-  }
-  &::placeholder {
-    @content;
-  }
-}
-
-// hide scrollbar
-@mixin scrollbar-hidden {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
+// css text crop
 @mixin crop-text($lines-count) {
   display: -webkit-box;
   display: -moz-box;
@@ -255,33 +198,35 @@ $transitions: (
   line-clamp: $lines-count;
 }
 
-// VARIABLES
+// scrollbar hidden
+@mixin scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-// grid
-$column-count: 12;
-$column-count-small: 4;
-
-$column-padding: rem(40px);
-$column-padding-small: rem(20px);
-
-$column-gap: rem(20px);
-$column-gap-small: rem(16px);
-
-$column: column($column-count, $column-padding, $column-gap);
-$column-small: column(
-  $column-count-small,
-  $column-padding-small,
-  $column-gap-small
-);
-
-// FUNCTIONS
-
-// columns count -> columns width
-@function columns($count: 1, $col: $column, $gap: $column-gap) {
-  @return "((#{$col} * #{$count}) + (#{$gap} * (#{$count} - 1)))";
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-// small columns count -> small columns width
-@function columns-small($count: 1) {
-  @return columns($count, $column-small, $column-gap-small);
+// placeholder
+@mixin placeholder {
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
 }

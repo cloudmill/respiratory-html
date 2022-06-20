@@ -11,7 +11,7 @@ import * as top from "./scripts/top";
 import * as drop from "./scripts/drop";
 
 import "./scripts/slider";
-import "./scripts/products";
+import "./scripts/products/index.ts";
 
 AOS.init();
 

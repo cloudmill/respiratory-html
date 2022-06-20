@@ -121,8 +121,16 @@ class Reveal {
   subscribe() {
     const swiper = this.slider.swiper;
 
-    swiper.on("slideChangeTransitionStart", this.remove);
-    swiper.on("slideChangeTransitionEnd", () => this.set(swiper.activeIndex));
+    // swiper.on("slideChangeTransitionStart", this.remove);
+    // swiper.on("slideChangeTransitionEnd", () => this.set(swiper.activeIndex));
+    
+    swiper.on("slideChangeTransitionStart", () => {
+      this.remove();
+
+      setTimeout(() => {
+        this.set(swiper.activeIndex);
+      }, 500);
+    });
   }
 
   init() {

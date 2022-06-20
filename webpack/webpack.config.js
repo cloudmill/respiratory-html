@@ -30,7 +30,7 @@ module.exports = (env) => {
 
     resolve: {
       modules: [path.resolve(__dirname, "../src"), "node_modules"],
-      extensions: [".ts", ".js", ".css", ".scss"],
+      extensions: [".tsx", ".jsx", ".ts", ".js", ".scss", ".css"],
     },
 
     performance: {
@@ -42,7 +42,7 @@ module.exports = (env) => {
     module: {
       rules: [
         {
-          test: /\.(jsx?|tsx?)$/,
+          test: /\.(tsx?|jsx?)$/,
           exclude: [/node_modules/],
           use: [
             {

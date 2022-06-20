@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Slide } from "./Slide.jsx";
+import { Slide } from "./Slide";
 import { normIndex } from "../utils";
 import { SLIDER_DURATION as DURATION } from "../constants";
 
-export const Slider = () => {
+export const Slider = (props) => {
   const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(0);
   const [isAnimate, setIsAnimate] = useState(false);
 
   useEffect(() => {
-    const template = document.querySelector(".js-slider-template");
-    const slides = template.content.querySelectorAll(".js-slider-slide");
-
-    slides.forEach((slide) => {
+    props.slides.forEach((slide) => {
       const src = slide.querySelector(".js-slider-src").src;
       const href = slide.querySelector(".js-slider-href").href;
       const day = slide.querySelector(".js-slider-day").textContent;
@@ -33,38 +30,35 @@ export const Slider = () => {
       ]);
     });
 
-    const prev = document.querySelector(".js-slider-prev");
-    const next = document.querySelector(".js-slider-next");
-
-    prev.addEventListener("click", () => {
-      if (!prev.classList.contains("js-slider-disabled")) {
-        prev.classList.add("js-slider-disabled");
-        next.classList.add("js-slider-disabled");
+    props.prev.addEventListener("click", () => {
+      if (!props.prev.classList.contains("js-slider-disabled")) {
+        props.prev.classList.add("js-slider-disabled");
+        props.next.classList.add("js-slider-disabled");
 
         setIsAnimate("prev");
 
         setTimeout(() => {
-          prev.classList.remove("js-slider-disabled");
-          next.classList.remove("js-slider-disabled");
+          props.prev.classList.remove("js-slider-disabled");
+          props.next.classList.remove("js-slider-disabled");
 
           setIsAnimate(false);
-          setIndex((index) => normIndex(index - 1, slides));
+          setIndex((index) => normIndex(index - 1, props.slides));
         }, DURATION);
       }
     });
-    next.addEventListener("click", () => {
-      if (!next.classList.contains("js-slider-disabled")) {
-        prev.classList.add("js-slider-disabled");
-        next.classList.add("js-slider-disabled");
+    props.next.addEventListener("click", () => {
+      if (!props.next.classList.contains("js-slider-disabled")) {
+        props.prev.classList.add("js-slider-disabled");
+        props.next.classList.add("js-slider-disabled");
 
         setIsAnimate("next");
 
         setTimeout(() => {
-          prev.classList.remove("js-slider-disabled");
-          next.classList.remove("js-slider-disabled");
+          props.prev.classList.remove("js-slider-disabled");
+          props.next.classList.remove("js-slider-disabled");
 
           setIsAnimate(false);
-          setIndex((index) => normIndex(index + 1, slides));
+          setIndex((index) => normIndex(index + 1, props.slides));
         }, DURATION);
       }
     });

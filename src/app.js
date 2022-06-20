@@ -9,9 +9,8 @@ import * as noTransitionChild from "./scripts/noTransitionChild";
 import * as preloader from "./scripts/preloader";
 import * as top from "./scripts/top";
 import * as drop from "./scripts/drop";
-import * as products from "./scripts/products/index.ts";
-
-import "./scripts/slider";
+import * as slider from "./scripts/slider";
+import * as products from "./scripts/products";
 
 AOS.init();
 
@@ -21,6 +20,7 @@ addEventListener("DOMContentLoaded", () => {
   }
 
   drop.start();
+  slider.start();
   products.start();
 });
 

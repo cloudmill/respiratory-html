@@ -9,6 +9,27 @@
     фотографии
 
 mixin products
+  -
+    var slides = [
+      {
+        tab: 'RK 9000',
+      },
+      {
+        tab: 'RK 6000',
+      },
+      {
+        tab: 'АЛИНА®',
+      },
+      {
+        tab: 'ЮЛИЯ®',
+      },
+      {
+        tab: 'НЕВА®',
+      },
+      {
+        tab: 'GAGARA®',
+      },
+    ]
   .container.js-products
     .border
       .products
@@ -17,25 +38,17 @@ mixin products
             |продукция
         .products__place.products__place--tabs
           ul.products__tabs
-            -
-              var tabs = [
-                'RK 9000',
-                'RK 6000',
-                'АЛИНА®',
-                'ЮЛИЯ®',
-                'НЕВА®',
-                'GAGARA®',
-              ];
-            each tab, index in tabs
+            each slide in slides
               .products__tabs-item
-                +tab(class=(index === 0 && 'tab--active') mods=['js-products-tab'])
-                  |#{tab}
+                +tab({ buttonClasses: ['js-products-tab-button'] }).js-products-tab
+                  |#{slide.tab}
         .products__place.products__place--main
-          .products__main
-            .products__contents
-              |contents
-            .products__watch
-              |watch
+          each slide, index in slides
+            .products__main.js-products-content
+              .products__contents
+                |contents #{index}
+              .products__watch
+                |watch
         .products__place.products__place--photo--main
           .products__photo.products__photo--large
             |123

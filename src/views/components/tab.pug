@@ -1,6 +1,6 @@
-mixin tab
+mixin tab(props)
   .tab&attributes(attributes)
-    .tab__button(class=attributes.mods)
+    .tab__button(class=props.buttonClasses)
       .tab__bgs
         .tab__bg.tab__bg--default
         .tab__bg.tab__bg--yellow

@@ -12,7 +12,7 @@ interface Action {
 }
 
 const seriesReducer = (
-  state = { series: 0, isChange: false },
+  state = { series: 0, isChange: true },
   { type, payload }: Action | any
 ) => {
   switch (type) {

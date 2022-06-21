@@ -54,12 +54,18 @@
   }
 
   &__photo {
+    overflow: hidden;
+
     &--large {
       height: rem(744px);
+
+      border-radius: 0 rem(16px) rem(16px) rem(16px);
     }
 
     &--small {
       height: rem(168px);
+
+      border-radius: rem(8px);
     }
   }
 

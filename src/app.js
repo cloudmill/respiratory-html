@@ -10,7 +10,7 @@ import * as preloader from "./scripts/preloader";
 import * as top from "./scripts/top";
 import * as drop from "./scripts/drop";
 import * as slider from "./scripts/slider";
-import * as products from "./scripts/products";
+import * as series from "./scripts/series";
 
 AOS.init();
 
@@ -21,7 +21,7 @@ addEventListener("DOMContentLoaded", () => {
 
   drop.start();
   slider.start();
-  products.start();
+  series.start();
 });
 
 addEventListener("load", async () => {

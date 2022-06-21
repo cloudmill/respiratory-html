@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Data } from "./data";
 import { Tab } from "../components/Tab";
 import { SERIES_DURATION as DURATION } from "../constants";
+import { ImageSlider } from "./ImageSlider";
+
+export type Animation = false | { prev: number; next: number };
 
 export const Series: React.FC<{ data: Data }> = ({ data }) => {
   const [slide, setSlide] = useState<number>(0);
-  const [animation, setAnimation] = useState<
-    false | { prev: number; next: number }
-  >(false);
+  const [animation, setAnimation] = useState<Animation>(false);
   const [active, setActive] = useState<number>(slide);
 
   const handleChange = (index) => {
@@ -81,29 +82,27 @@ export const Series: React.FC<{ data: Data }> = ({ data }) => {
               <div className="series__watch">123</div>
             </div>
           </div>
-          <div className="series__place series__place--photo--main">
-            <div className="series__photo series__photo--large">
-              {(animation && "animation") || (
-                <img
-                  src={data.slides[slide].images[0]}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
+          {[0, 1, 2, 3].map((index) => (
+            <div
+              key={index}
+              className={`series__place series__place--photo--${
+                index === 0 ? "main" : index
+              }`}
+            >
+              <div
+                className={`series__photo series__photo--${
+                  index === 0 ? "large" : "small"
+                }`}
+              >
+                <ImageSlider
+                  slide={slide}
+                  data={data}
+                  animation={animation}
+                  image={index}
                 />
-              )}
+              </div>
             </div>
-          </div>
-          <div className="series__place series__place--photo--1">
-            <div className="series__photo series__photo--small">123</div>
-          </div>
-          <div className="series__place series__place--photo--2">
-            <div className="series__photo series__photo--small">123</div>
-          </div>
-          <div className="series__place series__place--photo--3">
-            <div className="series__photo series__photo--small">123</div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

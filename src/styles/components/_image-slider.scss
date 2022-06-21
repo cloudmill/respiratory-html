@@ -1,0 +1,24 @@
+.image-slider {
+  @include rectangle(100%);
+
+  overflow: hidden;
+
+  &__wrapper {
+    @include rectangle(100%);
+
+    display: flex;
+  }
+
+  &__container {
+    @include rectangle(100%);
+
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  &__img {
+    @include rectangle(100%);
+
+    object-fit: cover;
+  }
+}

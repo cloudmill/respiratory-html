@@ -41,8 +41,8 @@ export const DATA: Data = {
       ],
       images: [
         "assets/images/slider/slider-1.jpeg",
-        "assets/images/slider/slider-1.jpeg",
-        "assets/images/slider/slider-1.jpeg",
+        "assets/images/slider/slider-2.jpeg",
+        "assets/images/slider/slider-3.jpeg",
         "assets/images/slider/slider-1.jpeg",
       ],
     },

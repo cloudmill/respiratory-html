@@ -1,9 +1,10 @@
-import { DATA } from "./data";
+import { DATA, Data } from "./data";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { Series } from "./Series";
+import { Slider } from "./Slider";
 
 export const start = () => {
   const seriesAll = document.querySelectorAll(".js-series");
@@ -13,9 +14,9 @@ export const start = () => {
       series.dataset.data = JSON.stringify(DATA);
     }
 
-    const data = JSON.parse(series.dataset.data);
+    const data: Data = JSON.parse(series.dataset.data);
 
     const root = ReactDOM.createRoot(series);
-    root.render(<Series data={data} />);
+    root.render(<Slider data={data} />);
   });
 };

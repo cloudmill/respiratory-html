@@ -8,34 +8,26 @@
   row-gap: $column-gap;
 
   &__place {
-    &--title {
+    &:nth-child(1) {
       @include grid-area(1, 1, 1, 1);
     }
-
-    &--tabs {
+    &:nth-child(2) {
       @include grid-area(2, 1, 3, 1);
     }
-
-    &--main {
+    &:nth-child(3) {
       @include grid-area(1, 2, 2, 3);
     }
-
-    &--photo {
-      &--main {
-        @include grid-area(5, 1, 1, 4);
-      }
-
-      &--1 {
-        @include grid-area(4, 4, 1, 1);
-      }
-
-      &--2 {
-        @include grid-area(3, 4, 1, 1);
-      }
-
-      &--3 {
-        @include grid-area(4, 3, 1, 1);
-      }
+    &:nth-child(4) {
+      @include grid-area(5, 1, 1, 4);
+    }
+    &:nth-child(5) {
+      @include grid-area(4, 4, 1, 1);
+    }
+    &:nth-child(6) {
+      @include grid-area(3, 4, 1, 1);
+    }
+    &:nth-child(7) {
+      @include grid-area(4, 3, 1, 1);
     }
   }
 
@@ -66,6 +58,185 @@
       height: rem(168px);
 
       border-radius: rem(8px);
+    }
+  }
+
+  &__image {
+    @include rectangle(100%);
+
+    object-fit: cover;
+  }
+
+  &__translate {
+    $element: &;
+    $easing: timing-function(major);
+
+    @keyframes series-translate-wrapper {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes series-translate-img {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(var(--parallax));
+      }
+    }
+
+    @keyframes series-translate-img-invert {
+      0% {
+        transform: translateX(calc(var(--parallax) * -1));
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes series-translate-fade {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @include rectangle(100%);
+
+    overflow: hidden;
+
+    &--prev {
+      #{$element} {
+        &-wrapper {
+          animation-name: series-translate-wrapper;
+          animation-direction: reverse;
+        }
+
+        &-container {
+          &:nth-child(1) {
+            #{$element} {
+              &-img {
+                animation-name: series-translate-img;
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            #{$element} {
+              &-img {
+                animation-name: series-translate-img-invert;
+              }
+            }
+          }
+        }
+
+        &-img {
+          animation-direction: reverse;
+        }
+      }
+    }
+
+    &--next {
+      #{$element} {
+        &-wrapper {
+          animation-name: series-translate-wrapper;
+        }
+
+        &-container {
+          &:nth-child(1) {
+            #{$element} {
+              &-img {
+                animation-name: series-translate-img;
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            #{$element} {
+              &-img {
+                animation-name: series-translate-img-invert;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &--fade {
+      &--prev,
+      &--next {
+        #{$element} {
+          &-img {
+            animation-name: series-translate-fade;
+          }
+        }
+      }
+
+      &--prev {
+        #{$element} {
+          &-container {
+            &:nth-child(2) {
+              #{$element} {
+                &-img {
+                  animation-direction: reverse;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &--next {
+        #{$element} {
+          &-container {
+            &:nth-child(1) {
+              #{$element} {
+                &-img {
+                  animation-direction: reverse;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-wrapper {
+      @include rectangle(100%);
+
+      display: flex;
+
+      animation-duration: var(--duration);
+      animation-timing-function: $easing;
+      animation-fill-mode: forwards;
+    }
+
+    &-container {
+      @include rectangle(100%);
+
+      flex-shrink: 0;
+      display: flex;
+      overflow: hidden;
+    }
+
+    &-img {
+      @include rectangle(100%);
+
+      object-fit: cover;
+
+      animation-duration: var(--duration);
+      animation-timing-function: $easing;
+      animation-fill-mode: forwards;
     }
   }
 

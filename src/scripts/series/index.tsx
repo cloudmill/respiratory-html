@@ -9,9 +9,13 @@ export const start = () => {
   const seriesAll = document.querySelectorAll(".js-series");
 
   seriesAll.forEach((series) => {
-    series.dataset.data = JSON.stringify(DATA);
+    if (!series.dataset.data) {
+      series.dataset.data = JSON.stringify(DATA);
+    }
+
+    const data = JSON.parse(series.dataset.data);
 
     const root = ReactDOM.createRoot(series);
-    root.render(<Series data={DATA} />);
+    root.render(<Series data={data} />);
   });
 };

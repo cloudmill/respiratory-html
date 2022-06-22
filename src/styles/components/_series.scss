@@ -241,4 +241,46 @@
   &__watch {
     margin-top: rem(80px);
   }
+
+  // features
+
+  &__features {
+    margin-top: rem(40px);
+  }
+
+  &__feature {
+    --gap: #{rem(4px)};
+
+    &:not(:first-child) {
+      margin-top: rem(40px);
+    }
+
+    &-title {
+      @include font-fsl("title-2", 13px, 100%);
+
+      margin-bottom: rem(8px);
+    }
+
+    &-labels {
+      margin-top: calc(var(--gap) * -1);
+      margin-left: calc(var(--gap) * -1);
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &-label {
+      @include font-fsl("content-1", 12px, 130%);
+
+      margin-top: var(--gap);
+      margin-left: var(--gap);
+      padding: 0 rem(12px);
+      height: rem(30px);
+      display: flex;
+      align-items: center;
+
+      background-color: color(gray-light);
+      border-radius: rem(6px);
+      white-space: nowrap;
+    }
+  }
 }

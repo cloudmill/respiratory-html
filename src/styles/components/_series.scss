@@ -115,98 +115,78 @@
 
     overflow: hidden;
 
-    &--prev {
-      #{$element} {
-        &-wrapper {
-          animation-name: series-translate-wrapper;
-          animation-direction: reverse;
-        }
-
-        &-container {
-          &:nth-child(1) {
-            #{$element} {
-              &-img {
-                animation-name: series-translate-img;
-              }
-            }
-          }
-
-          &:nth-child(2) {
-            #{$element} {
-              &-img {
-                animation-name: series-translate-img-invert;
-              }
-            }
-          }
-        }
-
-        &-img {
-          animation-direction: reverse;
-        }
-      }
-    }
-
-    &--next {
-      #{$element} {
-        &-wrapper {
-          animation-name: series-translate-wrapper;
-        }
-
-        &-container {
-          &:nth-child(1) {
-            #{$element} {
-              &-img {
-                animation-name: series-translate-img;
-              }
-            }
-          }
-
-          &:nth-child(2) {
-            #{$element} {
-              &-img {
-                animation-name: series-translate-img-invert;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &--fade {
-      &--prev,
-      &--next {
+    &--image-image {
+      &#{$element}--prev {
         #{$element} {
-          &-img {
-            animation-name: series-translate-fade;
+          &-wrapper {
+            animation-name: series-translate-wrapper;
+            animation-direction: reverse;
           }
-        }
-      }
 
-      &--prev {
-        #{$element} {
-          &-container {
-            &:nth-child(2) {
-              #{$element} {
-                &-img {
-                  animation-direction: reverse;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      &--next {
-        #{$element} {
           &-container {
             &:nth-child(1) {
               #{$element} {
                 &-img {
-                  animation-direction: reverse;
+                  animation-name: series-translate-img;
+                }
+              }
+            }
+
+            &:nth-child(2) {
+              #{$element} {
+                &-img {
+                  animation-name: series-translate-img-invert;
                 }
               }
             }
           }
+
+          &-img {
+            animation-direction: reverse;
+          }
+        }
+      }
+
+      &#{$element}--next {
+        #{$element} {
+          &-wrapper {
+            animation-name: series-translate-wrapper;
+          }
+
+          &-container {
+            &:nth-child(1) {
+              #{$element} {
+                &-img {
+                  animation-name: series-translate-img;
+                }
+              }
+            }
+
+            &:nth-child(2) {
+              #{$element} {
+                &-img {
+                  animation-name: series-translate-img-invert;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &--image-empty,
+    &--empty-image {
+      #{$element} {
+        &-img {
+          animation-name: series-translate-fade;
+        }
+      }
+    }
+
+    &--image-empty {
+      #{$element} {
+        &-img {
+          animation-direction: reverse;
         }
       }
     }

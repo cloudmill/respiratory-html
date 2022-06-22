@@ -149,7 +149,11 @@ export const DATA: Data = {
           ],
         },
       ],
-      images: ["assets/images/series/4/0.jpeg"],
+      images: [
+        "assets/images/series/4/0.jpeg",
+        "assets/images/series/4/1.jpeg",
+        "assets/images/series/4/2.jpeg",
+      ],
     },
     {
       title: "GAGARA®",

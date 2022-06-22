@@ -20,10 +20,10 @@ const Translate: React.FC<Animation> = ({ prev, next, dir }) => (
   <div
     className={classNames([
       "series__translate",
-      { "series__translate--prev": prev && next && dir === "prev" },
-      { "series__translate--next": prev && next && dir === "next" },
-      { "series__translate--fade--prev": !(prev && next) && dir === 'prev' },
-      { "series__translate--fade--next": !(prev && next) && dir === 'next' },
+      { "series__translate--image-image": prev && next },
+      { "series__translate--image-empty": prev && !next },
+      { "series__translate--empty-image": !prev && next },
+      `series__translate--${dir}`,
     ])}
     style={
       {
@@ -33,25 +33,33 @@ const Translate: React.FC<Animation> = ({ prev, next, dir }) => (
     }
   >
     <div className="series__translate-wrapper">
-      {dir === "prev" && (
-        <div className="series__translate-container">
-          {(next && <img className="series__translate-img" src={next} />) || (
-            <div className="series__translate-img" />
+      {(prev && next && (
+        <>
+          {dir === "prev" && (
+            <div className="series__translate-container">
+              <img className="series__translate-img" src={next} />
+            </div>
           )}
-        </div>
-      )}
-      <div className="series__translate-container">
-        {(prev && <img className="series__translate-img" src={prev} />) || (
-          <div className="series__translate-img" />
-        )}
-      </div>
-      {dir === "next" && (
-        <div className="series__translate-container">
-          {(next && <img className="series__translate-img" src={next} />) || (
-            <div className="series__translate-img" />
+          <div className="series__translate-container">
+            <img className="series__translate-img" src={prev} />
+          </div>
+          {dir === "next" && (
+            <div className="series__translate-container">
+              <img className="series__translate-img" src={next} />
+            </div>
           )}
-        </div>
-      )}
+        </>
+      )) ||
+        (prev && !next && (
+          <div className="series__translate-container">
+            <img className="series__translate-img" src={prev} />
+          </div>
+        )) ||
+        (!prev && next && (
+          <div className="series__translate-container">
+            <img className="series__translate-img" src={next} />
+          </div>
+        ))}
     </div>
   </div>
 );

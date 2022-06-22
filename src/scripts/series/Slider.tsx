@@ -56,14 +56,6 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
     tryAnimation();
   }, [slide]);
 
-  useEffect(() => {
-    console.log({
-      active,
-      slide,
-      animation,
-    });
-  }, [active, slide, animation]);
-
   const getImagesSrc = (slide, index) => slides[slide].images[index];
 
   const getImagesCur = (index) => slides[slide].images[index];
@@ -74,8 +66,6 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
       next: getImagesSrc(animation.next, index),
       dir: animation.prev < animation.next ? "next" : "prev",
     };
-
-  console.log(slides);
 
   return (
     <div className="container">

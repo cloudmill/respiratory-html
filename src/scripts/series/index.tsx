@@ -3,7 +3,6 @@ import { DATA, Data } from "./data";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { Series } from "./Series";
 import { Slider } from "./Slider";
 
 export const start = () => {

@@ -2,6 +2,8 @@ import classNames from "classnames";
 import React from "react";
 import { LiSvg } from "../components/LiSvg";
 import { Feature, Slide } from "./data";
+import { Words } from "../components/Words";
+import { SERIES_DURATION as DURATION } from "../constants";
 
 export interface Animation {
   prev: Slide;
@@ -41,11 +43,15 @@ const Descriptions: React.FC<{ descriptions: string[] }> = ({
 
 const Content: React.FC<{
   slide: Slide;
-}> = ({ slide }) => {
+  animation: boolean;
+}> = ({ slide, animation }) => {
   return (
     <div className="series__main">
       <div className="series__content">
         <p className="series__content-sub-title">Серия респираторов</p>
+        <Words duration={DURATION / 2} move={animation && "up"}>
+          {slide.title}
+        </Words>
         <Descriptions descriptions={slide.descriptions} />
         <Features features={slide.features} />
       </div>
@@ -54,10 +60,11 @@ const Content: React.FC<{
   );
 };
 
-export const Contents: React.FC<{ slides: Slide[]; cur: number }> = ({
-  slides,
-  cur,
-}) => (
+export const Contents: React.FC<{
+  slides: Slide[];
+  cur: number;
+  animation: boolean;
+}> = ({ slides, cur, animation }) => (
   <ul className="series__slides">
     {slides.map((slide, index) => (
       <li
@@ -67,7 +74,7 @@ export const Contents: React.FC<{ slides: Slide[]; cur: number }> = ({
           { "series__slide--active": index === cur },
         ])}
       >
-        <Content slide={slide} />
+        <Content slide={slide} animation={animation} />
       </li>
     ))}
   </ul>

@@ -1,0 +1,39 @@
+.words {
+  $component: &;
+  $easing: timing-function(major);
+
+  @include font-fsl("title-3", 130px, 100%);
+
+  &--up {
+    #{$component} {
+      &__text {
+        transform: translateY(-100%);
+      }
+    }
+  }
+
+  &--down {
+    #{$component} {
+      &__text {
+        transform: translateY(100%);
+      }
+    }
+  }
+
+  &__mask {
+    margin-right: rem(-10px);
+    padding-right: rem(10px);
+    display: inline-flex;
+    overflow: hidden;
+  }
+
+  &__text {
+    transform: translateY(0);
+
+    display: inline-block;
+
+    transition-duration: var(--duration);
+    transition-timing-function: $easing;
+    transition-property: transform;
+  }
+}

@@ -88,7 +88,7 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
             <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
           </div>
           <div className="series__place">
-            <Contents slides={slides} cur={slide} />
+            <Contents slides={slides} cur={slide} animation={!!animation} />
           </div>
           {[0, 1, 2, 3].map((index) => (
             <div key={index} className="series__place">

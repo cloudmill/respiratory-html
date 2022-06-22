@@ -226,8 +226,16 @@
     grid-template-rows: 1fr auto;
   }
 
-  &__contents {
+  &__content {
     padding-top: 40px;
+
+    &-sub-title {
+      @include font-fsl("content-2", 16px, 130%);
+    }
+
+    &-title {
+      margin-top: $column-gap;
+    }
   }
 
   &__watch {

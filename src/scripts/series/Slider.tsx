@@ -5,6 +5,7 @@ import { Tabs } from "./Tabs";
 import { SERIES_DURATION as DURATION } from "../constants";
 import { Images, Animation as ImagesAnimation } from "./Images";
 import classNames from "classnames";
+import { Content, Animation as ContentAnimation } from "./Content";
 
 export interface Animation {
   prev: number;
@@ -67,6 +68,15 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
       dir: animation.prev < animation.next ? "next" : "prev",
     };
 
+  const getSlide = (index) => slides[index];
+
+  const getContentAnimation = (): false | ContentAnimation =>
+    animation && {
+      prev: getSlide(animation.prev),
+      next: getSlide(animation.next),
+      dir: animation.prev < animation.next ? "next" : "prev",
+    };
+
   return (
     <div className="container">
       <div className="border">
@@ -77,7 +87,9 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
           <div className="series__place">
             <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
           </div>
-          <div className="series__place">123</div>
+          <div className="series__place">
+            <Content cur={getSlide(slide)} animation={getContentAnimation()} />
+          </div>
           {[0, 1, 2, 3].map((index) => (
             <div key={index} className="series__place">
               <div

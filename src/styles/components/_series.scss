@@ -49,7 +49,8 @@
     overflow: hidden;
 
     &--large {
-      height: rem(744px);
+      height: 100%;
+      min-height: rem(744px);
 
       border-radius: 0 rem(16px) rem(16px) rem(16px);
     }
@@ -281,6 +282,65 @@
       background-color: color(gray-light);
       border-radius: rem(6px);
       white-space: nowrap;
+    }
+  }
+
+  // descriptions
+
+  &__descriptions {
+    margin-top: rem(20px);
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{columns(3)}));
+    column-gap: $column-gap;
+    row-gap: $column-gap;
+  }
+
+  &__description {
+    position: relative;
+    z-index: 0;
+
+    padding: rem(30px) 0 0 rem(30px);
+
+    &-text {
+      @include font-fsl("content-2", 16px, 130%);
+
+      max-width: rem(320px);
+    }
+
+    &-svg {
+      @include rectangle(rem(21px));
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      path {
+        stroke: color(blue);
+      }
+    }
+  }
+
+  // slides
+
+  &__slides {
+    position: relative;
+    z-index: 0;
+
+    height: 100%;
+    display: grid;
+  }
+
+  &__slide {
+    $element: &;
+
+    @include grid-area(1, 1, 1, 1);
+
+    &:not(#{$element}--active) {
+      z-index: -1;
+
+      visibility: hidden;
+      user-select: none;
+      pointer-events: none;
     }
   }
 }

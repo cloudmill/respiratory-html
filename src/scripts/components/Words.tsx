@@ -8,8 +8,6 @@ export const Words: React.FC<{
 }> = ({ children, duration, move }) => {
   const words = children.split(" ");
 
-  console.log(move);
-
   return (
     <div
       className={classNames(["words", { [`words--${move}`]: move }])}

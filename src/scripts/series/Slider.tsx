@@ -6,6 +6,7 @@ import { SERIES_DURATION as DURATION } from "../constants";
 import { Images, Animation as ImagesAnimation } from "./Images";
 import classNames from "classnames";
 import { Contents, Animation as ContentAnimation } from "./Content";
+import { ImagesTemplate } from "../components/ImagesTemplate";
 
 export interface Animation {
   prev: number;
@@ -19,6 +20,10 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
 
   const { slides } = data;
   const tabs = useMemo(() => slides.map((slide) => slide.title), [data]);
+  const allImages = slides.reduce<string[]>(
+    (prev, { images }) => [...prev, ...images],
+    []
+  );
 
   const handleTabsChange = useCallback(
     (index) => {
@@ -78,36 +83,39 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
     };
 
   return (
-    <div className="container">
-      <div className="border">
-        <div className="series">
-          <div className="series__place">
-            <SubTitle>продукция</SubTitle>
-          </div>
-          <div className="series__place">
-            <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
-          </div>
-          <div className="series__place">
-            <Contents slides={slides} cur={slide} animation={!!animation} />
-          </div>
-          {[0, 1, 2, 3].map((index) => (
-            <div key={index} className="series__place">
-              <div
-                className={classNames([
-                  "series__photo",
-                  { "series__photo--large": index === 0 },
-                  { "series__photo--small": index !== 0 },
-                ])}
-              >
-                <Images
-                  cur={getImagesCur(index)}
-                  animation={getImagesAnimation(index)}
-                />
-              </div>
+    <>
+      <ImagesTemplate images={allImages} />
+      <div className="container">
+        <div className="border">
+          <div className="series">
+            <div className="series__place">
+              <SubTitle>продукция</SubTitle>
             </div>
-          ))}
+            <div className="series__place">
+              <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
+            </div>
+            <div className="series__place">
+              <Contents slides={slides} cur={slide} animation={!!animation} />
+            </div>
+            {[0, 1, 2, 3].map((index) => (
+              <div key={index} className="series__place">
+                <div
+                  className={classNames([
+                    "series__photo",
+                    { "series__photo--large": index === 0 },
+                    { "series__photo--small": index !== 0 },
+                  ])}
+                >
+                  <Images
+                    cur={getImagesCur(index)}
+                    animation={getImagesAnimation(index)}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

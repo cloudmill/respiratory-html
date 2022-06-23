@@ -62,9 +62,12 @@
     }
   }
 
+  // image
+
   &__image {
     @include rectangle(100%);
 
+    display: block;
     object-fit: cover;
   }
 
@@ -252,8 +255,20 @@
   &__feature {
     --gap: #{rem(4px)};
 
+    display: flex;
+
     &:not(:first-child) {
       margin-top: rem(40px);
+    }
+
+    &-image {
+      @include rectangle(rem(60px));
+
+      margin-right: rem(12px);
+      flex-shrink: 0;
+    }
+
+    &-content {
     }
 
     &-title {

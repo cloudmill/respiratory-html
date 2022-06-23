@@ -1,4 +1,5 @@
 export interface Feature {
+  image?: string;
   title: string;
   labels: string[];
 }
@@ -26,10 +27,12 @@ export const DATA: Data = {
       ],
       features: [
         {
+          image: "assets/images/series/protection.svg",
           title: "Защита от всех видов аэрозолей",
           labels: ["Пыль", "Дым", "Туман"],
         },
         {
+          image: "assets/images/series/additional-protection.svg",
           title: "Дополнительная защита",
           labels: [
             "Органические газы и пары от нагрева металлов",
@@ -54,6 +57,7 @@ export const DATA: Data = {
       ],
       features: [
         {
+          image: "assets/images/series/protection.svg",
           title: "Защита от всех видов аэрозолей",
           labels: ["Пыль", "Дым", "Туман"],
         },
@@ -71,19 +75,15 @@ export const DATA: Data = {
       descriptions: [
         "Эластичная линия прилегания позволяет респиратору сжиматься и растягиваться, подстраиваясь под параметры лица",
         "Широкий диапазон параметров защиты органов дыхания",
-        "Широкий диапазон параметров защиты органов дыхания",
-        "Широкий диапазон параметров защиты органов дыхания",
-        "Широкий диапазон параметров защиты органов дыхания",
-        "Широкий диапазон параметров защиты органов дыхания",
-        "Широкий диапазон параметров защиты органов дыхания",
-        "Широкий диапазон параметров защиты органов дыхания",
       ],
       features: [
         {
+          image: "assets/images/series/protection.svg",
           title: "Защита от всех видов аэрозолей",
           labels: ["Пыль", "Дым", "Туман"],
         },
         {
+          image: "assets/images/series/additional-protection.svg",
           title: "Дополнительная защита",
           labels: [
             "Органические газы и пары от нагрева металлов",
@@ -113,10 +113,12 @@ export const DATA: Data = {
       ],
       features: [
         {
+          image: "assets/images/series/protection.svg",
           title: "Защита от всех видов аэрозолей",
           labels: ["Пыль", "Дым", "Туман"],
         },
         {
+          image: "assets/images/series/additional-protection.svg",
           title: "Дополнительная защита",
           labels: [
             "Органические газы и пары от нагрева металлов",
@@ -142,10 +144,12 @@ export const DATA: Data = {
       ],
       features: [
         {
+          image: "assets/images/series/protection.svg",
           title: "Защита от всех видов аэрозолей",
           labels: ["Пыль", "Дым", "Туман"],
         },
         {
+          image: "assets/images/series/additional-protection.svg",
           title: "Дополнительная защита",
           labels: [
             "Органические газы и пары от нагрева металлов",
@@ -169,10 +173,12 @@ export const DATA: Data = {
       ],
       features: [
         {
+          image: "assets/images/series/protection.svg",
           title: "Защита от всех видов аэрозолей",
           labels: ["Пыль", "Дым", "Туман"],
         },
         {
+          image: "assets/images/series/additional-protection.svg",
           title: "Дополнительная защита",
           labels: ["Вирусы и бактерии"],
         },

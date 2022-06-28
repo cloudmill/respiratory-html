@@ -11,6 +11,7 @@ import * as top from "./scripts/top";
 import * as drop from "./scripts/drop";
 import * as slider from "./scripts/slider";
 import * as series from "./scripts/series";
+import * as test from "./scripts/test";
 
 AOS.init();
 
@@ -22,6 +23,7 @@ addEventListener("DOMContentLoaded", () => {
   drop.start();
   slider.start();
   series.start();
+  test.start();
 });
 
 addEventListener("load", async () => {

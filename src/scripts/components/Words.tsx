@@ -1,10 +1,12 @@
 import classNames from "classnames";
 import React, { Fragment } from "react";
 
+export type Move = false | "up-mid" | "mid-up" | "mid-down" | "down-mid";
+
 export const Words: React.FC<{
   children: string;
   duration: number;
-  move: false | "up" | "down";
+  move: Move;
 }> = ({ children, duration, move }) => {
   const words = children.split(" ");
 
@@ -13,7 +15,7 @@ export const Words: React.FC<{
       className={classNames(["words", { [`words--${move}`]: move }])}
       style={
         {
-          "--duration": `${Math.floor(duration)}ms`,
+          "--duration": `${duration}ms`,
         } as React.CSSProperties
       }
     >

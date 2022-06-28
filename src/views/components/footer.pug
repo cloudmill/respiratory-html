@@ -1,3 +1,79 @@
 mixin footer
   footer.footer
-    |footer
+    .footer__phones
+      -
+        var items = [
+          {
+            number: '8 812 703-37-33',
+            description: 'Многоканальный',
+          },
+          {
+            number: '8 812 329-11-65',
+            description: 'Отдел продаж, только для юридических лиц',
+          },
+        ]
+      each item in items
+        a.footer__phones-item(href=`tel:${item.number}`)
+          .footer__phones-number= item.number
+          .footer__phones-description= item.description
+          .footer__phones-mark
+            +arrow-tilt-svg.footer__phones-svg
+    .container
+      .footer__mail
+        - var mail = 'zakaz@rkszpe.ru';
+          a.footer__mail-link(href=`mailto:${mail}`)= mail
+      .footer__grid
+        -
+          var lists = [
+            [
+              'О компании',
+              'Контроль качества',
+              'Работа у нас',
+              'Документация',
+              'Медиа-центр',
+              'Контакты',
+            ],
+            [
+              'Промышленным организациям',
+              'Медицинским учреждениям',
+              'Торговым организациям',
+              'Потребителям',
+              'Оформить заказ',
+              'Где купить',
+            ],
+            [
+              'Политика конфиденциальности',
+            ],
+          ]
+        each list in lists
+          .footer__grid-place
+            ul.footer__list
+              each item in list
+                li.footer__list-item
+                  a.footer__list-link(href="#")= item
+        .footer__grid-place
+          .footer__blocks
+            .footer__blocks-item
+              ul.footer__socials
+                li.footer__socials-item
+                  a.footer__socials-link(href="#")
+                    +zen-svg.footer__socials-svg.footer__socials-svg--zen
+                li.footer__socials-item
+                  a.footer__socials-link(href="#")
+                    +yt-svg.footer__socials-svg.footer__socials-svg--yt
+                li.footer__socials-item
+                  a.footer__socials-link(href="#")
+                    +vk-svg.footer__socials-svg.footer__socials-svg--vk
+            .footer__blocks-item
+              +press
+                |корпоративный портал
+            .footer__blocks-item
+              .footer__authors
+                .footer__authors-item
+                  .footer__authors-text
+                    |© 2010-2021 ООО «Респираторный комплекс» 
+                .footer__authors-item
+                  .footer__authors-text
+                    |Сделано в 
+                    a.footer__authors-link(href="#")
+                      |CloudMill

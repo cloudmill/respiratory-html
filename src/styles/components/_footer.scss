@@ -1,2 +1,295 @@
 .footer {
+  $easing: timing-function(major);
+  $transition: duration(default) $easing;
+
+  padding-bottom: rem(80px);
+
+  background-color: color(black);
+
+  // phones
+
+  &__phones {
+    $element: &;
+
+    display: flex;
+
+    &-item {
+      position: relative;
+      z-index: 0;
+
+      padding: rem(40px) rem(40px + 44px + 40px) rem(60px) rem(40px);
+      width: 50%;
+      flex-shrink: 0;
+
+      border-bottom: 1px solid color(gray-2);
+
+      &:nth-child(2) {
+        @media #{media(">")} {
+          border-left: 1px solid color(gray-2);
+        }
+      }
+
+      &:hover {
+        #{$element} {
+          &-number {
+            color: color(yellow);
+          }
+
+          &-mark {
+            background-color: color(yellow);
+            border-color: color(yellow);
+          }
+
+          &-svg {
+            path,
+            line {
+              stroke: color(black);
+            }
+          }
+        }
+      }
+    }
+
+    &-number {
+      @include font-fsl("title-2", 60px, 100%);
+
+      color: color(white);
+      transition: color $transition;
+    }
+
+    &-description {
+      @include font-fsl("content-2", 16px, 130%);
+
+      color: color(gray-3);
+    }
+
+    &-mark {
+      @include rectangle(rem(44px));
+
+      position: absolute;
+      bottom: rem(40px);
+      right: rem(40px);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+
+      border: 1px solid color(gray-2);
+      border-radius: 50%;
+      transition: background-color $transition, border-color $transition;
+    }
+
+    &-svg {
+      @include rectangle(rem(17px));
+
+      path,
+      line {
+        transition: stroke $transition;
+      }
+    }
+  }
+
+  // mail
+
+  &__mail {
+    margin-top: rem(40px);
+    display: flex;
+    justify-content: center;
+
+    &-link {
+      @include font-fsl("title-2", 40px, 100%);
+
+      color: color(white);
+      transition: color $transition;
+
+      &:hover {
+        color: color(yellow);
+      }
+    }
+  }
+
+  // grid
+
+  &__grid {
+    margin-top: rem(180px);
+    display: grid;
+    grid-template-columns: repeat(4, calc(#{columns(3)}));
+    column-gap: $column-gap;
+
+    &-place {
+      align-self: end;
+    }
+  }
+
+  // list
+
+  &__list {
+    &-item {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: rem(16px);
+      }
+    }
+
+    &-link {
+      @include font-fsl("content-4", 16px, 130%);
+
+      color: color(white);
+      transition: color $transition;
+
+      &:hover {
+        color: color(yellow);
+      }
+    }
+  }
+
+  // blocks
+
+  &__blocks {
+    &-item {
+      &:not(:first-child) {
+        margin-top: rem(37px);
+      }
+    }
+  }
+
+  // socials
+
+  &__socials {
+    $element: &;
+
+    display: flex;
+
+    &-item {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-left: rem(8px);
+      }
+    }
+
+    &-link {
+      @include rectangle(rem(44px));
+
+      position: relative;
+      z-index: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      border-radius: 50%;
+
+      &::before,
+      &::after {
+        @include inset;
+
+        position: absolute;
+
+        content: "";
+        pointer-events: none;
+
+        border-radius: 50%;
+      }
+
+      &::before {
+        z-index: 1;
+
+        border: 1px solid color(gray-2);
+      }
+
+      &::after {
+        z-index: 2;
+        transform: scale(0);
+
+        background-color: color(yellow);
+        transition: transform $transition;
+      }
+
+      &:hover {
+        &::after {
+          transform: scale(1);
+        }
+
+        #{$element} {
+          &-svg {
+            &--zen {
+              path {
+                fill: color(black);
+              }
+            }
+
+            &--yt {
+              path {
+                fill: color(black);
+              }
+            }
+
+            &--vk {
+              path {
+                fill: color(black);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-svg {
+      position: relative;
+      z-index: 3;
+
+      &--zen {
+        @include rectangle(rem(24px));
+
+        path {
+          transition: fill $transition;
+        }
+      }
+
+      &--yt {
+        @include rectangle(rem(18px), rem(12px));
+
+        path {
+          transition: fill $transition;
+        }
+      }
+
+      &--vk {
+        @include rectangle(rem(18px), rem(11px));
+
+        path {
+          transition: fill $transition;
+        }
+      }
+    }
+  }
+
+  // author
+
+  &__authors {
+    &-item {
+      &:not(:first-child) {
+        margin-top: rem(12px);
+      }
+    }
+
+    &-text {
+      @include font-fsl("content-4", 14px, 130%);
+
+      color: color(gray-3);
+    }
+
+    &-link {
+      color: color(white);
+      transition: color $transition;
+
+      &:hover {
+        color: color(yellow);
+      }
+    }
+  }
 }

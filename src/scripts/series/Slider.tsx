@@ -1,28 +1,45 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
+import classNames from "classnames";
+
 import { Data } from "./Data";
+import { Images, Animation as ImagesAnimation } from "./Images";
+
 import { SubTitle } from "../components/SubTitle";
 import { Tabs } from "./Tabs";
+import { LoadImages } from "../components/LoadImages";
+
 import { SERIES_DURATION as DURATION } from "../constants";
-import { Images, Animation as ImagesAnimation } from "./Images";
-import classNames from "classnames";
-import { Contents, Animation as ContentAnimation } from "./Content";
-import { ImagesTemplate } from "../components/ImagesTemplate";
 
-export interface Animation {
-  prev: number;
-  next: number;
-}
+type Animation =
+  | false
+  | {
+      prev: number;
+      next: number;
+    };
 
-export const Slider: React.FC<{ data: Data }> = ({ data }) => {
+const Slider: React.FC<{ data: Data; onLoad: () => void }> = ({
+  data,
+  onLoad,
+}) => {
   const [active, setActive] = useState<number>(0);
   const [slide, setSlide] = useState<number>(0);
-  const [animation, setAnimation] = useState<false | Animation>(false);
+  const [animation, setAnimation] = useState<Animation>(false);
 
   const { slides } = data;
   const tabs = useMemo(() => slides.map((slide) => slide.title), [data]);
-  const allImages = slides.reduce<string[]>(
-    (prev, { images }) => [...prev, ...images],
-    []
+  const allImages = useMemo(
+    () =>
+      slides
+        .reduce<string[]>(
+          (prev, { images, features }) => [
+            ...prev,
+            ...images,
+            ...features.map(({ image }) => image || ""),
+          ],
+          []
+        )
+        .filter((image) => image),
+    [data]
   );
 
   const handleTabsChange = useCallback(
@@ -73,18 +90,9 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
       dir: animation.prev < animation.next ? "next" : "prev",
     };
 
-  const getSlide = (index) => slides[index];
-
-  const getContentAnimation = (): false | ContentAnimation =>
-    animation && {
-      prev: getSlide(animation.prev),
-      next: getSlide(animation.next),
-      dir: animation.prev < animation.next ? "next" : "prev",
-    };
-
   return (
     <>
-      <ImagesTemplate images={allImages} />
+      <LoadImages srcs={allImages} onLoad={onLoad} />
       <div className="container">
         <div className="border">
           <div className="series">
@@ -95,7 +103,8 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
               <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
             </div>
             <div className="series__place">
-              <Contents slides={slides} cur={slide} animation={animation} />
+              {/* <Contents slides={slides} cur={slide} animation={animation} /> */}
+              {/* <Content slide={slides[slide]} animation="prev" /> */}
             </div>
             {[0, 1, 2, 3].map((index) => (
               <div key={index} className="series__place">
@@ -119,3 +128,6 @@ export const Slider: React.FC<{ data: Data }> = ({ data }) => {
     </>
   );
 };
+
+export { Slider };
+export { Animation };

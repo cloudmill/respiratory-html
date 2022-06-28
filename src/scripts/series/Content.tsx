@@ -1,16 +1,11 @@
-import classNames from "classnames";
-import React, { useState, useEffect } from "react";
-import { LiSvg } from "../components/LiSvg";
-import { Feature, Slide } from "./data";
-import { Words } from "../components/Words";
-import { SERIES_DURATION as DURATION } from "../constants";
-import { Animation as SliderAnimation } from "./Slider";
+import React from "react";
 
-export interface Animation {
-  prev: Slide;
-  next: Slide;
-  dir: "prev" | "next";
-}
+import { Words } from "../components/Words";
+import { LiSvg } from "../components/LiSvg";
+
+import { SERIES_DURATION as DURATION } from "../constants";
+
+import { Slide } from "./data";
 
 const Features: React.FC<{ features: Feature[] }> = ({ features }) => (
   <ul className="series__features">
@@ -45,54 +40,29 @@ const Descriptions: React.FC<{ descriptions: string[] }> = ({
   </ul>
 );
 
+type ContentData = Slide;
+
 const Content: React.FC<{
-  slide: Slide;
-  animation?: boolean;
-}> = ({ slide, animation }) => {
+  data: ContentData;
+  mode: false | { type: "out" | "in"; dir: "prev" | "next" };
+}> = ({ data, mode }) => {
+  const { title, descriptions, features, href } = data;
+
   return (
     <div className="series__main">
       <div className="series__content">
         <p className="series__content-sub-title">Серия респираторов</p>
-        <Words duration={DURATION / 2} move={!!animation && "up"}>
-          {slide.title}
+        <Words duration={Math.floor(DURATION / 2)} move="down-mid">
+          {title}
         </Words>
-        <Descriptions descriptions={slide.descriptions} />
-        <Features features={slide.features} />
+        <Descriptions descriptions={descriptions} />
+        <Features features={features} />
       </div>
-      <div className="series__watch">watch</div>
+      <div className="series__watch">
+        <a href={href}>Смотреть серию</a>
+      </div>
     </div>
   );
 };
 
-export const Contents: React.FC<{
-  slides: Slide[];
-  cur: number;
-  animation: false | SliderAnimation;
-}> = ({ slides, cur, animation }) => {
-  const [transition, setTransition] = useState<false | "prev" | "next">(false);
-
-  useEffect(() => {
-    if (!animation) {
-      setTransition(false);
-    } else {
-      setTransition("prev");
-      setTimeout(() => setTransition("next"), Math.floor(DURATION / 2));
-    }
-  }, [animation]);
-
-  return (
-    <ul className="series__slides">
-      {slides.map((slide, index) => (
-        <li
-          key={index}
-          className={classNames([
-            "series__slide",
-            { "series__slide--active": !transition && cur ||  === index },
-          ])}
-        >
-          <Content slide={slide} />
-        </li>
-      ))}
-    </ul>
-  );
-};
+export { Content };

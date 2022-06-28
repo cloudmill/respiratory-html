@@ -1,21 +1,32 @@
-import { DATA, Data } from "./data";
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { DATA, Data } from "./data";
 import { Slider } from "./Slider";
 
-export const start = () => {
-  const seriesAll = document.querySelectorAll(".js-series");
+const getData = (series: HTMLElement): Data => {
+  try {
+    const dataString = series.dataset.data || "";
+    const data: Data = JSON.parse(dataString);
 
-  seriesAll.forEach((series) => {
-    if (!series.dataset.data) {
-      series.dataset.data = JSON.stringify(DATA);
-    }
+    return data;
+  } catch (error) {
+    console.error(error);
 
-    const data: Data = JSON.parse(series.dataset.data);
-
-    const root = ReactDOM.createRoot(series);
-    root.render(<Slider data={data} />);
-  });
+    return DATA;
+  }
 };
+
+const startReact = (series: HTMLElement) => {
+  const root = ReactDOM.createRoot(series);
+  root.render(
+    <Slider data={getData(series)} onLoad={() => console.log("series load")} />
+  );
+};
+
+const start = () => {
+  const seriesAll = document.querySelectorAll<HTMLElement>(".js-series");
+  seriesAll.forEach(startReact);
+};
+
+export { start };

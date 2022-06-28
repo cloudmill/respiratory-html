@@ -4,18 +4,74 @@
 
   @include font-fsl("title-3", 130px, 100%);
 
-  &--up {
+  &--up-mid {
+    @keyframes words-up-mid {
+      0% {
+        transform: translateY(-100%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     #{$component} {
       &__text {
-        transform: translateY(-100%);
+        animation-name: words-up-mid;
       }
     }
   }
 
-  &--down {
+  &--mid-up {
+    @keyframes words-mid-up {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
     #{$component} {
       &__text {
+        animation-name: words-mid-up;
+      }
+    }
+  }
+
+  &--mid-down {
+    @keyframes words-mid-down {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
         transform: translateY(100%);
+      }
+    }
+
+    #{$component} {
+      &__text {
+        animation-name: words-mid-down;
+      }
+    }
+  }
+
+  &--down-mid {
+    @keyframes words-down-mid {
+      0% {
+        transform: translateY(100%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    #{$component} {
+      &__text {
+        animation-name: words-down-mid;
       }
     }
   }
@@ -28,12 +84,10 @@
   }
 
   &__text {
-    transform: translateY(0);
-
     display: inline-block;
 
-    transition-duration: var(--duration);
-    transition-timing-function: $easing;
-    transition-property: transform;
+    animation-duration: var(--duration);
+    animation-timing-function: $easing;
+    animation-fill-mode: forwards;
   }
 }

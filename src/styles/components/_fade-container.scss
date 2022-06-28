@@ -1,0 +1,35 @@
+.fade-container {
+  $easing: timing-function(major);
+
+  animation-duration: var(--duration);
+  animation-timing-function: $easing;
+  animation-fill-mode: forwards;
+
+  &--in {
+    @keyframes fade-container-in {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    animation-name: fade-container-in;
+  }
+
+  &--out {
+    @keyframes fade-container-out {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    animation-name: fade-container-out;
+  }
+}

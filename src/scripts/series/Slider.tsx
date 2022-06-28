@@ -7,6 +7,7 @@ import { Images, Animation as ImagesAnimation } from "./Images";
 import { SubTitle } from "../components/SubTitle";
 import { Tabs } from "./Tabs";
 import { LoadImages } from "../components/LoadImages";
+import { Contents } from "./Content";
 
 import { SERIES_DURATION as DURATION } from "../constants";
 
@@ -103,8 +104,7 @@ const Slider: React.FC<{ data: Data; onLoad: () => void }> = ({
               <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
             </div>
             <div className="series__place">
-              {/* <Contents slides={slides} cur={slide} animation={animation} /> */}
-              {/* <Content slide={slides[slide]} animation="prev" /> */}
+              <Contents slides={slides} slide={slide} animation={animation} />
             </div>
             {[0, 1, 2, 3].map((index) => (
               <div key={index} className="series__place">

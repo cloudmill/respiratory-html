@@ -89,7 +89,36 @@ const Content: React.FC<{
       </div>
       <div className="series__watch">
         <FadeContainer duration={Math.floor(DURATION / 2)} move={mode}>
-          <a href={href}>Смотреть серию</a>
+          <div className="press press--info">
+            <a className="press__btn" href={href}>
+              <div className="press__content">
+                <div className="press__content-item press__content-item--start">
+                  <div className="press__text press__text--start">
+                    Смотреть серию
+                  </div>
+                </div>
+                <div className="press__content-item press__content-item--end">
+                  <div className="press__text press__text--end">
+                    Смотреть серию
+                  </div>
+                </div>
+              </div>
+              <div className="press__bg">
+                <div className="press__bg-item press__bg-item--start"></div>
+                <div className="press__bg-item press__bg-item--end"></div>
+              </div>
+              <div className="press__decor">
+                <div className="press__decor-item press__decor-item--start">
+                  <div className="press__decor-arrow"></div>
+                  <div className="press__decor-arrow"></div>
+                </div>
+                <div className="press__decor-item press__decor-item--end">
+                  <div className="press__decor-arrow"></div>
+                  <div className="press__decor-arrow"></div>
+                </div>
+              </div>
+            </a>
+          </div>
         </FadeContainer>
       </div>
     </div>

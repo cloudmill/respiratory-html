@@ -298,6 +298,10 @@
     left: rem(40px);
 
     width: calc(#{columns(4)});
+
+    &--alt {
+      width: calc(#{columns(5)} - #{$column} / 2);
+    }
   }
 
   &__bottom {

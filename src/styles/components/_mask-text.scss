@@ -32,7 +32,7 @@
     will-change: transform;
 
     padding: 0 rem(3px);
-    display: inline-block;
+    display: inline-flex;
 
     white-space: nowrap; // в слове может быть несколько текстов "25 лет"
     transition: transform $transition;

@@ -253,6 +253,7 @@
     @include font-fsl("title-1", 11px, 100%);
 
     white-space: nowrap;
+    transition: color $transition;
 
     &--start {
       color: color(white);

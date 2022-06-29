@@ -101,6 +101,7 @@ $colors: (
   transparent: rgba(0, 0, 0, 0),
   shadow-drop: rgba(42, 46, 55, 0.12),
   grid-test: rgba(0, 0, 0, 0.1),
+  header-transparent-border: rgba(255, 255, 255, 0.2),
 );
 @function color($variant: black) {
   @return map.get($colors, $variant);

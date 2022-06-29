@@ -12,6 +12,70 @@
 
   pointer-events: none;
 
+  &--transparent {
+    --hover-color: #{color(yellow)};
+    --logo-color: #{color(white)};
+
+    #{$component} {
+      // top & bottom:
+
+      &__top,
+      &__bottom {
+        background-color: transparent;
+      }
+
+      &__top {
+        border-bottom: 1px solid color(header-transparent-border);
+      }
+
+      // link
+
+      &__link {
+        &-link {
+          color: color(white);
+        }
+      }
+
+      // search
+
+      &__search {
+        &-svg {
+          path {
+            fill: color(white);
+          }
+        }
+      }
+    }
+
+    // press
+
+    .press {
+      &--white {
+        .press {
+          &__text {
+            &--start {
+              color: color(white);
+            }
+          }
+        }
+      }
+    }
+
+    // drop
+
+    .drop {
+      &__cur {
+        color: color(white);
+      }
+
+      &__svg {
+        path {
+          fill: color(white);
+        }
+      }
+    }
+  }
+
   // top & bottom
 
   &__top,
@@ -25,10 +89,13 @@
     height: rem(61px);
 
     border-bottom: 1px solid color(gray);
+    transition: background-color $transition, border-color $transition;
   }
 
   &__bottom {
     height: rem(108px);
+
+    transition: background-color $transition;
   }
 
   // row
@@ -163,6 +230,7 @@
 
       path {
         fill: var(--logo-color);
+        transition: fill $transition;
       }
     }
   }
@@ -183,7 +251,7 @@
 
       &:hover {
         path {
-          fill: color(blue);
+          fill: var(--hover-color);
         }
       }
 

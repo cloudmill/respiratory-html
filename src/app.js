@@ -12,6 +12,7 @@ import * as drop from "./scripts/drop";
 import * as slider from "./scripts/slider";
 import * as series from "./scripts/series";
 import * as test from "./scripts/test";
+import * as header from "./scripts/header";
 
 AOS.init();
 
@@ -42,6 +43,7 @@ addEventListener("load", async () => {
 
     scrollPage.toTop();
     scrollPage.unlock();
+    header.start();
 
     top.controls.start();
 

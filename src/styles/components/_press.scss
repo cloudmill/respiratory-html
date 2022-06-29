@@ -1,7 +1,8 @@
 .press {
   $component: &;
   $easing: timing-function(major);
-  $transition: duration(default) $easing;
+  $duration: duration(default);
+  $transition: $duration $easing;
   $radius: #{rem(8px)};
   $move: 2px;
 
@@ -12,6 +13,83 @@
   }
 
   display: flex;
+
+  &--white {
+    #{$component} {
+      &__btn {
+        &:hover {
+          #{$component} {
+            &__content,
+            &__bg,
+            &__decor {
+              &-arrow {
+                $white-move: rem(4px);
+
+                &:nth-child(1) {
+                  transform: translate($white-move, $white-move);
+                }
+
+                &:nth-child(2) {
+                  transform: translate(-$white-move, -$white-move);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__text {
+        @include font-fsl("title-1", 13px, 100%);
+
+        white-space: nowrap;
+
+        &--start {
+          color: color(black);
+        }
+
+        &--end {
+          color: color(black);
+        }
+      }
+
+      &__content {
+        &-item {
+          padding: 0 rem(40px);
+          height: rem(60px);
+        }
+      }
+
+      &__bg {
+        &-item {
+          &--start {
+            border: 2px solid color(gray);
+          }
+
+          &--end {
+            background-color: color(yellow);
+          }
+        }
+      }
+
+      &__decor {
+        &-arrow {
+          $white-offset: rem(10px);
+
+          &:nth-child(1) {
+            top: $white-offset;
+            left: $white-offset;
+          }
+
+          &:nth-child(2) {
+            bottom: $white-offset;
+            right: $white-offset;
+          }
+        }
+      }
+    }
+  }
+
+  &--
 
   // btn
 
@@ -41,6 +119,18 @@
           }
 
           &-arrow {
+            @keyframes press-decor-arrow {
+              0% {
+                opacity: 0;
+              }
+
+              100% {
+                opacity: 1;
+              }
+            }
+
+            animation-name: press-decor-arrow; 
+
             &:nth-child(1) {
               transform: translate(rem($move), rem($move));
             }
@@ -196,6 +286,10 @@
       z-index: 0;
 
       transition: transform $transition;
+      animation-timing-function: $easing;
+      animation-duration: math.div($duration, 3);
+      animation-iteration-count: 6;
+      animation-direction: alternate-reverse;
 
       &::before {
         @include inset;

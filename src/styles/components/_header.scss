@@ -1,2 +1,171 @@
 .header {
+  $component: &;
+  $transition: transition(major);
+
+  --hover-color: #{color(blue)};
+  --logo-color: #{color(blue)};
+
+  @include inset;
+
+  position: fixed;
+  z-index: 1;
+
+  pointer-events: none;
+
+  // top & bottom
+
+  &__top,
+  &__bottom {
+    pointer-events: all;
+
+    background-color: color(white);
+  }
+
+  &__top {
+    height: rem(61px);
+
+    border-bottom: 1px solid color(gray);
+  }
+
+  &__bottom {
+    height: rem(108px);
+  }
+
+  // row
+
+  &__row {
+    display: grid;
+    grid-template-columns:
+      calc(#{columns(3)}) calc(#{columns(2)}) calc(#{columns(4)})
+      calc(#{columns(3)});
+    column-gap: $column-gap;
+
+    &-item {
+    }
+  }
+
+  // container
+
+  &__container {
+    padding: rem(24px) 0;
+  }
+
+  // link
+
+  &__link {
+    $element: &;
+
+    display: flex;
+
+    &--large {
+      #{$element} {
+        &-link {
+          @include fsl(18px);
+        }
+      }
+    }
+
+    &-link {
+      @include font-fsl("title-1", 13px, 100%);
+
+      transition: color $transition;
+
+      &:hover {
+        color: var(--hover-color);
+      }
+    }
+  }
+
+  // grid
+
+  &__grid {
+    $element: &;
+
+    display: flex;
+
+    &--right {
+      #{$element} {
+        &-item {
+          &:nth-child(2) {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    &--left {
+      #{$element} {
+        &-item {
+          &:nth-child(1) {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    &-item {
+    }
+  }
+
+  // triple
+
+  &__triple {
+    display: grid;
+    grid-template-columns: repeat(3, calc((100% - #{$column-gap} * 2) / 3));
+    column-gap: $column-gap;
+
+    &-item {
+      &:nth-child(3) {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  // logo
+
+  &__logo {
+    display: flex;
+
+    &-link {
+      display: flex;
+    }
+
+    &-svg {
+      @include rectangle(rem(194px), rem(49px));
+
+      path {
+        fill: var(--logo-color);
+      }
+    }
+  }
+
+  // search
+
+  &__search {
+    display: flex;
+
+    &-svg {
+      @include rectangle(rem(24px));
+
+      cursor: pointer;
+
+      &:hover {
+        path {
+          fill: color(blue);
+        }
+      }
+
+      path {
+        transition: fill $transition;
+      }
+    }
+  }
+
+  // last
+
+  &__last {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

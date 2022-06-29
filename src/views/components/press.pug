@@ -1,13 +1,27 @@
-mixin press
+mixin press(props = {})
+  //- File.getPathFromFilename
+
   .press&attributes(attributes)
     a.press__btn(href="#")
       .press__content
         .press__content-item.press__content-item--start
+          if (props.icon && props.icon[2] === 'left')
+            .press__icon.press__icon--start
+              img(src=File.getPathFromFilename(props.icon[0])).press__icon-img
           .press__text.press__text--start
             block
+          if (props.icon && props.icon[2] === 'right')
+            .press__icon.press__icon--start
+              img(src=File.getPathFromFilename(props.icon[0])).press__icon-img
         .press__content-item.press__content-item--end
+          if (props.icon && props.icon[2] === 'left')
+            .press__icon.press__icon--end
+              img(src=File.getPathFromFilename(props.icon[1])).press__icon-img
           .press__text.press__text--end
             block
+          if (props.icon && props.icon[2] === 'right')
+            .press__icon.press__icon--end
+              img(src=File.getPathFromFilename(props.icon[1])).press__icon-img
       .press__bg
         .press__bg-item.press__bg-item--start
         .press__bg-item.press__bg-item--end

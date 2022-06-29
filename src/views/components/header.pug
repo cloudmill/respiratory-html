@@ -8,10 +8,10 @@ mixin header
     .wrapper
       .header__top
         .container
-          .header__container
-            .header__row
+          .header__container.header__container--top
+            .header__row.header__row--align-baseline
               .header__row-item
-                .header__grid.header__grid--right
+                .header__grid.header__grid--right.header__grid--align-baseline
                   .header__grid-item
                     -
                       var items = [
@@ -51,16 +51,16 @@ mixin header
       .header__bottom
         .container
           .header__container
-            .header__row
+            .header__row.header__row--align-center
               .header__row-item
                 .header__logo
                   a.header__logo-link(href="#")
                     +logo-svg.header__logo-svg
               .header__row-item
-                +press.press--white
-                  |оформить заказ
-              .header__row-item
-                .header__triple
+                +press({ icon: ['menu-start.svg', 'menu-end.svg', 'left'] }).press--menu
+                  |Продукция
+              .header__row-item.header__row-item--align-transform
+                .header__triple.header__triple--align-baseline
                   .header__triple-item
                     -
                       var items = [
@@ -74,7 +74,7 @@ mixin header
                     +header-link({ large: true })
                       |Потребителям
                   .header__triple-item
-                    .header__search
+                    .header__search.header__search--align-transform
                       +search-svg.header__search-svg
               .header__row-item
                 .header__last

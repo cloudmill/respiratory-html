@@ -40,7 +40,22 @@
       calc(#{columns(3)});
     column-gap: $column-gap;
 
+    &--align {
+      &-baseline {
+        align-items: baseline;
+      }
+
+      &-center {
+        align-items: center;
+      }
+    }
+
     &-item {
+      &--align {
+        &-transform {
+          transform: translateY(rem(-5px));
+        }
+      }
     }
   }
 
@@ -48,6 +63,10 @@
 
   &__container {
     padding: rem(24px) 0;
+
+    &--top {
+      padding: rem(19px) 0 rem(22px);
+    }
   }
 
   // link
@@ -103,6 +122,10 @@
       }
     }
 
+    &--align-baseline {
+      align-items: baseline;
+    }
+
     &-item {
     }
   }
@@ -113,6 +136,10 @@
     display: grid;
     grid-template-columns: repeat(3, calc((100% - #{$column-gap} * 2) / 3));
     column-gap: $column-gap;
+
+    &--align-baseline {
+      align-items: baseline;
+    }
 
     &-item {
       &:nth-child(3) {
@@ -144,6 +171,10 @@
 
   &__search {
     display: flex;
+
+    &--align-transform {
+      transform: translateY(rem(5px));
+    }
 
     &-svg {
       @include rectangle(rem(24px));

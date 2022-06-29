@@ -3,18 +3,22 @@
   $easing: timing-function(major);
   $duration: duration(default);
   $transition: $duration $easing;
-  $radius: #{rem(8px)};
-  $move: 2px;
+  $decor-move: rem(2px);
+  $icon-move: rem(8px);
+
+  --radius: #{rem(8px)};
 
   @mixin radius-crop {
     overflow: hidden;
 
-    border-radius: $radius;
+    border-radius: var(--radius);
   }
 
   display: flex;
 
   &--white {
+    --radius: #{rem(12px)};
+
     #{$component} {
       &__btn {
         &:hover {
@@ -23,14 +27,14 @@
             &__bg,
             &__decor {
               &-arrow {
-                $white-move: rem(4px);
+                $white-decor-move: rem(4px);
 
                 &:nth-child(1) {
-                  transform: translate($white-move, $white-move);
+                  transform: translate($white-decor-move, $white-decor-move);
                 }
 
                 &:nth-child(2) {
-                  transform: translate(-$white-move, -$white-move);
+                  transform: translate(-$white-decor-move, -$white-decor-move);
                 }
               }
             }
@@ -39,15 +43,9 @@
       }
 
       &__text {
-        @include font-fsl("title-1", 13px, 100%);
-
-        white-space: nowrap;
+        @include fsl(13px);
 
         &--start {
-          color: color(black);
-        }
-
-        &--end {
           color: color(black);
         }
       }
@@ -89,7 +87,39 @@
     }
   }
 
-  &--
+  &--menu {
+    --radius: #{rem(12px)};
+
+    #{$component} {
+      &__text {
+        @include fsl(18px);
+      }
+
+      &__content {
+        &-item {
+          padding: 0 rem(34px);
+          height: rem(60px);
+        }
+      }
+
+      &__bg {
+        &-item {
+          &--start {
+            background-color: color(blue);
+            border: none;
+          }
+
+          &--end {
+            background-color: color(yellow);
+          }
+        }
+      }
+
+      &__decor {
+        display: none;
+      }
+    }
+  }
 
   // btn
 
@@ -129,16 +159,20 @@
               }
             }
 
-            animation-name: press-decor-arrow; 
+            animation-name: press-decor-arrow;
 
             &:nth-child(1) {
-              transform: translate(rem($move), rem($move));
+              transform: translate($decor-move, $decor-move);
             }
 
             &:nth-child(2) {
-              transform: translate(rem(-$move), rem(-$move));
+              transform: translate(-$decor-move, -$decor-move);
             }
           }
+        }
+
+        &__icon {
+          transform: translateX(-$icon-move);
         }
       }
     }
@@ -188,6 +222,7 @@
       &--end {
         position: absolute;
 
+        max-width: 100%;
         clip-path: inset(100% 0 0 0);
       }
     }
@@ -215,7 +250,6 @@
 
       position: absolute;
 
-      border-radius: $radius;
       transition: clip-path $transition;
 
       &--start {
@@ -317,6 +351,22 @@
           transform: rotate(180deg);
         }
       }
+    }
+  }
+
+  // icon
+
+  &__icon {
+    margin-right: rem(18px);
+    display: flex;
+    flex-shrink: 0;
+
+    transition: transform $transition;
+
+    &-img {
+      @include rectangle(rem(20px));
+
+      flex-shrink: 0;
     }
   }
 }

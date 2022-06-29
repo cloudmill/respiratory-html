@@ -1,0 +1,273 @@
+.isolation {
+  .gap {
+    &--section {
+      margin-top: rem(180px);
+    }
+  
+    &--block {
+      margin-top: rem(100px);
+    }
+  
+    &--small {
+      padding-top: rem(40px);
+    }
+  
+    &--bottom {
+      padding-top: rem(180px);
+    }
+  }
+
+  .separator {
+    &--section {
+      padding-top: rem(16px);
+  
+      border-top: 1px solid color(gray);
+    }
+  }
+
+  .row {
+    &--section,
+    &--filter,
+    &--half,
+    &--panel {
+      display: grid;
+      column-gap: $column-gap;
+    }
+  
+    &--section {
+      grid-template-columns: calc(#{columns(3)}) calc(#{columns(9)});
+    }
+  
+    &--filter {
+      grid-template-columns: calc(#{columns(9)}) calc(#{columns(3)});
+    }
+  
+    &--half {
+      grid-template-columns: calc(#{columns(6)}) calc(#{columns(6)});
+    }
+  
+    &--panel {
+      grid-template-columns: calc(#{columns(3)}) calc(#{columns(3)}) calc(
+          #{columns(6)}
+        );
+    }
+  }
+
+  .article {
+    @include font("title-2");
+  
+    font-size: rem(60px);
+    line-height: 1.1;
+    text-indent: rem(150px);
+    text-transform: uppercase;
+  
+    &--small {
+      font-size: rem(32px);
+      line-height: 1.2;
+    }
+  
+    &__link {
+      color: color(blue);
+    }
+  }
+
+  .title {
+    &--section {
+      @include font("title-2");
+  
+      font-size: rem(18px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  
+    &--page {
+      @include font("title-3");
+  
+      font-size: rem(72px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, calc(#{columns(4)}));
+    column-gap: rem(20px);
+  
+    &--margin {
+      margin-top: rem(32px);
+    }
+  
+    &__item {
+    }
+  }
+
+  .card {
+    $component: &;
+  
+    position: relative;
+    z-index: 0;
+  
+    $padding: rem(40px);
+    padding: $padding calc(#{$column}) $padding $padding;
+    height: rem(600px);
+    display: block;
+    overflow: hidden;
+  
+    $radius: rem(16px);
+    border-radius: 0px $radius $radius $radius;
+    cursor: pointer;
+  
+    &::before {
+      position: absolute;
+      $offset: rem(40px);
+      top: $offset;
+      right: $offset;
+  
+      content: "";
+      $size: rem(20px);
+      width: $size;
+      height: $size;
+  
+      border-top: 1px solid color(blue);
+      border-right: 1px solid color(blue);
+      border-radius: 0 rem(10px) 0 0;
+    }
+  
+    &:hover {
+      #{$component}__title {
+        color: color(blue);
+      }
+    }
+  
+    &__title {
+      @include font("title-2");
+  
+      font-size: rem(28px);
+      line-height: 1.1;
+      color: color(white);
+      text-transform: uppercase;
+  
+      &--dark {
+        color: color(black);
+      }
+    }
+  
+    &__label {
+      position: absolute;
+      $offset: rem(40px);
+      bottom: $offset;
+      right: $offset;
+  
+      $size: rem(64px);
+      width: $size;
+      height: $size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      background-color: color(blue);
+      border-radius: 50%;
+  
+      &-svg {
+      }
+    }
+  
+    &__background {
+      @include inset;
+  
+      position: absolute;
+      z-index: -1;
+  
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+  }
+
+  .info {
+    padding: rem(80px) 0;
+    overflow: hidden;
+  
+    border-radius: 0px 0px rem(120px) 0px;
+    background-color: color(black);
+    background-image: url("assets/images/info.jpg");
+    background-size: cover;
+    background-position: center;
+    color: color(white);
+  
+    &__bottom {
+      position: relative;
+      z-index: 0;
+  
+      margin-top: rem(240px);
+      margin-left: auto;
+      width: calc(#{columns(4)});
+  
+      &::before {
+        position: absolute;
+        z-index: -1;
+        bottom: rem(-25px);
+        left: rem(-120px);
+  
+        content: "";
+        $size: rem(425px);
+        width: $size;
+        height: $size;
+  
+        background-color: black;
+        border-radius: 50%;
+        filter: blur(rem(244px));
+        opacity: 0.6;
+      }
+    }
+  
+    &__article {
+      @include font("content-2");
+  
+      width: rem(432px);
+  
+      font-size: rem(24px);
+      line-height: 1.3;
+    }
+    &__button-link {
+      margin-top: rem(40px);
+    }
+  
+    &__top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    &__title {
+      @include font("title-3");
+  
+      font-size: rem(90px);
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  
+    &__row {
+      display: flex;
+      align-items: center;
+    }
+    &__col {
+      &:last-child {
+        margin-left: rem(15px);
+      }
+    }
+  
+    &__avatar {
+      margin: rem(4px) 0;
+      width: rem(170px);
+      height: rem(92px);
+      display: flex;
+      overflow: hidden;
+  
+      border-radius: rem(60px);
+    }
+  }
+}

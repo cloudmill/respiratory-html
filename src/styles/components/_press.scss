@@ -121,6 +121,75 @@
     }
   }
 
+  // isolation
+  &--info {
+    --radius: #{rem(12px)};
+
+    #{$component} {
+      &__btn {
+        &:hover {
+          #{$component} {
+            &__content,
+            &__bg,
+            &__decor {
+              &-arrow {
+                $white-decor-move: rem(4px);
+
+                &:nth-child(1) {
+                  transform: translate($white-decor-move, $white-decor-move);
+                }
+
+                &:nth-child(2) {
+                  transform: translate(-$white-decor-move, -$white-decor-move);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__text {
+        @include fsl(13px);
+      }
+
+      &__content {
+        &-item {
+          padding: 0 rem(40px);
+          height: rem(60px);
+        }
+      }
+
+      &__bg {
+        &-item {
+          &--start {
+            background-color: color(blue);
+            border: none;
+          }
+
+          &--end {
+            background-color: color(yellow);
+          }
+        }
+      }
+
+      &__decor {
+        &-arrow {
+          $white-offset: rem(10px);
+
+          &:nth-child(1) {
+            top: $white-offset;
+            left: $white-offset;
+          }
+
+          &:nth-child(2) {
+            bottom: $white-offset;
+            right: $white-offset;
+          }
+        }
+      }
+    }
+  }
+
   // btn
 
   &__btn {

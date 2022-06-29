@@ -16,8 +16,9 @@ mixin footer
         a.footer__phones-item(href=`tel:${item.number}`)
           .footer__phones-number= item.number
           .footer__phones-description= item.description
-          .footer__phones-mark
-            +arrow-tilt-svg.footer__phones-svg
+          .footer__phones-mark.footer__circle
+            .footer__circle-link
+              +arrow-tilt-svg.footer__circle-svg.footer__circle-svg--arrow-tilt
     .container
       .footer__mail
         - var mail = 'zakaz@rkszpe.ru';
@@ -55,15 +56,15 @@ mixin footer
           .footer__blocks
             .footer__blocks-item
               ul.footer__socials
-                li.footer__socials-item
-                  a.footer__socials-link(href="#")
-                    +zen-svg.footer__socials-svg.footer__socials-svg--zen
-                li.footer__socials-item
-                  a.footer__socials-link(href="#")
-                    +yt-svg.footer__socials-svg.footer__socials-svg--yt
-                li.footer__socials-item
-                  a.footer__socials-link(href="#")
-                    +vk-svg.footer__socials-svg.footer__socials-svg--vk
+                li.footer__socials-item.footer__circle
+                  a.footer__circle-link(href="#")
+                    +zen-svg.footer__circle-svg.footer__circle-svg--zen
+                li.footer__socials-item.footer__circle
+                  a.footer__circle-link(href="#")
+                    +yt-svg.footer__circle-svg.footer__circle-svg--yt
+                li.footer__socials-item.footer__circle
+                  a.footer__circle-link(href="#")
+                    +vk-svg.footer__circle-svg.footer__circle-svg--vk
             .footer__blocks-item
               +press
                 |корпоративный портал

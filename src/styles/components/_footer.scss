@@ -1,6 +1,48 @@
 .footer {
+  $component: &;
   $easing: timing-function(major);
   $transition: duration(default) $easing;
+
+  @mixin footer-circle-link-hover {
+    &::after {
+      transform: scale(1);
+    }
+
+    #{$component} {
+      &::after {
+        transform: scale(1);
+      }
+
+      &__circle {
+        &-svg {
+          &--arrow-tilt {
+            path,
+            line {
+              stroke: color(black);
+            }
+          }
+
+          &--zen {
+            path {
+              fill: color(black);
+            }
+          }
+
+          &--yt {
+            path {
+              fill: color(black);
+            }
+          }
+
+          &--vk {
+            path {
+              fill: color(black);
+            }
+          }
+        }
+      }
+    }
+  }
 
   padding-bottom: rem(80px);
 
@@ -34,16 +76,12 @@
           &-number {
             color: color(yellow);
           }
+        }
 
-          &-mark {
-            background-color: color(yellow);
-            border-color: color(yellow);
-          }
-
-          &-svg {
-            path,
-            line {
-              stroke: color(black);
+        #{$component} {
+          &__circle {
+            &-link {
+              @include footer-circle-link-hover;
             }
           }
         }
@@ -64,29 +102,11 @@
     }
 
     &-mark {
-      @include rectangle(rem(44px));
-
       position: absolute;
       bottom: rem(40px);
       right: rem(40px);
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
       pointer-events: none;
-
-      border: 1px solid color(gray-2);
-      border-radius: 50%;
-      transition: background-color $transition, border-color $transition;
-    }
-
-    &-svg {
-      @include rectangle(rem(17px));
-
-      path,
-      line {
-        transition: stroke $transition;
-      }
     }
   }
 
@@ -158,17 +178,21 @@
   // socials
 
   &__socials {
-    $element: &;
-
     display: flex;
 
     &-item {
-      display: flex;
-
       &:not(:first-child) {
         margin-left: rem(8px);
       }
     }
+  }
+
+  // circle
+
+  &__circle {
+    $element: &;
+
+    display: flex;
 
     &-link {
       @include rectangle(rem(44px));
@@ -210,37 +234,22 @@
       }
 
       &:hover {
-        &::after {
-          transform: scale(1);
-        }
-
-        #{$element} {
-          &-svg {
-            &--zen {
-              path {
-                fill: color(black);
-              }
-            }
-
-            &--yt {
-              path {
-                fill: color(black);
-              }
-            }
-
-            &--vk {
-              path {
-                fill: color(black);
-              }
-            }
-          }
-        }
+        @include footer-circle-link-hover;
       }
     }
 
     &-svg {
       position: relative;
       z-index: 3;
+
+      &--arrow-tilt {
+        @include rectangle(rem(17px));
+
+        path,
+        line {
+          transition: stroke $transition;
+        }
+      }
 
       &--zen {
         @include rectangle(rem(24px));

@@ -23,7 +23,9 @@
   }
 
   &__mask {
-    display: inline-block;
+    margin-bottom: rem(-5px);
+    padding-bottom: rem(5px);
+    display: inline-flex;
     overflow: hidden;
   }
 

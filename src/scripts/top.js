@@ -2,7 +2,7 @@ import Swiper, { Parallax as SwiperParallax, Autoplay } from "swiper";
 import * as ease from "./ease";
 
 class Slider {
-  static SLIDE_DURATION = 120000;
+  static SLIDE_DURATION = 5000;
   static SLIDE_CHANGE = 1500;
 
   static KEYBOARD_CONTROL = true;

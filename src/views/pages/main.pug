@@ -1,0 +1,81 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'Главная';
+
+//- block header
+block footer
+  .isolation
+    .gap.gap--section
+      +footer
+
+//- block preloader
+
+block grid-test
+
+block test
+
+block content
+  +top
+  .isolation
+    .gap.gap--section
+      .container
+        .separator.separator--section
+        .row.row--section
+          .row__col
+            h2.title.title--section
+              |Не просто производим
+          .row__col
+            p.article
+              |Помогаем выстраивать процессы и развивать культуру профессионального использования 
+              a.article__link(href="#")
+                |СИЗОД
+  .isolation
+    .gap.gap--section
+      .container
+        .separator.separator--section
+        h2.title.title--section
+          |Условия сотрудничества
+        .cards.cards--margin
+          -
+            var items = [
+              'Промышленным предприятиям',
+              'Медицинским учреждениям',
+              'Торговым организациям',
+            ]
+          each item, index in items
+            .cards__item
+              a.card(href="#")
+                h3.card__title(class=(index > 0 ? 'card__title--dark' : ''))
+                  |#{item}
+                .card__label
+                  +arrow-tilt-svg.card__label-svg
+                img.card__background(src=`assets/images/card-${index + 1}.jpg`)
+  .isolation
+    .gap.gap--section
+      +series
+  .isolation
+    .gap.gap--section
+      section.info
+        .container
+          h2.info__top
+            .info__title
+              |Используйте респиратор
+            .info__row
+              .info__col
+                .info__title
+                  |для защиты
+              .info__col
+                .info__avatar
+                  img.info__img(src="assets/images/avatar.jpg")
+            .info__title
+              |органов дыхания
+          .info__bottom
+            .info__article
+              |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
+            +press.press--info.info__button-link
+              |Информация для потребителей
+  .isolation
+    .gap.gap--section
+      +slider

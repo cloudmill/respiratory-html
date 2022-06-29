@@ -14,7 +14,7 @@ const start = () => {
     }
   };
 
-  const throttledHandleScroll = throttle(handleScroll, 250);
+  const throttledHandleScroll = throttle(handleScroll, 100);
 
   addEventListener("scroll", throttledHandleScroll);
 };

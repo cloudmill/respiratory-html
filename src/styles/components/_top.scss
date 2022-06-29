@@ -6,7 +6,8 @@
   $zoom-out-timing-function: timing-function(major);
 
   $zoom-in-scale: 1.035;
-  $zoom-in-duration: 6.5s;
+  $zoom-in-duration-up: 6.5s;
+  $zoom-in-duration-down: duration(default);
   $zoom-in-timing-function: linear;
 
   @keyframes top-zoom-in {
@@ -40,7 +41,7 @@
     &--in {
       #{$component} {
         &__zoom {
-          $zoom-in-transition: $zoom-in-duration $zoom-in-timing-function;
+          $zoom-in-transition: $zoom-in-duration-down $zoom-in-timing-function;
 
           transition: transform $zoom-in-transition;
         }
@@ -52,6 +53,8 @@
             #{$component} {
               &__zoom {
                 transform: scale($zoom-in-scale);
+
+                transition-duration: $zoom-in-duration-up;
               }
             }
           }

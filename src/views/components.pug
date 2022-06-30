@@ -80,6 +80,15 @@ mixin why
           +li-svg.why__list-svg
           .why__list-text= item
 
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/3
 
   .why
     .why__layout
@@ -102,6 +111,7 @@ mixin why
           .why__top-bottom-item
             .why__bottom
               .why__bottom-item
-                +list
+                .why__list-wrapper
+                  +list
               .why__bottom-item
-                |123
+                +progress

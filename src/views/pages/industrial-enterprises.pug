@@ -17,25 +17,27 @@ block preloader
 block test
 
 block content
-  +first
+  +first('assets/images/industrial-enterprises.jpeg')
     .top-bottom
       .top-bottom__item
         .container
-          +breadcrumbs(['Главная', 'работа у нас'])
+          +breadcrumbs(['Главная', 'Промышленным предприятиям'])
       .top-bottom__item
         .container
           h1.super-title
-            |Работа у нас
+            |Промышленным предприятиям
   .second-wrapper
     +second-2
-  +why-2
+  .container
+    +items
+  .isolation
+    .gap.gap--section
+      +why-2
   .isolation
     .gap.gap--section
       .container
         .border
-          .light
-            .light__col
-              .light__text
-                |Еще больше информации и&nbsp;актуальные вакансии можно найти на&nbsp;сайте
-            .light__col 
-              +email('job.rkszpe.ru')
+          h2.sub-title
+            |Клиентский сервис
+          .oalchv
+            .qwe

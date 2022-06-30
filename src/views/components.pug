@@ -12,11 +12,15 @@ include ./components/series
 include ./components/test
 include ./components/press
 
-mixin first
+//- first
+
+mixin first(src)
   .first
-    img.first__bg(src='assets/images/work-with-us.jpeg')
+    img.first__bg(src=src)
     .first__layout
       block
+
+//- breadcrumb
 
 mixin breadcrumb(props = {})
   .breadcrumb-wrapper
@@ -26,6 +30,8 @@ mixin breadcrumb(props = {})
     else
       .breadcrumb(class=(props.isActive && 'breadcrumb--active'))
         block
+
+//- breadcrumbs
 
 mixin breadcrumbs(items)
   .breadcrumbs
@@ -201,3 +207,31 @@ mixin why-2
                   +list
               .why__bottom-item
                 +progress
+
+//- items
+
+mixin items
+  -
+    var items = [
+      [
+        'assets/images/items-1.svg',
+        'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+      ],
+      [
+        'assets/images/items-2.svg',
+        'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+      ],
+      [
+        'assets/images/items-3.svg',
+        'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+      ],
+    ]
+
+  .items
+    each item in items
+      .items__item
+        each i in repeat(3)
+          .items__decor
+        img.items__img(src=item[0])
+        .items__text
+          |!{item[1]}

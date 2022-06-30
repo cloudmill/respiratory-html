@@ -4,7 +4,7 @@ block definitions
   -
     app.title = 'Торговым организациям';
 
-block header
+//- block header
 //- block footer
 
 block preloader
@@ -28,6 +28,19 @@ block content
   .isolation
     .gap.gap--section
       +why-3
+  .funds.section-margin
+    .container
+      .funds__block
+        .article.article--indent
+          |Средства индивидуальной защиты органов дыхания, которые разрабатывает и&nbsp;производит Респираторный комплекс, 
+          span.article__highlight
+            |успешно представлены:
+        ul.funds__list
+          each i in repeat(3)
+            .funds__item
+              img.funds__img(src='assets/images/fund.svg')
+              .funds__text
+                |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
   .section-margin(data-examples-slider-component)
     .container
       .border

@@ -486,7 +486,7 @@
         }
       }
     }
-    
+
     &-text {
       @include font-fsl("content-1", 20px, 130%);
 
@@ -1170,5 +1170,32 @@
     grid-column: 1 / span 2;
 
     color: color(red);
+  }
+}
+
+.funds {
+  &__block {
+    margin: 0 auto;
+    width: calc(#{columns(6)});
+  }
+
+  &__list {
+    margin-top: rem(60px);
+    display: grid;
+    grid-template-columns: repeat(3, calc(#{rem(190px)}));
+    column-gap: rem(60px);
+  }
+
+  &__item {
+  }
+
+  &__img {
+    @include rectangle(rem(44px));
+  }
+
+  &__text {
+    @include font-fsl("content-1", 16px, 130%);
+
+    margin-top: rem(16px);
   }
 }

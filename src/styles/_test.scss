@@ -186,6 +186,10 @@
 
     padding-top: rem(320px);
 
+    &--small {
+      padding-top: rem(210px);
+    }
+
     &::before,
     &::after {
       @include rectangle(rem(20px));
@@ -468,9 +472,21 @@
   }
 
   &__description {
+    $element: &;
+
     margin-bottom: rem(24px);
     padding-left: rem(40px);
 
+    &--single {
+      margin-bottom: 0;
+
+      #{$element} {
+        &-text {
+          white-space: pre-line;
+        }
+      }
+    }
+    
     &-text {
       @include font-fsl("content-1", 20px, 130%);
 

@@ -73,6 +73,24 @@ mixin second-2
               |специализируемся на&nbsp;разработке и&nbsp;производстве фильтрующих полумасок
         .second__bottom.second__bottom--empty
 
+mixin second-3
+  .second
+    .container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second-3.jpeg')
+        .second__top
+          .second__content.second__content--small
+            .second__content-text
+              |Продукция Респираторного комплекса станет качественной поддержкой 
+              span.second__content-highlight
+                |вашему ассортименту и&nbsp;репутации
+        .second__bottom
+          .second__text
+            |Люди, применяющие респираторы в&nbsp;работе и&nbsp;в&nbsp;быту, ценят нашу продукцию за&nbsp;надежную защиту, низкое сопротивление дыханию, гигиеничность и&nbsp;качество упаковки. Отзывы демонстрируют доверие к&nbsp;нашим торговым маркам на&nbsp;основе положительного опыта использования.
+
+
 //- email
 
 mixin email(email)
@@ -205,6 +223,70 @@ mixin why-2
                     |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
                 .why__list-wrapper
                   +list
+              .why__bottom-item
+                +progress
+
+mixin why-3
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin list
+    -
+      var items = [
+        'Аэрозоли концентрацией до 50 ПДК',
+        'Кислые и органические пары и газы',
+        'Пары аммиака, ртути и прочие вещества',
+      ]
+
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
+
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/3
+
+  .why
+    .why__layout
+      .container.why__container
+        .why__image
+          img.why__img(src='assets/images/why-3.jpeg')
+    .why__layout
+      .container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Мы предлагаем
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |Различные варианты&nbsp;упаковки и&nbsp;комплектации
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                .why__description.why__description--single
+                  .why__description-text
+                    |Специальная упаковка с&nbsp;подвесами для розничных магазинов, компактная индивидуальная упаковка, коробки и&nbsp;пакеты для комплектов из&nbsp;нескольких изделий&nbsp;&mdash; мы&nbsp;даем нашим партнерам возможность организовать поставку предприятиям или выкладку товаров и&nbsp;продажу самым удобным способом. Прислушиваемся к&nbsp;пожеланиям и&nbsp;дорабатываем упаковку, а&nbsp;в&nbsp;отдельных случаях, разрабатываем новую.
+                .why__list-wrapper
               .why__bottom-item
                 +progress
 

@@ -4,7 +4,7 @@ block definitions
   -
     app.title = 'Торговым организациям';
 
-//- block header
+block header
 //- block footer
 
 block preloader
@@ -14,7 +14,7 @@ block grid-test
 block test
 
 block content
-  +first('assets/images/industrial-enterprises.jpeg')
+  +first('assets/images/trade-organizations.jpeg')
     .top-bottom
       .top-bottom__item
         .container
@@ -22,76 +22,12 @@ block content
       .top-bottom__item
         .container
           h1.super-title
-            |Промышленным предприятиям
+            |Торговым организациям
   .second-wrapper
-    +second-2
-  .container
-    +items
+    +second-3
   .isolation
     .gap.gap--section
-      +why-2
-  .container.section-margin
-    .border
-      h2.sub-title
-        |Клиентский сервис
-      .info-blocks.sub-section-margin
-        .info-blocks__item
-          .info-block
-            .info-block__col
-              .info-block__feature
-                .article
-                  span.article__highlight
-                    |Измеряем эффективность СИЗ
-                  |#{" "}органов дыхания на рабочих местах сотрудников
-            .info-block__col
-              .info-block__text
-                |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
-        .info-blocks__item
-          .info-block
-            .info-block__col
-              .info-block__feature
-                .article
-                  span.article__highlight
-                    |Измеряем эффективность СИЗ
-                  |#{" "}органов дыхания на рабочих местах сотрудников
-            .info-block__col
-              .info-block__text
-                |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
-  .container.section-margin
-    .border
-      h2.sub-title
-        |Информационные материалы
-      .information-block.small-margin
-        .information-block__col
-          a.information-card(href="#")
-            .information-card__image
-              +picture('information-card.jpeg').information-card__picture
-              .control.information-card__download
-                +download-svg.control__svg
-            h3.information-card__title
-              |Каталог компании
-            p.information-card__size
-              |235 КБ
-        .information-block__col
-          a.information-card(href="#")
-            .information-card__image
-              +picture('information-card-2.jpeg').information-card__picture
-              .control.information-card__download
-                +download-svg.control__svg
-            h3.information-card__title
-              |Листовка о клиентском сервисе
-            p.information-card__size
-              |235 КБ
-        .information-block__col
-          a.information-card(href="#")
-            .information-card__image
-              +picture('information-card-3.jpeg').information-card__picture
-              .control.information-card__download
-                +download-svg.control__svg
-            h3.information-card__title
-              |Плакат по надеванию респиратора
-            p.information-card__size
-              |235 КБ
+      +why-3
   .section-margin(data-examples-slider-component)
     .container
       .border
@@ -206,9 +142,9 @@ block content
       .form-section__content-item
         .form-section__article-container
           .article.article--large.article--indent
+            |Обратитесь в&nbsp;отдел продаж, чтобы обсудить 
             span.article__highlight
-              |Сделать запрос
-            |#{" "}на коммерческое предложение
+              |условия сотрудничества
       .form-section__content-item
         form.section-form
           .section-form__grid
@@ -233,8 +169,13 @@ block content
                 .form-field__error
                   |Допустимы только буквы
             .section-form__item.section-form__item--row
+              .form-field
+                input.form-field__input(placeholder='Тема обращения')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--row
               .form-field.form-field--textarea.form-field--error
-                textarea.form-field__input(placeholder='Сообщение')
+                textarea.form-field__input(placeholder='Вопрос или предложение')
                 .form-field__error
                   |Допустимы только буквы
             .section-form__item.section-form__item--right.section-form__bottom

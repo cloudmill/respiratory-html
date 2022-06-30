@@ -33,6 +33,8 @@ mixin breadcrumbs(items)
       .breadcrumbs__item
         +breadcrumb({ isActive: checkLastIndex(index, items), isLink: !checkLastIndex(index, items) })= item
 
+//- second
+
 mixin second
   .second
     .container
@@ -50,9 +52,28 @@ mixin second
           .second__text
             |Верим, что достижения компании неразрывно связаны с&nbsp;работой людей. Людей, которые разделяют наши ценности и&nbsp;своей инициативой и&nbsp;ответственным трудом двигают компанию вперед
 
+mixin second-2
+  .second
+    .container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second-2.jpeg')
+        .second__top.second__top--small
+          .second__content
+            .second__content-title
+              |25+ лет
+            .second__content-description
+              |специализируемся на&nbsp;разработке и&nbsp;производстве фильтрующих полумасок
+        .second__bottom.second__bottom--empty
+
+//- email
+
 mixin email(email)
   .email
     a.email__link(href=`mailto:${email}`)= email
+
+//- why
 
 mixin why
   mixin controls
@@ -111,6 +132,71 @@ mixin why
           .why__top-bottom-item
             .why__bottom
               .why__bottom-item
+                .why__list-wrapper
+                  +list
+              .why__bottom-item
+                +progress
+
+mixin why-2
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin list
+    -
+      var items = [
+        'Аэрозоли концентрацией до 50 ПДК',
+        'Кислые и органические пары и газы',
+        'Пары аммиака, ртути и прочие вещества',
+      ]
+
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
+
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/3
+
+  .why
+    .why__layout
+      .container.why__container
+        .why__image
+          img.why__img(src='assets/images/why-2.jpeg')
+    .why__layout
+      .container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Мы предлагаем
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |Ассортимент
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                .why__description
+                  .why__description-text
+                    |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
                 .why__list-wrapper
                   +list
               .why__bottom-item

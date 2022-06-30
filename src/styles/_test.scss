@@ -144,6 +144,7 @@
   &__img {
     @include rectangle(100%);
 
+    max-height: rem(720px);
     object-fit: cover;
 
     border-radius: 0 rem(12px) rem(80px) 0;
@@ -153,12 +154,20 @@
 
   &__top {
     @include grid-area(2, 1, 1, 1);
+
+    &--small {
+      padding-right: calc(#{$column} + #{$column-gap});
+    }
   }
 
   // bottom
 
   &__bottom {
     @include grid-area(2, 2, 1, 1);
+
+    &--empty {
+      min-height: rem(120px);
+    }
   }
 
   // text
@@ -210,6 +219,21 @@
 
     &-highlight {
       color: color(yellow);
+    }
+
+    &-title {
+      @include font-fsl('title-3', 130px, 100%);
+
+      color: color(yellow);
+    }
+
+    &-description {
+      @include font-fsl('title-2', 18px, 120%);
+
+      margin-top: rem(20px);
+      max-width: rem(630px);
+
+      color: color(white);
     }
   }
 }
@@ -438,6 +462,19 @@
       @include font-fsl('title-2', 16px, 100%);
 
       margin-left: rem(24px);
+
+      color: color(white);
+    }
+  }
+
+  &__description {
+    margin-bottom: rem(24px);
+    padding-left: rem(40px);
+
+    &-text {
+      @include font-fsl('content-1', 20px, 130%);
+
+      max-width: rem(445px);
 
       color: color(white);
     }

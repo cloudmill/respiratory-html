@@ -4,7 +4,7 @@ block definitions
   -
     app.title = 'Работа у нас';
 
-//- block header
+block header
 block footer
   .isolation
     .gap.gap--section
@@ -26,4 +26,16 @@ block content
         .container
           h1.super-title
             |Работа у нас
-  +second
+  .second-wrapper
+    +second
+  +why
+  .isolation
+    .gap.gap--section
+      .container
+        .border
+          .light
+            .light__col
+              .light__text
+                |Еще больше информации и&nbsp;актуальные вакансии можно найти на&nbsp;сайте
+            .light__col 
+              +email('job.rkszpe.ru')

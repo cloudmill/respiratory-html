@@ -49,3 +49,59 @@ mixin second
         .second__bottom
           .second__text
             |Верим, что достижения компании неразрывно связаны с&nbsp;работой людей. Людей, которые разделяют наши ценности и&nbsp;своей инициативой и&nbsp;ответственным трудом двигают компанию вперед
+
+mixin email(email)
+  .email
+    a.email__link(href=`mailto:${email}`)= email
+
+mixin why
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin list
+    -
+      var items = [
+        'Мы эксперты в области средств индивидуальной защиты органов дыхания',
+        'Разрабатываем и производим продукцию, которая много лет неизменно держит высокую планку качества и заслужила доверие потребителей',
+        'Работой в Респираторном комплексе можно гордиться, ведь предприятие создает важный продукт и делает это хорошо',
+      ]
+
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
+
+
+  .why
+    .why__layout
+      .container.why__container
+        .why__image
+          img.why__img(src='assets/images/why.jpeg')
+    .why__layout
+      .container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Почему стоит выбрать Респираторный комплекс
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |профессионализм
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                +list
+              .why__bottom-item
+                |123

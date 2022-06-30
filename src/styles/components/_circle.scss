@@ -5,6 +5,35 @@
 
   display: flex;
 
+  &--blue {
+    #{$component} {
+      &__button {
+        &::before {
+          background-color: color(blue);
+        }
+
+        &::after {
+          background-color: color(yellow);
+        }
+
+        &:not(:disabled) {
+          &:hover {
+            #{$component} {
+              &__svg {
+                &--arrow-left {
+                  path,
+                  line {
+                    stroke: color(black);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__button {
     @include rectangle(rem($size));
 

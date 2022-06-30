@@ -2,17 +2,14 @@ extends ../app
 
 block definitions
   -
-    app.title = 'Работа у нас';
+    app.title = 'Промышленным предприятиям';
 
-block header
-block footer
-  .isolation
-    .gap.gap--section
-      +footer
+//- block header
+//- block footer
 
 block preloader
 
-//- block grid-test
+block grid-test
 
 block test
 
@@ -200,3 +197,59 @@ block content
                                 |#{item}
           .control.examples-slider__label
             +arrow-left-svg.control__svg.control__svg--tilt
+  section.form-section
+    .form-section__content
+      .form-section__content-item
+        .form-section__title-container
+          h2.sub-title.form-section__title
+            |связаться с нами
+      .form-section__content-item
+        .form-section__article-container
+          .article.article--large.article--indent
+            span.article__highlight
+              |Сделать запрос
+            |#{" "}на коммерческое предложение
+      .form-section__content-item
+        form.section-form
+          .section-form__grid
+            .section-form__item
+              .form-field.form-field--error
+                input.form-field__input(placeholder='Имя')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Название компании')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Телефон')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='E-mail')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--row
+              .form-field.form-field--textarea.form-field--error
+                textarea.form-field__input(placeholder='Сообщение')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--right.section-form__bottom
+              .section-form__agrement
+                .simple-checkbox.simple-checkbox--error
+                  label.simple-checkbox__label
+                    input.simple-checkbox__input(name='agreement' type='checkbox')
+                    .simple-checkbox__box
+                      +check-svg.simple-checkbox__svg
+                    .simple-checkbox__content
+                      |Даю согласие на обработку 
+                      a.simple-checkbox__link(href="#")
+                        |персональных данных
+                    .simple-checkbox__error
+                      |Допустимы только буквы
+              .section-form__submit
+                +press.press--info
+                  |Отправить

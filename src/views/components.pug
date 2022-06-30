@@ -11,3 +11,41 @@ include ./components/tab
 include ./components/series
 include ./components/test
 include ./components/press
+
+mixin first
+  .first
+    img.first__bg(src='assets/images/work-with-us.jpeg')
+    .first__layout
+      block
+
+mixin breadcrumb(props = {})
+  .breadcrumb-wrapper
+    if (props.isLink)
+      a.breadcrumb(class=(props.isActive && 'breadcrumb--active') href="#")
+        block
+    else
+      .breadcrumb(class=(props.isActive && 'breadcrumb--active'))
+        block
+
+mixin breadcrumbs(items)
+  .breadcrumbs
+    each item, index in items
+      .breadcrumbs__item
+        +breadcrumb({ isActive: checkLastIndex(index, items), isLink: !checkLastIndex(index, items) })= item
+
+mixin second
+  .second
+    .container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second.jpeg')
+        .second__top
+          .second__content
+            .second__content-text
+              span.second__content-highlight
+                |Работайте и&nbsp;достигайте успеха 
+              |вместе с&nbsp;Респира-торным комплексом
+        .second__bottom
+          .second__text
+            |Верим, что достижения компании неразрывно связаны с&nbsp;работой людей. Людей, которые разделяют наши ценности и&nbsp;своей инициативой и&nbsp;ответственным трудом двигают компанию вперед

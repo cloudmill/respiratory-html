@@ -25,6 +25,7 @@ addEventListener("DOMContentLoaded", () => {
   slider.start();
   series.start();
   test.start();
+  header.start();
 });
 
 addEventListener("load", async () => {
@@ -43,7 +44,6 @@ addEventListener("load", async () => {
 
     scrollPage.toTop();
     scrollPage.unlock();
-    header.start();
 
     top.controls.start();
 

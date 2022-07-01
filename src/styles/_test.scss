@@ -219,6 +219,10 @@
       @include font-fsl("title-3", 54px, 100%);
 
       color: color(white);
+
+      &--pre-line {
+        white-space: pre-line;
+      }
     }
 
     &-highlight {
@@ -1181,9 +1185,17 @@
 
   &__list {
     margin-top: rem(60px);
-    display: grid;
-    grid-template-columns: repeat(3, calc(#{rem(190px)}));
-    column-gap: rem(60px);
+  }
+}
+
+.funds-list {
+  display: grid;
+  grid-template-columns: repeat(3, calc(#{rem(190px)}));
+  column-gap: rem(60px);
+
+  &--large {
+    grid-template-columns: repeat(2, calc(#{columns(3)}));
+    column-gap: $column-gap;
   }
 
   &__item {

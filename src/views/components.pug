@@ -90,6 +90,31 @@ mixin second-3
           .second__text
             |Люди, применяющие респираторы в&nbsp;работе и&nbsp;в&nbsp;быту, ценят нашу продукцию за&nbsp;надежную защиту, низкое сопротивление дыханию, гигиеничность и&nbsp;качество упаковки. Отзывы демонстрируют доверие к&nbsp;нашим торговым маркам на&nbsp;основе положительного опыта использования.
 
+mixin second-4
+  .second
+    .container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second-4.jpeg')
+        .second__top
+          .second__content.second__content--small
+            .second__content-text.second__content-text--pre-line
+              |Наша задача&nbsp;&mdash; помочь медицинским учреждениям 
+              span.second__content-highlight
+                |в&nbsp;создании безопасных условий 
+              |для медперсонала:
+        .second__bottom
+          ul.funds-list.funds-list--large
+            -
+              var items = [
+                'При контакте с инфицированными материалами',
+                'При возможном контакте с наиболее опасными возбудителями заболеваний (туберкулез, COVID-19, атипичная пневмония, грипп)',
+              ]
+            each item in items
+              .funds-list__item
+                img.funds-list__img(src='assets/images/fund.svg')
+                .funds-list__text= item
 
 //- email
 

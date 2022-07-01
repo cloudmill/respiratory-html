@@ -35,12 +35,13 @@ block content
           |Средства индивидуальной защиты органов дыхания, которые разрабатывает и&nbsp;производит Респираторный комплекс, 
           span.article__highlight
             |успешно представлены:
-        ul.funds__list
-          each i in repeat(3)
-            .funds__item
-              img.funds__img(src='assets/images/fund.svg')
-              .funds__text
-                |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
+        .funds__list
+          ul.funds-list
+            each i in repeat(3)
+              .funds-list__item
+                img.funds-list__img(src='assets/images/fund.svg')
+                .funds-list__text
+                  |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
   .section-margin(data-examples-slider-component)
     .container
       .border

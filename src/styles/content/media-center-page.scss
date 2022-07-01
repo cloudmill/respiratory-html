@@ -1,0 +1,141 @@
+.first-section {
+  margin-top: 190px;
+}
+
+.indent {
+  $component: &;
+
+  &--page {
+    &--main {
+      padding: rem(180px) 0;
+
+      #{$component} {
+        &__section {
+          &:not(:first-child) {
+            margin-top: rem(180px);
+          }
+        }
+
+        &__sub-section {
+          &:not(:first-child) {
+            margin-top: rem(100px);
+          }
+        }
+      }
+    }
+
+    &--catalog {
+      #{$component} {
+        &__item {
+          margin-top: rem(40px);
+
+          &--large {
+            margin-top: rem(80px);
+          }
+        }
+      }
+    }
+
+    &--index {
+      #{$component} {
+        &__item {
+          margin-top: rem(20px);
+
+          &--large {
+            margin-top: rem(60px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.wall {
+  $gap: rem(8px);
+
+  &__list {
+    margin-top: -$gap;
+    margin-left: -$gap;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-top: $gap;
+    margin-left: $gap;
+  }
+}
+
+.badge {
+  display: flex;
+
+  &__link {
+    $element: &;
+
+    &--variant {
+      &--tab {
+        $variant: &;
+
+        @include font('title-2');
+
+        padding: rem(20px) rem(16px);
+
+        background-color: color(white);
+        border: 1px solid color(gray);
+        border-radius: rem(6px);
+        font-size: rem(20px);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:not(#{$element}--no-hover, #{$variant}-active) {
+          &:hover {
+            border-color: color(blue);
+            color: color(blue);
+          }
+        }
+
+        &:not(#{$variant}-active) {
+          cursor: pointer;
+        }
+
+        &-active {
+          background-color: color(yellow);
+          border-color: color(yellow);
+        }
+      }
+
+      &--breadcrumb {
+        @include font('title-2');
+
+        padding: rem(8px) rem(12px);
+
+        background-color: color(white);
+        border: 1px solid color(gray);
+        border-radius: rem(4px);
+        font-size: rem(13px);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:not(#{$element}--no-hover) {
+          &:hover {
+            border-color: color(blue);
+            color: color(blue);
+          }
+        }
+
+        &-active {
+          background-color: color(gray);
+        }
+      }
+    }
+  }
+}
+
+.media-center-table {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: $column-gap;
+  row-gap: 60px;
+}

@@ -136,7 +136,7 @@ mixin why
           button.circle__button(type="button")
             +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
           
-  mixin list
+  mixin why-list
     -
       var items = [
         'Мы эксперты в области средств индивидуальной защиты органов дыхания',
@@ -182,7 +182,7 @@ mixin why
             .why__bottom
               .why__bottom-item
                 .why__wrapper
-                  +list
+                  +why-list
               .why__bottom-item
                 +progress
 
@@ -198,7 +198,7 @@ mixin why-2
           button.circle__button(type="button")
             +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
           
-  mixin list
+  mixin why-list
     -
       var items = [
         'Аэрозоли концентрацией до 50 ПДК',
@@ -249,7 +249,7 @@ mixin why-2
                       .why__description
                         |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
                     .stack__item
-                      +list
+                      +why-list
               .why__bottom-item
                 +progress
 
@@ -265,7 +265,7 @@ mixin why-3
           button.circle__button(type="button")
             +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
           
-  mixin list
+  mixin why-list
     -
       var items = [
         'Аэрозоли концентрацией до 50 ПДК',
@@ -328,7 +328,7 @@ mixin why-4
           button.circle__button(type="button")
             +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
           
-  mixin list
+  mixin why-list
     -
       var items = [
         'Мы эксперты в области средств индивидуальной защиты органов дыхания',
@@ -412,3 +412,22 @@ mixin items
         img.items__img(src=item[0])
         .items__text
           |!{item[1]}
+
+//- list
+
+mixin list(items)
+  ul.list&attributes(attributes)
+    each item in items
+      li.list__item
+        +li-svg.list__svg
+        .list__text= item
+
+//- space
+
+mixin space(mods = [])
+  .space(class=mods.map(mod => `space--${mod}`))
+
+//- hr
+
+mixin hr(mods = ['d'])
+  .hr(class=mods.map(mod => `hr--${mod}`))

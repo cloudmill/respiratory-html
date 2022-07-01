@@ -1219,3 +1219,83 @@
     margin-top: rem(16px);
   }
 }
+
+.list {
+  $component: &;
+
+  &--red {
+    #{$component} {
+      &__text {
+        color: color(red);
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    z-index: 0;
+
+    padding-left: rem(72px);
+
+    &:not(:first-child) {
+      margin-top: rem(16px);
+    }
+  }
+
+  &__svg {
+    @include rectangle(rem(24px));
+
+    position: absolute;
+    top: rem(5px);
+    left: 0;
+  }
+
+  &__text {
+    @include font-fsl("content-1", 20px, 160%);
+  }
+}
+
+.peculiarity {
+  display: grid;
+  grid-template-columns: repeat(12, calc(#{$column}));
+  column-gap: $column-gap;
+  align-items: center;
+
+  &__place {
+    &:nth-child(1) {
+      @include grid-area(2, 1, 3, 1);
+
+      height: rem(520px);
+    }
+
+    &:nth-child(2) {
+      @include grid-area(7, 1, 6, 1);
+
+      padding: rem(35px) 0;
+    }
+  }
+
+  &__img {
+    @include rectangle(100%);
+
+    object-fit: contain;
+  }
+}
+
+.space {
+  $spaces: (16, 40, 54, 145, 180);
+
+  @each $space in $spaces {
+    &--#{$space} {
+      height: rem($space * 1px);
+    }
+  }
+}
+
+.hr {
+  &--d {
+    height: 1px;
+
+    background-color: color(gray);
+  }
+}

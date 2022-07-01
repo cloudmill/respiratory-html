@@ -4,15 +4,12 @@ block definitions
   -
     app.title = 'Медицинским учреждениям';
 
-block header
-block footer
-  .isolation
-    .gap.gap--section
-      +footer
+//- block header
+//- block footer
 
 block preloader
 
-//- block grid-test
+block grid-test
 
 block test
 
@@ -29,13 +26,33 @@ block content
   .second-wrapper
     +second-4
   +why-4
-  .isolation
-    .gap.gap--section
-      .container
-        .border
-          .light
-            .light__col
-              .light__text
-                |Еще больше информации и&nbsp;актуальные вакансии можно найти на&nbsp;сайте
-            .light__col 
-              +email('job.rkszpe.ru')
+  +space([145])
+  .container
+    .peculiarity
+      .peculiarity__place
+        img.peculiarity__img(src='assets/images/peculiarity.jpeg')
+      .peculiarity__place
+        +hr
+        +space([16])
+        h2.sub-title
+          |Продукция
+        +space([54])
+        .article.article--indent
+          |Главной особенностью медицинс- ких респираторов нашего производства является 
+          span.article__highlight
+            |качество фильтрующих материалов
+          |, 
+          span.article__highlight
+            |конструкция полумасок 
+          |и 
+          span.article__highlight
+            |технологии сборки
+        +space([40])
+        -
+          var items = [
+            'Сертификат ТР ТС 019/2011',
+            'Испытания по всем пунктам ГОСТ 12.4.294-2015',
+            'Регистрационное удостоверение Росздравнадзора',
+          ];
+        +list(items)
+  +space([145])

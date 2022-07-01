@@ -4,22 +4,17 @@ block definitions
   -
     app.title = 'Потребителям';
 
-block header
-  +header({ isTransparent: false })
-//- block footer
-
 block preloader
-
 block grid-test
 block test
 
 block content
-  +space(['header'])
-  +space(['sub-block'])
+  +space(['header', 'pd'])
+  +space(['sub-block', 'pd'])
   .container
-    +breadcrumbs({ items: ['Главная', 'работа у нас'], breadcrumbMods: ['dark'] })
+    +breadcrumbs({ items: ['Главная', 'Потребителям'], breadcrumbMods: ['dark'] })
   +space(['sub-block'])
-  +heading(1, ['h1'])
+  +heading(['main'], 1)
   +space(['block'])
   div
     |123

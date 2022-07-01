@@ -1,0 +1,52 @@
+.breadcrumbs {
+  --gap: #{rem(8px)};
+
+  margin-top: calc(-1 * var(--gap));
+  margin-left: calc(-1 * var(--gap));
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    margin-top: var(--gap);
+    margin-left: var(--gap);
+  }
+}
+
+.breadcrumb {
+  $component: &;
+
+  @include font-fsl("title-2", 13px, 100%);
+
+  padding: 0 rem(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: rem(29px);
+
+  border: 1px solid color(border);
+  border-radius: rem(4px);
+  color: color(white);
+  white-space: nowrap;
+
+  &--dark {
+    color: color(black);
+  }
+
+  &--active {
+    background-color: color(black);
+    border-color: color(black);
+
+    &#{$component}--dark {
+      background-color: color(gray);
+      border: none;
+    }
+  }
+
+  &:not(#{$component}--active) {
+    cursor: pointer;
+  }
+}
+
+.breadcrumb-wrapper {
+  display: flex;
+}

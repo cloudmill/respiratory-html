@@ -4,7 +4,8 @@ block definitions
   -
     app.title = 'Медицинским учреждениям';
 
-//- block header
+block header
+  +header({ mods: ['transparent'] })
 //- block footer
 
 block preloader
@@ -58,7 +59,7 @@ block content
   +space([145])
   .similar(data-examples-slider-component)
     .container
-      +heading(2, ['large'])
+      +heading(['large'], 2)
         |Медицинские респираторы
       +space([40])
       +grid(['centered'])

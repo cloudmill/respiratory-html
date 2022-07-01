@@ -1,9 +1,10 @@
 //- 
   props
+    isLink? boolean
     mods? []
 
 mixin breadcrumb(props = {})
-  - var classes = getClassesFromMods('breadcrumb', props.mods)
+  - var classes = getClassesFromMods('breadcrumb', props.mods);
 
   .breadcrumb-wrapper
     if (props.isLink)
@@ -13,17 +14,17 @@ mixin breadcrumb(props = {})
       .breadcrumb(class=classes)
         block
 
-
 //- 
-  ласт 
+  ласт получает мод active
+  все остальные isLink
 
   props
     items []
     breadcrumbMods? []
 
 mixin breadcrumbs(props = {})
-
   - var breadcrumbMods = props.breadcrumbMods || [];
+  
   .breadcrumbs
     each item, index in props.items
       .breadcrumbs__item

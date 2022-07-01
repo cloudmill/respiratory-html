@@ -11,6 +11,7 @@ include ./components/tab
 include ./components/series
 include ./components/test
 include ./components/press
+include ./components/breadcrumbs
 
 //- first
 
@@ -19,27 +20,6 @@ mixin first(src)
     img.first__bg(src=src)
     .first__layout
       block
-
-//- breadcrumb
-
-mixin breadcrumb(props = {})
-  - var classes = getClassesFromMods('breadcrumb', props.mods)
-  .breadcrumb-wrapper
-    if (props.isLink)
-      a.breadcrumb(class=classes href="#")
-        block
-    else
-      .breadcrumb(class=classes)
-        block
-
-//- breadcrumbs
-
-mixin breadcrumbs(props = {})
-  - var breadcrumbMods = props.breadcrumbMods || [];
-  .breadcrumbs
-    each item, index in props.items
-      .breadcrumbs__item
-        +breadcrumb({ mods: breadcrumbMods.concat([checkLastIndex(index, props.items) && 'active']), isLink: !checkLastIndex(index, props.items) })= item
 
 //- second
 
@@ -442,9 +422,9 @@ mixin grid(mods = [])
 
 //- heading
 
-mixin heading(h = 2, mods = [])
-  - var className = 'heading';
-  - var classes = getClassesFromMods(className, mods);
+mixin heading(mods = [], h = 2)
+  - var classes = getClassesFromMods('heading', mods);
+  
   case h
     when 1
       h1.heading(class=classes)

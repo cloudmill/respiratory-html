@@ -29,59 +29,6 @@
   }
 }
 
-.breadcrumbs {
-  --gap: #{rem(8px)};
-
-  margin-top: calc(-1 * var(--gap));
-  margin-left: calc(-1 * var(--gap));
-  display: flex;
-  flex-wrap: wrap;
-
-  &__item {
-    margin-top: var(--gap);
-    margin-left: var(--gap);
-  }
-}
-
-.breadcrumb {
-  $component: &;
-
-  @include font-fsl("title-2", 13px, 100%);
-
-  padding: 0 rem(12px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: rem(29px);
-
-  border: 1px solid color(border);
-  border-radius: rem(4px);
-  color: color(white);
-  white-space: nowrap;
-
-  &--dark {
-    color: color(black);
-  }
-
-  &--active {
-    background-color: color(black);
-    border-color: color(black);
-
-    &#{$component}--dark {
-      background-color: color(gray3);
-      border: none;
-    }
-  }
-
-  &:not(#{$component}--active) {
-    cursor: pointer;
-  }
-}
-
-.breadcrumb-wrapper {
-  display: flex;
-}
-
 .super-title {
   @include font-fsl("title-3", 130px, 100%);
 
@@ -1296,36 +1243,50 @@
 }
 
 .space {
-  $spaces: (16, 40, 54, 145, 180);
+  $component: &;
+  $static: (16, 40, 54, 145, 180);
 
-  @each $space in $spaces {
-    &--#{$space} {
-      margin-top: rem($space * 1px);
+  @mixin space($property: margin-top) {
+    @each $value in $static {
+      &--#{$value} {
+        #{$property}: rem(1px * $value);
+      }
+    }
+
+    &--section {
+      #{$property}: rem(180px);
+    }
+    &--hr {
+      #{$property}: rem(16px);
+    }
+    &--sub-block {
+      #{$property}: rem(40px);
+    }
+    &--block {
+      #{$property}: rem(80px);
+    }
+    &--header {
+      #{$property}: rem(169px);
+    }
+    &--section {
+      #{$property}: rem(180px);
+    }
+
+    &--gap {
+      #{$property}: $column-gap;
     }
   }
 
-  &--header {
-    margin-top: rem(169px);
+  &--pd {
+    &#{$component} {
+      @include space(padding-top);
+    }
   }
 
-  &--section {
-    margin-top: rem(180px);
-  }
-
-  &--hr {
-    margin-top: rem(16px);
-  }
-
-  &--sub-block {
-    margin-top: rem(80px);
-  }
-
-  &--block {
-    margin-top: rem(80px);
-  }
-
-  &--gap {
-    margin-top: $column-gap;
+  &:not(#{$component}--pd) {
+    &#{$component} {
+      @include space;
+    }
   }
 }
 
@@ -1479,10 +1440,14 @@
 
 .heading {
   &--sub {
-    @include font-fsl('title-2', 18px, 120%);
+    @include font-fsl("title-2", 18px, 120%);
   }
 
   &--large {
-    @include font-fsl('title-3', 54px, 100%);
+    @include font-fsl("title-3", 54px, 100%);
+  }
+
+  &--main {
+    @include font-fsl("title-3", 72px, 100%);
   }
 }

@@ -15,13 +15,15 @@ html.html.no-transition-child(lang="ru")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   
   body.body
-    
+
     block header
       +header
     
     .wrapper
+    
       block content
         |content
+
       block footer
         +footer
     
@@ -31,7 +33,7 @@ html.html.no-transition-child(lang="ru")
     block grid-test
       +grid-test
 
-    block test
-      +test
+    block js-test
+      +js-test
 
     block scripts

@@ -2,12 +2,18 @@ extends ../app
 
 block preloader
 block grid-test
-block test
+block js-test
 
 block content
+  +space(['header', 'pd'])
+  +space(['section'])
+
   .container
-    ul
-      each route in app.routes
-        li(style="margin: 10px 0;")
-          +btn({tag:'a',href:route.path})
-            |#{route.title}
+    .wrap-list.wrap-list--large
+      ul.wrap-list__list
+        each route in app.routes
+          li.wrap-list__item
+            +press({ icon: ['press/li-yellow.svg', 'press/li-black.svg', 'left'], href: route.path }).press--menu
+              |#{route.title}
+  
+  +space(['section'])

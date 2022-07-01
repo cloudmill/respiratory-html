@@ -3,7 +3,7 @@ import throttle from "lodash.throttle";
 const start = () => {
   const header = document.querySelector<HTMLElement>(".header");
 
-  if (!header?.classList.contains("header--transparent")) {
+  if (header?.classList.contains("header--transparent")) {
     const dropAll = header?.querySelectorAll<HTMLElement>(".drop");
 
     const handleScroll = () => {

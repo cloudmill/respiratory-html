@@ -181,7 +181,7 @@ mixin why
           .why__top-bottom-item
             .why__bottom
               .why__bottom-item
-                .why__list-wrapper
+                .why__wrapper
                   +list
               .why__bottom-item
                 +progress
@@ -243,11 +243,13 @@ mixin why-2
           .why__top-bottom-item
             .why__bottom
               .why__bottom-item
-                .why__description
-                  .why__description-text
-                    |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
-                .why__list-wrapper
-                  +list
+                .why__wrapper
+                  .stack.stack--small
+                    .stack__item
+                      .why__description
+                        |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
+                    .stack__item
+                      +list
               .why__bottom-item
                 +progress
 
@@ -308,12 +310,80 @@ mixin why-3
           .why__top-bottom-item
             .why__bottom
               .why__bottom-item
-                .why__description.why__description--single
-                  .why__description-text
+                .why__wrapper
+                  .why__description
                     |Специальная упаковка с&nbsp;подвесами для розничных магазинов, компактная индивидуальная упаковка, коробки и&nbsp;пакеты для комплектов из&nbsp;нескольких изделий&nbsp;&mdash; мы&nbsp;даем нашим партнерам возможность организовать поставку предприятиям или выкладку товаров и&nbsp;продажу самым удобным способом. Прислушиваемся к&nbsp;пожеланиям и&nbsp;дорабатываем упаковку, а&nbsp;в&nbsp;отдельных случаях, разрабатываем новую.
-                .why__list-wrapper
               .why__bottom-item
                 +progress
+
+mixin why-4
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin list
+    -
+      var items = [
+        'Мы эксперты в области средств индивидуальной защиты органов дыхания',
+        'Разрабатываем и производим продукцию, которая много лет неизменно держит высокую планку качества и заслужила доверие потребителей',
+        'Работой в Респираторном комплексе можно гордиться, ведь предприятие создает важный продукт и делает это хорошо',
+      ]
+
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
+
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/3
+
+  .why
+    .why__layout
+      .container.why__container
+        .why__image
+          img.why__img(src='assets/images/why-4.jpeg')
+    .why__layout
+      .container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Работа с нами
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |Экспертный подход
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                .why__wrapper
+                  .stack
+                    .stack__item
+                      .why__description
+                        |Многолетний опыт поставок в медучреждения позволил нам изучить процесс во всех деталях и глубоко погрузиться в специфику закупок в здравоохранении. Делимся знаниями и помогаем найти оптимальный порядок поставок СИЗОД.
+                    .stack__item
+                      +press.press--info
+                        |задать вопрос
+              .why__bottom-item
+                +progress
+
 
 //- items
 

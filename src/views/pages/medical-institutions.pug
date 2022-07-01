@@ -56,3 +56,22 @@ block content
           ];
         +list(items)
   +space([145])
+  +space(['section'])
+  .container
+    +hr
+    +space(['hr'])
+    +grid([2])
+      .grid__item
+        h2.sub-title
+          |Обучающие программы
+      .grid__item
+        .article.article--indent
+          span.article__highlight
+            |Проводим обучение 
+          |основам противоаэрозольной защиты, предоставляем информационные буклеты и&nbsp;плакаты
+    +space(['block'])
+    +grid([4])
+      each i in repeat(4)
+        .grid__item
+          +doc
+  +space(['section'])

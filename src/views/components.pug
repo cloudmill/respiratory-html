@@ -431,3 +431,19 @@ mixin space(mods = [])
 
 mixin hr(mods = ['d'])
   .hr(class=mods.map(mod => `hr--${mod}`))
+
+//- grid
+
+mixin grid(mods = [])
+  .grid(class=mods.map(mod => `grid--${mod}`))
+    block
+  
+//- doc
+mixin doc
+  a.doc(href="#")
+    +doc-svg.doc__svg
+    .doc__text
+      |Методические рекомендации «Повышение эффективности индивидуальной защиты органов дыхания»
+    +space(['gap'])
+    .doc__text.doc__label
+      |235 КБ

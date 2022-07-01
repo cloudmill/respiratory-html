@@ -61,17 +61,32 @@ block content
       +heading(2, ['large'])
         |Медицинские респираторы
       +space([40])
-      -
-        var items = [
-          'АЛИНА®',
-          'нева®',
-          'GAGARA®',
-        ];
-      .wrap-list
-        ul.wrap-list__list
-          each item in items
-            li.wrap-list__item
-              +tab(['large'])= item
+      +grid(['centered'])
+        .grid__item
+          .wrap-list.wrap-list--large
+            ul.wrap-list__list
+              -
+                var items = [
+                  'АЛИНА®',
+                  'нева®',
+                  'GAGARA®',
+                ];
+              each item, index in items
+                li.wrap-list__item
+                  +tab(['large', index === 0 && 'active'])= item
+        .grid__item
+          +press({ icon: ['press/li-blue.svg', 'press/li-black.svg', 'left'] }).press--li
+            |О серии
+        .grid__item
+          .controls
+            .controls__item
+              .circle
+                button.circle__button(type="button" data-examples-slider-prev)
+                  +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .controls__item
+              .circle
+                button.circle__button(type="button" data-examples-slider-next)
+                  +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
     +space([40])
     .swiper.examples-slider(data-examples-slider-container)
       .swiper-wrapper

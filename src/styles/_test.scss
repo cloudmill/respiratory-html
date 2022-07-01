@@ -1342,6 +1342,15 @@
       }
     }
   }
+
+  &--qqbkwf {
+    #{$component} {
+      &__item {
+        margin-left: auto;
+        width: calc(#{columns(7)});
+      }
+    }
+  }
 }
 
 .doc {

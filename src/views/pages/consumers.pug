@@ -5,16 +5,56 @@ block definitions
     app.title = 'Потребителям';
 
 block preloader
-block grid-test
+//- block grid-test
 block js-test
 
 block content
   +space(['header', 'pd'])
-  +space(['sub-block', 'pd'])
+  +space(['sub-block'])
+  
   .container
     +breadcrumbs({ items: ['Главная', 'Потребителям'], breadcrumbMods: ['dark'] })
+  
   +space(['sub-block'])
+  
   +heading(['main'], 1)
+  
   +space(['block'])
-  div
-    |123
+  
+  .container
+    +grid(['qqbkwf'])
+      .grid__item
+        .article.article--indent
+          |Мы&nbsp;работаем для того, 
+          span.article__highlight
+            |чтобы люди
+          |, сталкиваясь с&nbsp;загрязненным воздухом на&nbsp;работе, в&nbsp;быту и&nbsp;в&nbsp;чрезвычайных ситуациях, 
+          span.article__highlight
+            |сохранили свое здоровье
+
+  +space(['block'])
+
+  .isolation
+    section.info
+      .container
+        h2.info__top
+          .info__title
+            |Используйте респиратор
+          .info__row
+            .info__col
+              .info__title
+                |для защиты
+            .info__col
+              .info__avatar
+                img.info__img(src="assets/images/avatar.jpg")
+          .info__title
+            |органов дыхания
+        .info__bottom
+          .info__article
+            |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
+          +press.press--info.info__button-link
+            |Информация для потребителей
+
+  +space(['section'])
+
+  

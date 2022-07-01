@@ -437,8 +437,45 @@ mixin hr(mods = ['d'])
 mixin grid(mods = [])
   .grid(class=mods.map(mod => `grid--${mod}`))
     block
-  
+
+//- heading
+
+mixin heading(h = 2, mods = [])
+  - var className = 'heading';
+  - var classes = getClassesFromMods(className, mods);
+  case h
+    when 1
+      h1.heading(class=classes)
+        block
+    when 2
+      h2.heading(class=classes)
+        block
+    when 3
+      h3.heading(class=classes)
+        block
+    when 4
+      h4.heading(class=classes)
+        block
+    when 5
+      h5.heading(class=classes)
+        block
+    when 6
+      h6.heading(class=classes)
+        block
+
+//- tab
+
+mixin tab(mods = [])
+  .tab(class=getClassesFromMods('tab', mods))
+    .tab__button
+      .tab__bgs
+        .tab__bg.tab__bg--default
+        .tab__bg.tab__bg--yellow
+      .tab__text
+        block
+
 //- doc
+
 mixin doc
   a.doc(href="#")
     +doc-svg.doc__svg

@@ -78,3 +78,5 @@
   };
 
   var checkLastIndex = (index, arr) => index === arr.length - 1;
+
+  var getClassesFromMods = (className, mods) => mods.map(mod => `${className}--${mod}`);

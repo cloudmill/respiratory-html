@@ -909,6 +909,10 @@
 .wrap-list {
   --gap: #{rem(4px)};
 
+  &--large {
+    --gap: #{rem(8px)};
+  }
+
   &__list {
     margin-top: calc(-1 * var(--gap));
     margin-left: calc(-1 * var(--gap));
@@ -1434,5 +1438,15 @@
 
   &__label {
     color: var(--label-color);
+  }
+}
+
+.heading {
+  &--sub {
+    @include font-fsl('title-2', 18px, 120%);
+  }
+
+  &--large {
+    @include font-fsl('title-3', 54px, 100%);
   }
 }

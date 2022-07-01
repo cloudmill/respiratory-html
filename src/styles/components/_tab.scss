@@ -39,6 +39,16 @@
     @include tab-active;
   }
 
+  &--large {
+    --height: #{rem(60px)};
+
+    #{$component} {
+      &__text {
+        @include fsl(20px);
+      }
+    }
+  }
+
   &__button,
   &__bgs,
   &__bg {

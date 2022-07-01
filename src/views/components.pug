@@ -23,21 +23,23 @@ mixin first(src)
 //- breadcrumb
 
 mixin breadcrumb(props = {})
+  - var classes = getClassesFromMods('breadcrumb', props.mods)
   .breadcrumb-wrapper
     if (props.isLink)
-      a.breadcrumb(class=(props.isActive && 'breadcrumb--active') href="#")
+      a.breadcrumb(class=classes href="#")
         block
     else
-      .breadcrumb(class=(props.isActive && 'breadcrumb--active'))
+      .breadcrumb(class=classes)
         block
 
 //- breadcrumbs
 
-mixin breadcrumbs(items)
+mixin breadcrumbs(props = {})
+  - var breadcrumbMods = props.breadcrumbMods || [];
   .breadcrumbs
-    each item, index in items
+    each item, index in props.items
       .breadcrumbs__item
-        +breadcrumb({ isActive: checkLastIndex(index, items), isLink: !checkLastIndex(index, items) })= item
+        +breadcrumb({ mods: breadcrumbMods.concat([checkLastIndex(index, props.items) && 'active']), isLink: !checkLastIndex(index, props.items) })= item
 
 //- second
 

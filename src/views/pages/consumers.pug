@@ -4,38 +4,22 @@ block definitions
   -
     app.title = 'Потребителям';
 
-//- block header
-block footer
-  .isolation
-    .gap.gap--section
-      +footer
+block header
+  +header({ isTransparent: false })
+//- block footer
 
 block preloader
 
 block grid-test
-
 block test
 
 block content
-  +first('assets/images/work-with-us.jpeg')
-    .top-bottom
-      .top-bottom__item
-        .container
-          +breadcrumbs(['Главная', 'работа у нас'])
-      .top-bottom__item
-        .container
-          h1.super-title
-            |Работа у нас
-  .second-wrapper
-    +second
-  +why
-  .isolation
-    .gap.gap--section
-      .container
-        .border
-          .light
-            .light__col
-              .light__text
-                |Еще больше информации и&nbsp;актуальные вакансии можно найти на&nbsp;сайте
-            .light__col 
-              +email('job.rkszpe.ru')
+  +space(['header'])
+  +space(['sub-block'])
+  .container
+    +breadcrumbs({ items: ['Главная', 'работа у нас'], breadcrumbMods: ['dark'] })
+  +space(['sub-block'])
+  +heading(1, ['h1'])
+  +space(['block'])
+  div
+    |123

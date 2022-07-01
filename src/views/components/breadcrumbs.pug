@@ -1,0 +1,30 @@
+//- 
+  props
+    mods? []
+
+mixin breadcrumb(props = {})
+  - var classes = getClassesFromMods('breadcrumb', props.mods)
+
+  .breadcrumb-wrapper
+    if (props.isLink)
+      a.breadcrumb(class=classes href="#")
+        block
+    else
+      .breadcrumb(class=classes)
+        block
+
+
+//- 
+  ласт 
+
+  props
+    items []
+    breadcrumbMods? []
+
+mixin breadcrumbs(props = {})
+
+  - var breadcrumbMods = props.breadcrumbMods || [];
+  .breadcrumbs
+    each item, index in props.items
+      .breadcrumbs__item
+        +breadcrumb({ mods: breadcrumbMods.concat([checkLastIndex(index, props.items) && 'active']), isLink: !checkLastIndex(index, props.items) })= item

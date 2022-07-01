@@ -3,8 +3,8 @@ mixin header-link(props = {})
     a.header__link-link(href="#")
       block
 
-mixin header
-  header.header.header--transparent
+mixin header(isTransparent = true)
+  header.header(class=getClassesFromMods('header', [isTransparent && 'transparent']))
     .wrapper
       .header__top
         .container

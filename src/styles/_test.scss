@@ -59,9 +59,18 @@
   color: color(white);
   white-space: nowrap;
 
+  &--dark {
+    color: color(black);
+  }
+
   &--active {
     background-color: color(black);
     border-color: color(black);
+
+    &#{$component}--dark {
+      background-color: color(gray3);
+      border: none;
+    }
   }
 
   &:not(#{$component}--active) {
@@ -1295,12 +1304,20 @@
     }
   }
 
+  &--header {
+    margin-top: rem(169px);
+  }
+
   &--section {
     margin-top: rem(180px);
   }
 
   &--hr {
     margin-top: rem(16px);
+  }
+
+  &--sub-block {
+    margin-top: rem(80px);
   }
 
   &--block {

@@ -13,6 +13,9 @@ const getData = (series: HTMLElement): Data => {
   } catch (error) {
     console.error(error);
 
+    // test
+    series.dataset.data = JSON.stringify(DATA);
+
     return DATA;
   }
 };

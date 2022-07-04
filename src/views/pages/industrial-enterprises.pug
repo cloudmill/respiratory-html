@@ -27,7 +27,25 @@ block content
   .second-wrapper
     +second-2
   .container
-    +features
+    +grid([3])
+      -
+        var items = [
+          {
+            src: getImageSrc('items-1.svg'),
+            text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+          },
+          {
+            src: getImageSrc('items-2.svg'),
+            text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+          },
+          {
+            src: getImageSrc('items-3.svg'),
+            text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+          },
+        ];
+      each item in items
+        .grid__item
+          +feature(item)
   .isolation
     .gap.gap--section
       +why-2

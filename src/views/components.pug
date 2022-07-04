@@ -15,6 +15,7 @@ include ./components/breadcrumbs
 include ./components/heading
 include ./components/space
 include ./components/text
+include ./components/doc
 
 //- first
 
@@ -458,14 +459,3 @@ mixin market(props = {})
       img.market__img(src=props.src alt='')
     +space(['hr'])
     h3.market__text= props.text
-
-//- doc
-
-mixin doc
-  a.doc(href="#")
-    +doc-svg.doc__svg
-    .doc__text
-      |Методические рекомендации «Повышение эффективности индивидуальной защиты органов дыхания»
-    +space(['gap'])
-    .doc__text.doc__label
-      |235 КБ

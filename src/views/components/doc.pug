@@ -1,0 +1,8 @@
+mixin doc(props)
+  a.doc(href="#")
+    +doc-svg.doc__svg
+    .doc__text
+      |!{props.text}
+    +space(['gap'])
+    .doc__text.doc__label
+      |!{props.label}

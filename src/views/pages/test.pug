@@ -6,21 +6,71 @@ block js-test
 block content
   +space(['header', 'pd'])
   
+  //- heading
   +space(['section'])
   .container
     +heading(['sub'], 2)
       |heading
-    +heading(['large'], 3)
+    +heading(['large'], 1)
       |123
-    +heading(['main'], 4)
+    +heading(['main'], 3)
       |123
-    +heading(['page', 'blue'], 1)
+    +heading(['page', 'blue'])
       |123
   +space(['section'])
 
+  //- feature
   +space(['section'])
   .container
-    +features
+    +heading(['sub'])
+      |feature
+    +feature({ src: getImageSrc('items-1.svg'), text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады' })
+    +grid([3])
+      -
+        var items = [
+          {
+            src: getImageSrc('items-1.svg'),
+            text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+          },
+          {
+            src: getImageSrc('items-2.svg'),
+            text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+          },
+          {
+            src: getImageSrc('items-3.svg'),
+            text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+          },
+        ];
+      each item in items
+        .grid__item
+          +feature(item)
+  +space(['section'])
+
+  //- doc
+  +space(['section'])
+  .container
+    +heading(['sub'], 2)
+      |doc
+    +grid([6])
+      each i in repeat(6)
+        .grid__item
+          +doc({ text: 'Методические рекомендации «Повышение эффективности индивидуальной защиты органов дыхания»', label: '235 КБ' })
+  +space(['section'])
+
+  //- text
+  +space(['section'])
+  .container
+    +heading(['sub'], 2)
+      |text
+    +grid([6])
+      .grid__item
+        +text(['blue', 'qpv'])
+          |text
+      .grid__item
+        +text(['kyu'])
+          |text
+    +text(['zay', 3])
+      |Lorem ipsum, dolor sit amet consectetur adipisicing elit.
   +space(['section'])
 
   +space(['section'])

@@ -1,0 +1,47 @@
+.space {
+  $component: &;
+  $static: (16, 40, 54, 60, 145, 180);
+
+  @mixin space($property: margin-top) {
+    @each $value in $static {
+      &--#{$value} {
+        #{$property}: rem(1px * $value);
+      }
+    }
+
+    &--hr {
+      #{$property}: rem(16px);
+    }
+    &--sub-block {
+      #{$property}: rem(40px);
+    }
+    &--block {
+      #{$property}: rem(80px);
+    }
+    &--sub-section {
+      #{$property}: rem(100px);
+    }
+    &--header {
+      #{$property}: rem(169px);
+    }
+    &--section {
+      #{$property}: rem(180px);
+    }
+
+    &--gap {
+      #{$property}: $column-gap;
+    }
+  }
+
+  &--pd {
+    &#{$component} {
+      @include space(padding-top);
+    }
+  }
+
+  &:not(#{$component}--pd) {
+    &#{$component} {
+      @include space;
+    }
+  }
+}

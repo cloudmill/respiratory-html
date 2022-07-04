@@ -1,0 +1,26 @@
+mixin heading(mods = [], tag)
+  -
+    var classes = getClassesFromMods('heading', mods);
+  
+  case tag
+    when 1
+      h1.heading(class=classes)
+        block
+    when 2
+      h2.heading(class=classes)
+        block
+    when 3
+      h3.heading(class=classes)
+        block
+    when 4
+      h4.heading(class=classes)
+        block
+    when 5
+      h5.heading(class=classes)
+        block
+    when 6
+      h6.heading(class=classes)
+        block
+    default
+      .heading(class=classes)
+        block

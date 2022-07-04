@@ -465,66 +465,6 @@
   white-space: pre-line;
 }
 
-.items {
-  $component: &;
-
-  display: grid;
-  grid-template-columns: repeat(3, calc(#{columns(4)}));
-  column-gap: $column-gap;
-
-  &__item {
-    position: relative;
-    z-index: 0;
-
-    padding: rem(40px) rem(40px) rem(60px) rem(40px);
-  }
-
-  &__img {
-    @include rectangle(rem(90px));
-  }
-
-  &__text {
-    @include font-fsl("content-1", 24px, 130%);
-
-    margin-top: rem(40px);
-  }
-
-  &__decor {
-    @include rectangle(rem(20px));
-
-    position: absolute;
-
-    pointer-events: none;
-
-    border: 2px solid color(black);
-    border-bottom: none;
-    border-right: none;
-    border-radius: rem(10px) 0 0 0;
-
-    &:nth-child(1) {
-      top: 0;
-      left: 0;
-    }
-
-    &:nth-child(2) {
-      top: 0;
-      right: 0;
-      transform: rotate(90deg);
-    }
-
-    &:nth-child(3) {
-      bottom: 0;
-      right: 0;
-      transform: rotate(180deg);
-    }
-
-    &:nth-child(2),
-    &:nth-child(3) {
-      border-color: color(gray);
-    }
-  }
-}
-
 .oalchv {
   margin-top: rem(96px);
 
@@ -1242,54 +1182,6 @@
   }
 }
 
-.space {
-  $component: &;
-  $static: (16, 40, 54, 60, 145, 180);
-
-  @mixin space($property: margin-top) {
-    @each $value in $static {
-      &--#{$value} {
-        #{$property}: rem(1px * $value);
-      }
-    }
-
-    &--hr {
-      #{$property}: rem(16px);
-    }
-    &--sub-block {
-      #{$property}: rem(40px);
-    }
-    &--block {
-      #{$property}: rem(80px);
-    }
-    &--header {
-      #{$property}: rem(169px);
-    }
-    &--sub-section {
-      #{$property}: rem(100px);
-    }
-    &--section {
-      #{$property}: rem(180px);
-    }
-
-    &--gap {
-      #{$property}: $column-gap;
-    }
-  }
-
-  &--pd {
-    &#{$component} {
-      @include space(padding-top);
-    }
-  }
-
-  &:not(#{$component}--pd) {
-    &#{$component} {
-      @include space;
-    }
-  }
-}
-
 .hr {
   &--d {
     height: 1px;
@@ -1304,6 +1196,17 @@
   &--2 {
     display: grid;
     grid-template-columns: repeat(2, calc(#{columns(6)}));
+    column-gap: $column-gap;
+
+    #{$component} {
+      &__item {
+      }
+    }
+  }
+
+  &--3 {
+    display: grid;
+    grid-template-columns: repeat(3, calc(#{columns(4)}));
     column-gap: $column-gap;
 
     #{$component} {
@@ -1401,20 +1304,6 @@
   }
 }
 
-.text {
-  &--xekqra {
-    @include font-fsl('content-1', 24px, 130%);
-
-    width: calc(#{columns(5)});
-  }
-
-  &--lxldyq {
-    @include font-fsl('title-2', 18px, 120%);
-
-    width: calc(#{columns(3)});
-  }
-}
-
 .doc {
   $component: &;
   $front: 3;
@@ -1506,26 +1395,6 @@
 
   &__label {
     color: var(--label-color);
-  }
-}
-
-.heading {
-  &--sub {
-    @include font-fsl("title-2", 18px, 120%);
-  }
-
-  &--large {
-    @include font-fsl("title-3", 54px, 100%);
-  }
-
-  &--main {
-    @include font-fsl("title-3", 72px, 100%);
-  }
-
-  &--tidzrf {
-    @include font-fsl('title-3', 130px, 100%);
-
-    color: color(blue);
   }
 }
 

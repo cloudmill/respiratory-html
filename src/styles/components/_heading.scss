@@ -1,0 +1,21 @@
+.heading {
+  &--sub {
+    @include font-fsl("title-2", 18px, 120%);
+  }
+
+  &--large {
+    @include font-fsl("title-3", 54px, 100%);
+  }
+
+  &--main {
+    @include font-fsl("title-3", 72px, 100%);
+  }
+
+  &--page {
+    @include font-fsl("title-3", 130px, 100%);
+  }
+
+  &--blue {
+    color: color(blue);
+  }
+}

@@ -12,6 +12,8 @@ include ./components/series
 include ./components/js-test
 include ./components/press
 include ./components/breadcrumbs
+include ./components/heading
+include ./components/space
 
 //- first
 
@@ -369,31 +371,51 @@ mixin why-4
 
 //- items
 
-mixin items
+mixin feature(props)
+  .feature
+    each i in repeat(3)
+      .feature__decor
+    img.feature__img(src=props.src)
+    .feature__text
+      |!{props.text}
+    
+
+mixin features
   -
-    var items = [
-      [
-        'assets/images/items-1.svg',
-        'Собственный научный центр, конструкторское бюро, лаборатории, склады',
-      ],
-      [
-        'assets/images/items-2.svg',
-        'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
-      ],
-      [
-        'assets/images/items-3.svg',
-        'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
-      ],
+    var features = [
+      {
+        src: getImageSrc('items-1.svg'),
+        text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+      },
+      {
+        src: getImageSrc('items-2.svg'),
+        text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+      },
+      {
+        src: getImageSrc('items-3.svg'),
+        text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+      },
     ]
 
-  .items
+  +grid([3])
+    -
+      var items = [
+        {
+          src: getImageSrc('items-1.svg'),
+          text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+        },
+        {
+          src: getImageSrc('items-2.svg'),
+          text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+        },
+        {
+          src: getImageSrc('items-3.svg'),
+          text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+        },
+      ];
     each item in items
-      .items__item
-        each i in repeat(3)
-          .items__decor
-        img.items__img(src=item[0])
-        .items__text
-          |!{item[1]}
+      .grid__item
+        +feature(item)
 
 //- list
 
@@ -404,46 +426,17 @@ mixin list(items)
         +li-svg.list__svg
         .list__text= item
 
-//- space
-
-mixin space(mods = [])
-  .space(class=mods.map(mod => `space--${mod}`))
-
 //- hr
 
 mixin hr(mods = ['d'])
   .hr(class=mods.map(mod => `hr--${mod}`))
+    block
 
 //- grid
 
 mixin grid(mods = [])
   .grid(class=mods.map(mod => `grid--${mod}`))
     block
-
-//- heading
-
-mixin heading(mods = [], h = 2)
-  - var classes = getClassesFromMods('heading', mods);
-  
-  case h
-    when 1
-      h1.heading(class=classes)
-        block
-    when 2
-      h2.heading(class=classes)
-        block
-    when 3
-      h3.heading(class=classes)
-        block
-    when 4
-      h4.heading(class=classes)
-        block
-    when 5
-      h5.heading(class=classes)
-        block
-    when 6
-      h6.heading(class=classes)
-        block
 
 //- tab
 

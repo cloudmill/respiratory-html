@@ -51,12 +51,30 @@ block content
   .container
     +grid(['centered-4'])
       .grid__item
-        +heading(['tidzrf'])
+        +heading(['page', 'blue'])
           |25+ лет
-        +text(['lxldyq'])
+        +text(['kyu', 3])
           |продукция Респираторного комплекса с успехом применяется
     +space(['block'])
-    +items
+    +grid([3])
+      -
+        var items = [
+          {
+            src: getImageSrc('items-1.svg'),
+            text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+          },
+          {
+            src: getImageSrc('items-2.svg'),
+            text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+          },
+          {
+            src: getImageSrc('items-3.svg'),
+            text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+          },
+        ];
+      each item in items
+        .grid__item
+          +feature(item)
   +space(['section'])
   +why-2
   +space(['section'])
@@ -225,7 +243,7 @@ block content
       +space(['block'])
       +grid(['centered-6'])
         .grid__item
-          +text(['xekqra'])
+          +text(['ezx', 5])
             |Если вы хотите убедиться в оригинальности приобретенной продукции или сообщить о недостатках изделий, воспользуйтесь формой обратной связи, прикрепив фото:
           +space([60])
           .funds__list

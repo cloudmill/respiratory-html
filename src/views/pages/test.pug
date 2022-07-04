@@ -1,0 +1,26 @@
+extends ../app
+
+block preloader
+block js-test
+
+block content
+  +space(['header', 'pd'])
+  
+  +space(['section'])
+  .container
+    +heading(['sub'], 2)
+      |heading
+    +heading(['large'], 3)
+      |123
+    +heading(['main'], 4)
+      |123
+    +heading(['page', 'blue'], 1)
+      |123
+  +space(['section'])
+
+  +space(['section'])
+  .container
+    +features
+  +space(['section'])
+
+  +space(['section'])

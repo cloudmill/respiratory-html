@@ -1,0 +1,28 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'Контроль качества';
+
+block preloader
+//- block grid-test
+block js-test
+
+block content
+  +space(['header', 'pd'])
+
+  +space(['section'])
+  .container
+    +hr
+    +space(['hr'])
+    +grid([2])
+      .grid__item
+        +heading(['sub'], 2)
+          |Выпускаемая продукция соответствует требованиям
+      .grid__item
+        +text(['qpv'])
+          |Респираторы сертифицированы
+        +space(['hr'])
+        +text(['zay', 'blue', 'pre-line'])
+          |ТР ТС 019/2011 ГОСТ 12.4.294-2015 EN 149:2001+A1:2009
+  +space(['section'])

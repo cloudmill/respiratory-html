@@ -18,6 +18,8 @@ include ./components/space
 include ./components/text
 include ./components/doc
 include ./components/feature
+include ./components/grid
+include ./components/hr
 
 //- first
 
@@ -380,18 +382,6 @@ mixin list(items)
       li.list__item
         +li-svg.list__svg
         .list__text= item
-
-//- hr
-
-mixin hr(mods = ['d'])
-  .hr(class=mods.map(mod => `hr--${mod}`))
-    block
-
-//- grid
-
-mixin grid(mods = [])
-  .grid(class=mods.map(mod => `grid--${mod}`))
-    block
 
 //- tab
 

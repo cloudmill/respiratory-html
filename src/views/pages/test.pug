@@ -5,6 +5,30 @@ block js-test
 
 block content
   +space(['header', 'pd'])
+
+  +space(['section'])
+  .container
+    +grid([3])
+      each i in repeat(3)
+        .grid__item
+          -
+            var feature = {
+              src: getImageSrc('items-1.svg'),
+              text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+            };
+          +feature(feature)
+    +grid([2, 'row-gap-40'])
+      each i in repeat(4)
+        .grid__item
+          -
+            var feature = {
+              src: getImageSrc('items-1.svg'),
+              label: 'ГОСТ Р ИСО 9001-2015',
+              title: 'Системы менеджмента качества',
+              desc: 'Эффективное управление компанией, направленное на постоянное улучшение результатов, на основе требований потребителей',
+            };
+          +feature(feature)
+  +space(['section'])
   
   //- heading
   +space(['section'])

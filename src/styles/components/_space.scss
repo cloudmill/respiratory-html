@@ -1,6 +1,6 @@
 .space {
   $component: &;
-  $static: (16, 36, 40, 54, 60, 64, 145, 180);
+  $static: (16, 36, 40, 54, 60, 64, 96, 145, 180);
 
   @mixin space($property: margin-top) {
     @each $value in $static {

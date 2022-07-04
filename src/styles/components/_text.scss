@@ -2,6 +2,9 @@
   &--qpv {
     @include font-fsl("content-1", 16px, 130%);
   }
+  &--lhc {
+    @include font-fsl("content-1", 20px, 160%);
+  }
   &--ezx {
     @include font-fsl("content-1", 24px, 130%);
   }
@@ -10,6 +13,18 @@
   }
   &--zay {
     @include font-fsl("title-2", 60px, 110%);
+  }
+
+  &--feature {
+    &-text {
+      @include font-fsl("content-1", 24px, 130%);
+    }
+    &-label {
+      @include font-fsl("content-1", 20px, 160%);
+    }
+    &-desc {
+      @include font-fsl("content-1", 16px, 130%);
+    }
   }
 
   &--blue {

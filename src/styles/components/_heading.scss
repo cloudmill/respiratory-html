@@ -3,6 +3,10 @@
     @include font-fsl("title-2", 18px, 120%);
   }
 
+  &--feature {
+    @include font-fsl("title-2", 24px, 120%);
+  }
+
   &--large {
     @include font-fsl("title-3", 54px, 100%);
   }

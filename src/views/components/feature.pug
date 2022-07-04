@@ -1,7 +1,32 @@
+//- 
+  props
+    text
+    src
+    /
+    label
+    title
+    desc
+    src
+
 mixin feature(props)
-  .feature
+  .feature(class=getClassesFromMods('feature', [!props.text && 'horizontal']))
     each i in repeat(3)
       .feature__decor
-    img.feature__img(src=props.src)
-    .feature__text
-      |!{props.text}
+    if (props.text)
+      img.feature__img(src=props.src)
+      +space(['sub-block'])
+      +text(['feature-text'])
+        |!{props.text}
+    else
+      +grid(['feature'])
+        .grid__item
+          img.feature__img(src=props.src)
+        .grid__item
+          +text(['feature-label'])
+            |!{props.label}
+          +space(['gap'])
+          +heading(['feature'], 3)
+            |!{props.title}
+          +space(['gap'])
+          +text(['feature-desc'])
+            |!{props.desc}

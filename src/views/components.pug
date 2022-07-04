@@ -14,6 +14,7 @@ include ./components/press
 include ./components/breadcrumbs
 include ./components/heading
 include ./components/space
+include ./components/text
 
 //- first
 
@@ -457,12 +458,6 @@ mixin market(props = {})
       img.market__img(src=props.src alt='')
     +space(['hr'])
     h3.market__text= props.text
-
-//- text
-
-mixin text(mods = [])
-  .text(class=getClassesFromMods('text', mods))
-    block
 
 //- doc
 

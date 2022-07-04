@@ -1,16 +1,13 @@
 .text {
-  &--ezx {
-    @include font-fsl("content-1", 24px, 130%);
-  }
-
-  &--kyu {
-    @include font-fsl("title-2", 18px, 120%);
-  }
-
   &--qpv {
     @include font-fsl("content-1", 16px, 130%);
   }
-
+  &--ezx {
+    @include font-fsl("content-1", 24px, 130%);
+  }
+  &--kyu {
+    @include font-fsl("title-2", 18px, 120%);
+  }
   &--zay {
     @include font-fsl("title-2", 60px, 110%);
   }
@@ -18,15 +15,13 @@
   &--blue {
     color: color(blue);
   }
-
   &--pre-line {
     white-space: pre-line;
   }
-
+  
   &--3 {
     width: calc(#{columns(3)});
   }
-
   &--5 {
     width: calc(#{columns(5)});
   }

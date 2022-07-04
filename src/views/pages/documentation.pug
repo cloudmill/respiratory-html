@@ -1,0 +1,78 @@
+extends ../app
+
+block preloader
+block js-test
+block grid-test
+
+block content
+  -
+    var exampleDoc = {
+      text: 'Методические рекомендации «Повышение эффективности индивидуальной защиты органов дыхания»',
+      label: '235 КБ',
+    };
+
+  +space(['header', 'pd'])
+  
+  +space(['sub-block']) 
+  .container
+    +breadcrumbs({ items: ['Главная', 'Документация'], breadcrumbMods: ['dark'] })
+    +space(['sub-block'])
+    +heading(['main'], 1)
+      |Документация
+    
+    +space(['block'])
+    +hr
+    +space(['hr'])
+    +heading(['sub'], 2)
+      |Политика в области качества
+    +space([36])
+    +grid([4])
+      each i in repeat(2)
+        .grid__item
+          +doc(exampleDoc)
+    
+    +space(['block'])
+    +hr
+    +space(['hr'])
+    +heading(['sub'], 2)
+      |Сертификаты интегрированной системы менеджмента
+    +space([36])
+    +grid([4])
+      each i in repeat(3)
+        .grid__item
+          +doc(exampleDoc)
+
+    +space(['block'])
+    +hr
+    +space(['hr'])
+    +heading(['sub'], 2)
+      |СОУТ
+    +space([36])
+    +grid([4])
+      each i in repeat(6)
+        .grid__item
+          +doc(exampleDoc)
+
+    +space(['block'])
+    +hr
+    +space(['hr'])
+    +heading(['sub'], 2)
+      |Подтверждение российского происхождения от Минпромторга
+    +space([36])
+    +grid([4])
+      each i in repeat(1)
+        .grid__item
+          +doc({ text: 'Реестр российской промышленной продукции' })
+
+    +space(['block'])
+    +hr
+    +space(['hr'])
+    +heading(['sub'], 2)
+      |стандарты
+    +space([36])
+    +grid([4])
+      each i in repeat(2)
+        .grid__item
+          +doc(exampleDoc)
+
+    +space(['section'])

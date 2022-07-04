@@ -56,6 +56,14 @@
     &::after {
       clip-path: inset(0 0 0 0);
     }
+
+    #{$component} {
+      &__circle {
+        &::before {
+          transform: scale(1);
+        }
+      }
+    }
   }
 
   &__svg {
@@ -75,6 +83,43 @@
         fill: var(--svg-color);
         transition: fill $transition;
       }
+    }
+  }
+
+  &__circle {
+    $gap: 20px;
+
+    @include rectangle(rem(64px));
+
+    position: absolute;
+    z-index: $front;
+    bottom: rem($gap);
+    right: rem($gap);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+
+    background-color: color(blue);
+    border-radius: 50%;
+
+    &::before {
+      @include rectangle(100%);
+
+      position: absolute;
+      z-index: -1;
+      transform: scale(0);
+
+      content: "";
+
+      background-color: color(black);
+      border-radius: 50%;
+      transition: transform $transition;
+    }
+
+    &-svg {
+      @include rectangle(rem(18px));
     }
   }
 

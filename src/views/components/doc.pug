@@ -1,8 +1,16 @@
 mixin doc(props)
   a.doc(href="#")
-    +doc-svg.doc__svg
+    if (props.label)
+      +doc-svg.doc__svg
+    else
+      .doc__circle
+        +arrow-tilt-svg.doc__circle-svg
     .doc__text
       |!{props.text}
-    +space(['gap'])
-    .doc__text.doc__label
-      |!{props.label}
+    if (props.label)
+      +space(['gap'])
+      .doc__text.doc__label
+        |!{props.label}
+    else
+      +space([64, 'pd'])
+      +space(['gap', 'pd'])

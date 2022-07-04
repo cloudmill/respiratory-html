@@ -5,23 +5,18 @@ block definitions
     app.title = 'Потребителям';
 
 block preloader
-//- block grid-test
+block grid-test
 block js-test
 
 block content
   +space(['header', 'pd'])
   +space(['sub-block'])
-  
   .container
     +breadcrumbs({ items: ['Главная', 'Потребителям'], breadcrumbMods: ['dark'] })
-  
-  +space(['sub-block'])
-  
-  +heading(['main'], 1)
-  
-  +space(['block'])
-  
-  .container
+    +space(['sub-block'])
+    +heading(['main'], 1)
+      |Потребителям
+    +space(['block'])
     +grid(['qqbkwf'])
       .grid__item
         .article.article--indent
@@ -31,9 +26,7 @@ block content
           |, сталкиваясь с&nbsp;загрязненным воздухом на&nbsp;работе, в&nbsp;быту и&nbsp;в&nbsp;чрезвычайных ситуациях, 
           span.article__highlight
             |сохранили свое здоровье
-
   +space(['block'])
-
   .isolation
     section.info
       .container
@@ -54,7 +47,48 @@ block content
             |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
           +press.press--info.info__button-link
             |Информация для потребителей
-
+  +space(['section'])
+  .container
+    .border
+      +grid(['space-between'])
+        .grid__item
+          +heading(['sub'], 2)
+            |Где купить в розницу
+        .grid__item
+          +press.press--info
+            |полный список
+      +space(['sub-section'])
+      +grid([6])
+        -
+          var markets = [
+            {
+              filename: 'company-0.jpeg',
+              text: 'Интернет-магазин OZON',
+            },
+            {
+              filename: 'company-1.jpeg',
+              text: 'Интернет-магазин WILDBERRIES',
+            },
+            {
+              filename: 'company-2.jpeg',
+              text: 'Торговая сеть «Максидом»',
+            },
+            {
+              filename: 'company-3.jpeg',
+              text: 'Торговая сеть «Леруа Мерлен»',
+            },
+            {
+              filename: 'company-4.jpeg',
+              text: 'Сеть магазинов «Строитель»',
+            },
+            {
+              filename: 'company-5.jpeg',
+              text: 'Торговый дом «Вимос»',
+            },
+          ]
+        each market in markets
+          .grid__item
+            +market({ src: getImageSrc(market.filename), text: market.text })
   +space(['section'])
 
   

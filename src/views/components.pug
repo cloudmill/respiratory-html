@@ -456,6 +456,15 @@ mixin tab(mods = [])
       .tab__text
         block
 
+//- market
+
+mixin market(props = {})
+  a.market(href='#')
+    .market__frame
+      img.market__img(src=props.src alt='')
+    +space(['hr'])
+    h3.market__text= props.text
+
 //- doc
 
 mixin doc

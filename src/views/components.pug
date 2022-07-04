@@ -465,6 +465,12 @@ mixin market(props = {})
     +space(['hr'])
     h3.market__text= props.text
 
+//- text
+
+mixin text(mods = [])
+  .text(class=getClassesFromMods('text', mods))
+    block
+
 //- doc
 
 mixin doc

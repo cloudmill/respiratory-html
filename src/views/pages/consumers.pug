@@ -49,6 +49,126 @@ block content
             |Информация для потребителей
   +space(['section'])
   .container
+    +grid(['centered-4'])
+      .grid__item
+        +heading(['tidzrf'])
+          |25+ лет
+        +text(['lxldyq'])
+          |продукция Респираторного комплекса с успехом применяется
+    +space(['block'])
+    +items
+  +space(['section'])
+  +why-2
+  +space(['section'])
+  +slider
+  +space(['section'])
+  .section-margin(data-examples-slider-component)
+    .container
+      .border
+        .slider-panel
+          .slider-panel__col
+            h2.sub-title
+              |Наиболее востребованные модели продукции
+          .slider-panel__col
+            .slider-panel__sub-col
+              .controls.slider-panel__controls
+                .controls__item
+                  .circle
+                    button.circle__button.js-slider-prev(type="button" data-examples-slider-prev)
+                      +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                .controls__item
+                  .circle
+                    button.circle__button.js-slider-next(type="button" data-examples-slider-next)
+                      +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+            .slider-panel__sub-col
+              +press.press--info
+                |Перейти в каталог
+    .swiper.examples-slider.sub-section-margin(data-examples-slider-container)
+      .swiper-wrapper
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9010
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example-2.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9011
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt
+  +space(['section'])
+  .container
     .border
       +grid(['space-between'])
         .grid__item
@@ -90,5 +210,74 @@ block content
           .grid__item
             +market({ src: getImageSrc(market.filename), text: market.text })
   +space(['section'])
+  section.form-section
+    .form-section__content
+      .form-section__content-item
+        .form-section__title-container
+          h2.sub-title.form-section__title
+            |связаться с нами
+      .form-section__content-item
+        .form-section__article-container
+          .article.article--large.article--indent
+            span.article__highlight
+              |Сделать запрос
+            |#{" "}на коммерческое предложение
+      +space(['block'])
+      +grid(['centered-6'])
+        .grid__item
+          +text(['xekqra'])
+            |Если вы хотите убедиться в оригинальности приобретенной продукции или сообщить о недостатках изделий, воспользуйтесь формой обратной связи, прикрепив фото:
+          +space([60])
+          .funds__list
+            ul.funds-list
+              each i in repeat(3)
+                .funds-list__item
+                  img.funds-list__img(src='assets/images/fund.svg')
+                  .funds-list__text
+                    |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
+      .form-section__content-item
+        form.section-form
+          .section-form__grid
+            .section-form__item
+              .form-field.form-field--error
+                input.form-field__input(placeholder='Имя')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Название компании')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Телефон')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='E-mail')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--row
+              .form-field.form-field--textarea.form-field--error
+                textarea.form-field__input(placeholder='Сообщение')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--right.section-form__bottom
+              .section-form__agrement
+                .simple-checkbox.simple-checkbox--error
+                  label.simple-checkbox__label
+                    input.simple-checkbox__input(name='agreement' type='checkbox')
+                    .simple-checkbox__box
+                      +check-svg.simple-checkbox__svg
+                    .simple-checkbox__content
+                      |Даю согласие на обработку 
+                      a.simple-checkbox__link(href="#")
+                        |персональных данных
+                    .simple-checkbox__error
+                      |Допустимы только буквы
+              .section-form__submit
+                +press.press--info
+                  |Отправить
 
   

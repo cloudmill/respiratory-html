@@ -1244,7 +1244,7 @@
 
 .space {
   $component: &;
-  $static: (16, 40, 54, 145, 180);
+  $static: (16, 40, 54, 60, 145, 180);
 
   @mixin space($property: margin-top) {
     @each $value in $static {
@@ -1375,6 +1375,44 @@
       }
     }
   }
+
+  &--centered-6 {
+    display: grid;
+    grid-template-columns: calc(#{columns(6)});
+    column-gap: $column-gap;
+    justify-content: center;
+
+    #{$component} {
+      &__item {
+      }
+    }
+  }
+
+  &--centered-4 {
+    display: grid;
+    grid-template-columns: calc(#{columns(4)});
+    column-gap: $column-gap;
+    justify-content: center;
+
+    #{$component} {
+      &__item {
+      }
+    }
+  }
+}
+
+.text {
+  &--xekqra {
+    @include font-fsl('content-1', 24px, 130%);
+
+    width: calc(#{columns(5)});
+  }
+
+  &--lxldyq {
+    @include font-fsl('title-2', 18px, 120%);
+
+    width: calc(#{columns(3)});
+  }
 }
 
 .doc {
@@ -1482,6 +1520,12 @@
 
   &--main {
     @include font-fsl("title-3", 72px, 100%);
+  }
+
+  &--tidzrf {
+    @include font-fsl('title-3', 130px, 100%);
+
+    color: color(blue);
   }
 }
 

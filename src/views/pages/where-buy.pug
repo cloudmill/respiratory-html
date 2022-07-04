@@ -1,0 +1,30 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'Где купить';
+
+block preloader
+block grid-test
+block js-test
+
+block content
+  +space(['header', 'pd'])
+
+  .container
+    +space(['sub-block'])
+    +breadcrumbs({ items: ['Главная', 'Где купить'], breadcrumbMods: ['dark'] })
+    +space(['sub-block'])
+    +heading(['main'], 1)
+      |Где купить
+    +space(['block'])
+    +wrap-list(['large'])
+      -
+        var items = [
+          'Дилеры',
+          'Розничные магазины',
+        ];
+      each item, index in items
+        li.wrap-list__item
+          +tab(['large', index === 0 && 'active'])
+            |!{item}

@@ -7,11 +7,11 @@ include ./components/picture
 include ./components/preloader
 include ./components/top
 include ./components/slider
-include ./components/tab
 include ./components/series
 include ./components/js-test
-include ./components/breadcrumbs
 
+include ./components/breadcrumbs
+include ./components/tab
 include ./components/press
 include ./components/heading
 include ./components/space
@@ -20,6 +20,7 @@ include ./components/doc
 include ./components/feature
 include ./components/grid
 include ./components/hr
+include ./components/wrap-list
 
 //- first
 
@@ -382,17 +383,6 @@ mixin list(items)
       li.list__item
         +li-svg.list__svg
         .list__text= item
-
-//- tab
-
-mixin tab(mods = [])
-  .tab(class=getClassesFromMods('tab', mods))
-    .tab__button
-      .tab__bgs
-        .tab__bg.tab__bg--default
-        .tab__bg.tab__bg--yellow
-      .tab__text
-        block
 
 //- market
 

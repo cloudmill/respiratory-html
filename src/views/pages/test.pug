@@ -8,6 +8,18 @@ block content
 
   +space(['section'])
   .container
+    +wrap-list
+      each i in repeat(10)
+        li.wrap-list__item
+          +press.press--info
+            |qweqw eqw eqw eq
+        li.wrap-list__item
+          +press.press--info
+            |qweqw eq
+  +space(['section'])
+
+  +space(['section'])
+  .container
     +grid([3])
       each i in repeat(3)
         .grid__item

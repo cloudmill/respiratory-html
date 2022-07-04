@@ -802,26 +802,6 @@
   }
 }
 
-.wrap-list {
-  --gap: #{rem(4px)};
-
-  &--large {
-    --gap: #{rem(8px)};
-  }
-
-  &__list {
-    margin-top: calc(-1 * var(--gap));
-    margin-left: calc(-1 * var(--gap));
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__item {
-    margin-top: var(--gap);
-    margin-left: var(--gap);
-  }
-}
-
 .tag {
   display: flex;
 

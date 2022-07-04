@@ -10,12 +10,14 @@ include ./components/slider
 include ./components/tab
 include ./components/series
 include ./components/js-test
-include ./components/press
 include ./components/breadcrumbs
+
+include ./components/press
 include ./components/heading
 include ./components/space
 include ./components/text
 include ./components/doc
+include ./components/feature
 
 //- first
 
@@ -369,55 +371,6 @@ mixin why-4
                         |задать вопрос
               .why__bottom-item
                 +progress
-
-
-//- items
-
-mixin feature(props)
-  .feature
-    each i in repeat(3)
-      .feature__decor
-    img.feature__img(src=props.src)
-    .feature__text
-      |!{props.text}
-    
-
-mixin features
-  -
-    var features = [
-      {
-        src: getImageSrc('items-1.svg'),
-        text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
-      },
-      {
-        src: getImageSrc('items-2.svg'),
-        text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
-      },
-      {
-        src: getImageSrc('items-3.svg'),
-        text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
-      },
-    ]
-
-  +grid([3])
-    -
-      var items = [
-        {
-          src: getImageSrc('items-1.svg'),
-          text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
-        },
-        {
-          src: getImageSrc('items-2.svg'),
-          text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
-        },
-        {
-          src: getImageSrc('items-3.svg'),
-          text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
-        },
-      ];
-    each item in items
-      .grid__item
-        +feature(item)
 
 //- list
 

@@ -1,0 +1,7 @@
+mixin feature(props)
+  .feature
+    each i in repeat(3)
+      .feature__decor
+    img.feature__img(src=props.src)
+    .feature__text
+      |!{props.text}

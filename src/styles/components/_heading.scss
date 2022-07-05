@@ -1,4 +1,8 @@
 .heading {
+  &--where {
+    @include font-fsl("title-2", 24px, 100%);
+  }
+
   &--sub {
     @include font-fsl("title-2", 18px, 120%);
   }

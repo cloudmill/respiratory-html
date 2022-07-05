@@ -1,6 +1,47 @@
 .grid {
   $component: &;
 
+  &--where {
+    display: grid;
+    grid-template-columns: calc(#{columns(6)}) repeat(3, calc(#{columns(2)}));
+    column-gap: $column-gap;
+    align-items: center;
+
+    #{$component} {
+      &__item {
+        &:first-child {
+          padding-left: rem(40px);
+        }
+
+        &:last-child {
+          padding-right: rem(40px);
+        }
+      }
+    }
+  }
+
+  &--where-buy-markets {
+    display: grid;
+    grid-template-columns: repeat(4, calc(#{columns(2)}));
+    column-gap: $column-gap;
+
+    #{$component} {
+      &__item {
+      }
+    }
+  }
+
+  &--4-8 {
+    display: grid;
+    grid-template-columns: calc(#{columns(4)}) calc(#{columns(8)});
+    column-gap: $column-gap;
+
+    #{$component} {
+      &__item {
+      }
+    }
+  }
+
   &--8-4 {
     display: grid;
     grid-template-columns: calc(#{columns(8)}) calc(#{columns(4)});
@@ -131,6 +172,10 @@
     row-gap: rem(40px);
   }
 
+  &--row-gap-60 {
+    row-gap: rem(60px);
+  }
+
   &--feature {
     display: grid;
     grid-template-columns: calc(#{$column}) calc(#{columns(4)});
@@ -145,5 +190,47 @@
         }
       }
     }
+  }
+}
+
+.where-list {
+  &__item {
+    &:not(:first-child) {
+      margin-top: -1px;
+    }
+  }
+}
+
+.where {
+  padding: rem(38px) 0 rem(36px);
+
+  border: 1px solid color(gray);
+
+  &__link-wrapper {
+    display: flex;
+  }
+  &__link {
+    @include font-fsl('content-1', 16px, 130%);
+    
+    text-decoration: underline;
+    color: color(blue);
+  }
+
+  &__location {
+    @include font-fsl('content-1', 16px, 130%);
+  }
+
+  &__address-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+  &__svg {
+    @include rectangle(rem(18px));
+
+    margin-right: rem(12px);
+    flex-shrink: 0;
+  }
+  &__address {
+    @include font-fsl('content-1', 16px, 130%);
   }
 }

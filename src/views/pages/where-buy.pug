@@ -62,6 +62,110 @@ block content
   +space(['sub-block'])
   .tab-container.js-tab-container
     .tab-container__item.tab-container__item--active.js-tab-item
-      |1
+      .container
+        ul.where-list
+          each i in repeat(12)
+            li.where-list__item
+              .where
+                +grid(['where'])
+                  .grid__item
+                    +heading(['where'], 3)
+                      |ООО «ПКФ Веста»
+                    .where__link-wrapper
+                      a.where__link(href='#')
+                        |vesta-pkf.ru
+                  .grid__item
+                    .where__location
+                      |Санкт-Петербург
+                  .grid__item
+                    .where__address-wrapper
+                      +pin-svg.where__svg
+                      .where__address
+                        |ул. Заставская, д.13
+                  .grid__item
+                    .where__link-wrapper
+                      a.where__link(href='#')
+                        |8 (812) 702-75-45
+      +space(['section'])
     .tab-container__item.js-tab-item
-      |2 
+      .container
+        +hr
+        +space(['hr'])
+        +grid(['4-8'])
+          .grid__item
+            +heading(['sub'], 2)
+              |Россия
+          .grid__item
+            +grid(['where-buy-markets', 'row-gap-60'])
+              -
+                var markets = [
+                  {
+                    filename: 'company-0.jpeg',
+                    text: 'Интернет-магазин OZON',
+                  },
+                  {
+                    filename: 'company-1.jpeg',
+                    text: 'Интернет-магазин WILDBERRIES',
+                  },
+                  {
+                    filename: 'company-2.jpeg',
+                    text: 'Торговая сеть «Максидом»',
+                  },
+                  {
+                    filename: 'company-3.jpeg',
+                    text: 'Торговая сеть «Леруа Мерлен»',
+                  },
+                  {
+                    filename: 'company-4.jpeg',
+                    text: 'Сеть магазинов «Строитель»',
+                  },
+                  {
+                    filename: 'company-5.jpeg',
+                    text: 'Торговый дом «Вимос»',
+                  },
+                  {
+                    filename: 'company-0.jpeg',
+                    text: 'Интернет-магазин OZON',
+                  },
+                  {
+                    filename: 'company-1.jpeg',
+                    text: 'Интернет-магазин WILDBERRIES',
+                  },
+                  {
+                    filename: 'company-2.jpeg',
+                    text: 'Торговая сеть «Максидом»',
+                  },
+                  {
+                    filename: 'company-3.jpeg',
+                    text: 'Торговая сеть «Леруа Мерлен»',
+                  },
+                  {
+                    filename: 'company-4.jpeg',
+                    text: 'Сеть магазинов «Строитель»',
+                  },
+                ]
+              each market in markets
+                .grid__item
+                  +market({ src: getImageSrc(market.filename), text: market.text })
+        +space(['section'])
+        +grid(['4-8'])
+          .grid__item
+            +heading(['sub'], 2)
+              |Республика Беларусь
+          .grid__item
+            +grid(['where-buy-markets', 'row-gap-60'])
+              -
+                var markets = [
+                  {
+                    filename: 'company-0.jpeg',
+                    text: 'Интернет-магазин OZON',
+                  },
+                  {
+                    filename: 'company-1.jpeg',
+                    text: 'Интернет-магазин WILDBERRIES',
+                  },
+                ]
+              each market in markets
+                .grid__item
+                  +market({ src: getImageSrc(market.filename), text: market.text })
+      +space(['section'])

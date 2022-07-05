@@ -1,0 +1,11 @@
+.our {
+  padding: $column-gap;
+  height: 100%;
+  min-height: rem(234px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid color(gray);
+  border-radius: 0 rem(12px) rem(12px) rem(12px);
+}

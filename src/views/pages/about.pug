@@ -15,6 +15,22 @@ block content
   +container
     +hr
     +space(['hr'])
+    +heading(['sub', 'pre-line'], 2)
+      |Наше производство
+    +space([96])
+    +grid([3])
+      each i in repeat(3)
+        .grid__item
+          +our
+    +space(['section'])
+    +container(['about-article'])
+      +article(['indent', 'large'])
+        |Респираторный комплекс включен в&nbsp;перечень 
+        span.article__highlight
+          |системообразующих предприятий России
+    +space(['sub-section'])
+    +hr
+    +space(['hr'])
     +grid([2])
       .grid__item
         +heading(['sub', 'pre-line'], 2)
@@ -64,12 +80,3 @@ block content
             mods: [2, 'auto'],
           };
         +market(market)
-    +container(['about-article'])
-      +article(['indent'])
-        |123 123 
-        span.article__highlight
-          |123 
-        |123 123
-
-
-

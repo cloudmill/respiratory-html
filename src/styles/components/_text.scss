@@ -14,7 +14,9 @@
   &--zay {
     @include font-fsl("title-2", 60px, 110%);
   }
-
+  &--vbx {
+    @include font-fsl("title-2", 60px, 110%);
+  }
   &--feature {
     &-text {
       @include font-fsl("content-1", 24px, 130%);
@@ -33,7 +35,10 @@
   &--pre-line {
     white-space: pre-line;
   }
-  
+  &--right {
+    text-align: right;
+  }
+
   &--3 {
     width: calc(#{columns(3)});
   }

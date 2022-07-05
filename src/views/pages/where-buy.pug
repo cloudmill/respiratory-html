@@ -5,7 +5,7 @@ block definitions
     app.title = 'Где купить';
 
 block preloader
-block grid-test
+//- block grid-test
 block js-test
 
 block content
@@ -18,13 +18,24 @@ block content
     +heading(['main'], 1)
       |Где купить
     +space(['block'])
-    +wrap-list(['large'])
-      -
-        var items = [
-          'Дилеры',
-          'Розничные магазины',
-        ];
-      each item, index in items
-        li.wrap-list__item
-          +tab(['large', index === 0 && 'active'])
-            |!{item}
+    +grid(['8-4'])
+      .grid__item
+        +wrap-list(['large'])
+          -
+            var items = [
+              'Дилеры',
+              'Розничные магазины',
+            ];
+          each item, index in items
+            li.wrap-list__item
+              +tab(['large', index === 0 && 'active']).js-tab-button
+                |!{item}
+      .grid__item
+        +select
+    
+  +space(['sub-block'])
+  .tab-container.js-tab-container
+    .tab-container__item.tab-container__item--active.js-tab-item
+      |1
+    .tab-container__item.js-tab-item
+      |2 

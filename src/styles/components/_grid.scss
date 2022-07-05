@@ -1,6 +1,17 @@
 .grid {
   $component: &;
 
+  &--8-4 {
+    display: grid;
+    grid-template-columns: calc(#{columns(8)}) calc(#{columns(4)});
+    column-gap: $column-gap;
+
+    #{$component} {
+      &__item {
+      }
+    }
+  }
+
   &--2 {
     display: grid;
     grid-template-columns: repeat(2, calc(#{columns(6)}));

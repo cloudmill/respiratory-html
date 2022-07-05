@@ -15,17 +15,17 @@ block content
   +first('assets/images/trade-organizations.jpeg')
     .top-bottom
       .top-bottom__item
-        .container
+        +container
           +breadcrumbs({ items: ['Главная', 'Контроль качества'] })
       .top-bottom__item
-        .container
+        +container
           h1.super-title
             |Торговым организациям
 
   .second-wrapper
     +second-3
 
-  .container
+  +container
     +hr
     +space(['hr'])
     +heading(['sub'], 2)
@@ -47,7 +47,7 @@ block content
   +why
 
   +space(['section'])
-  .container
+  +container
     +hr
     +space(['hr'])
     +grid([2])

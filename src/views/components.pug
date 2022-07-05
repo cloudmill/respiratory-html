@@ -22,6 +22,9 @@ include ./components/grid
 include ./components/hr
 include ./components/select
 include ./components/wrap-list
+include ./components/market
+include ./components/article
+include ./components/container
 
 //- first
 
@@ -35,7 +38,7 @@ mixin first(src)
 
 mixin second
   .second
-    .container
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -52,7 +55,7 @@ mixin second
 
 mixin second-2
   .second
-    .container
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -67,7 +70,7 @@ mixin second-2
 
 mixin second-3
   .second
-    .container
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -84,7 +87,7 @@ mixin second-3
 
 mixin second-4
   .second
-    .container
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -154,11 +157,11 @@ mixin why
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -216,11 +219,11 @@ mixin why-2
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why-2.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -283,11 +286,11 @@ mixin why-3
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why-3.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -346,11 +349,11 @@ mixin why-4
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why-4.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -384,12 +387,3 @@ mixin list(items)
       li.list__item
         +li-svg.list__svg
         .list__text= item
-
-//- market
-
-mixin market(props = {})
-  a.market(href='#')
-    .market__frame
-      img.market__img(src=props.src alt='')
-    +space(['hr'])
-    h3.market__text= props.text

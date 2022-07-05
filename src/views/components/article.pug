@@ -1,0 +1,6 @@
+//- 
+  mods
+
+mixin article(mods = [])
+  .article(class=getClassesFromMods('article', mods))&attributes(attributes)
+    block

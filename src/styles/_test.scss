@@ -530,22 +530,6 @@
   }
 }
 
-.article {
-  @include font-fsl("title-2", 32px, 120%);
-
-  &--large {
-    @include font-fsl("title-3", 54px, 100%);
-  }
-
-  &--indent {
-    text-indent: calc(#{$column} + #{$column-gap});
-  }
-
-  &__highlight {
-    color: color(blue);
-  }
-}
-
 .information-block {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1159,29 +1143,5 @@
     @include rectangle(100%);
 
     object-fit: contain;
-  }
-}
-
-.market {
-  display: block;
-  height: 100%;
-
-  &__frame {
-    height: rem(180px);
-    display: flex;
-    overflow: hidden;
-
-    border: 1px solid color(gray);
-    border-radius: 0 rem(12px) rem(12px) rem(12px);
-  }
-
-  &__img {
-    @include rectangle(100%);
-
-    object-fit: contain;
-  }
-
-  &__text {
-    @include font-fsl("content-1", 16px, 130%);
   }
 }

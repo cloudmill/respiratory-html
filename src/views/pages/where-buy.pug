@@ -11,7 +11,7 @@ block js-test
 block content
   +space(['header', 'pd'])
 
-  .container
+  +container
     +space(['sub-block'])
     +breadcrumbs({ items: ['Главная', 'Где купить'], breadcrumbMods: ['dark'] })
     +space(['sub-block'])
@@ -62,7 +62,7 @@ block content
   +space(['sub-block'])
   .tab-container.js-tab-container
     .tab-container__item.tab-container__item--active.js-tab-item
-      .container
+      +container
         ul.where-list
           each i in repeat(12)
             li.where-list__item
@@ -88,7 +88,7 @@ block content
                         |8 (812) 702-75-45
       +space(['section'])
     .tab-container__item.js-tab-item
-      .container
+      +container
         +hr
         +space(['hr'])
         +grid(['4-8'])
@@ -148,6 +148,8 @@ block content
                 .grid__item
                   +market({ src: getImageSrc(market.filename), text: market.text })
         +space(['section'])
+        +hr
+        +space(['hr'])
         +grid(['4-8'])
           .grid__item
             +heading(['sub'], 2)

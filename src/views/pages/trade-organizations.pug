@@ -18,10 +18,10 @@ block content
   +first('assets/images/trade-organizations.jpeg')
     .top-bottom
       .top-bottom__item
-        .container
+        +container
           +breadcrumbs({ items: ['Главная', 'Промышленным предприятиям'] })
       .top-bottom__item
-        .container
+        +container
           h1.super-title
             |Торговым организациям
   .second-wrapper
@@ -30,7 +30,7 @@ block content
     .gap.gap--section
       +why-3
   .funds.section-margin
-    .container
+    +container
       .funds__block
         .article.article--indent
           |Средства индивидуальной защиты органов дыхания, которые разрабатывает и&nbsp;производит Респираторный комплекс, 
@@ -44,7 +44,7 @@ block content
                 .funds-list__text
                   |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
   .section-margin(data-examples-slider-component)
-    .container
+    +container
       .border
         .slider-panel
           .slider-panel__col

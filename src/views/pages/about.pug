@@ -1,0 +1,75 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'О компании';
+
+block preloader
+//- block grid-test
+block js-test
+
+block content
+  +space(['header', 'pd'])
+
+  +space(['sub-section'])
+  +container
+    +hr
+    +space(['hr'])
+    +grid([2])
+      .grid__item
+        +heading(['sub', 'pre-line'], 2)
+          |Участие в некоммерческих объединениях
+      .grid__item
+        +grid(['about-markets', 'row-gap'])
+              -
+                var markets = [
+                  {
+                    filename: 'company-0.jpeg',
+                    text: 'Интернет-магазин OZON',
+                  },
+                  {
+                    filename: 'company-1.jpeg',
+                    text: 'Интернет-магазин WILDBERRIES',
+                  },
+                  {
+                    filename: 'company-2.jpeg',
+                    text: 'Торговая сеть «Максидом»',
+                  },
+                  {
+                    filename: 'company-3.jpeg',
+                    text: 'Торговая сеть «Леруа Мерлен»',
+                  },
+                  {
+                    filename: 'company-4.jpeg',
+                    text: 'Сеть магазинов «Строитель»',
+                  },
+                ]
+              each market in markets
+                .grid__item
+                  +market({ src: getImageSrc(market.filename), text: market.text })
+    +space(['sub-section'])
+    +hr
+    +space(['hr'])
+    +grid([2])
+      .grid__item
+        +heading(['sub', 'pre-line'], 2)
+          |Участие в национальном проекте
+      .grid__item
+        +text(['lhc', 4])
+          |Респираторный комплекс является участником национального проекта “Производительность труда и поддержка занятости”
+        +space(['gap'])
+        -
+          var market = {
+            src: getImageSrc('company-0.jpeg'),
+            mods: [2, 'auto'],
+          };
+        +market(market)
+    +container(['about-article'])
+      +article(['indent'])
+        |123 123 
+        span.article__highlight
+          |123 
+        |123 123
+
+
+

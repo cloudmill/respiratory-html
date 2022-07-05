@@ -11,7 +11,7 @@ block js-test
 block content
   +space(['header', 'pd'])
   +space(['sub-block'])
-  .container
+  +container
     +breadcrumbs({ items: ['Главная', 'Потребителям'], breadcrumbMods: ['dark'] })
     +space(['sub-block'])
     +heading(['main'], 1)
@@ -29,7 +29,7 @@ block content
   +space(['block'])
   .isolation
     section.info
-      .container
+      +container
         h2.info__top
           .info__title
             |Используйте респиратор
@@ -48,7 +48,7 @@ block content
           +press.press--info.info__button-link
             |Информация для потребителей
   +space(['section'])
-  .container
+  +container
     +grid(['centered-4'])
       .grid__item
         +heading(['page', 'blue'])
@@ -81,7 +81,7 @@ block content
   +slider
   +space(['section'])
   .section-margin(data-examples-slider-component)
-    .container
+    +container
       .border
         .slider-panel
           .slider-panel__col
@@ -186,7 +186,7 @@ block content
           .control.examples-slider__label
             +arrow-left-svg.control__svg.control__svg--tilt
   +space(['section'])
-  .container
+  +container
     .border
       +grid(['space-between'])
         .grid__item

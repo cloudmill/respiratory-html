@@ -7,7 +7,7 @@ block content
   +space(['header', 'pd'])
 
   +space(['section'])
-  .container
+  +container
     +wrap-list
       each i in repeat(10)
         li.wrap-list__item
@@ -19,7 +19,7 @@ block content
   +space(['section'])
 
   +space(['section'])
-  .container
+  +container
     +grid([3])
       each i in repeat(3)
         .grid__item
@@ -44,7 +44,7 @@ block content
   
   //- heading
   +space(['section'])
-  .container
+  +container
     +heading(['sub'], 2)
       |heading
     +heading(['large'], 1)
@@ -57,7 +57,7 @@ block content
 
   //- feature
   +space(['section'])
-  .container
+  +container
     +heading(['sub'])
       |feature
     +feature({ src: getImageSrc('items-1.svg'), text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады' })
@@ -84,7 +84,7 @@ block content
 
   //- doc
   +space(['section'])
-  .container
+  +container
     +heading(['sub'], 2)
       |doc
     +grid([6])
@@ -95,7 +95,7 @@ block content
 
   //- 
   +space(['section'])
-  .container
+  +container
     +heading(['sub'], 2)
       |text
     +grid([6])

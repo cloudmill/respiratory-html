@@ -18,17 +18,17 @@ block content
   +first('assets/images/medical-institutions.jpeg')
     .top-bottom
       .top-bottom__item
-        .container
+        +container
           +breadcrumbs({ items: ['Главная', 'Медицинским учреждениям'] })
       .top-bottom__item
-        .container
+        +container
           h1.super-title
             |Медицинским учреждениям
   .second-wrapper
     +second-4
   +why-4
   +space([145])
-  .container
+  +container
     .peculiarity
       .peculiarity__place
         img.peculiarity__img(src='assets/images/peculiarity.jpeg')
@@ -58,7 +58,7 @@ block content
         +list(items)
   +space([145])
   .similar(data-examples-slider-component)
-    .container
+    +container
       +heading(['large'], 2)
         |Медицинские респираторы
       +space([40])
@@ -174,7 +174,7 @@ block content
           .control.examples-slider__label
             +arrow-left-svg.control__svg.control__svg--tilt
   +space(['section'])
-  .container
+  +container
     +hr
     +space(['hr'])
     +grid([2])

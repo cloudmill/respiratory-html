@@ -1,6 +1,17 @@
 .grid {
   $component: &;
 
+  &--about-markets {
+    display: grid;
+    grid-template-columns: repeat(3, calc(#{columns(2)}));
+    column-gap: $column-gap;
+
+    #{$component} {
+      &__item {
+      }
+    }
+  }
+
   &--where {
     display: grid;
     grid-template-columns: calc(#{columns(6)}) repeat(3, calc(#{columns(2)}));
@@ -174,6 +185,10 @@
 
   &--row-gap-60 {
     row-gap: rem(60px);
+  }
+
+  &--row-gap {
+    row-gap: $column-gap;
   }
 
   &--feature {

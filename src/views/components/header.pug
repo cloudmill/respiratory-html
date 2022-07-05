@@ -13,7 +13,7 @@ mixin header(props = {})
   header.header(class=classes)
     .wrapper
       .header__top
-        .container
+        +container
           .header__container.header__container--top
             .header__row.header__row--align-baseline
               .header__row-item
@@ -55,7 +55,7 @@ mixin header(props = {})
                     +header-link
                       |Контакты
       .header__bottom
-        .container
+        +container
           .header__container
             .header__row.header__row--align-center
               .header__row-item

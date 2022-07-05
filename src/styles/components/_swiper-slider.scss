@@ -1,0 +1,21 @@
+.swiper-slider {
+  $ids: (0);
+
+  @mixin swiper-slider($id) {
+    @if $id == 0 {
+      overflow: visible;
+
+      .swiper-slide {
+        padding-right: calc(#{$column-gap});
+        width: calc(#{columns(3)} + #{$column-gap}) !important;
+        height: auto;
+      }
+    }
+  }
+
+  @each $id in $ids {
+    &[data-swiper-slider="#{$id}"] {
+      @include swiper-slider($id);
+    }
+  }
+}

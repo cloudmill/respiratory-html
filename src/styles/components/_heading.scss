@@ -1,4 +1,7 @@
 .heading {
+  &--calture {
+    @include font-fsl("title-2", 20px, 130%);
+  }
   &--where {
     @include font-fsl("title-2", 24px, 100%);
   }

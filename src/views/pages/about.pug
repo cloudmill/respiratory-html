@@ -10,9 +10,37 @@ block js-test
 
 block content
   +space(['header', 'pd'])
-
   +space(['sub-section'])
   +container
+    +grid([2, 'last-bottom'])
+      .grid__item
+        +heading(['large'], 2)
+          |Внедряем культуру профессионального использования СИЗОД
+      .grid__item
+        +grid(['controls'])
+          .grid__item
+            .circle
+              button.circle__button(type="button")
+                +arrow-left-svg.circle__svg.circle__svg--arrow-left
+          .grid__item
+            .circle
+              button.circle__button(type="button")
+                +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+    +space(['sub-section'])
+    .swiper.swiper-slider(data-swiper-slider=0)
+      .swiper-wrapper
+        each i, index in repeat(6)
+          .swiper-slide
+            -
+              var calture = {
+                title: 'АО «Оскольский электрометаллургический комбинат»',
+                items: [
+                  'Поставка продукции',
+                  'Обучение службы охраны труда',
+                  'Обучение персонала',
+                ],
+              };
+            +calture(calture)
     +hr
     +space(['hr'])
     +heading(['sub', 'pre-line'], 2)

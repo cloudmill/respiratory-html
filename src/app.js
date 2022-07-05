@@ -15,6 +15,7 @@ import * as test from "./scripts/test";
 import * as header from "./scripts/header";
 import * as tab from "./scripts/tab";
 import * as select from "./scripts/select";
+import * as swiperSlider from "./scripts/swiperSlider";
 import { examplesSlider } from "./scripts/examplesSlider";
 
 AOS.init();
@@ -32,6 +33,7 @@ addEventListener("DOMContentLoaded", () => {
   examplesSlider();
   tab.start();
   select.start();
+  swiperSlider.start();
 });
 
 addEventListener("load", async () => {

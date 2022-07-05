@@ -1,0 +1,10 @@
+mixin calture(props = {})
+  a.calture(href='#')
+    +heading(['calture'], 3)
+      |!{props.title}
+    +space([32])
+    +wrap-list
+      each item in props.items
+        li.wrap-list__item
+          +tab
+            |!{item}

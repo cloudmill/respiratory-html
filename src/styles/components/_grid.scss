@@ -1,6 +1,25 @@
 .grid {
   $component: &;
 
+  &--last-bottom {
+    > {
+      #{$component} {
+        &__item {
+          &:last-child {
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  &--controls {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: rem(8px);
+    justify-content: start;
+  }
+
   &--about-markets {
     display: grid;
     grid-template-columns: repeat(3, calc(#{columns(2)}));
@@ -225,14 +244,14 @@
     display: flex;
   }
   &__link {
-    @include font-fsl('content-1', 16px, 130%);
-    
+    @include font-fsl("content-1", 16px, 130%);
+
     text-decoration: underline;
     color: color(blue);
   }
 
   &__location {
-    @include font-fsl('content-1', 16px, 130%);
+    @include font-fsl("content-1", 16px, 130%);
   }
 
   &__address-wrapper {
@@ -246,6 +265,6 @@
     flex-shrink: 0;
   }
   &__address {
-    @include font-fsl('content-1', 16px, 130%);
+    @include font-fsl("content-1", 16px, 130%);
   }
 }

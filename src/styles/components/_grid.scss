@@ -8,6 +8,11 @@
 
     #{$component} {
       &__item {
+        // test
+        &:nth-child(2) {
+          position: relative;
+          z-index: 1;
+        }
       }
     }
   }

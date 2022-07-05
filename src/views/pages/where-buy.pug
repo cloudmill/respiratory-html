@@ -31,7 +31,33 @@ block content
               +tab(['large', index === 0 && 'active']).js-tab-button
                 |!{item}
       .grid__item
-        +select
+        -
+          var select = {
+            placeholder: 'Город',
+            items: [
+              {
+                value: 'Санкт-Петербург',
+                text: 'Санкт-Петербург',
+              },
+              {
+                value: 'Курск',
+                text: 'Курск',
+              },
+              {
+                value: 'Брест',
+                text: 'Брест',
+              },
+              {
+                value: 'Санкт-Петербург',
+                text: 'Санкт-Петербург',
+              },
+              {
+                value: 'Курск',
+                text: 'Курск',
+              },
+            ],
+          };
+        +select(select)
     
   +space(['sub-block'])
   .tab-container.js-tab-container

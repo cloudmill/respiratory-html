@@ -14,6 +14,7 @@ import * as series from "./scripts/series";
 import * as test from "./scripts/test";
 import * as header from "./scripts/header";
 import * as tab from "./scripts/tab";
+import * as select from "./scripts/select";
 import { examplesSlider } from "./scripts/examplesSlider";
 
 AOS.init();
@@ -30,6 +31,7 @@ addEventListener("DOMContentLoaded", () => {
   header.start();
   examplesSlider();
   tab.start();
+  select.start();
 });
 
 addEventListener("load", async () => {

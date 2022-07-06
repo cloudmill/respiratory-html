@@ -45,6 +45,7 @@
         height: calc(var(--panel-height) + var(--drop-height));
 
         border-color: color(blue);
+        box-shadow: box-shadow(drop);
       }
 
       &__icon {

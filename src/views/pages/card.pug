@@ -11,9 +11,12 @@ block grid-test
 block content
   +space(['header'], ['pt'])
   +space(['sub-block'])
+
   .container
     +grid([2])
       .grid__item
-        |123
+        +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'])
+        div(style='background: black;')
+          +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'], ['transparent'])
       .grid__item
         |123

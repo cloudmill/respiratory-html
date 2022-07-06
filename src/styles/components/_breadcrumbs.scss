@@ -20,7 +20,7 @@
           &::after {
             background-color: color(yellow);
           }
-  
+
           &:hover {
             &::after {
               clip-path: inset(0 0 0 0);
@@ -29,7 +29,7 @@
         }
       }
     }
-  
+
     &#{$component}--inactive {
       #{$component} {
         &__button {
@@ -51,10 +51,16 @@
           &::after {
             background-color: color(yellow);
           }
-  
+
           &:hover {
             &::after {
               clip-path: inset(0 0 0 0);
+            }
+
+            #{$component} {
+              &__text {
+                color: color(white);
+              }
             }
           }
         }
@@ -64,13 +70,17 @@
         }
       }
     }
-  
+
     &#{$component}--inactive {
       #{$component} {
         &__button {
           &::before {
             background-color: color(black);
           }
+        }
+
+        &__text {
+          color: color(white);
         }
       }
     }
@@ -119,5 +129,6 @@
     z-index: 3;
 
     white-space: nowrap;
+    transition: color $transition;
   }
 }

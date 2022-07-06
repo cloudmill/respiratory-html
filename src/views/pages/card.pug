@@ -9,5 +9,11 @@ block js-test
 block grid-test
 
 block content
+  +space(['header'], ['pt'])
+  +space(['sub-block'])
   .container
-    |123
+    +grid([2])
+      .grid__item
+        |123
+      .grid__item
+        |123

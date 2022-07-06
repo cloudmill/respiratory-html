@@ -1,9 +1,16 @@
 .space {
   $component: &;
-  $static: (16, 32, 36, 40, 54, 60, 64, 96, 145, 180);
+
+  $properties: (
+    pt: padding-top,
+    pb: padding-bottom,
+    mt: margin-top,
+    mb: margin-bottom,
+  );
+  $anywhere: (16, 32, 36, 40, 54, 60, 64, 96, 145, 180);
 
   @mixin space($property: margin-top) {
-    @each $value in $static {
+    @each $value in $anywhere {
       &--#{$value} {
         #{$property}: rem(1px * $value);
       }
@@ -33,15 +40,11 @@
     }
   }
 
-  &--pd {
-    &#{$component} {
-      @include space(padding-top);
-    }
-  }
-
-  &:not(#{$component}--pd) {
-    &#{$component} {
-      @include space;
+  @each $mod, $property in $properties {
+    &--#{$mod} {
+      &#{$component} {
+        @include space($property)
+      }
     }
   }
 }

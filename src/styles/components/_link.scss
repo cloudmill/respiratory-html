@@ -1,0 +1,44 @@
+.link {
+  $component: &;
+  $transition: transition(major);
+
+  display: flex;
+
+  &--phone {
+    > {
+      #{$component} {
+        &__link {
+          @include font-fsl("title-2", 32px, 120%);
+
+          text-decoration-line: underline;
+          text-decoration-color: color(black);
+          transition: color $transition, text-decoration-color $transition;
+
+          &:hover {
+            color: color(blue);
+            text-decoration-color: color(transparent);
+          }
+        }
+      }
+    }
+  }
+
+  &--email {
+    > {
+      #{$component} {
+        &__link {
+          @include font-fsl("title-2", 18px, 120%);
+
+          text-decoration-line: underline;
+          text-decoration-color: color(black);
+          transition: color $transition, text-decoration-color $transition;
+
+          &:hover {
+            color: color(blue);
+            text-decoration-color: color(transparent);
+          }
+        }
+      }
+    }
+  }
+}

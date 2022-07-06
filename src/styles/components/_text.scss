@@ -20,6 +20,10 @@
   &--vbx {
     @include font-fsl("title-2", 60px, 110%);
   }
+  &--gwv {
+    @include font-fsl("title-2", 32px, 120%);
+  }
+
   &--feature {
     &-text {
       @include font-fsl("content-1", 24px, 130%);
@@ -31,9 +35,20 @@
       @include font-fsl("content-1", 16px, 130%);
     }
   }
+  &--desc {
+    @include font-fsl('content-1', 16px, 130%);
+
+    color: color(gray-dark);
+  }
+  &--address {
+    @include font-fsl('title-2', 32px, 120%);
+  }
 
   &--blue {
     color: color(blue);
+  }
+  &--gray-dark {
+    color: color(gray-dark);
   }
   &--pre-line {
     white-space: pre-line;

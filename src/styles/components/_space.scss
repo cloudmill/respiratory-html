@@ -7,7 +7,7 @@
     mt: margin-top,
     mb: margin-bottom,
   );
-  $anywhere: (16, 32, 36, 40, 54, 60, 64, 96, 145, 180);
+  $anywhere: (4, 8, 10, 16, 32, 36, 40, 54, 60, 64, 96, 145, 180);
 
   @mixin space($property: margin-top) {
     @each $value in $anywhere {
@@ -26,6 +26,9 @@
       #{$property}: rem(80px);
     }
     &--sub-section {
+      #{$property}: rem(100px);
+    }
+    &--mid-section {
       #{$property}: rem(100px);
     }
     &--header {

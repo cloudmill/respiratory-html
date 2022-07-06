@@ -20,6 +20,13 @@
     justify-content: start;
   }
 
+  &--socials {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: rem(12px);
+    justify-content: start;
+  }
+
   &--about-markets {
     display: grid;
     grid-template-columns: repeat(3, calc(#{columns(2)}));
@@ -50,6 +57,18 @@
   &--where-buy-markets {
     display: grid;
     grid-template-columns: repeat(4, calc(#{columns(2)}));
+    column-gap: $column-gap;
+  }
+
+  &--5-7 {
+    display: grid;
+    grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
+    column-gap: $column-gap;
+  }
+
+  &--3-4 {
+    display: grid;
+    grid-template-columns: calc(#{columns(3)}) calc(#{columns(4)});
     column-gap: $column-gap;
   }
 

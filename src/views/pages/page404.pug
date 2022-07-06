@@ -1,0 +1,19 @@
+extends ../app
+
+block definitions
+  -
+    app.title = '404';
+
+block preloader
+block grid-test
+block js-test
+
+block content
+  +space(['header'], ['pt'])
+  +space(['section'])
+  
+  +container
+    +heading(['page'], 1)
+      |404
+
+  +space(['section'])

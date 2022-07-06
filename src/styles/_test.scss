@@ -445,26 +445,6 @@
   }
 }
 
-.stack {
-  $component: &;
-
-  &--small {
-    #{$component} {
-      &__item {
-        &:not(:first-child) {
-          margin-top: rem(24px);
-        }
-      }
-    }
-  }
-
-  &__item {
-    &:not(:first-child) {
-      margin-top: rem(40px);
-    }
-  }
-}
-
 .pre-line {
   white-space: pre-line;
 }

@@ -27,6 +27,8 @@ include ./components/article
 include ./components/container
 include ./components/our
 include ./components/calture
+include ./components/link
+include ./components/stack
 
 //- first
 
@@ -275,7 +277,7 @@ mixin why-2
             .why__bottom
               .why__bottom-item
                 .why__wrapper
-                  .stack.stack--small
+                  +stack(['small'])
                     .stack__item
                       .why__description
                         |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
@@ -405,7 +407,7 @@ mixin why-4
             .why__bottom
               .why__bottom-item
                 .why__wrapper
-                  .stack
+                  +stack
                     .stack__item
                       .why__description
                         |Многолетний опыт поставок в медучреждения позволил нам изучить процесс во всех деталях и глубоко погрузиться в специфику закупок в здравоохранении. Делимся знаниями и помогаем найти оптимальный порядок поставок СИЗОД.

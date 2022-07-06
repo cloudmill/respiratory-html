@@ -1,0 +1,27 @@
+.stack {
+  $component: &;
+
+  &--default {
+    > {
+      #{$component} {
+        &__item {
+          &:not(:first-child) {
+            margin-top: rem(40px);
+          }
+        }
+      }
+    }
+  }
+
+  &--small {
+    > {
+      #{$component} {
+        &__item {
+          &:not(:first-child) {
+            margin-top: rem(24px);
+          }
+        }
+      }
+    }
+  }
+}

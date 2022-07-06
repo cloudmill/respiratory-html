@@ -94,7 +94,7 @@ const Slider: React.FC<{ data: Data; onLoad: () => void }> = ({
   return (
     <>
       <LoadImages srcs={allImages} onLoad={onLoad} />
-      <div className="container">
+      <div className="container container--default">
         <div className="border">
           <div className="series">
             <div className="series__place">

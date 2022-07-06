@@ -12,7 +12,7 @@ block grid-test
 block js-test
 
 block content
-  +first('assets/images/trade-organizations.jpeg')
+  +first('assets/images/quality-control.jpeg')
     .top-bottom
       .top-bottom__item
         +container
@@ -20,10 +20,12 @@ block content
       .top-bottom__item
         +container
           h1.super-title
-            |Торговым организациям
+            |Контроль
+            br
+            |качества
 
   .second-wrapper
-    +second-3
+    +second-5
 
   +container
     +hr
@@ -32,19 +34,39 @@ block content
       |Структура системы менеджмента
     +space([96])
     +grid([2, 'row-gap-40'])
-      each i in repeat(4)
+      -
+        var features = [
+          {
+            src: getImageSrc('items-1.svg'),
+            label: 'ГОСТ Р ИСО 9001-2015',
+            title: 'Системы менеджмента качества',
+            desc: 'Эффективное управление компанией, направленное на постоянное улучшение результатов, на основе требований потребителей',
+          },
+          {
+            src: getImageSrc('items-2.svg'),
+            label: 'ГОСТ ISO 13485-2017',
+            title: 'Изделия медицинские. Системы менеджмента качества',
+            desc: 'Стандарт применяется на предприятиях, выпускающих медицинские изделия, и контролирует весь процесс изготовления продукции от закупки сырья и до реализации товаров',
+          },
+          {
+            src: getImageSrc('items-3.svg'),
+            label: 'ГОСТ ISO 13485-2017',
+            title: 'Системы менеджмента безопасности труда и охраны здоровья',
+            desc: 'Стандарт регулирует вопросы безопасности труда и охраны здоровья сотрудников предприятия',
+          },
+          {
+            src: getImageSrc('items-1.svg'),
+            label: 'ГОСТ Р ИСО 14001-2016',
+            title: 'Системы экологического менеджмента',
+            desc: 'Стандарт обязывает предприятие соблюдать экологическую политику и снижать негативное воздействие на окружающую среду',
+          },
+        ];
+      each feature in features
         .grid__item
-          -
-            var feature = {
-              src: getImageSrc('items-1.svg'),
-              label: 'ГОСТ Р ИСО 9001-2015',
-              title: 'Системы менеджмента качества',
-              desc: 'Эффективное управление компанией, направленное на постоянное улучшение результатов, на основе требований потребителей',
-            };
           +feature(feature)
   +space(['section'])
 
-  +why
+  +why-5
 
   +space(['section'])
   +container
@@ -70,19 +92,19 @@ block content
       .form-section__content-item
         .form-section__article-container
           .article.article--large.article--indent
+            |Наши усилия направлены на&nbsp;непрерывное 
             span.article__highlight
-              |Сделать запрос
-            |#{" "}на коммерческое предложение
+              |улучшение качества продукции
       +space(['block'])
       +grid(['centered-6'])
         .grid__item
           +text(['ezx', 5])
-            |Если вы хотите убедиться в оригинальности приобретенной продукции или сообщить о недостатках изделий, воспользуйтесь формой обратной связи, прикрепив фото:
+            |Нам важно ваше мнение. Делитесь идеями и&nbsp;комментариями с&nbsp;помощью формы обратной связи. Мы&nbsp;получим ваше обращение и&nbsp;оперативно ответим.
       .form-section__content-item
         form.section-form
           .section-form__grid
             .section-form__item
-              .form-field.form-field--error
+              .form-field
                 input.form-field__input(placeholder='Имя')
                 .form-field__error
                   |Допустимы только буквы
@@ -102,13 +124,13 @@ block content
                 .form-field__error
                   |Допустимы только буквы
             .section-form__item.section-form__item--row
-              .form-field.form-field--textarea.form-field--error
+              .form-field.form-field--textarea
                 textarea.form-field__input(placeholder='Сообщение')
                 .form-field__error
                   |Допустимы только буквы
             .section-form__item.section-form__item--right.section-form__bottom
               .section-form__agrement
-                .simple-checkbox.simple-checkbox--error
+                .simple-checkbox
                   label.simple-checkbox__label
                     input.simple-checkbox__input(name='agreement' type='checkbox')
                     .simple-checkbox__box

@@ -113,6 +113,25 @@ mixin second-4
                 img.funds-list__img(src='assets/images/fund.svg')
                 .funds-list__text= item
 
+mixin second-5
+  .second
+    +container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second-5.jpeg')
+        .second__top
+          .second__content.second__content--small
+            .second__content-text
+              |Респираторный комплекс стремится 
+              span.second__content-highlight  
+                |превосходить ожидания 
+              |и стандарты клиентов и партнеров
+        .second__bottom
+          .second__text
+            |Внедрена интегрированная система менеджмента как гарант качества, надежности и&nbsp;безопасности выпускаемой продукции
+
+
 //- email
 
 mixin email(email)
@@ -380,6 +399,69 @@ mixin why-4
                         |задать вопрос
               .why__bottom-item
                 +progress
+
+mixin why-5
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin why-list
+    -
+      var items = [
+        'Лабораторный контроль качества материалов',
+        'Опытные испытания',
+        'Контроль качества комплектующих',
+      ]
+
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
+
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/4
+
+  .why
+    .why__layout
+      +container.why__container
+        .why__image
+          img.why__img(src='assets/images/why-5.jpeg')
+    .why__layout
+      +container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Производственный процесс
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |Выбор поставщика
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                .why__wrapper
+                  +why-list
+              .why__bottom-item
+                +progress
+
 
 //- list
 

@@ -5,6 +5,9 @@
   &--lhc {
     @include font-fsl("content-1", 20px, 160%);
   }
+  &--qsc {
+    @include font-fsl("content-1", 20px, 130%);
+  }
   &--ezx {
     @include font-fsl("content-1", 24px, 130%);
   }

@@ -4,13 +4,43 @@ block definitions
   -
     app.title = 'О компании';
 
+block header
+  +header({ mods: ['transparent'] })
+
 block preloader
-block grid-test
+//- block grid-test
 block js-test
 
 block content
-  +space(['header'], ['pt'])
-  +space(['sub-section'])
+  +first('assets/images/about.jpeg')
+    .top-bottom
+      .top-bottom__item
+        +container
+          +breadcrumbs(['Главная', 'О компании'], ['transparent'])
+      .top-bottom__item
+        +container
+          h1.super-title
+            |О компании
+  .second-wrapper
+    +second-6
+  +space(['hr'])
+  +hr
+  +space(['hr'])
+  +container
+    +grid([2])
+      .grid__item
+      .grid__item
+        +article(['indent'])
+          |Развивая рынок качественной продукции, мы&nbsp;способствуем 
+          span.article__highlight
+            |сохранению здоровья человека 
+          |в&nbsp;условиях загрязненной рабочей среды
+        +space([32])
+        +text([4, 'qsc'])
+          |Наши основные усилия направлены на&nbsp;повышение уровня комфорта и&nbsp;безопасности при работе в&nbsp;респираторе
+  +space(['section'])
+  +why-6
+  +space(['section'])
   +container
     +grid([2, 'last-bottom'])
       .grid__item
@@ -48,9 +78,24 @@ block content
       |Наше производство
     +space([96])
     +grid([3])
-      each i in repeat(3)
+      -
+        var ours = [
+          {
+            title: '7000 м²',
+            text: 'Производственно-складской комплекс',
+          },
+          {
+            title: '2',
+            text: 'Собственные испытательные лаборатории',
+          },
+          {
+            title: '500+',
+            text: 'Сотрудников компании',
+          },
+        ];
+      each our in ours
         .grid__item
-          +our
+          +our(our)
     +space(['section'])
     +container(['about-article'])
       +article(['indent', 'large'])
@@ -63,7 +108,9 @@ block content
     +grid([2])
       .grid__item
         +heading(['sub', 'pre-line'], 2)
-          |Участие в некоммерческих объединениях
+          |Участие в некоммерческих
+          br
+          |объединениях
       .grid__item
         +grid(['about-markets', 'row-gap'])
               -

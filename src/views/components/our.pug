@@ -1,7 +1,7 @@
-mixin our
+mixin our(props = {})
   .our
     +text(['vbx', 'blue'])
-      |7000 м²
+      |!{props.title}
     +space(['gap'])
     +text(['qpv', 'right'])
-      |Производственно-складской комплекс
+      |!{props.text}

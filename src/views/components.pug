@@ -131,6 +131,21 @@ mixin second-5
           .second__text
             |Внедрена интегрированная система менеджмента как гарант качества, надежности и&nbsp;безопасности выпускаемой продукции
 
+mixin second-6
+  .second.second--azn
+    +container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second-6.jpeg')
+        .second__top.second__top--small
+          .second__content
+            .second__content-title
+              |25+ лет
+            .second__content-description
+              |специализируемся на&nbsp;разработке и&nbsp;производстве фильтрующих полумасок
+        .second__bottom.second__bottom--empty
+
 
 //- email
 
@@ -459,6 +474,69 @@ mixin why-5
               .why__bottom-item
                 .why__wrapper
                   +why-list
+              .why__bottom-item
+                +progress
+
+mixin why-6
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin why-list
+    -
+      var items = [
+        'Аэрозоли концентрацией до 50 ПДК',
+        'Кислые и органические пары и газы',
+        'Пары аммиака, ртути и прочие вещества',
+      ]
+
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
+
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/3
+
+  .why
+    .why__layout
+      +container.why__container
+        .why__image
+          img.why__img(src='assets/images/why-6.jpeg')
+    .why__layout
+      +container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Наши ценности
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |Стремление к&nbsp;идеальному продукту
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                .why__wrapper
+                  .why__description
+                    |Испытания фильтрующих материалов и&nbsp;новых сорбентов в&nbsp;наших лабораториях помогают совершенствовать защитные характеристики респираторов. Мониторинг клиентского опыта&nbsp;&mdash; источник адаптации наших продуктов и&nbsp;повышения комфорта использования полумасок.
               .why__bottom-item
                 +progress
 

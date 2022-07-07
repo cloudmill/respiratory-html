@@ -1,6 +1,13 @@
 .grid {
   $component: &;
 
+  &--404-nav {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: rem(12px);
+    justify-content: center;
+  }
+
   &--last-bottom {
     > {
       #{$component} {

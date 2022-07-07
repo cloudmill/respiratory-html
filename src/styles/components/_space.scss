@@ -29,7 +29,10 @@
       #{$property}: rem(100px);
     }
     &--mid-section {
-      #{$property}: rem(100px);
+      #{$property}: rem(120px);
+    }
+    &--l-section {
+      #{$property}: rem(160px);
     }
     &--header {
       #{$property}: rem(169px);

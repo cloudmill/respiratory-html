@@ -20,11 +20,16 @@
   &--page {
     @include font-fsl("title-3", 130px, 100%);
   }
+  &--404 {
+    @include font-fsl('title-3', 200px, 100%);
+  }
 
   &--pre-line {
     white-space: pre-line;
   }
-
+  &--center {
+    text-align: center;
+  }
   &--blue {
     color: color(blue);
   }

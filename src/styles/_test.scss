@@ -1129,3 +1129,12 @@
     object-fit: contain;
   }
 }
+
+.page404 {
+  &-img {
+    @include rectangle(rem(205px));
+
+    margin: 0 auto;
+    display: block;
+  }
+}

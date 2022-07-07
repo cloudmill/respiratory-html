@@ -10,10 +10,22 @@ block js-test
 
 block content
   +space(['header'], ['pt'])
-  +space(['section'])
+  +space(['l-section'])
   
   +container
-    +heading(['page'], 1)
+    img.page404-img(src='assets/images/404.svg')
+    +space(['gap'])
+    +heading(['404', 'center'], 1)
       |404
+    +text(['center', '404-desc'])
+      |Страница не найдена
+    +space(['sub-block'])
+    +grid(['404-nav'])
+      .grid__item
+        +press.press--white
+          |Главная
+      .grid__item
+        +press.press--white
+          |продукция
 
   +space(['section'])

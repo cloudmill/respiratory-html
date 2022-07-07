@@ -36,12 +36,17 @@
     }
   }
   &--desc {
-    @include font-fsl('content-1', 16px, 130%);
+    @include font-fsl("content-1", 16px, 130%);
 
     color: color(gray-dark);
   }
   &--address {
-    @include font-fsl('title-2', 32px, 120%);
+    @include font-fsl("title-2", 32px, 120%);
+  }
+  &--404-desc {
+    @include font-fsl("title-2", 32px, 120%);
+
+    color: color(gray-dark);
   }
 
   &--blue {
@@ -55,6 +60,9 @@
   }
   &--right {
     text-align: right;
+  }
+  &--center {
+    text-align: center;
   }
 
   &--3 {

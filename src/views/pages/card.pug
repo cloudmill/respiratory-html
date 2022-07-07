@@ -6,17 +6,164 @@ block definitions
 
 block preloader
 block js-test
-block grid-test
+//- block grid-test
 
 block content
   +space(['header'], ['pt'])
   +space(['sub-block'])
 
-  .container
+  +container
     +grid([2])
       .grid__item
         +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'])
-        div(style='background: black;')
-          +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'], ['transparent'])
+
+        +space(['sub-block'])
+        +heading(['sub'], 2)
+          |Описание
+        +space(['hr'])
+        +text(['pre-line'])
+          |Lorem ipsum dolor sit amet consectetur adipisicing elit. At provident fuga dolores ut. Rem corrupti totam excepturi, rerum suscipit, ipsam et numquam ex quidem accusamus impedit maxime, earum magnam! Rerum?
+        +space([32])
+
+        +space(['sub-block'])
+        +heading(['sub'], 2)
+          |Применение
+
+        +space(['sub-block'])
+        +heading(['sub'], 2)
+          |Документация
+        +space(['hr'])
+        +grid(['3-3', 'row-gap'])
+          -
+            var docs = [
+              {
+                text: 'Сертификат ТР ТС 019/2011',
+                label: '235 КБ',
+              },
+              {
+                text: 'Сертификат EN 149:2001+A1:2009',
+                label: '235 КБ',
+              },
+              {
+                text: 'Декларация соответствия',
+                label: '235 КБ',
+              },
+              {
+                text: 'Инструкция по надеванию',
+                label: '235 КБ',
+              },
+            ];
+          each doc in docs
+            .grid__item
+              +doc(doc)
+        
+        
       .grid__item
         |123
+
+  +space(['sub-section'])
+  div(data-examples-slider-component)
+    +container
+      +hr
+      +space(['hr'])
+      .slider-panel
+        .slider-panel__col
+          h2.sub-title
+            |аналоги
+        .slider-panel__col
+          .slider-panel__sub-col
+            .controls.slider-panel__controls
+              .controls__item
+                .circle
+                  button.circle__button.js-slider-prev(type="button" data-examples-slider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .controls__item
+                .circle
+                  button.circle__button.js-slider-next(type="button" data-examples-slider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          .slider-panel__sub-col
+    +space(['sub-block'])
+    .swiper.examples-slider(data-examples-slider-container)
+      .swiper-wrapper
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9010
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example-2.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9011
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt

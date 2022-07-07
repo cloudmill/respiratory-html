@@ -27,13 +27,6 @@
     justify-content: start;
   }
 
-  &--socials {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    column-gap: rem(12px);
-    justify-content: start;
-  }
-
   &--about-markets {
     display: grid;
     grid-template-columns: repeat(3, calc(#{columns(2)}));

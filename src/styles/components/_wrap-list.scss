@@ -5,6 +5,10 @@
     --gap: #{rem(8px)};
   }
 
+  &--socials {
+    --gap: #{rem(12px)};
+  }
+
   &__list {
     margin-top: calc(-1 * var(--gap));
     margin-left: calc(-1 * var(--gap));

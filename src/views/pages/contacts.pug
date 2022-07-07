@@ -110,13 +110,16 @@ block content
         +heading(['sub'], 2)
           |Социальные сети
       .grid__item
-        +grid(['socials'])
-          .grid__item
-            |123
-          .grid__item
-            |123
-          .grid__item
-            |123
+        +wrap-list(['socials'])
+          li.wrap-list__item
+            +social(['fb'])
+              +social-fb-svg.social__svg
+          li.wrap-list__item
+            +social(['yt'])
+              +social-yt-svg.social__svg
+          li.wrap-list__item
+            +social(['vk'])
+              +social-vk-svg.social__svg
   
   +space(['section'])
   section.form-section

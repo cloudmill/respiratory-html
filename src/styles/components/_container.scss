@@ -1,4 +1,6 @@
 .container {
+  $component: &;
+
   &--default {
     padding-left: $column-padding;
     padding-right: $column-padding;
@@ -12,5 +14,48 @@
   &--about-article {
     padding-left: calc(#{columns(2)} + #{$column-gap});
     padding-right: calc(#{$column} + #{$column-gap});
+  }
+
+  &--card {
+    margin: 0 auto;
+    width: calc(#{columns(4)});
+  }
+
+  &--li {
+    position: relative;
+    z-index: 0;
+
+    padding-left: rem(48px);
+
+    > {
+      #{$component} {
+        &__svg {
+          @include rectangle(rem(24px));
+
+          position: absolute;
+          top: rem(5px);
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &--card-label {
+    position: relative;
+    z-index: 0;
+
+    padding-left: rem(69px + 20px);
+
+    > {
+      #{$component} {
+        &__img {
+          @include rectangle(rem(69px));
+
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
   }
 }

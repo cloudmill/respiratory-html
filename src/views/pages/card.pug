@@ -10,26 +10,185 @@ block js-test
 
 block content
   +space(['header'], ['pt'])
-  +space(['sub-block'])
 
+  +space(['sub-block'])
   +container
     +grid([2])
       .grid__item
         +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'])
 
         +space(['sub-block'])
+        +grid(['card-title'])
+          .grid__item
+            .circle.circle--blue.circle--small
+              a.circle__button(href='#')
+                +arrow-left-svg.circle__svg.circle__svg--arrow-left
+          .grid__item
+            +heading(['main'], 1)
+              |АЛИНА®-100
+        +space(['gap'])
+
+        +space(['mid-block'])
         +heading(['sub'], 2)
-          |Описание
+          |Класс защиты
         +space(['hr'])
-        +text(['pre-line'])
-          |Lorem ipsum dolor sit amet consectetur adipisicing elit. At provident fuga dolores ut. Rem corrupti totam excepturi, rerum suscipit, ipsam et numquam ex quidem accusamus impedit maxime, earum magnam! Rerum?
-        +space([32])
+        +grid(['col-3'])
+          -
+            var guards = [
+              {
+                title: 'FFP1',
+                text : 'Предельно допустимая<br>концентрация до 4',
+              },
+              {
+                title: 'NR',
+                text : 'Многоразование<br>использование',
+              },
+              {
+                title: 'D',
+                text : 'Пройдено испытание по<br>устойчивости к запылению',
+              },
+            ];
+          each guard in guards
+            .grid__item
+              +guard(guard)
+        +space(['mid-block'])
+        +grid(['col-3'])
+          -
+            var values = [
+              {
+                src: 'assets/images/card/value-1.svg',
+                title: 'Клапан выдоха',
+                text: 'Есть',
+              },
+              {
+                src: 'assets/images/card/value-2.svg',
+                title: 'Конструкция',
+                text: 'Формованный',
+              },
+            ];
+          each value in values
+            .grid__item
+              +card-value(value)
+
+        -
+          var labels = [
+            {
+              src: 'assets/images/card/label-1.svg',
+              title: 'Защита от всех видов аэрозолей',
+              tabs: [
+                'Пыль',
+                'Дым',
+                'Туман',
+              ],
+            },
+            {
+              src: 'assets/images/card/label-2.svg',
+              title: 'Дополнительная защита',
+              tabs: [
+                'Органические газы и пары от нагрева металлов',
+                'Сварочные аэрозоли, озон',
+                'Кислые газы',
+                'Неорганические газы',
+                'Основные газы',
+                'Вирусы и бактерии',
+                'Радиоактивный йод',
+                'Радиоактивные и канцерогенные аэрозоли',
+              ],
+            },
+            {
+              src: 'assets/images/card/label-3.svg',
+              title: 'Документы',
+              tabs: [
+                'ГОСТ 12.4.294-2015',
+                'ТР ТС 019/2011',
+                'EN 149:2001+А1:2009',
+                'ГОСТ 12.4.217-2001',
+                'РУ Росздравнадзора',
+                'Подтверждение Минпромторга',
+              ],
+            },
+          ];
+        each label in labels
+          +space(['mid-block'])
+          +container(['card-label'])
+            img.container__img(src=label.src)
+            +heading(['small-sub'], 3)
+              |!{label.title}
+            +space(['gap'])
+            +wrap-list
+              each tab in label.tabs
+                li.wrap-list__item
+                  +static-tab
+                    |!{tab}
+
+        +space(['sub-section'])
+        +grid(['col-3'])
+          -
+            var infos = [
+              {
+                title: 'Упаковка',
+                value: 'Индивидуальная',
+              },
+              {
+                title: 'Минимальное количество для заказа',
+                value: '250 шт',
+              },
+              {
+                title: 'Срок хранения',
+                value: '4 года',
+              },
+            ];
+          each info in infos
+            .grid__item
+              +hr
+              +space(['sub-hr'])
+              +text(['card-info-title'])
+                |!{info.title}
+              +space(['sub-hr'])
+              +text(['card-info-value'])
+                |!{info.value}
+
+        +space(['sub-section'])
+        +heading(['sub'], 2)
+          |Применение
+        +space(['hr'])
+        +container(['card'])
+          +text(['card', 'pre-line'])
+            |Алина-210 – фильтрующее средство индивидуальной защиты органов дыхания одноразового применения с клапаном выдоха. Класс защиты FFP2.
+            br
+            br
+            |Благодаря неформованной конструкции и эластичному фильтрующему контуру респиратор адаптируется к любому типу и размеру лица, не смещается и не допускает проникновения загрязненного воздуха по полосе прилегания при мимических движениях и поворотах головы.
+            br
+            br
+            |Регулируемые ленты оголовья и гибкая носовая пластина помогают индивидуально настраивать посадку респиратора. Клапан выдоха выводит тепло и влагу из подмасочного пространства, делая использование респиратора более комфортным.
+          +space([32])
+          +grid(['list'])
+            -
+              var items = [
+                'Эластичная линия прилегания позволяет респиратору сжиматься и растягиваться, подстраиваясь под параметры лица',
+                'Пластиковый каркас располагает фильтрующий материал дальше от лица.',
+                'Фильтрующая поверхность увеличена за счет неформованной конструкции. Это снижает сопротивление дыханию.',
+                'Пользователь может настраивать длину верхней и нижней лент оголовья.',
+              ];
+            each item in items
+              .grid__item
+                +container(['li'])
+                  +li-svg.container__svg
+                  +text(['card', 'pre-line'])
+                    |!{item}
 
         +space(['sub-block'])
         +heading(['sub'], 2)
           |Применение
-
-        +space(['sub-block'])
+        +space(['hr'])
+        +container(['card'])
+          +text(['card', 'pre-line'])
+            |Респиратор предназначен для защиты органов дыхания человека от всех видов аэрозолей (пыль, дым туман) при их концентрации до 12 ПДК.
+            br
+            br
+            |Применяется на предприятиях машиностроения, металлургии, в фармацевтической и пищевой промышленности. Защищает органы дыхания при проведении строительных и ремонтных работ, обращении с сыпучими веществами. Эффективен при работе в тяжелых условиях, в областях повышенных и пониженных температур, повышенной влажности.
+        
+        +space(['sub-section'])
         +heading(['sub'], 2)
           |Документация
         +space(['hr'])
@@ -56,8 +215,6 @@ block content
           each doc in docs
             .grid__item
               +doc(doc)
-        
-        
       .grid__item
         |123
 

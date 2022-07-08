@@ -1,0 +1,7 @@
+mixin guard(props = {}, mods = [])
+  .guard(class=getClassesFromMods('guard', mods))&attributes(attributes)
+    +heading(['guard'], 3)
+      |!{props.title}
+    +space([4])
+    +text(['right', 'guard', 'pre-line'])
+      |!{props.text}

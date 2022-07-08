@@ -7,7 +7,7 @@
     mt: margin-top,
     mb: margin-bottom,
   );
-  $anywhere: (4, 8, 10, 16, 32, 36, 40, 54, 60, 64, 96, 145, 180);
+  $anywhere: (4, 8, 9, 10, 16, 32, 36, 40, 54, 60, 64, 96, 145, 180);
 
   @mixin space($property: margin-top) {
     @each $value in $anywhere {
@@ -16,11 +16,17 @@
       }
     }
 
+    &--sub-hr {
+      #{$property}: rem(12px);
+    }
     &--hr {
       #{$property}: rem(16px);
     }
     &--sub-block {
       #{$property}: rem(40px);
+    }
+    &--mid-block {
+      #{$property}: rem(60px);
     }
     &--block {
       #{$property}: rem(80px);

@@ -1,0 +1,9 @@
+.guard {
+  padding: $column-gap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: color(gray-light);
+  border-radius: 0 rem(12px) rem(12px) rem(12px);
+}

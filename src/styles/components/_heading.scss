@@ -5,6 +5,9 @@
   &--where {
     @include font-fsl("title-2", 24px, 100%);
   }
+  &--small-sub {
+    @include font-fsl("title-2", 13px, 100%);
+  }
   &--sub {
     @include font-fsl("title-2", 18px, 120%);
   }
@@ -21,7 +24,13 @@
     @include font-fsl("title-3", 130px, 100%);
   }
   &--404 {
-    @include font-fsl('title-3', 200px, 100%);
+    @include font-fsl("title-3", 200px, 100%);
+  }
+  &--card-value-title {
+    @include font-fsl("content-1", 14px, 130%);
+  }
+  &--guard {
+    @include font-fsl("title-2", 32px, 100%);
   }
 
   &--pre-line {

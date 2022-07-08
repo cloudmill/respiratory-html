@@ -48,6 +48,25 @@
 
     color: color(gray-dark);
   }
+  &--card {
+    @include font-fsl('content-1', 16px, 160%);
+
+    &-info {
+      &-title {
+        @include font-fsl('content-1', 14px, 130%);
+      }
+
+      &-value {
+        @include font-fsl('title-2', 16px, 100%);
+      }
+    }
+  }
+  &--card-value-text {
+    @include font-fsl("title-2", 16px, 100%);
+  }
+  &--guard {
+    @include font-fsl("content-1", 12px, 130%);
+  }
 
   &--blue {
     color: color(blue);

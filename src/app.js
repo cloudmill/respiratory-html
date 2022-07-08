@@ -17,8 +17,9 @@ import * as tab from "./scripts/tab";
 import * as select from "./scripts/select";
 import * as swiperSlider from "./scripts/swiperSlider";
 import * as rails from "./scripts/rails";
-import * as backend from "./scripts/backend";
 import { examplesSlider } from "./scripts/examplesSlider";
+
+import "./scripts/backend";
 
 AOS.init();
 
@@ -37,7 +38,6 @@ addEventListener("DOMContentLoaded", () => {
   select.start();
   swiperSlider.start();
   rails.start();
-  backend.start();
 });
 
 addEventListener("load", async () => {

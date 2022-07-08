@@ -6,7 +6,7 @@ block definitions
 
 block preloader
 block js-test
-//- block grid-test
+block grid-test
 
 block content
   +space(['header'], ['pt'])
@@ -221,7 +221,10 @@ block content
       .grid__item
         |123
 
-  +space(['sub-section'])
+  +space(['mid-block'])
+  +card-panel
+
+  +space(['mid-block'])
   div(data-examples-slider-component)
     +container
       +hr

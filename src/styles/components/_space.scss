@@ -7,7 +7,7 @@
     mt: margin-top,
     mb: margin-bottom,
   );
-  $anywhere: (4, 8, 9, 10, 16, 32, 36, 40, 54, 60, 64, 96, 145, 180);
+  $anywhere: (4, 8, 9, 10, 16, 27, 32, 36, 40, 54, 60, 64, 96, 145, 180);
 
   @mixin space($property: margin-top) {
     @each $value in $anywhere {

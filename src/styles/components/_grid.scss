@@ -1,6 +1,12 @@
 .grid {
   $component: &;
 
+  &--card-panel {
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{columns(3)})) calc(#{columns(6)});
+    column-gap: $column-gap;
+  }
+
   &--date {
     display: grid;
     grid-template-columns: repeat(2, auto);

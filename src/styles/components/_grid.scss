@@ -1,6 +1,25 @@
 .grid {
   $component: &;
 
+  &--date {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    column-gap: rem(10px);
+  }
+
+  &--1-1 {
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{$column}));
+    column-gap: $column-gap;
+  }
+
+  &--card-new {
+    display: grid;
+    grid-template-columns: calc(#{columns(4)}) calc(#{columns(2)});
+    column-gap: $column-gap;
+  }
+
   &--card-title {
     display: grid;
     grid-template-columns: auto 1fr;

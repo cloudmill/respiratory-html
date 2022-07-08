@@ -67,6 +67,12 @@
   &--guard {
     @include font-fsl("content-1", 12px, 130%);
   }
+  &--day {
+    @include font-fsl('title-2', 40px, 100%);
+  }
+  &--month {
+    @include font-fsl('title-2', 16px, 100%);
+  }
 
   &--blue {
     color: color(blue);

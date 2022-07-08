@@ -32,6 +32,9 @@
   &--guard {
     @include font-fsl("title-2", 32px, 100%);
   }
+  &--card-new {
+    @include font-fsl('title-2', 20px, 130%);
+  }
 
   &--pre-line {
     white-space: pre-line;

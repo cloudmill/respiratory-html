@@ -1,0 +1,33 @@
+//- 
+  props
+    label
+    day
+    month
+    title
+    src
+
+mixin card-new(props = {}, mods = [])
+  a.card-new(href='#' class=getClassesFromMods('card-new', mods))
+    +grid(['card-new'])
+      .grid__item
+        .card-new__image
+          img.card-new__img(src=props.src)
+          .card-new__mark
+            +arrow-tilt-svg.card-new__svg
+      .grid__item
+        +grid(['1-1'])
+          .grid__item
+            +grid(['date'])
+              .grid__item
+                +text(['blue', 'day'])
+                  |!{props.day}
+              .grid__item
+                +text(['month'])
+                  |!{`/${props.month}`}
+          .grid__item
+            +static-tab(['card-new'])
+              |!{props.tab}
+        +space(['sub-block'])
+        +heading(['card-new'])
+          |!{props.title}
+        

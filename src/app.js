@@ -17,6 +17,8 @@ import * as tab from "./scripts/tab";
 import * as select from "./scripts/select";
 import * as swiperSlider from "./scripts/swiperSlider";
 import * as rails from "./scripts/rails";
+import * as aside from "./scripts/aside";
+
 import { examplesSlider } from "./scripts/examplesSlider";
 
 import "./scripts/backend";
@@ -38,6 +40,7 @@ addEventListener("DOMContentLoaded", () => {
   select.start();
   swiperSlider.start();
   rails.start();
+  aside.start();
 });
 
 addEventListener("load", async () => {

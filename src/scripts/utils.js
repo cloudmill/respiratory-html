@@ -10,3 +10,5 @@ export const getTrio = (index, items) => ({
 export const getPercent = (value) => `${value}%`;
 
 export const getSelector = (name) => `[data-${name}]`;
+
+export const getPx = (value) => `${value}px`;

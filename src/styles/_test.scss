@@ -11,6 +11,10 @@
   padding-bottom: (180px);
   height: 100vh;
   max-height: rem(1080px);
+  @media #{media("<")} {
+    padding-top: rem(58px + 20px);
+    padding-bottom: rem(48px);
+  }
 
   // bg
 
@@ -36,6 +40,9 @@
 
 .super-title {
   @include font-fsl("title-3", 130px, 100%);
+  @media #{media("<")} {
+    @include font-fsl("title-3", 24px, 100%);
+  }
 
   color: color(yellow);
 }
@@ -54,9 +61,15 @@
 
 .second {
   padding: rem(180px) 0;
+  @media #{media("<")} {
+    padding: rem(20px) 0;
+  }
   overflow: hidden;
 
   border-radius: 0 rem(120px) 0 0;
+  @media #{media("<")} {
+    border-radius: 0 rem(30px) 0 0;
+  }
 
   &--azn {
     padding-bottom: 0;
@@ -71,6 +84,11 @@
     justify-content: space-between;
     column-gap: $column-gap;
     row-gap: rem(120px);
+    @media #{media("<")} {
+      grid-template-columns: 37% 57%;
+      column-gap: rem(20px);
+      row-gap: rem(40px);
+    }
   }
 
   // bg
@@ -81,6 +99,9 @@
     position: relative;
     z-index: -1;
     bottom: rem(-60px);
+    @media #{media("<")} {
+      bottom: rem(-20px);
+    }
 
     pointer-events: none;
 
@@ -102,6 +123,9 @@
 
   &__image {
     @include grid-area(1, 1, 1, 2);
+    @media #{media("<")} {
+      @include grid-area(1, 1, 1, 1);
+    }
   }
 
   // img
@@ -113,6 +137,9 @@
     object-fit: cover;
 
     border-radius: 0 rem(12px) rem(80px) 0;
+    @media #{media("<")} {
+      border-radius: 0 rem(3px) rem(20px) 0;
+    }
   }
 
   // top
@@ -129,9 +156,15 @@
 
   &__bottom {
     @include grid-area(2, 2, 1, 1);
+    @media #{media("<")} {
+      @include grid-area(1, 2, 2, 1);
+    }
 
     &--empty {
       min-height: rem(120px);
+      @media #{media("<")} {
+        min-height: auto;
+      }
     }
   }
 
@@ -139,7 +172,10 @@
 
   &__text {
     @include font-fsl("content-1", 24px, 130%);
-
+    @media #{media("<")} {
+      @include font-fsl("content-1", 12px, 130%);
+      max-width: none;
+    }
     max-width: calc(#{columns(5)});
   }
 
@@ -150,14 +186,28 @@
     z-index: 0;
 
     padding-top: rem(320px);
+    @media #{media("<")} {
+      padding-top: rem(31px);
+
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
 
     &--small {
       padding-top: rem(210px);
+      @media #{media("<")} {
+        padding-top: rem(31px);
+      }
     }
 
     &::before,
     &::after {
       @include rectangle(rem(20px));
+      @media #{media("<")} {
+        @include rectangle(rem(12px));
+      }
 
       position: absolute;
       top: 0;
@@ -169,6 +219,9 @@
       border-right: none;
       border-bottom: none;
       border-radius: rem(10px) 0 0 0;
+      @media #{media("<")} {
+        border-radius: rem(5px) 0 0 0;
+      }
     }
 
     &::before {
@@ -182,7 +235,9 @@
 
     &-text {
       @include font-fsl("title-3", 54px, 100%);
-
+      @media #{media("<")} {
+        @include font-fsl("title-3", 14px, 100%);
+      }
       color: color(white);
 
       &--pre-line {
@@ -196,7 +251,9 @@
 
     &-title {
       @include font-fsl("title-3", 130px, 100%);
-
+      @media #{media("<")} {
+        @include font-fsl("title-3", 24px, 100%);
+      }
       color: color(yellow);
     }
 
@@ -216,6 +273,9 @@
   z-index: 1;
 
   margin-top: rem(-180px);
+  @media #{media("<")} {
+    margin-top: rem(-28px);
+  }
 }
 
 .light {
@@ -265,7 +325,13 @@
 .why {
   position: relative;
   z-index: 0;
+  
+  @media #{media("<")} {
+    padding: rem(20px) 0;
 
+    height: auto;
+    max-height: none;
+  }
   height: 100vh;
   max-height: 920px;
 
@@ -273,19 +339,28 @@
 
   &__layout {
     @include inset;
-
     position: absolute;
-
+    @media #{media("<")} {
+      position: static;
+    }
+    
     &:nth-child(1) {
       z-index: 1;
 
       padding: rem(40px) 0;
+      @media #{media("<")} {
+        padding: 0;
+      }
     }
 
     &:nth-child(2) {
       z-index: 2;
 
       padding: rem(80px) 0 rem(40px);
+      @media #{media("<")} {
+        padding: 0;
+        margin-top: rem(20px);
+      }
     }
   }
 
@@ -296,10 +371,16 @@
   &__image {
     margin-left: auto;
     width: calc(#{columns(6)});
+    @media #{media("<")} {
+      width: auto;
+    }
     height: 100%;
     overflow: hidden;
 
     border-radius: 0 0 rem(100px) 0;
+    @media #{media("<")} {
+      border-radius: 0 rem(14px) 0 0;
+    }
   }
 
   &__img {
@@ -315,37 +396,72 @@
     justify-content: space-between;
 
     &-item {
+
+      &:not(:first-child) {
+        @media #{media("<")} {
+          margin-top: rem(12px);
+        }
+      }
     }
   }
 
   &__border {
     padding-top: rem(16px);
+    @media #{media("<")} {
+      padding-top: rem(8px);
 
+      display: flex;
+      justify-content: space-between;
+    }
     border-top: 1px solid color(header-transparent-border);
   }
 
   &__panel {
     margin-top: rem(52px);
+    @media #{media("<")} {
+      margin-top: rem(36px);
+    }
     display: grid;
 
     &-item {
       @include grid-area(1, 1, 1, 1);
+
+      &:nth-child(1) {
+        @media #{media("<")} {
+          position: absolute;
+          left: rem(40px);
+          top: rem(40px);
+        }
+      }
     }
   }
 
   &__title {
     @include font-fsl("title-2", 18px, 100%);
-
+    @media #{media("<")} {
+      @include font-fsl("title-2", 12px, 100%);
+    }
     color: color(white);
   }
 
   &__sub-title {
     @include font-fsl("title-3", 72px, 100%);
-
+    @media #{media("<")} {
+      @include font-fsl("title-3", 20px, 100%);
+      margin: 0;
+      width: auto;
+    }
     margin: 0 auto;
     width: calc(#{columns(6)});
 
     color: color(white);
+  }
+
+  &__mobile {
+    display: none;
+    @media #{media("<")} {
+      display: block;
+    }
   }
 
   &__bottom {
@@ -353,8 +469,17 @@
     grid-template-columns: calc(#{columns(5)}) calc(#{columns(1)});
     column-gap: $column-gap;
     align-items: end;
+    @media #{media("<")} {
+      display: block;
+    }
 
     &-item {
+
+      &:nth-child(2) {
+        @media #{media("<")} {
+          display: none;
+        }
+      }
     }
   }
 
@@ -392,6 +517,9 @@
     z-index: 0;
 
     padding: 0 0 rem(40px) rem(40px);
+    @media #{media("<")} {
+      padding: 0;
+    }
 
     &::before {
       @include rectangle(rem(20px));
@@ -399,7 +527,9 @@
       position: absolute;
       bottom: 0;
       left: 0;
-
+      @media #{media("<")} {
+      display: none;
+      }
       content: "";
       pointer-events: none;
 
@@ -420,7 +550,9 @@
     &-text {
       @include grid-area(1, 1, 1, 1);
       @include font-fsl("title-2", 40px, 100%);
-
+      @media #{media("<")} {
+        @include font-fsl("title-2", 24px, 100%);
+      }
       color: color(blue);
 
       &--fake {
@@ -433,7 +565,10 @@
 
     &-all {
       @include font-fsl("title-2", 16px, 100%);
-
+      @media #{media("<")} {
+        @include font-fsl("title-2", 12px, 100%);
+        margin-left: rem(8px);
+      }
       margin-left: rem(24px);
 
       color: color(white);
@@ -442,7 +577,10 @@
 
   &__description {
     @include font-fsl("content-1", 20px, 130%);
-
+    @media #{media("<")} {
+      @include font-fsl("content-1", 14px, 130%);
+      max-width: none;
+    }
     max-width: calc(#{columns(3)});
 
     color: color(white);
@@ -464,12 +602,20 @@
   &__item {
     &:not(:first-child) {
       margin-top: rem(40px);
+      @media #{media("<")} {
+        margin-top: rem(8px);
+      }
     }
   }
 }
 
 .info-block {
   padding-bottom: rem(60px);
+  @media #{media("<")} {
+    padding-bottom: rem(18px);
+
+    display: block;
+  }
   display: grid;
   grid-template-columns: calc(#{columns(7)}) calc(#{columns(5)});
   column-gap: $column-gap;
@@ -477,16 +623,26 @@
   &__col {
     &:nth-child(1) {
       max-width: calc(#{columns(5)});
+      @media #{media("<")} {
+        max-width: none;
+      }
     }
 
     &:nth-child(2) {
       padding-top: rem(40px);
       max-width: calc(#{columns(4)});
+      @media #{media("<")} {
+        padding: rem(12px) rem(18px) 0;
+        max-width: none;
+      }
     }
   }
 
   &__text {
     @include font-fsl("content-1", 20px, 160%);
+    @media #{media("<")} {
+      @include font-fsl("content-1", 14px, 160%);
+    }
 
     &:not(:first-child) {
       margin-top: rem(32px);
@@ -498,9 +654,15 @@
     z-index: 0;
 
     padding: rem(40px) rem(40px) 0 rem(40px);
+    @media #{media("<")} {
+      padding: rem(18px) rem(18px) 0;
+    }
 
     &::before {
       @include rectangle(rem(20px));
+      @media #{media("<")} {
+        @include rectangle(rem(12px));
+      }
 
       position: absolute;
       z-index: -1;
@@ -515,6 +677,9 @@
       border-bottom: none;
       border-right: none;
       border-radius: rem(10px) 0 0 0;
+      @media #{media("<")} {
+        border-radius: rem(5px) 0 0 0;
+      }
     }
   }
 }
@@ -523,6 +688,18 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: $column-gap;
+  @media #{media("<")} {
+    display: block;
+  }
+
+  &__col {
+
+    &:not(:first-child) {
+      @media #{media("<")} {
+        margin-top: rem(24px);
+      }
+    }
+  }
 }
 
 .information-card {
@@ -560,17 +737,31 @@
     z-index: 0;
 
     height: rem(310px);
+    @media #{media("<")} {
+      // height: rem(120px);
+      height: auto;
+    }
     overflow: hidden;
 
     border-radius: 0 rem(16px) rem(16px) rem(16px);
+    @media #{media("<")} {
+      border-radius: 0 rem(12px) rem(12px) rem(12px);
+    }
 
     &::before {
       @include rectangle(rem(20px));
+      @media #{media("<")} {
+        @include rectangle(rem(12px));
+      }
 
       position: absolute;
       z-index: 2;
       top: rem(40px);
       right: rem(40px);
+      @media #{media("<")} {
+        top: rem(16px);
+        right: rem(16px);
+      }
 
       content: "";
       pointer-events: none;
@@ -580,6 +771,9 @@
       border-bottom: none;
       border-left: none;
       border-radius: 0 rem(10px) 0 0;
+      @media #{media("<")} {
+        border-radius: 0 rem(5px) 0 0;
+      }
     }
   }
 
@@ -595,17 +789,29 @@
     z-index: 2;
     bottom: rem(40px);
     right: rem(40px);
+    @media #{media("<")} {
+      bottom: rem(16px);
+      right: rem(16px);
+    }
   }
 
   &__title {
     @include font-fsl("title-2", 18px, 120%);
-
+    @media #{media("<")} {
+      @include font-fsl("title-2", 12px, 120%);
+      
+      margin-top: rem(8px);
+    }
     margin-top: rem(24px);
   }
 
   &__size {
     @include font-fsl("content-3", 16px, 130%);
-
+    @media #{media("<")} {
+      @include font-fsl("content-3", 12px, 130%);
+      
+      margin-top: 0;
+    }
     margin-top: rem(4px);
 
     color: color(gray-dark);
@@ -621,6 +827,9 @@
     &:nth-child(2) {
       display: flex;
       justify-content: space-between;
+      @media #{media("<")} {
+        display: none;
+      }
     }
   }
 
@@ -633,6 +842,16 @@
 
 .section-margin {
   margin-top: rem(180px);
+  @media #{media("<")} {
+    margin-top: rem(48px);
+  }
+}
+
+.mid-section-margin {
+  margin-top: rem(100px);
+  @media #{media("<")} {
+    margin-top: rem(20px);
+  }
 }
 
 .sub-section-margin {
@@ -648,9 +867,16 @@
 
   position: relative;
   z-index: 0;
+  @media #{media("<")} {
+    margin-left: rem(20px);
+  }
 
   border-top: 1px solid color(gray);
   border-bottom: 1px solid color(gray);
+  @media #{media("<")} {
+    border-top: none;
+    border-bottom: none;
+  }
 
   &::before {
     position: absolute;
@@ -672,7 +898,12 @@
     padding: rem(40px);
     height: auto;
     min-height: rem(632px);
+    @media #{media("<")} {
+      padding: 0;
+      min-height: auto;
 
+      border-right: 0;
+    }
     border-right: 1px solid color(gray);
 
     &:hover {
@@ -709,6 +940,9 @@
   &__picture {
     height: 100%;
     min-height: rem(552px);
+    @media #{media("<")} {
+      min-height: rem(134px);
+    }
   }
 
   &__content {
@@ -721,6 +955,9 @@
 
   &__title {
     @include font-fsl("title-3", 54px, 100%);
+    @media #{media("<")} {
+      @include fsl(24px);
+    }
   }
 
   &__label {
@@ -743,6 +980,9 @@
 
     &-title {
       @include font-fsl("content-1", 14px, 130%);
+      @media #{media("<")} {
+        @include fsl(10px);
+      }
     }
 
     &-value {
@@ -754,6 +994,9 @@
     display: grid;
     grid-template-columns: rem(60px) auto;
     column-gap: rem(12px);
+    @media #{media("<")} {
+      display: none;
+    }
 
     &-svg {
       @include rectangle(rem(60px));
@@ -794,6 +1037,9 @@
 
 .form-section {
   padding: rem(180px) calc(#{$column-padding} + #{$column} + #{$column-gap});
+  @media #{media("<")} {
+    padding: rem(20px) rem(20px) rem(48px);
+  }
 
   background-color: color(gray-light);
 
@@ -831,20 +1077,34 @@
     &-item {
       &:not(:first-child) {
         margin-top: rem(80px);
+        @media #{media("<")} {
+          margin-top: rem(32px);
+        }
       }
     }
   }
 
   &__title {
     max-width: calc(#{columns(5)});
+    @media #{media("<")} {
+      max-width: none;
+      text-align: center;
+    }
 
     &-container {
       padding-left: calc(#{columns(2)} + #{$column-gap});
+      @media #{media("<")} {
+        padding-left: 0;
+        padding-top: rem(28px);
+      }
     }
   }
 
   &__article-container {
     padding-left: calc(#{$column} + #{$column-gap});
+    @media #{media("<")} {
+      padding-left: 0;
+    }
   }
 }
 
@@ -855,15 +1115,26 @@
     grid-template-rows: repeat(3, auto);
     column-gap: $column-gap;
     row-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: rem(12px);
+    }
   }
 
   &__item {
     &--row {
       grid-column: 1 / span 2;
+      @media #{media("<")} {
+        grid-column: auto;
+      }
     }
 
     &--right {
       grid-column-start: 2;
+      @media #{media("<")} {
+        grid-column-start: auto;
+      }
     }
   }
 
@@ -871,6 +1142,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media #{media("<")} {
+      display: block;
+    }
   }
 
   &__agreement {
@@ -878,6 +1152,10 @@
 
   &__submit {
     margin-left: $column-gap;
+    @media #{media("<")} {
+      margin-left: 0;
+      margin-top: rem(12px);
+    }
   }
 }
 
@@ -1042,10 +1320,17 @@
   &__block {
     margin: 0 auto;
     width: calc(#{columns(6)});
+    @media #{media("<")} {
+      margin: 0;
+      width: auto;
+    }
   }
 
   &__list {
     margin-top: rem(60px);
+    @media #{media("<")} {
+      margin-top: rem(24px);
+    }
   }
 }
 
@@ -1053,6 +1338,10 @@
   display: grid;
   grid-template-columns: repeat(3, calc(#{rem(190px)}));
   column-gap: rem(60px);
+  @media #{media("<")} {
+    grid-template-columns: 1fr;
+    gap: rem(12px);
+  }
 
   &--large {
     grid-template-columns: repeat(2, calc(#{columns(3)}));
@@ -1060,15 +1349,27 @@
   }
 
   &__item {
+    @media #{media("<")} {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__img {
     @include rectangle(rem(44px));
+    @media #{media("<")} {
+      @include rectangle(rem(36px));
+    }
   }
 
   &__text {
     @include font-fsl("content-1", 16px, 130%);
+    @media #{media("<")} {
+      @include font-fsl("content-1", 12px, 130%);
 
+      margin-top: 0;
+      margin-left: rem(16px);
+    }
     margin-top: rem(16px);
   }
 }
@@ -1140,6 +1441,14 @@
     @include rectangle(rem(205px));
 
     margin: 0 auto;
+    display: block;
+  }
+}
+
+.slider-btn {
+  display: none;
+  @media #{media("<")} {
+    margin: rem(24px) 0 rem(48px);
     display: block;
   }
 }

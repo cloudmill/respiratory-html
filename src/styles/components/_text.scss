@@ -27,6 +27,9 @@
   &--feature {
     &-text {
       @include font-fsl("content-1", 24px, 130%);
+      @media #{media("<")} {
+        @include font-fsl("content-1", 12px, 130%);
+      }
     }
     &-label {
       @include font-fsl("content-1", 20px, 160%);

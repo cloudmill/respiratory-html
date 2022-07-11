@@ -5,6 +5,12 @@
   z-index: 0;
 
   padding: rem(40px) rem(40px) rem(60px) rem(40px);
+  @media #{media("<")} {
+    padding: rem(18px);
+
+    display: flex;
+    align-items: center;
+  }
   height: 100%;
 
   &--horizontal {
@@ -13,6 +19,10 @@
 
   &__img {
     @include rectangle(rem(90px));
+    @media #{media("<")} {
+      @include rectangle(rem(48px));
+      margin-right: rem(8px);
+    }
   }
 
   &__text {
@@ -23,6 +33,9 @@
 
   &__decor {
     @include rectangle(rem(20px));
+    @media #{media("<")} {
+      @include rectangle(rem(12px));
+    }
 
     position: absolute;
 
@@ -32,6 +45,9 @@
     border-bottom: none;
     border-right: none;
     border-radius: rem(10px) 0 0 0;
+    @media #{media("<")} {
+      border-radius: 5px 0 0 0;
+    }
 
     &:nth-child(1) {
       top: 0;

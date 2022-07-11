@@ -1,12 +1,21 @@
 .article {
   @include font-fsl("title-2", 32px, 120%);
+  @media #{media("<")} {
+    @include font-fsl("title-2", 16px, 120%);
+  }
 
   &--large {
     @include font-fsl("title-3", 54px, 100%);
+    @media #{media("<")} {
+      @include font-fsl("title-3", 24px, 100%);
+    }
   }
 
   &--indent {
     text-indent: calc(#{$column} + #{$column-gap});
+    @media #{media("<")} {
+      text-indent: 0;
+    }
   }
 
   &__highlight {

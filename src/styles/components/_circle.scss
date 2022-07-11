@@ -2,7 +2,7 @@
   $component: &;
   $transition: transition(major);
   $size: 64px;
-
+  
   display: flex;
 
   &--blue {
@@ -44,7 +44,9 @@
 
   &__button {
     @include rectangle(rem($size));
-
+    @media #{media("<")} {
+      @include rectangle(rem(36px));
+    }
     position: relative;
     z-index: 0;
 
@@ -117,7 +119,9 @@
 
     &--arrow-left {
       @include rectangle(rem(24px));
-
+      @media #{media("<")} {
+        @include rectangle(rem(13.5px))
+      }
       path,
       line {
         stroke: color(white);

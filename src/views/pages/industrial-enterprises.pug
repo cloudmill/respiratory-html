@@ -53,7 +53,7 @@ block content
     .border
       h2.sub-title
         |Клиентский сервис
-      .info-blocks.sub-section-margin
+      .info-blocks.mid-section-margin
         .info-blocks__item
           .info-block
             .info-block__col
@@ -132,7 +132,7 @@ block content
             .slider-panel__sub-col
               +press.press--info
                 |Перейти в каталог
-    .swiper.examples-slider.sub-section-margin(data-examples-slider-container)
+    .swiper.examples-slider.mid-section-margin(data-examples-slider-container)
       .swiper-wrapper
         a.swiper-slide.examples-slider__slide(href="#")
           .examples-slider__row
@@ -216,6 +216,10 @@ block content
                                 |#{item}
           .control.examples-slider__label
             +arrow-left-svg.control__svg.control__svg--tilt
+    +container 
+      .slider-btn 
+        +press.press--info
+          |Перейти в каталог
   section.form-section
     .form-section__content
       .form-section__content-item

@@ -222,6 +222,39 @@ block content
         .rails
           .rails__train
             .aside
+              +grid(['gallery'])
+                .grid__item
+                  +container(['gallery'])
+                    -
+                      var pagination = [
+                        'assets/images/tile-1.jpg',
+                        'assets/images/tile-2.jpg',
+                        'assets/images/tile-3.jpg',
+                        'assets/images/tile-1.jpg',
+                        'assets/images/tile-2.jpg',
+                      ];
+                    .swiper.gallery(data-swiper-slider='card' data-swiper-slider-pagination=JSON.stringify(pagination))
+                      .swiper-wrapper.gallery__wrapper
+                        each i in repeat(5)
+                          .swiper-slide.gallery__slide
+                            img.gallery__img(src='assets/images/masks-1.jpg' data-swiper-parallax='28%')
+                      .gallery__bullets
+                        .gallery__bullets-list(data-swiper-slider-list)
+                      .gallery__navigation.gallery__prev
+                        .circle.circle--small
+                          button.circle__button(type='button' data-swiper-slider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .gallery__navigation.gallery__next
+                        .circle.circle--small
+                          button.circle__button(type='button' data-swiper-slider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                .grid__item
+                  +container(['gallery'])
+                    img(src='assets/images/masks-2.jpg')
+                .grid__item
+                  +container(['gallery'])
+                    img(src='assets/images/masks-3.jpg')
+              
 
   +space(['mid-block'])
   +card-panel

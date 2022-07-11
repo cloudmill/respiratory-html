@@ -1,6 +1,33 @@
 .grid {
   $component: &;
 
+  &--gallery {
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(#{columns(4)} * 4.9406564584124654e-324 / 4.9406564584124654e-324) calc(#{columns(2)});
+    grid-template-rows: repeat(2, calc((100% - #{$column-gap}) / 2));
+    column-gap: $column-gap;
+    row-gap: $column-gap;
+
+    > {
+      #{$component} {
+        &__item {
+          &:nth-child(1) {
+            @include grid-area(1, 1, 1, 2);
+          }
+
+          &:nth-child(2) {
+            @include grid-area(2, 1, 1, 1);
+          }
+
+          &:nth-child(3) {
+            @include grid-area(2, 2, 1, 1);
+          }
+        }
+      }
+    }
+  }
+
   &--card-panel {
     display: grid;
     grid-template-columns: repeat(2, calc(#{columns(3)})) calc(#{columns(6)});

@@ -58,4 +58,20 @@
       }
     }
   }
+
+  &--gallery {
+    height: 100%;
+    overflow: hidden;
+
+    border-radius: rem(16px);
+
+    > {
+      img {
+        @include rectangle(100%);
+
+        display: block;
+        object-fit: cover;
+      }
+    }
+  }
 }

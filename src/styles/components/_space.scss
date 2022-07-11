@@ -1,0 +1,62 @@
+.space {
+  $component: &;
+
+  $properties: (
+    pt: padding-top,
+    pb: padding-bottom,
+    mt: margin-top,
+    mb: margin-bottom,
+  );
+  $anywhere: (4, 8, 9, 10, 16, 27, 32, 36, 40, 54, 60, 64, 96, 145, 180);
+
+  @mixin space($property: margin-top) {
+    @each $value in $anywhere {
+      &--#{$value} {
+        #{$property}: rem(1px * $value);
+      }
+    }
+
+    &--sub-hr {
+      #{$property}: rem(12px);
+    }
+    &--hr {
+      #{$property}: rem(16px);
+    }
+    &--sub-block {
+      #{$property}: rem(40px);
+    }
+    &--mid-block {
+      #{$property}: rem(60px);
+    }
+    &--block {
+      #{$property}: rem(80px);
+    }
+    &--sub-section {
+      #{$property}: rem(100px);
+    }
+    &--mid-section {
+      #{$property}: rem(120px);
+    }
+    &--l-section {
+      #{$property}: rem(160px);
+    }
+    &--header {
+      #{$property}: rem(169px);
+    }
+    &--section {
+      #{$property}: rem(180px);
+    }
+
+    &--gap {
+      #{$property}: $column-gap;
+    }
+  }
+
+  @each $mod, $property in $properties {
+    &--#{$mod} {
+      &#{$component} {
+        @include space($property)
+      }
+    }
+  }
+}

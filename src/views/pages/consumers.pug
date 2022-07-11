@@ -1,0 +1,301 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'Потребителям';
+
+block preloader
+block grid-test
+block js-test
+
+block content
+  +space(['header'], ['pt'])
+  +space(['sub-block'])
+  +container
+    +breadcrumbs(['Главная', 'Потребителям'])
+    +space(['sub-block'])
+    +heading(['main'], 1)
+      |Потребителям
+    +space(['block'])
+    +grid(['qqbkwf'])
+      .grid__item
+        .article.article--indent
+          |Мы&nbsp;работаем для того, 
+          span.article__highlight
+            |чтобы люди
+          |, сталкиваясь с&nbsp;загрязненным воздухом на&nbsp;работе, в&nbsp;быту и&nbsp;в&nbsp;чрезвычайных ситуациях, 
+          span.article__highlight
+            |сохранили свое здоровье
+  +space(['block'])
+  .isolation
+    section.info
+      +container
+        h2.info__top
+          .info__title
+            |Используйте респиратор
+          .info__row
+            .info__col
+              .info__title
+                |для защиты
+            .info__col
+              .info__avatar
+                img.info__img(src="assets/images/avatar.jpg")
+          .info__title
+            |органов дыхания
+        .info__bottom
+          .info__article
+            |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
+          +press.press--info.info__button-link
+            |Информация для потребителей
+  +space(['section'])
+  +container
+    +grid(['centered-4'])
+      .grid__item
+        +heading(['page', 'blue'])
+          |25+ лет
+        +text(['kyu', 3])
+          |продукция Респираторного комплекса с успехом применяется
+    +space(['block'])
+    +grid([3])
+      -
+        var items = [
+          {
+            src: getImageSrc('items-1.svg'),
+            text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+          },
+          {
+            src: getImageSrc('items-2.svg'),
+            text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+          },
+          {
+            src: getImageSrc('items-3.svg'),
+            text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+          },
+        ];
+      each item in items
+        .grid__item
+          +feature(item)
+  +space(['section'])
+  +why-2
+  +space(['section'])
+  +slider
+  +space(['section'])
+  .section-margin(data-examples-slider-component)
+    +container
+      .border
+        .slider-panel
+          .slider-panel__col
+            h2.sub-title
+              |Наиболее востребованные модели продукции
+          .slider-panel__col
+            .slider-panel__sub-col
+              .controls.slider-panel__controls
+                .controls__item
+                  .circle
+                    button.circle__button.js-slider-prev(type="button" data-examples-slider-prev)
+                      +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                .controls__item
+                  .circle
+                    button.circle__button.js-slider-next(type="button" data-examples-slider-next)
+                      +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+            .slider-panel__sub-col
+              +press.press--info
+                |Перейти в каталог
+    .swiper.examples-slider.sub-section-margin(data-examples-slider-container)
+      .swiper-wrapper
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9010
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example-2.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9011
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt
+  +space(['section'])
+  +container
+    .border
+      +grid(['space-between'])
+        .grid__item
+          +heading(['sub'], 2)
+            |Где купить в розницу
+        .grid__item
+          +press.press--info
+            |полный список
+      +space(['sub-section'])
+      +grid([6])
+        -
+          var markets = [
+            {
+              filename: 'company-0.jpeg',
+              text: 'Интернет-магазин OZON',
+            },
+            {
+              filename: 'company-1.jpeg',
+              text: 'Интернет-магазин WILDBERRIES',
+            },
+            {
+              filename: 'company-2.jpeg',
+              text: 'Торговая сеть «Максидом»',
+            },
+            {
+              filename: 'company-3.jpeg',
+              text: 'Торговая сеть «Леруа Мерлен»',
+            },
+            {
+              filename: 'company-4.jpeg',
+              text: 'Сеть магазинов «Строитель»',
+            },
+            {
+              filename: 'company-5.jpeg',
+              text: 'Торговый дом «Вимос»',
+            },
+          ]
+        each market in markets
+          .grid__item
+            +market({ src: getImageSrc(market.filename), text: market.text })
+  +space(['section'])
+  section.form-section
+    .form-section__content
+      .form-section__content-item
+        .form-section__title-container
+          h2.sub-title.form-section__title
+            |связаться с нами
+      .form-section__content-item
+        .form-section__article-container
+          .article.article--large.article--indent
+            span.article__highlight
+              |Сделать запрос
+            |#{" "}на коммерческое предложение
+      +space(['block'])
+      +grid(['centered-6'])
+        .grid__item
+          +text(['ezx', 5])
+            |Если вы хотите убедиться в оригинальности приобретенной продукции или сообщить о недостатках изделий, воспользуйтесь формой обратной связи, прикрепив фото:
+          +space([60])
+          .funds__list
+            ul.funds-list
+              each i in repeat(3)
+                .funds-list__item
+                  img.funds-list__img(src='assets/images/fund.svg')
+                  .funds-list__text
+                    |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
+      .form-section__content-item
+        form.section-form
+          .section-form__grid
+            .section-form__item
+              .form-field.form-field--error
+                input.form-field__input(placeholder='Имя')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Название компании')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Телефон')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='E-mail')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--row
+              .form-field.form-field--textarea.form-field--error
+                textarea.form-field__input(placeholder='Сообщение')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--right.section-form__bottom
+              .section-form__agrement
+                .simple-checkbox.simple-checkbox--error
+                  label.simple-checkbox__label
+                    input.simple-checkbox__input(name='agreement' type='checkbox')
+                    .simple-checkbox__box
+                      +check-svg.simple-checkbox__svg
+                    .simple-checkbox__content
+                      |Даю согласие на обработку 
+                      a.simple-checkbox__link(href="#")
+                        |персональных данных
+                    .simple-checkbox__error
+                      |Допустимы только буквы
+              .section-form__submit
+                +press.press--info
+                  |Отправить
+
+  

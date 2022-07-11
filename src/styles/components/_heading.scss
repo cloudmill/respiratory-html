@@ -1,0 +1,48 @@
+.heading {
+  &--calture {
+    @include font-fsl("title-2", 20px, 130%);
+  }
+  &--where {
+    @include font-fsl("title-2", 24px, 100%);
+  }
+  &--small-sub {
+    @include font-fsl("title-2", 13px, 100%);
+  }
+  &--sub {
+    @include font-fsl("title-2", 18px, 120%);
+  }
+  &--feature {
+    @include font-fsl("title-2", 24px, 120%);
+  }
+  &--large {
+    @include font-fsl("title-3", 54px, 100%);
+  }
+  &--main {
+    @include font-fsl("title-3", 72px, 100%);
+  }
+  &--page {
+    @include font-fsl("title-3", 130px, 100%);
+  }
+  &--404 {
+    @include font-fsl("title-3", 200px, 100%);
+  }
+  &--card-value-title {
+    @include font-fsl("content-1", 14px, 130%);
+  }
+  &--guard {
+    @include font-fsl("title-2", 32px, 100%);
+  }
+  &--card-new {
+    @include font-fsl('title-2', 20px, 130%);
+  }
+
+  &--pre-line {
+    white-space: pre-line;
+  }
+  &--center {
+    text-align: center;
+  }
+  &--blue {
+    color: color(blue);
+  }
+}

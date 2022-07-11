@@ -13,7 +13,16 @@ import * as slider from "./scripts/slider";
 import * as series from "./scripts/series";
 import * as test from "./scripts/test";
 import * as header from "./scripts/header";
+import * as tab from "./scripts/tab";
+import * as select from "./scripts/select";
+import * as swiperSlider from "./scripts/swiperSlider";
+import * as rails from "./scripts/rails";
+import * as aside from "./scripts/aside";
+import * as gallery from "./scripts/gallery";
+
 import { examplesSlider } from "./scripts/examplesSlider";
+
+import "./scripts/backend";
 
 AOS.init();
 
@@ -28,6 +37,12 @@ addEventListener("DOMContentLoaded", () => {
   test.start();
   header.start();
   examplesSlider();
+  tab.start();
+  select.start();
+  swiperSlider.start();
+  rails.start();
+  aside.start();
+  gallery.start();
 });
 
 addEventListener("load", async () => {

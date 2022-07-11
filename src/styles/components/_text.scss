@@ -1,0 +1,102 @@
+.text {
+  &--qpv {
+    @include font-fsl("content-1", 16px, 130%);
+  }
+  &--lhc {
+    @include font-fsl("content-1", 20px, 160%);
+  }
+  &--qsc {
+    @include font-fsl("content-1", 20px, 130%);
+  }
+  &--ezx {
+    @include font-fsl("content-1", 24px, 130%);
+  }
+  &--kyu {
+    @include font-fsl("title-2", 18px, 120%);
+  }
+  &--zay {
+    @include font-fsl("title-2", 60px, 110%);
+  }
+  &--vbx {
+    @include font-fsl("title-2", 60px, 110%);
+  }
+  &--gwv {
+    @include font-fsl("title-2", 32px, 120%);
+  }
+
+  &--feature {
+    &-text {
+      @include font-fsl("content-1", 24px, 130%);
+    }
+    &-label {
+      @include font-fsl("content-1", 20px, 160%);
+    }
+    &-desc {
+      @include font-fsl("content-1", 16px, 130%);
+    }
+  }
+  &--desc {
+    @include font-fsl("content-1", 16px, 130%);
+
+    color: color(gray-dark);
+  }
+  &--address {
+    @include font-fsl("title-2", 32px, 120%);
+  }
+  &--404-desc {
+    @include font-fsl("title-2", 32px, 120%);
+
+    color: color(gray-dark);
+  }
+  &--card {
+    @include font-fsl('content-1', 16px, 160%);
+
+    &-info {
+      &-title {
+        @include font-fsl('content-1', 14px, 130%);
+      }
+
+      &-value {
+        @include font-fsl('title-2', 16px, 100%);
+      }
+    }
+  }
+  &--card-value-text {
+    @include font-fsl("title-2", 16px, 100%);
+  }
+  &--guard {
+    @include font-fsl("content-1", 12px, 130%);
+  }
+  &--day {
+    @include font-fsl('title-2', 40px, 100%);
+  }
+  &--month {
+    @include font-fsl('title-2', 16px, 100%);
+  }
+
+  &--blue {
+    color: color(blue);
+  }
+  &--gray-dark {
+    color: color(gray-dark);
+  }
+  &--pre-line {
+    white-space: pre-line;
+  }
+  &--right {
+    text-align: right;
+  }
+  &--center {
+    text-align: center;
+  }
+
+  &--3 {
+    width: calc(#{columns(3)});
+  }
+  &--4 {
+    width: calc(#{columns(4)});
+  }
+  &--5 {
+    width: calc(#{columns(5)});
+  }
+}

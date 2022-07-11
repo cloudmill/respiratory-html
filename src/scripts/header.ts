@@ -4,9 +4,10 @@ import throttle from "lodash.throttle";
 
 const start = () => {
   const header = document.querySelector<HTMLElement>(".header");
-  const dropAll = header?.querySelectorAll<HTMLElement>(".drop");
 
-  if (header?.classList.contains('header--transparent')) {
+  if (header?.classList.contains("header--transparent")) {
+    const dropAll = header?.querySelectorAll<HTMLElement>(".drop");
+
     const handleScroll = () => {
       if (scrollY > 5) {
         header?.classList.remove("header--transparent");
@@ -16,13 +17,11 @@ const start = () => {
         dropAll?.forEach((drop) => drop.classList.add("drop--yellow"));
       }
     };
-  
+
     const throttledHandleScroll = throttle(handleScroll, 100);
-  
+
     addEventListener("scroll", throttledHandleScroll);
   }
-
-  
 };
 
 export { start };

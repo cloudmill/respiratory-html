@@ -4,30 +4,31 @@ block definitions
   -
     app.title = 'Медицинским учреждениям';
 
-//- block header
+block header
+  +header({ mods: ['transparent'] })
 //- block footer
 
 block preloader
 
 block grid-test
 
-block test
+block js-test
 
 block content
   +first('assets/images/medical-institutions.jpeg')
     .top-bottom
       .top-bottom__item
-        .container
-          +breadcrumbs(['Главная', 'Медицинским учреждениям'])
+        +container
+          +breadcrumbs(['Главная', 'Медицинским учреждениям'], ['transparent'])
       .top-bottom__item
-        .container
+        +container
           h1.super-title
             |Медицинским учреждениям
   .second-wrapper
     +second-4
   +why-4
   +space([145])
-  .container
+  +container
     .peculiarity
       .peculiarity__place
         img.peculiarity__img(src='assets/images/peculiarity.jpeg')
@@ -56,8 +57,124 @@ block content
           ];
         +list(items)
   +space([145])
+  .similar(data-examples-slider-component)
+    +container
+      +heading(['large'], 2)
+        |Медицинские респираторы
+      +space([40])
+      +grid(['centered'])
+        .grid__item
+          .wrap-list.wrap-list--large
+            ul.wrap-list__list
+              -
+                var items = [
+                  'АЛИНА®',
+                  'нева®',
+                  'GAGARA®',
+                ];
+              each item, index in items
+                li.wrap-list__item
+                  +tab(['large', index === 0 && 'active'])= item
+        .grid__item
+          +press({ icon: ['press/li-blue.svg', 'press/li-black.svg', 'left'] }).press--li
+            |О серии
+        .grid__item
+          .controls
+            .controls__item
+              .circle
+                button.circle__button(type="button" data-examples-slider-prev)
+                  +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .controls__item
+              .circle
+                button.circle__button(type="button" data-examples-slider-next)
+                  +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+    +space([40])
+    .swiper.examples-slider(data-examples-slider-container)
+      .swiper-wrapper
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9010
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt
+        a.swiper-slide.examples-slider__slide(href="#")
+          .examples-slider__row
+            .examples-slider__image
+              +picture('example-2.jpeg').examples-slider__picture
+            .examples-slider__content
+              .examples-slider__content-item
+                h3.examples-slider__title
+                  |RK 9011
+              .examples-slider__content-item
+                .examples-slider__table
+                  .examples-slider__table-row
+                    h4.examples-slider__table-title
+                      |Класс защиты
+                    h4.examples-slider__table-title
+                      |Клапан выдоха
+                  .examples-slider__table-row
+                    p.examples-slider__table-value
+                      |FFP1 R D
+                    p.examples-slider__table-value
+                      |Нет
+              .examples-slider__content-item
+                .examples-slider__feature
+                  +feature-4-svg.examples-slider__feature-svg
+                  .examples-slider__feature-content
+                    h4.examples-slider__feature-title
+                      |Защита от всех видов аэрозолей
+                    .wrap-list.examples-slider__feature-value
+                      .wrap-list__list
+                        -
+                          var items = [
+                            'Пыль',
+                            'Дым',
+                            'Туман',
+                          ]
+                        each item in items
+                          .wrap-list__item
+                            .tag
+                              .tag__tag
+                                |#{item}
+          .control.examples-slider__label
+            +arrow-left-svg.control__svg.control__svg--tilt
   +space(['section'])
-  .container
+  +container
     +hr
     +space(['hr'])
     +grid([2])
@@ -73,7 +190,7 @@ block content
     +grid([4])
       each i in repeat(4)
         .grid__item
-          +doc
+          +doc({ text: 'Методические рекомендации «Повышение эффективности индивидуальной защиты органов дыхания»', label: '235 КБ' })
   +space(['section'])
   section.form-section
     .form-section__content

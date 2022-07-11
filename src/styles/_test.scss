@@ -1,3 +1,8 @@
+.qweewq {
+  position: sticky;
+  top: 0;
+}
+
 .first {
   position: relative;
   z-index: 0;
@@ -29,50 +34,6 @@
   }
 }
 
-.breadcrumbs {
-  --gap: #{rem(8px)};
-
-  margin-top: calc(-1 * var(--gap));
-  margin-left: calc(-1 * var(--gap));
-  display: flex;
-  flex-wrap: wrap;
-
-  &__item {
-    margin-top: var(--gap);
-    margin-left: var(--gap);
-  }
-}
-
-.breadcrumb {
-  $component: &;
-
-  @include font-fsl("title-2", 13px, 100%);
-
-  padding: 0 rem(12px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: rem(29px);
-
-  border: 1px solid color(border);
-  border-radius: rem(4px);
-  color: color(white);
-  white-space: nowrap;
-
-  &--active {
-    background-color: color(black);
-    border-color: color(black);
-  }
-
-  &:not(#{$component}--active) {
-    cursor: pointer;
-  }
-}
-
-.breadcrumb-wrapper {
-  display: flex;
-}
-
 .super-title {
   @include font-fsl("title-3", 130px, 100%);
 
@@ -96,6 +57,10 @@
   overflow: hidden;
 
   border-radius: 0 rem(120px) 0 0;
+
+  &--azn {
+    padding-bottom: 0;
+  }
 
   // grid
 
@@ -485,88 +450,8 @@
   }
 }
 
-.stack {
-  $component: &;
-
-  &--small {
-    #{$component} {
-      &__item {
-        &:not(:first-child) {
-          margin-top: rem(24px);
-        }
-      }
-    }
-  }
-
-  &__item {
-    &:not(:first-child) {
-      margin-top: rem(40px);
-    }
-  }
-}
-
 .pre-line {
   white-space: pre-line;
-}
-
-.items {
-  $component: &;
-
-  display: grid;
-  grid-template-columns: repeat(3, calc(#{columns(4)}));
-  column-gap: $column-gap;
-
-  &__item {
-    position: relative;
-    z-index: 0;
-
-    padding: rem(40px) rem(40px) rem(60px) rem(40px);
-  }
-
-  &__img {
-    @include rectangle(rem(90px));
-  }
-
-  &__text {
-    @include font-fsl("content-1", 24px, 130%);
-
-    margin-top: rem(40px);
-  }
-
-  &__decor {
-    @include rectangle(rem(20px));
-
-    position: absolute;
-
-    pointer-events: none;
-
-    border: 2px solid color(black);
-    border-bottom: none;
-    border-right: none;
-    border-radius: rem(10px) 0 0 0;
-
-    &:nth-child(1) {
-      top: 0;
-      left: 0;
-    }
-
-    &:nth-child(2) {
-      top: 0;
-      right: 0;
-      transform: rotate(90deg);
-    }
-
-    &:nth-child(3) {
-      bottom: 0;
-      right: 0;
-      transform: rotate(180deg);
-    }
-
-    &:nth-child(2),
-    &:nth-child(3) {
-      border-color: color(gray);
-    }
-  }
 }
 
 .oalchv {
@@ -631,22 +516,6 @@
       border-right: none;
       border-radius: rem(10px) 0 0 0;
     }
-  }
-}
-
-.article {
-  @include font-fsl("title-2", 32px, 120%);
-
-  &--large {
-    @include font-fsl("title-3", 54px, 100%);
-  }
-
-  &--indent {
-    text-indent: calc(#{$column} + #{$column-gap});
-  }
-
-  &__highlight {
-    color: color(blue);
   }
 }
 
@@ -903,22 +772,6 @@
 
     &-list {
     }
-  }
-}
-
-.wrap-list {
-  --gap: #{rem(4px)};
-
-  &__list {
-    margin-top: calc(-1 * var(--gap));
-    margin-left: calc(-1 * var(--gap));
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__item {
-    margin-top: var(--gap);
-    margin-left: var(--gap);
   }
 }
 
@@ -1282,157 +1135,11 @@
   }
 }
 
-.space {
-  $spaces: (16, 40, 54, 145, 180);
+.page404 {
+  &-img {
+    @include rectangle(rem(205px));
 
-  @each $space in $spaces {
-    &--#{$space} {
-      margin-top: rem($space * 1px);
-    }
-  }
-
-  &--section {
-    margin-top: rem(180px);
-  }
-
-  &--hr {
-    margin-top: rem(16px);
-  }
-
-  &--block {
-    margin-top: rem(80px);
-  }
-
-  &--gap {
-    margin-top: $column-gap;
-  }
-}
-
-.hr {
-  &--d {
-    height: 1px;
-
-    background-color: color(gray);
-  }
-}
-
-.grid {
-  $component: &;
-
-  &--2 {
-    display: grid;
-    grid-template-columns: repeat(2, calc(#{columns(6)}));
-    column-gap: $column-gap;
-
-    #{$component} {
-      &__item {
-      }
-    }
-  }
-
-  &--4 {
-    display: grid;
-    grid-template-columns: repeat(4, calc(#{columns(3)}));
-    column-gap: $column-gap;
-    row-gap: $column-gap;
-
-    #{$component} {
-      &__item {
-      }
-    }
-  }
-}
-
-.doc {
-  $component: &;
-  $front: 3;
-  $radius: 8px;
-  $transition: transition(major);
-
-  --svg-color: #{color(blue)};
-  --label-color: #{color(gray-dark)};
-
-  position: relative;
-  z-index: 0;
-
-  padding: rem(20px);
-  padding-right: rem(70px);
-  height: 100%;
-  min-height: rem(215px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-
-  background-color: color(white);
-  border-radius: rem($radius);
-
-  &::before,
-  &::after {
-    @include inset;
-
-    position: absolute;
-
-    content: "";
-    pointer-events: none;
-
-    border-radius: rem($radius);
-  }
-
-  &::before {
-    z-index: 1;
-
-    border: 1px solid color(gray);
-  }
-
-  &::after {
-    z-index: 2;
-
-    clip-path: inset(100% 0 0 0);
-
-    background-color: color(yellow);
-    transition: clip-path $transition;
-  }
-
-  &:hover {
-    --svg-color: #{color(black)};
-    --label-color: #{color(black)};
-
-    &::after {
-      clip-path: inset(0 0 0 0);
-    }
-  }
-
-  &__svg {
-    $gap: 20px;
-
-    @include rectangle(rem(30px), rem(37px));
-
-    position: absolute;
-    z-index: $front;
-    bottom: rem($gap);
-    right: rem($gap);
-
-    pointer-events: none;
-
-    > {
-      path {
-        fill: var(--svg-color);
-        transition: fill $transition;
-      }
-    }
-  }
-
-  &__text {
-    @include font-fsl("content-3", 16px, 130%);
-
-    position: relative;
-    z-index: $front;
-
-    transition: color $transition;
-  }
-
-  &__label {
-    color: var(--label-color);
+    margin: 0 auto;
+    display: block;
   }
 }

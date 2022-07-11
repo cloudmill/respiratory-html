@@ -1,0 +1,8 @@
+//- 
+  mods1
+    'section', 'block'...
+  mods2
+    'pt', 'mt', 'mb'...
+
+mixin space(mods1 = [], mods2 = ['mt'])
+  .space(class=getClassesFromMods('space', mods1.concat(mods2)))

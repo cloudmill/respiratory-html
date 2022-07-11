@@ -4,33 +4,52 @@ block definitions
   -
     app.title = 'Промышленным предприятиям';
 
-//- block header
+block header
+  +header({ mods: ['transparent'] })
 //- block footer
 
 block preloader
 
 block grid-test
 
-block test
+block js-test
 
 block content
   +first('assets/images/industrial-enterprises.jpeg')
     .top-bottom
       .top-bottom__item
-        .container
-          +breadcrumbs(['Главная', 'Промышленным предприятиям'])
+        +container
+          +breadcrumbs(['Главная', 'Промышленным предприятиям'], ['transparent'])
       .top-bottom__item
-        .container
+        +container
           h1.super-title
             |Промышленным предприятиям
   .second-wrapper
     +second-2
-  .container
-    +items
+  +container
+    +grid([3])
+      -
+        var items = [
+          {
+            src: getImageSrc('items-1.svg'),
+            text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+          },
+          {
+            src: getImageSrc('items-2.svg'),
+            text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+          },
+          {
+            src: getImageSrc('items-3.svg'),
+            text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+          },
+        ];
+      each item in items
+        .grid__item
+          +feature(item)
   .isolation
     .gap.gap--section
       +why-2
-  .container.section-margin
+  +container.section-margin
     .border
       h2.sub-title
         |Клиентский сервис
@@ -57,7 +76,7 @@ block content
             .info-block__col
               .info-block__text
                 |Измерять соответствие используемых СИЗОД реальным рабочим условиям – способ актуализировать уровень защиты, оптимизировать затраты и повысить лояльность персонала, который видит заботу и контроль.
-  .container.section-margin
+  +container.section-margin
     .border
       h2.sub-title
         |Информационные материалы
@@ -93,7 +112,7 @@ block content
             p.information-card__size
               |235 КБ
   .section-margin(data-examples-slider-component)
-    .container
+    +container
       .border
         .slider-panel
           .slider-panel__col

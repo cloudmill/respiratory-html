@@ -1,0 +1,129 @@
+.social {
+  $component: &;
+  $transition: transition(major);
+
+  @mixin radius-crop {
+    overflow: hidden;
+
+    border-radius: 50%;
+  }
+
+  @include radius-crop;
+
+  position: relative;
+  z-index: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after {
+    @include inset;
+    @include radius-crop;
+
+    position: absolute;
+
+    content: '';
+  }
+  &::before {
+    z-index: 1;
+  }
+  &::after {
+    z-index: 2;
+    transform: scale(0);
+
+    transition: transform $transition;
+  }
+
+  &:hover {
+    &::after {
+      transform: scale(1);
+    }
+
+    &#{$component} {
+      &--fb {
+        #{$component} {
+          &__svg {
+            path {
+              fill: color(black);
+            }
+          }
+        }
+      }
+
+      &--yt {
+        #{$component} {
+          &__svg {
+            path {
+              fill: color(black);
+            }
+          }
+        }
+      }
+
+      &--vk {
+        #{$component} {
+          &__svg {
+            path {
+              fill: color(black);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--default {
+    @include rectangle(rem(72px));
+
+    &::before {
+      background-color: color(white);
+      border: 1px solid color(gray);
+    }
+    &::after {
+      background-color: color(yellow);
+    }
+  }
+
+  &--fb {
+    #{$component} {
+      &__svg {
+        @include rectangle(rem(14px), rem(27px));
+
+        path {
+          transition: fill $transition;
+        }
+      }
+    }
+  }
+
+  &--yt {
+    #{$component} {
+      &__svg {
+        @include rectangle(rem(30px), rem(20px));
+
+        path {
+          transition: fill $transition;
+        }
+      }
+    }
+  }
+
+  &--vk {
+    #{$component} {
+      &__svg {
+        @include rectangle(rem(30px), rem(18px));
+
+        path {
+          transition: fill $transition;
+        }
+      }
+    }
+  }
+
+  &__svg {
+    position: relative;
+    z-index: 3;
+  }
+}

@@ -1,0 +1,135 @@
+.breadcrumb {
+  $component: &;
+  $transition: transition(major);
+
+  --radius: #{rem(4px)};
+
+  @mixin radius-crop {
+    overflow: hidden;
+
+    border-radius: var(--radius);
+  }
+
+  &--default {
+    &#{$component}--active {
+      #{$component} {
+        &__button {
+          &::before {
+            background-color: color(white);
+            border: 1px solid color(gray);
+          }
+          &::after {
+            background-color: color(yellow);
+          }
+
+          &:hover {
+            &::after {
+              clip-path: inset(0 0 0 0);
+            }
+          }
+        }
+      }
+    }
+
+    &#{$component}--inactive {
+      #{$component} {
+        &__button {
+          &::before {
+            background-color: color(gray);
+          }
+        }
+      }
+    }
+  }
+
+  &--transparent {
+    &#{$component}--active {
+      #{$component} {
+        &__button {
+          &::before {
+            border: 1px solid color(border);
+          }
+          &::after {
+            background-color: color(yellow);
+          }
+
+          &:hover {
+            &::after {
+              clip-path: inset(0 0 0 0);
+            }
+
+            #{$component} {
+              &__text {
+                color: color(black);
+              }
+            }
+          }
+        }
+
+        &__text {
+          color: color(white);
+        }
+      }
+    }
+
+    &#{$component}--inactive {
+      #{$component} {
+        &__button {
+          &::before {
+            background-color: color(black);
+          }
+        }
+
+        &__text {
+          color: color(white);
+        }
+      }
+    }
+  }
+
+  &__button {
+    @include radius-crop;
+
+    position: relative;
+    z-index: 0;
+
+    padding: 0 rem(12px);
+    height: rem(29px);
+    display: flex;
+    align-items: center;
+
+    &::before,
+    &::after {
+      @include radius-crop;
+      @include inset;
+
+      position: absolute;
+
+      content: "";
+    }
+    &::before {
+      z-index: 1;
+    }
+    &::after {
+      z-index: 2;
+
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path $transition;
+    }
+
+    &:hover {
+      &::after {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+  }
+
+  &__text {
+    @include font-fsl("title-2", 13px, 100%);
+
+    z-index: 3;
+
+    white-space: nowrap;
+    transition: color $transition;
+  }
+}

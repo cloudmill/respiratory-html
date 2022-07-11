@@ -1,0 +1,80 @@
+.card-new {
+  $component: &;
+  $transition: transition(major);
+
+  &:hover {
+    #{$component} {
+      &__img {
+        transform: scale(1.15);
+      }
+      &__mark {
+        &::before {
+          transform: scale(1);
+        }
+      }
+      &__svg {
+        path,
+        line {
+          stroke: color(black);
+        }
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 0;
+
+    height: rem(398px);
+    overflow: hidden;
+
+    border-radius: 0 0 rem(40px) 0;
+  }
+  &__img {
+    @include rectangle(100%);
+
+    object-fit: cover;
+
+    transition: transform $transition;
+  }
+  &__mark {
+    @include rectangle(rem(44px));
+
+    position: absolute;
+    z-index: 0;
+    bottom: $column-gap;
+    right: $column-gap;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: color(blue);
+    border-radius: 50%;
+
+    &::before {
+      @include inset;
+
+      position: absolute;
+      z-index: 1;
+      transform: scale(0);
+
+      content: '';
+
+      background-color: color(yellow);
+      border-radius: 50%;
+      transition: transform $transition;
+    }
+  }
+  &__svg {
+    @include rectangle(rem(17px));
+
+    position: relative;
+    z-index: 2;
+    
+    path,
+    line {
+      transition: stroke $transition;
+    }
+  }
+}

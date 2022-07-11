@@ -1,0 +1,154 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'О компании';
+
+block header
+  +header({ mods: ['transparent'] })
+
+block preloader
+block grid-test
+block js-test
+
+block content
+  +first('assets/images/about.jpeg')
+    .top-bottom
+      .top-bottom__item
+        +container
+          +breadcrumbs(['Главная', 'О компании'], ['transparent'])
+      .top-bottom__item
+        +container
+          h1.super-title
+            |О компании
+  .second-wrapper
+    +second-6
+  +space(['hr'])
+  +hr
+  +space(['hr'])
+  +container
+    +grid([2])
+      .grid__item
+      .grid__item
+        +article(['indent'])
+          |Развивая рынок качественной продукции, мы&nbsp;способствуем 
+          span.article__highlight
+            |сохранению здоровья человека 
+          |в&nbsp;условиях загрязненной рабочей среды
+        +space([32])
+        +text([4, 'qsc'])
+          |Наши основные усилия направлены на&nbsp;повышение уровня комфорта и&nbsp;безопасности при работе в&nbsp;респираторе
+  +space(['section'])
+  +why-6
+  +space(['section'])
+  +container
+    +grid([2, 'last-bottom'])
+      .grid__item
+        +heading(['large'], 2)
+          |Внедряем культуру профессионального использования СИЗОД
+      .grid__item
+        +grid(['controls'])
+          .grid__item
+            .circle
+              button.circle__button(type="button")
+                +arrow-left-svg.circle__svg.circle__svg--arrow-left
+          .grid__item
+            .circle
+              button.circle__button(type="button")
+                +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+    +space(['sub-section'])
+    .swiper.swiper-slider(data-swiper-slider=0)
+      .swiper-wrapper
+        each i, index in repeat(6)
+          .swiper-slide
+            -
+              var calture = {
+                title: 'АО «Оскольский электрометаллургический комбинат»',
+                items: [
+                  'Поставка продукции',
+                  'Обучение службы охраны труда',
+                  'Обучение персонала',
+                ],
+              };
+            +calture(calture)
+    +space(['section'])
+    +hr
+    +space(['hr'])
+    +heading(['sub', 'pre-line'], 2)
+      |Наше производство
+    +space([96])
+    +grid([3])
+      -
+        var ours = [
+          {
+            title: '7000 м²',
+            text: 'Производственно-складской комплекс',
+          },
+          {
+            title: '2',
+            text: 'Собственные испытательные лаборатории',
+          },
+          {
+            title: '500+',
+            text: 'Сотрудников компании',
+          },
+        ];
+      each our in ours
+        .grid__item
+          +our(our)
+    +space(['section'])
+    +container(['about-article'])
+      +article(['indent', 'large'])
+        |Респираторный комплекс включен в&nbsp;перечень 
+        span.article__highlight
+          |системообразующих предприятий России
+    +space(['sub-section'])
+    +hr
+    +space(['hr'])
+    +grid([2])
+      .grid__item
+        +heading(['sub', 'pre-line'], 2)
+          |Участие в некоммерческих
+          br
+          |объединениях
+      .grid__item
+        +grid(['about-markets', 'row-gap'])
+              -
+                var markets = [
+                  {
+                    filename: 'about/1.jpeg',
+                  },
+                  {
+                    filename: 'about/2.jpeg',
+                  },
+                  {
+                    filename: 'about/3.jpeg',
+                  },
+                  {
+                    filename: 'about/4.jpeg',
+                  },
+                  {
+                    filename: 'about/5.jpeg',
+                  },
+                ]
+              each market in markets
+                .grid__item
+                  +market({ src: getImageSrc(market.filename) })
+    +space(['sub-section'])
+    +hr
+    +space(['hr'])
+    +grid([2])
+      .grid__item
+        +heading(['sub', 'pre-line'], 2)
+          |Участие в национальном проекте
+      .grid__item
+        +text(['lhc', 4])
+          |Респираторный комплекс является участником национального проекта “Производительность труда и поддержка занятости”
+        +space(['gap'])
+        -
+          var market = {
+            src: getImageSrc('about/6.jpeg'),
+            mods: [2, 'auto'],
+          };
+        +market(market)
+  +space(['section'])

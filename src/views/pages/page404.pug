@@ -1,0 +1,31 @@
+extends ../app
+
+block definitions
+  -
+    app.title = '404';
+
+block preloader
+block grid-test
+block js-test
+
+block content
+  +space(['header'], ['pt'])
+  +space(['l-section'])
+  
+  +container
+    img.page404-img(src='assets/images/404.svg')
+    +space(['gap'])
+    +heading(['404', 'center'], 1)
+      |404
+    +text(['center', '404-desc'])
+      |Страница не найдена
+    +space(['sub-block'])
+    +grid(['404-nav'])
+      .grid__item
+        +press.press--white
+          |Главная
+      .grid__item
+        +press.press--white
+          |продукция
+
+  +space(['section'])

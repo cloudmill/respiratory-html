@@ -1,0 +1,12 @@
+mixin select(props = {})
+  .select(data-select-component)
+    .select__mask(data-select-mask)
+      .select__panel(data-select-panel)
+        .select__text(data-select-text)
+          |!{props.placeholder}
+        .select__icon
+          +arrow-drop-svg.select__svg
+      .select__drop
+        each item in props.items
+          .select__value(data-select-value=item.value)
+            |!{item.text}

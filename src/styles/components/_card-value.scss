@@ -1,0 +1,16 @@
+.card-value {
+  position: relative;
+  z-index: 0;
+
+  padding: rem(18px) rem(22px) rem(19px) rem(90px);
+  min-height: rem(80px);
+
+  background: color(gray-light);
+  border-radius: 0 rem(12px) rem(12px) rem(12px);
+
+  &__img {
+    position: absolute;
+    top: rem(16px);
+    left: rem(21px);
+  }
+}

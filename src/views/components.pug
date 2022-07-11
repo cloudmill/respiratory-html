@@ -7,10 +7,34 @@ include ./components/picture
 include ./components/preloader
 include ./components/top
 include ./components/slider
-include ./components/tab
 include ./components/series
-include ./components/test
+include ./components/js-test
+
+include ./components/wrap-list
+include ./components/breadcrumbs
+include ./components/tab
 include ./components/press
+include ./components/heading
+include ./components/space
+include ./components/text
+include ./components/doc
+include ./components/feature
+include ./components/grid
+include ./components/hr
+include ./components/select
+include ./components/market
+include ./components/article
+include ./components/container
+include ./components/our
+include ./components/calture
+include ./components/link
+include ./components/stack
+include ./components/social
+include ./components/static-tab
+include ./components/card-value
+include ./components/guard
+include ./components/card-new
+include ./components/card-panel
 
 //- first
 
@@ -20,30 +44,11 @@ mixin first(src)
     .first__layout
       block
 
-//- breadcrumb
-
-mixin breadcrumb(props = {})
-  .breadcrumb-wrapper
-    if (props.isLink)
-      a.breadcrumb(class=(props.isActive && 'breadcrumb--active') href="#")
-        block
-    else
-      .breadcrumb(class=(props.isActive && 'breadcrumb--active'))
-        block
-
-//- breadcrumbs
-
-mixin breadcrumbs(items)
-  .breadcrumbs
-    each item, index in items
-      .breadcrumbs__item
-        +breadcrumb({ isActive: checkLastIndex(index, items), isLink: !checkLastIndex(index, items) })= item
-
 //- second
 
 mixin second
   .second
-    .container
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -60,7 +65,7 @@ mixin second
 
 mixin second-2
   .second
-    .container
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -74,8 +79,8 @@ mixin second-2
         .second__bottom.second__bottom--empty
 
 mixin second-3
-  .second
-    .container
+  .second.second--azn
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -92,7 +97,7 @@ mixin second-3
 
 mixin second-4
   .second
-    .container
+    +container
       .second__grid
         .second__bg
         .second__image
@@ -115,6 +120,40 @@ mixin second-4
               .funds-list__item
                 img.funds-list__img(src='assets/images/fund.svg')
                 .funds-list__text= item
+
+mixin second-5
+  .second
+    +container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second-5.jpeg')
+        .second__top
+          .second__content.second__content--small
+            .second__content-text
+              |Респираторный комплекс стремится 
+              span.second__content-highlight  
+                |превосходить ожидания 
+              |и стандарты клиентов и партнеров
+        .second__bottom
+          .second__text
+            |Внедрена интегрированная система менеджмента как гарант качества, надежности и&nbsp;безопасности выпускаемой продукции
+
+mixin second-6
+  .second.second--azn
+    +container
+      .second__grid
+        .second__bg
+        .second__image
+          img.second__img(src='assets/images/second-6.jpeg')
+        .second__top.second__top--small
+          .second__content
+            .second__content-title
+              |25+ лет
+            .second__content-description
+              |специализируемся на&nbsp;разработке и&nbsp;производстве фильтрующих полумасок
+        .second__bottom.second__bottom--empty
+
 
 //- email
 
@@ -162,11 +201,11 @@ mixin why
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -185,7 +224,7 @@ mixin why
                   +why-list
               .why__bottom-item
                 +progress
-
+                
 mixin why-2
   mixin controls
     .controls
@@ -224,11 +263,11 @@ mixin why-2
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why-2.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -244,7 +283,7 @@ mixin why-2
             .why__bottom
               .why__bottom-item
                 .why__wrapper
-                  .stack.stack--small
+                  +stack(['small'])
                     .stack__item
                       .why__description
                         |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
@@ -291,11 +330,11 @@ mixin why-3
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why-3.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -354,11 +393,11 @@ mixin why-4
 
   .why
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__image
           img.why__img(src='assets/images/why-4.jpeg')
     .why__layout
-      .container.why__container
+      +container.why__container
         .why__top-bottom
           .why__top-bottom-item
             .why__border
@@ -374,7 +413,7 @@ mixin why-4
             .why__bottom
               .why__bottom-item
                 .why__wrapper
-                  .stack
+                  +stack
                     .stack__item
                       .why__description
                         |Многолетний опыт поставок в медучреждения позволил нам изучить процесс во всех деталях и глубоко погрузиться в специфику закупок в здравоохранении. Делимся знаниями и помогаем найти оптимальный порядок поставок СИЗОД.
@@ -384,34 +423,131 @@ mixin why-4
               .why__bottom-item
                 +progress
 
+mixin why-5
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin why-list
+    -
+      var items = [
+        'Лабораторный контроль качества материалов',
+        'Опытные испытания',
+        'Контроль качества комплектующих',
+      ]
 
-//- items
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
 
-mixin items
-  -
-    var items = [
-      [
-        'assets/images/items-1.svg',
-        'Собственный научный центр, конструкторское бюро, лаборатории, склады',
-      ],
-      [
-        'assets/images/items-2.svg',
-        'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
-      ],
-      [
-        'assets/images/items-3.svg',
-        'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
-      ],
-    ]
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/4
 
-  .items
-    each item in items
-      .items__item
-        each i in repeat(3)
-          .items__decor
-        img.items__img(src=item[0])
-        .items__text
-          |!{item[1]}
+  .why
+    .why__layout
+      +container.why__container
+        .why__image
+          img.why__img(src='assets/images/why-5.jpeg')
+    .why__layout
+      +container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Производственный процесс
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |Выбор поставщика
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                .why__wrapper
+                  +why-list
+              .why__bottom-item
+                +progress
+
+mixin why-6
+  mixin controls
+    .controls
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+      .controls__item
+        .circle.circle--blue
+          button.circle__button(type="button")
+            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          
+  mixin why-list
+    -
+      var items = [
+        'Аэрозоли концентрацией до 50 ПДК',
+        'Кислые и органические пары и газы',
+        'Пары аммиака, ртути и прочие вещества',
+      ]
+
+    ul.why__list
+      each item in items
+        li.why__list-item
+          +li-svg.why__list-svg
+          .why__list-text= item
+
+  mixin progress
+    .why__progress
+      .why__progress-cur
+        .why__progress-text.why__progress-text--fake
+          |2
+        .why__progress-text
+          |1
+      .why__progress-all
+        |/3
+
+  .why
+    .why__layout
+      +container.why__container
+        .why__image
+          img.why__img(src='assets/images/why-6.jpeg')
+    .why__layout
+      +container.why__container
+        .why__top-bottom
+          .why__top-bottom-item
+            .why__border
+              h2.why__title
+                |Наши ценности
+            .why__panel
+              .why__panel-item
+                +controls
+              .why__panel-item
+                h3.why__sub-title
+                  |Стремление к&nbsp;идеальному продукту
+          .why__top-bottom-item
+            .why__bottom
+              .why__bottom-item
+                .why__wrapper
+                  .why__description
+                    |Испытания фильтрующих материалов и&nbsp;новых сорбентов в&nbsp;наших лабораториях помогают совершенствовать защитные характеристики респираторов. Мониторинг клиентского опыта&nbsp;&mdash; источник адаптации наших продуктов и&nbsp;повышения комфорта использования полумасок.
+              .why__bottom-item
+                +progress
+
 
 //- list
 
@@ -421,29 +557,3 @@ mixin list(items)
       li.list__item
         +li-svg.list__svg
         .list__text= item
-
-//- space
-
-mixin space(mods = [])
-  .space(class=mods.map(mod => `space--${mod}`))
-
-//- hr
-
-mixin hr(mods = ['d'])
-  .hr(class=mods.map(mod => `hr--${mod}`))
-
-//- grid
-
-mixin grid(mods = [])
-  .grid(class=mods.map(mod => `grid--${mod}`))
-    block
-  
-//- doc
-mixin doc
-  a.doc(href="#")
-    +doc-svg.doc__svg
-    .doc__text
-      |Методические рекомендации «Повышение эффективности индивидуальной защиты органов дыхания»
-    +space(['gap'])
-    .doc__text.doc__label
-      |235 КБ

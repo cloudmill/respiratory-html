@@ -1,0 +1,16 @@
+mixin breadcrumb(mods = [], isLast)
+  .breadcrumb(class=getClassesFromMods('breadcrumb', [...mods, isLast && 'inactive' || 'active']))
+    if (isLast)
+      .breadcrumb__button
+        .breadcrumb__text
+          block
+    else
+      a.breadcrumb__button(href='#')
+        .breadcrumb__text
+          block
+
+mixin breadcrumbs(items = [], mods = ['default'])
+  +wrap-list
+    each item, i in items
+      li.wrap-list__item
+        +breadcrumb(mods, checkLastIndex(i, items))= item

@@ -1,0 +1,12 @@
+mixin calture(props = {})
+  a.calture(href='#')
+    .calture__mark
+      +li-small-svg.calture__svg
+    +heading(['calture'], 3)
+      |!{props.title}
+    +space([32])
+    +wrap-list
+      each item in props.items
+        li.wrap-list__item
+          .calture__label
+            |!{item}

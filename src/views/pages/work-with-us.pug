@@ -4,7 +4,8 @@ block definitions
   -
     app.title = 'Работа у нас';
 
-//- block header
+block header
+  +header({ mods: ['transparent'] })
 block footer
   .isolation
     .gap.gap--section
@@ -14,16 +15,16 @@ block preloader
 
 block grid-test
 
-block test
+block js-test
 
 block content
   +first('assets/images/work-with-us.jpeg')
     .top-bottom
       .top-bottom__item
-        .container
-          +breadcrumbs(['Главная', 'работа у нас'])
+        +container
+          +breadcrumbs(['Главная', 'работа у нас'], ['transparent'])
       .top-bottom__item
-        .container
+        +container
           h1.super-title
             |Работа у нас
   .second-wrapper
@@ -31,7 +32,7 @@ block content
   +why
   .isolation
     .gap.gap--section
-      .container
+      +container
         .border
           .light
             .light__col

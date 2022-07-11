@@ -1,0 +1,28 @@
+.static-tab {
+  $component: &;
+
+  display: flex;
+
+  &--card-new {
+    #{$component} {
+      &__btn {
+        @include font-fsl('content-1', 12px, 130%);
+        
+        height: rem(30px);
+      }
+    }
+  }
+
+  &__btn {
+    @include font-fsl("content-1", 17px, 130%);
+
+    padding: 0 rem(12px);
+    height: rem(36px);
+    display: flex;
+    align-items: center;
+
+    background-color: color(gray-light);
+    border-radius: rem(6px);
+    white-space: nowrap;
+  }
+}

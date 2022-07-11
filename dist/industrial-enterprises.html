@@ -14,7 +14,7 @@
 		<header class="header header--transparent">
 			<div class="wrapper">
 				<div class="header__top">
-					<div class="container">
+					<div class="container container--default">
 						<div class="header__container header__container--top">
 							<div class="header__row header__row--align-baseline">
 								<div class="header__row-item">
@@ -75,7 +75,7 @@
 					</div>
 				</div>
 				<div class="header__bottom">
-					<div class="container">
+					<div class="container container--default">
 						<div class="header__container">
 							<div class="header__row header__row--align-center">
 								<div class="header__row-item">
@@ -87,7 +87,8 @@
 											</svg></a></div>
 								</div>
 								<div class="header__row-item">
-									<div class="press press--menu"><a class="press__btn" href="#">
+									<div class="press press--menu">
+										<div class="press__btn">
 											<div class="press__content">
 												<div class="press__content-item press__content-item--start">
 													<div class="press__icon press__icon--start"><img class="press__icon-img" src="assets/images/menu-start.svg"></div>
@@ -112,7 +113,8 @@
 													<div class="press__decor-arrow"></div>
 												</div>
 											</div>
-										</a></div>
+										</div>
+									</div>
 								</div>
 								<div class="header__row-item header__row-item--align-transform">
 									<div class="header__triple header__triple--align-baseline">
@@ -146,7 +148,8 @@
 								</div>
 								<div class="header__row-item">
 									<div class="header__last">
-										<div class="press press--white"><a class="press__btn" href="#">
+										<div class="press press--white">
+											<div class="press__btn">
 												<div class="press__content">
 													<div class="press__content-item press__content-item--start">
 														<div class="press__text press__text--start">оформить заказ</div>
@@ -169,7 +172,8 @@
 														<div class="press__decor-arrow"></div>
 													</div>
 												</div>
-											</a></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -183,21 +187,27 @@
 				<div class="first__layout">
 					<div class="top-bottom">
 						<div class="top-bottom__item">
-							<div class="container">
-								<div class="breadcrumbs">
-									<div class="breadcrumbs__item">
-										<div class="breadcrumb-wrapper"><a class="breadcrumb" href="#">Главная</a></div>
-									</div>
-									<div class="breadcrumbs__item">
-										<div class="breadcrumb-wrapper">
-											<div class="breadcrumb breadcrumb--active">Промышленным предприятиям</div>
-										</div>
-									</div>
+							<div class="container container--default">
+								<div class="wrap-list">
+									<ul class="wrap-list__list">
+										<li class="wrap-list__item">
+											<div class="breadcrumb breadcrumb--transparent breadcrumb--active"><a class="breadcrumb__button" href="#">
+													<div class="breadcrumb__text">Главная</div>
+												</a></div>
+										</li>
+										<li class="wrap-list__item">
+											<div class="breadcrumb breadcrumb--transparent breadcrumb--inactive">
+												<div class="breadcrumb__button">
+													<div class="breadcrumb__text">Промышленным предприятиям</div>
+												</div>
+											</div>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>
 						<div class="top-bottom__item">
-							<div class="container">
+							<div class="container container--default">
 								<h1 class="super-title">Промышленным предприятиям</h1>
 							</div>
 						</div>
@@ -206,7 +216,7 @@
 			</div>
 			<div class="second-wrapper">
 				<div class="second">
-					<div class="container">
+					<div class="container container--default">
 						<div class="second__grid">
 							<div class="second__bg"></div>
 							<div class="second__image"><img class="second__img" src="assets/images/second-2.jpeg"></div>
@@ -221,25 +231,34 @@
 					</div>
 				</div>
 			</div>
-			<div class="container">
-				<div class="items">
-					<div class="items__item">
-						<div class="items__decor"></div>
-						<div class="items__decor"></div>
-						<div class="items__decor"></div><img class="items__img" src="assets/images/items-1.svg">
-						<div class="items__text">Собственный научный центр, конструкторское бюро, лаборатории, склады</div>
+			<div class="container container--default">
+				<div class="grid grid--3">
+					<div class="grid__item">
+						<div class="feature">
+							<div class="feature__decor"></div>
+							<div class="feature__decor"></div>
+							<div class="feature__decor"></div><img class="feature__img" src="assets/images/items-1.svg">
+							<div class="space space--sub-block space--mt"></div>
+							<div class="text text--feature-text">Собственный научный центр, конструкторское бюро, лаборатории, склады</div>
+						</div>
 					</div>
-					<div class="items__item">
-						<div class="items__decor"></div>
-						<div class="items__decor"></div>
-						<div class="items__decor"></div><img class="items__img" src="assets/images/items-2.svg">
-						<div class="items__text">Производственная мощность достигает 100 миллионов респираторов в&nbsp;год</div>
+					<div class="grid__item">
+						<div class="feature">
+							<div class="feature__decor"></div>
+							<div class="feature__decor"></div>
+							<div class="feature__decor"></div><img class="feature__img" src="assets/images/items-2.svg">
+							<div class="space space--sub-block space--mt"></div>
+							<div class="text text--feature-text">Производственная мощность достигает 100 миллионов респираторов в&nbsp;год</div>
+						</div>
 					</div>
-					<div class="items__item">
-						<div class="items__decor"></div>
-						<div class="items__decor"></div>
-						<div class="items__decor"></div><img class="items__img" src="assets/images/items-3.svg">
-						<div class="items__text">Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион</div>
+					<div class="grid__item">
+						<div class="feature">
+							<div class="feature__decor"></div>
+							<div class="feature__decor"></div>
+							<div class="feature__decor"></div><img class="feature__img" src="assets/images/items-3.svg">
+							<div class="space space--sub-block space--mt"></div>
+							<div class="text text--feature-text">Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -247,12 +266,12 @@
 				<div class="gap gap--section">
 					<div class="why">
 						<div class="why__layout">
-							<div class="container why__container">
+							<div class="container container--default why__container">
 								<div class="why__image"><img class="why__img" src="assets/images/why-2.jpeg"></div>
 							</div>
 						</div>
 						<div class="why__layout">
-							<div class="container why__container">
+							<div class="container container--default why__container">
 								<div class="why__top-bottom">
 									<div class="why__top-bottom-item">
 										<div class="why__border">
@@ -330,7 +349,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="container section-margin">
+			<div class="container container--default section-margin">
 				<div class="border">
 					<h2 class="sub-title">Клиентский сервис</h2>
 					<div class="info-blocks sub-section-margin">
@@ -361,7 +380,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="container section-margin">
+			<div class="container container--default section-margin">
 				<div class="border">
 					<h2 class="sub-title">Информационные материалы</h2>
 					<div class="information-block small-margin">
@@ -408,7 +427,7 @@
 				</div>
 			</div>
 			<div class="section-margin" data-examples-slider-component>
-				<div class="container">
+				<div class="container container--default">
 					<div class="border">
 						<div class="slider-panel">
 							<div class="slider-panel__col">
@@ -432,7 +451,8 @@
 									</div>
 								</div>
 								<div class="slider-panel__sub-col">
-									<div class="press press--info"><a class="press__btn" href="#">
+									<div class="press press--info">
+										<div class="press__btn">
 											<div class="press__content">
 												<div class="press__content-item press__content-item--start">
 													<div class="press__text press__text--start">Перейти в каталог</div>
@@ -455,7 +475,8 @@
 													<div class="press__decor-arrow"></div>
 												</div>
 											</div>
-										</a></div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -808,7 +829,8 @@
 											</label></div>
 									</div>
 									<div class="section-form__submit">
-										<div class="press press--info"><a class="press__btn" href="#">
+										<div class="press press--info">
+											<div class="press__btn">
 												<div class="press__content">
 													<div class="press__content-item press__content-item--start">
 														<div class="press__text press__text--start">Отправить</div>
@@ -831,7 +853,8 @@
 														<div class="press__decor-arrow"></div>
 													</div>
 												</div>
-											</a></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -859,7 +882,7 @@
 								</svg></div>
 						</div>
 					</a></div>
-				<div class="container">
+				<div class="container container--default">
 					<div class="footer__mail"><a class="footer__mail-link" href="mailto:zakaz@rkszpe.ru">zakaz@rkszpe.ru</a></div>
 					<div class="footer__grid">
 						<div class="footer__grid-place">
@@ -903,7 +926,8 @@
 									</ul>
 								</div>
 								<div class="footer__blocks-item">
-									<div class="press"><a class="press__btn" href="#">
+									<div class="press">
+										<div class="press__btn">
 											<div class="press__content">
 												<div class="press__content-item press__content-item--start">
 													<div class="press__text press__text--start">корпоративный портал</div>
@@ -926,7 +950,8 @@
 													<div class="press__decor-arrow"></div>
 												</div>
 											</div>
-										</a></div>
+										</div>
+									</div>
 								</div>
 								<div class="footer__blocks-item">
 									<div class="footer__authors">

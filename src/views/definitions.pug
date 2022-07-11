@@ -6,40 +6,72 @@
 
     routes: [
       {
-        "title": "Медицинским учреждениям",
-        "path": "medical-institutions"
+        title: "404",
+        path: "page404",
       },
       {
-        "title": "Торговым организациям",
-        "path": "trade-organizations"
+        title: "Контакты",
+        path: "contacts",
       },
       {
-        "title": "Промышленным предприятиям",
-        "path": "industrial-enterprises"
+        title: "Карточка товара",
+        path: "card",
       },
       {
-        "title": "Работа у нас",
-        "path": "work-with-us"
+        title: "О компании",
+        path: "about",
       },
       {
-        "title": "Главная",
-        "path": "main"
+        title: "Где купить",
+        path: "where-buy",
       },
       {
-        "title": "Каталог",
-        "path": "https://cloudmill.github.io/respiratory-html-old/dist/catalog"
+        title: "Документация",
+        path: "documentation",
       },
       {
-        "title": "Карточка товара",
-        "path": "https://cloudmill.github.io/respiratory-html-old/dist/product"
+        title: "Контроль качества",
+        path: "quality-control",
       },
       {
-        "title": "Оформление заказа",
-        "path": "https://cloudmill.github.io/respiratory-html-old/dist/order"
+        title: "Главная",
+        path: "main"
       },
       {
-        "title": "О компании",
-        "path": "https://cloudmill.github.io/respiratory-html-old/dist/about"
+        title: "Работа у нас",
+        path: "work-with-us"
+      },
+      {
+        title: "Промышленным предприятиям",
+        path: "industrial-enterprises"
+      },
+      {
+        title: "Торговым организациям",
+        path: "trade-organizations"
+      },
+      {
+        title: "Медицинским учреждениям",
+        path: "medical-institutions"
+      },
+      {
+        title: 'Потребителям',
+        path: 'consumers',
+      },
+      {
+        title: "Каталог",
+        path: "https://cloudmill.github.io/respiratory-html-old/dist/catalog"
+      },
+      {
+        title: "Карточка товара",
+        path: "https://cloudmill.github.io/respiratory-html-old/dist/product"
+      },
+      {
+        title: "Оформление заказа",
+        path: "https://cloudmill.github.io/respiratory-html-old/dist/order"
+      },
+      {
+        title: "Тест",
+        path: "test"
       },
     ],
   }
@@ -77,4 +109,14 @@
     }
   };
 
-  var checkLastIndex = (index, arr) => index === arr.length - 1;
+  var getImageSrc = (filename) => `${app.imagesDir}${filename}`;
+
+  //- index number
+  //- arr []
+  //- return boolean
+  var checkLastIndex = (index, arr) => index === (arr.length - 1);
+
+  //- className string
+  //- mods? []
+  //- return []
+  var getClassesFromMods = (className, mods) => mods && mods.filter(mod => mod).map(mod => `${className}--${mod}`) || [];

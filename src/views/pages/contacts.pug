@@ -1,0 +1,179 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'Контакты';
+
+block preloader
+block grid-test
+block js-test
+
+block content
+  +space(['header'], ['pt'])
+  +space(['sub-block'])
+  
+  +container
+    +breadcrumbs(['Главная', app.title])
+    
+    +space(['sub-block'])
+    +heading(['main'], 1)= app.title
+
+    +space(['sub-block'])
+    +hr
+    +space(['hr'])
+    +grid(['5-7'])
+      .grid__item
+        +heading(['sub'], 2)
+          |Главный офис
+      .grid__item
+        +text([5, 'address'])
+          |Россия, 195027, Санкт-Петербург, ул. Магнитогорская, д.23, к.1, лит. А
+        +space(['hr'])
+        +press({ icon: ['map-blue.svg', 'map-black.svg', 'left']  }).press--li
+          |На карте
+        +space(['block'])
+        +grid(['3-4'])
+          .grid__item
+            +stack(['small'])
+              -
+                var items = [
+                  {
+                    link: '8 812 703-37-33',
+                    desc: 'Многоканальный',
+                  },
+                  {
+                    link: '8 812 329-11-65',
+                    desc: 'Отдел продаж, только для юридических лиц',
+                  },
+                ];
+              each item in items
+                .stack__item
+                  +link(['phone'])
+                    a.link__link(href='#')
+                      |!{item.link}
+                  +space([4])
+                  +text(['desc', 'pre-line'])
+                    |!{item.desc}
+          .grid__item
+            +stack(['small'])
+              -
+                var items = [
+                  {
+                    link: 'info@szpe.ru',
+                    desc: 'Общий',
+                  },
+                  {
+                    link: 'zakaz@rkszpe.ru',
+                    desc: 'Отдел продаж',
+                  },
+                  {
+                    link: 'tse@szpe.ru',
+                    desc: 'Для СМИ',
+                  },
+                ];
+              each item in items
+                .stack__item
+                  +link(['email'])
+                    a.link__link(href='#')
+                      |!{item.link}
+                  +space([8])
+                  +text(['desc', 'pre-line'])
+                    |!{item.desc}
+    
+    +space(['mid-section'])
+    +hr
+    +space(['hr'])
+    +grid(['5-7'])
+      .grid__item
+        +heading(['sub'], 2)
+          |Производственно-складской комплекс
+      .grid__item
+        +text([5, 'address'])
+          |188679, Ленинградская обл., Всеволожский р-н, гп&nbsp;им. Морозова, ул. Чекалова, д.&nbsp;3, здание 592
+        +space(['hr'])
+        +press({ icon: ['map-blue.svg', 'map-black.svg', 'left']  }).press--li
+          |На карте
+        +space(['block'])
+        +text(['desc', 'pre-line'])
+          |GPS-координаты
+        +space([10])
+        +link(['phone'])
+          a.link__link(href='#')
+            |59.976626, 31.029568
+        
+
+    +space(['mid-section'])
+    +hr
+    +space(['hr'])
+    +grid(['5-7'])
+      .grid__item
+        +heading(['sub'], 2)
+          |Социальные сети
+      .grid__item
+        +wrap-list(['socials'])
+          li.wrap-list__item
+            +social(['fb'])
+              +social-fb-svg.social__svg
+          li.wrap-list__item
+            +social(['yt'])
+              +social-yt-svg.social__svg
+          li.wrap-list__item
+            +social(['vk'])
+              +social-vk-svg.social__svg
+  
+  +space(['section'])
+  section.form-section
+    .form-section__content
+      .form-section__content-item
+        .form-section__title-container
+          h2.sub-title.form-section__title
+            |связаться с нами
+      .form-section__content-item
+        .form-section__article-container
+          .article.article--large.article--indent
+            span.article__highlight
+              |Задать ВОпрос
+      .form-section__content-item
+        form.section-form
+          .section-form__grid
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Имя')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Название компании')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='Телефон')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item
+              .form-field
+                input.form-field__input(placeholder='E-mail')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--row
+              .form-field.form-field--textarea
+                textarea.form-field__input(placeholder='Сообщение')
+                .form-field__error
+                  |Допустимы только буквы
+            .section-form__item.section-form__item--right.section-form__bottom
+              .section-form__agrement
+                .simple-checkbox
+                  label.simple-checkbox__label
+                    input.simple-checkbox__input(name='agreement' type='checkbox')
+                    .simple-checkbox__box
+                      +check-svg.simple-checkbox__svg
+                    .simple-checkbox__content
+                      |Даю согласие на обработку 
+                      a.simple-checkbox__link(href="#")
+                        |персональных данных
+                    .simple-checkbox__error
+                      |Допустимы только буквы
+              .section-form__submit
+                +press.press--info
+                  |Отправить

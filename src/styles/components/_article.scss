@@ -1,0 +1,15 @@
+.article {
+  @include font-fsl("title-2", 32px, 120%);
+
+  &--large {
+    @include font-fsl("title-3", 54px, 100%);
+  }
+
+  &--indent {
+    text-indent: calc(#{$column} + #{$column-gap});
+  }
+
+  &__highlight {
+    color: color(blue);
+  }
+}

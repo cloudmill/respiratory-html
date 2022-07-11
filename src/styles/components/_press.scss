@@ -190,6 +190,61 @@
     }
   }
 
+  &--li {
+    #{$component} {
+      &__text {
+        @include font-fsl("title-1", 13px, 100%);
+
+        &--start {
+          color: color(black);
+        }
+      }
+
+      &__content {
+        &-item {
+          padding: 0 rem(41px);
+          height: rem(60px);
+        }
+      }
+
+      &__bg {
+        &-item {
+          &--start {
+            border: 1px solid color(gray);
+          }
+        }
+      }
+
+      &__decor {
+        display: none;
+      }
+
+      &__icon {
+        margin-right: rem(8px);
+
+        &-img {
+          @include rectangle(rem(24px));
+        }
+      }
+    }
+  }
+
+  &--full {
+    #{$component} {
+      &__btn {
+        width: 100%;
+      }
+      
+      &__content {
+        width: 100%;
+
+        &-item {
+          width: 100%;
+        }
+      }
+    }
+  }
+
   // btn
 
   &__btn {

@@ -1,0 +1,123 @@
+.swiper-slider {
+  $ids: (0, card);
+
+  @mixin swiper-slider($id) {
+    @if $id == 0 {
+      overflow: visible;
+
+      .swiper-slide {
+        padding-right: calc(#{$column-gap});
+        width: calc(#{columns(3)} + #{$column-gap}) !important;
+        height: auto;
+      }
+    }
+  }
+
+  @each $id in $ids {
+    &[data-swiper-slider="#{$id}"] {
+      @include swiper-slider($id);
+    }
+  }
+}
+
+.gallery {
+  position: relative;
+  z-index: 0;
+
+  height: 100%;
+
+  &__wrapper {
+    z-index: 1;
+  }
+
+  &__bullets {
+    position: absolute;
+    z-index: 2;
+    bottom: $column-gap;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &-list {
+      padding: rem(12px);
+      display: flex;
+
+      background-color: color(white);
+      border-radius: rem(12px);
+    }
+  }
+  &__bullet {
+    $border-radius: rem(4px);
+    $transition: transition(major);
+
+    @include rectangle(rem(45px), rem(56px));
+
+    position: relative;
+    z-index: 0;
+
+    margin: 0 !important; // reset swiper styles
+    display: flex;
+    overflow: hidden;
+
+    border-radius: $border-radius;
+    opacity: 1; // reset swiper styles
+
+    &::before {
+      @include inset;
+
+      position: absolute;
+
+      content: "";
+
+      border: 2px solid color(blue);
+      border-radius: $border-radius;
+      opacity: 0;
+      transition: opacity $transition;
+    }
+
+    &.swiper-pagination-bullet-active {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: rem(9px) !important;
+    }
+
+    &-img {
+      @include rectangle(100%);
+
+      object-fit: cover;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__prev {
+    left: $column-gap;
+  }
+  &__next {
+    right: $column-gap;
+  }
+
+  &__slide {
+    overflow: hidden;
+
+    &:first-child {
+      border-radius: rem(16px) 0 0 rem(16px);
+    }
+
+    &:last-child {
+      border-radius: 0 rem(16px) rem(16px) 0;
+    }
+  }
+  &__img {
+    @include rectangle(100%);
+
+    object-fit: cover;
+  }
+}

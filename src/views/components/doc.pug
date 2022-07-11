@@ -1,0 +1,21 @@
+//- 
+  props
+    label?
+    text
+
+mixin doc(props)
+  a.doc(href="#")
+    if (props.label)
+      +doc-svg.doc__svg
+    else
+      .doc__circle
+        +arrow-tilt-svg.doc__circle-svg
+    .doc__text
+      |!{props.text}
+    if (props.label)
+      +space(['gap'])
+      .doc__text.doc__label
+        |!{props.label}
+    else
+      +space([64], ['pt'])
+      +space(['gap'], ['pt'])

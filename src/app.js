@@ -18,6 +18,7 @@ import * as select from "./scripts/select";
 import * as swiperSlider from "./scripts/swiperSlider";
 import * as rails from "./scripts/rails";
 import * as aside from "./scripts/aside";
+import * as gallery from "./scripts/gallery";
 
 import { examplesSlider } from "./scripts/examplesSlider";
 
@@ -41,6 +42,7 @@ addEventListener("DOMContentLoaded", () => {
   swiperSlider.start();
   rails.start();
   aside.start();
+  gallery.start();
 });
 
 addEventListener("load", async () => {

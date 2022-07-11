@@ -235,9 +235,9 @@ block content
                       ];
                     .swiper.gallery(data-swiper-slider='card' data-swiper-slider-pagination=JSON.stringify(pagination))
                       .swiper-wrapper.gallery__wrapper
-                        each i in repeat(5)
+                        each i, index in repeat(5)
                           .swiper-slide.gallery__slide
-                            img.gallery__img(src='assets/images/masks-1.jpg' data-swiper-parallax='28%')
+                            img.gallery__img(src='assets/images/masks-1.jpg' data-swiper-parallax='28%' data-gallery=index)
                       .gallery__bullets
                         .gallery__bullets-list(data-swiper-slider-list)
                       .gallery__navigation.gallery__prev
@@ -250,10 +250,10 @@ block content
                             +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 .grid__item
                   +container(['gallery'])
-                    img(src='assets/images/masks-2.jpg')
+                    img(src='assets/images/masks-2.jpg' data-gallery=5)
                 .grid__item
                   +container(['gallery'])
-                    img(src='assets/images/masks-3.jpg')
+                    img(src='assets/images/masks-3.jpg' data-gallery=6)
               
 
   +space(['mid-block'])

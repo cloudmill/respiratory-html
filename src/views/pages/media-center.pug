@@ -8,15 +8,13 @@ block preloader
 
 block grid-test
 
-block test
-
 block header
   +header-no-trnsp
 
 block content
   .indent.indent--page--catalog.first-section.isolation
     .indent__item
-      .container
+      .container--default
         .wall
           .wall__list
             -
@@ -36,11 +34,11 @@ block content
                     .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
                       |#{item}
     .indent__item
-      .container
+      .container--default
         h1.title.title--page
           |Медиацентр
     .indent__item.indent__item--large
-      .container
+      .container--default
         .row.row--filter
           .row__col
             .wall
@@ -61,17 +59,38 @@ block content
                       else
                         .badge__link.badge__link--variant--tab(href="#")
                           |#{item}
-          //- .row__col
-          //-   .btn
-          //-     .btn__link.btn__link--variant--default.btn__link--variant--text.btn__link--variant--filter.btn__link--variant--full
-          //-       .btn__icon
-          //-         +filter-svg.btn__svg
-          //-       .btn__text
-          //-         |фильтры
 
     .indent__item
-      .container
+      .container--default
         .media-center-table
 
           - for (i=0; i<8;i++)
-            <a class="slide slide--small" href="http://localhost:8080/main#slider-2"><div class="slide__top"><img class="slide__img" src="http://localhost:8080/assets/images/slider/slider-2.jpeg"><div class="slide__mark"><svg class="slide__mark-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416" stroke="white" stroke-width="1.5"></path><line y1="-0.75" x2="17" y2="-0.75" transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)" stroke="white" stroke-width="1.5"></line></svg></div></div><div class="slide__bottom"><div class="slide__panel"><div class="slide__panel-col"><div class="slide__date"><div class="slide__date-day">15</div><div class="slide__date-month">/11</div></div><div class="slide__date" style="visibility: hidden; pointer-events: none; z-index: -1; user-select: none;"><div class="slide__date-day">25</div><div class="slide__date-month">/11</div></div><div class="slide__date" style="visibility: hidden; pointer-events: none; z-index: -1; user-select: none;"><div class="slide__date-day">15</div><div class="slide__date-month">/11</div></div><div class="slide__date" style="visibility: hidden; pointer-events: none; z-index: -1; user-select: none;"><div class="slide__date-day">10</div><div class="slide__date-month">/11</div></div></div><div class="slide__panel-col"><div class="slide__label"><div class="slide__label-button">Новости</div></div></div></div><div class="slide__text-wrapper"><div class="slide__text"><span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">Профилактика</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">профессионального</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">туберкулеза</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">у</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">медицинского</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">персонала</span></span></span> </div><div class="slide__text" style="visibility: hidden; pointer-events: none; z-index: -1; user-select: none;"><span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">Пневмокониоз</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">как</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">результат</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">воздействия</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">производственной</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">пыли</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">на</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">органы</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">дыхания</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">работников</span></span></span> </div><div class="slide__text" style="visibility: hidden; pointer-events: none; z-index: -1; user-select: none;"><span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">Профилактика</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">профессионального</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">туберкулеза</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">у</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">медицинского</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">персонала</span></span></span> </div><div class="slide__text" style="visibility: hidden; pointer-events: none; z-index: -1; user-select: none;"><span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">Респираторный</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">комплекс</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">–</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">итоги</span></span></span> <span class="slide__word-wrapper"><span class="slide__word"><span class="slide__word-text">года</span></span></span> </div></div></div></a>
+
+            a.slide.slide--small(href="http://localhost:8080/main#slider-2")
+              .slide__top
+                img.slide__img(src="http://localhost:8080/assets/images/slider/slider-2.jpeg")
+                .slide__mark
+                  svg.slide__mark-svg(xmlns="http://www.w3.org/2000/svg", width="18", height="18", viewBox="0 0 18 18", fill="none")
+                    path(d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416", stroke="white", stroke-width="1.5")
+                    line(y1="-0.75", x2="17", y2="-0.75", transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)", stroke="white", stroke-width="1.5")
+              .slide__bottom
+                .slide__panel
+                  .slide__panel-col
+                    .slide__date
+                      .slide__date-day 15
+                      .slide__date-month /11
+                    
+                  .slide__panel-col
+                    .slide__label
+                      .slide__label-button Новости
+                .slide__text-wrapper
+                  .slide__text
+                    span.slide__word-wrapper
+                      span.slide__word
+                        span.slide__word-text Профилактика профессионального туберкулеза у медицинского персонала
+
+          .media-center-table__dots
+            .dot
+            .dot
+            .dot
+                  

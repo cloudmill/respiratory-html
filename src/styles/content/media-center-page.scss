@@ -134,8 +134,69 @@
 }
 
 .media-center-table {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: $column-gap;
-  row-gap: 60px;
+  grid-template-columns: 1fr;
+  row-gap: 32px;
+  place-items: center;
+
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+
+  @media #{media('>')} {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: $column-gap;
+    row-gap: 60px;
+
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: rem(12px);
+    margin: 0 auto;
+
+    .dot {
+      display: block;
+      flex: none;
+      width: rem(12px);
+      height: rem(12px);
+      background: color(blue);
+      border-radius: 50%;
+    }
+  }
+}
+
+.media-center-detail {
+
+  padding: 0 calc(#{columns(2)} + #{$column-gap}) rem(180px);
+
+  &__info {
+    margin: rem(40px) 0;
+  }
+
+  &__main-img {
+    width: 100%;
+    height: rem(687px);
+    border-radius: 0px 0px 120px 0px;
+    object-fit: cover;
+  }
+
+  &__txt {
+    padding: 0 calc(#{$column} + #{$column-gap});
+
+    font-family: $font-family-content;
+    font-size: rem(20px);
+    line-height: 1.6;
+
+    .text--card {
+      font-family: $font-family-content;
+      font-size: rem(20px);
+      line-height: 1.6;
+    }
+  }
 }

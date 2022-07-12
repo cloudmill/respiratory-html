@@ -2,6 +2,9 @@
   &__item {
     &:not(:first-child) {
       margin-top: -1px;
+      @media #{media("<")} {
+        margin-top: rem(8px);
+      }
     }
   }
 }

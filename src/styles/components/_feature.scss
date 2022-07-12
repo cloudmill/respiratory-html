@@ -15,6 +15,9 @@
 
   &--horizontal {
     padding: rem(40px) 0;
+    @media #{media("<")} {
+      padding: rem(18px);
+    }
   }
 
   &__img {

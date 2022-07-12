@@ -6,6 +6,9 @@
   --panel-height: #{rem(60px)};
   --drop-height: #{rem(180px)};
   --radius: #{rem(8px)};
+  @media #{media("<")} {
+    --panel-height: #{rem(44px)};
+  }
 
   position: relative;
 
@@ -93,7 +96,10 @@
 
   &__text {
     @include font-fsl("title-1", 13px, 100%);
-
+    @media #{media("<")} {
+      @include fsl(10px);
+      padding: 0 rem(12px);
+    }
     padding: 0 rem(20px);
 
     color: color(gray-dark);
@@ -108,6 +114,9 @@
 
   &__svg {
     @include rectangle(rem(20px));
+    @media #{media("<")} {
+      @include rectangle(rem(18px));
+    }
   }
 
   &__drop {
@@ -121,7 +130,10 @@
 
   &__value {
     @include font-fsl("title-1", 13px, 100%);
-
+    @media #{media("<")} {
+      @include fsl(10px);
+      padding: 0 rem(12px);
+    }
     padding: 0 rem(20px);
     height: var(--panel-height);
     display: flex;

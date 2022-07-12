@@ -95,6 +95,10 @@
 
     padding: 0 rem(12px);
     height: rem(29px);
+    @media #{media("<")} {
+      padding: 0 rem(8px);
+      height: rem(22px);
+    }
     display: flex;
     align-items: center;
 
@@ -126,7 +130,9 @@
 
   &__text {
     @include font-fsl("title-2", 13px, 100%);
-
+    @media #{media("<")} {
+      @include fsl(10px);
+    }
     z-index: 3;
 
     white-space: nowrap;

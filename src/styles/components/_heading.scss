@@ -7,6 +7,9 @@
   }
   &--where {
     @include font-fsl("title-2", 24px, 100%);
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
   }
   &--small-sub {
     @include font-fsl("title-2", 13px, 100%);
@@ -19,6 +22,9 @@
   }
   &--feature {
     @include font-fsl("title-2", 24px, 120%);
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
   }
   &--large {
     @include font-fsl("title-3", 54px, 100%);
@@ -34,6 +40,9 @@
   }
   &--page {
     @include font-fsl("title-3", 130px, 100%);
+    @media #{media("<")} {
+      @include fsl(30px);
+    }
   }
   &--404 {
     @include font-fsl("title-3", 200px, 100%);

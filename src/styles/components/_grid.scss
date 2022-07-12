@@ -95,16 +95,27 @@
     grid-template-columns: calc(#{columns(6)}) repeat(3, calc(#{columns(2)}));
     column-gap: $column-gap;
     align-items: center;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      row-gap: rem(8px);
+    }
 
     > {
       #{$component} {
         &__item {
           &:first-child {
             padding-left: rem(40px);
+            @media #{media("<")} {
+              padding-left: 0;
+              margin-bottom: rem(12px);
+            }
           }
 
           &:last-child {
             padding-right: rem(40px);
+            @media #{media("<")} {
+              padding-right: 0;
+            }
           }
         }
       }
@@ -139,6 +150,10 @@
     display: grid;
     grid-template-columns: calc(#{columns(8)}) calc(#{columns(4)});
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      row-gap: rem(20px);
+    }
 
     > {
       #{$component} {
@@ -187,6 +202,11 @@
     grid-template-columns: repeat(6, calc(#{columns(2)}));
     column-gap: $column-gap;
     row-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: rem(16px);
+      row-gap: rem(20px);
+    }
   }
 
   &--centered {
@@ -225,6 +245,10 @@
         &__item {
           margin-left: auto;
           width: calc(#{columns(7)});
+          @media #{media("<")} {
+            margin-left: 0;
+            width: auto;
+          }
         }
       }
     }
@@ -235,6 +259,18 @@
     grid-template-columns: repeat(2, auto);
     column-gap: $column-gap;
     justify-content: space-between;
+
+    > {
+      #{$component} {
+        &__item {
+          &:nth-child(2) {
+            @media #{media("<")} {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 
   &--centered-6 {
@@ -242,6 +278,9 @@
     grid-template-columns: calc(#{columns(6)});
     column-gap: $column-gap;
     justify-content: center;
+    @media #{media("<")} {
+      display: block;
+    }
   }
 
   &--centered-4 {
@@ -249,6 +288,9 @@
     grid-template-columns: calc(#{columns(4)});
     column-gap: $column-gap;
     justify-content: center;
+    @media #{media("<")} {
+      display: block;
+    }
   }
 
   &--row-gap-40 {
@@ -267,7 +309,10 @@
     display: grid;
     grid-template-columns: calc(#{$column}) calc(#{columns(4)});
     column-gap: $column-gap;
-
+    @media #{media("<")} {
+      display: flex;
+      column-gap: 0;
+    }
     > {
       #{$component} {
         &__item {
@@ -275,6 +320,11 @@
             padding-left: rem(40px);
             display: flex;
             justify-content: end;
+            @media #{media("<")} {
+              padding-left: 0;
+              display: flex;
+              flex-shrink: 0;
+            }
           }
         }
       }

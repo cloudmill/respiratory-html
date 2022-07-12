@@ -53,7 +53,7 @@ block content
     .border
       h2.sub-title
         |Клиентский сервис
-      .info-blocks.sub-section-margin
+      .info-blocks.mid-section-margin
         .info-blocks__item
           .info-block
             .info-block__col
@@ -132,7 +132,7 @@ block content
             .slider-panel__sub-col
               +press.press--info
                 |Перейти в каталог
-    .swiper.examples-slider.sub-section-margin(data-examples-slider-container)
+    .swiper.examples-slider.mid-section-margin(data-examples-slider-container)
       .swiper-wrapper
         a.swiper-slide.examples-slider__slide(href="#")
           .examples-slider__row
@@ -145,16 +145,20 @@ block content
               .examples-slider__content-item
                 .examples-slider__table
                   .examples-slider__table-row
-                    h4.examples-slider__table-title
-                      |Класс защиты
-                    h4.examples-slider__table-title
-                      |Клапан выдоха
-                  .examples-slider__table-row
-                    p.examples-slider__table-value
-                      |FFP1 R D
-                    p.examples-slider__table-value
-                      |Нет
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                      p.examples-slider__table-value
+                        |Нет
               .examples-slider__content-item
+                .examples-slider__content-mobile 
+                  +press.press--white 
+                    |о защите
                 .examples-slider__feature
                   +feature-4-svg.examples-slider__feature-svg
                   .examples-slider__feature-content
@@ -186,16 +190,20 @@ block content
               .examples-slider__content-item
                 .examples-slider__table
                   .examples-slider__table-row
-                    h4.examples-slider__table-title
-                      |Класс защиты
-                    h4.examples-slider__table-title
-                      |Клапан выдоха
-                  .examples-slider__table-row
-                    p.examples-slider__table-value
-                      |FFP1 R D
-                    p.examples-slider__table-value
-                      |Нет
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                      p.examples-slider__table-value
+                        |Нет
               .examples-slider__content-item
+                .examples-slider__content-mobile 
+                  +press.press--white 
+                    |о защите
                 .examples-slider__feature
                   +feature-4-svg.examples-slider__feature-svg
                   .examples-slider__feature-content
@@ -216,6 +224,10 @@ block content
                                 |#{item}
           .control.examples-slider__label
             +arrow-left-svg.control__svg.control__svg--tilt
+    +container 
+      .slider-btn 
+        +press.press--info
+          |Перейти в каталог
   section.form-section
     .form-section__content
       .form-section__content-item

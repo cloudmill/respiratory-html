@@ -12,8 +12,13 @@
 
   padding: rem(20px);
   padding-right: rem(70px);
-  height: 100%;
+  @media #{media("<")} {
+    padding: rem(16px);
+    padding-right: rem(70px);
+    min-height: rem(116px);
+  }
   min-height: rem(215px);
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -70,11 +75,18 @@
     $gap: 20px;
 
     @include rectangle(rem(30px), rem(37px));
+    @media #{media("<")} {
+      @include rectangle(rem(23px), rem(28px));
+    }
 
     position: absolute;
     z-index: $front;
     bottom: rem($gap);
     right: rem($gap);
+    @media #{media("<")} {
+      bottom: rem(16px);
+      right: rem(16px);
+    }
 
     pointer-events: none;
 
@@ -90,6 +102,9 @@
     $gap: 20px;
 
     @include rectangle(rem(64px));
+    @media #{media("<")} {
+      @include rectangle(rem(36px));
+    }
 
     position: absolute;
     z-index: $front;
@@ -120,12 +135,17 @@
 
     &-svg {
       @include rectangle(rem(18px));
+      @media #{media("<")} {
+        @include rectangle(rem(13.5px));
+      }
     }
   }
 
   &__text {
     @include font-fsl("content-3", 16px, 130%);
-
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
     position: relative;
     z-index: $front;
 
@@ -134,5 +154,8 @@
 
   &__label {
     color: var(--label-color);
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
   }
 }

@@ -1,6 +1,9 @@
 .text {
   &--qpv {
     @include font-fsl("content-1", 16px, 130%);
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
   }
   &--lhc {
     @include font-fsl("content-1", 20px, 160%);
@@ -10,12 +13,22 @@
   }
   &--ezx {
     @include font-fsl("content-1", 24px, 130%);
+    @media #{media("<")} {
+      @include fsl(14px);
+    }
   }
   &--kyu {
     @include font-fsl("title-2", 18px, 120%);
+    @media #{media("<")} {
+      margin-top: rem(8px);
+      @include fsl(12px);
+    }
   }
   &--zay {
     @include font-fsl("title-2", 60px, 110%);
+    @media #{media("<")} {
+      @include fsl(28px);
+    }
   }
   &--vbx {
     @include font-fsl("title-2", 60px, 110%);
@@ -27,6 +40,9 @@
   &--feature {
     &-text {
       @include font-fsl("content-1", 24px, 130%);
+      @media #{media("<")} {
+        @include font-fsl("content-1", 12px, 130%);
+      }
     }
     &-label {
       @include font-fsl("content-1", 20px, 160%);
@@ -92,11 +108,20 @@
 
   &--3 {
     width: calc(#{columns(3)});
+    @media #{media("<")} {
+      width: auto;
+    }
   }
   &--4 {
     width: calc(#{columns(4)});
+    @media #{media("<")} {
+      width: auto;
+    }
   }
   &--5 {
     width: calc(#{columns(5)});
+    @media #{media("<")} {
+      width: auto;
+    }
   }
 }

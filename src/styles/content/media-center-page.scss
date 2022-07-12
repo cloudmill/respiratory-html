@@ -229,6 +229,12 @@
       @include font-fsl("title-2", 32px);
       margin: rem(120px) 0 rem(40px);
     }
+
+    &.centered {
+      @media #{media('>')} {
+        padding: 0 calc(#{$column} + #{$column-gap});
+      }
+    }
   }
 
   &__txt {
@@ -274,6 +280,42 @@
       }
     }
   }
+
+  &__back {
+    width: 100%;
+    margin-top: rem(32px);
+    border: 1px solid color(gray);
+    border-radius: 8px;
+
+    padding: rem(13px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include font-fsl("title-1", 10px);
+    line-height: 1;
+    font-weight: 550;
+
+    @media #{media('>')} {
+      width: calc(#{columns(6)});
+      margin: rem(120px) calc(#{$column} + #{$column-gap}) 0;
+      padding: rem(23px);
+      @include font-fsl("title-1", 13px);
+    }
+
+    svg {
+      margin-right: 8px;
+
+      path, line {
+        stroke: color(blue);
+      }
+    }
+
+    &-txt {
+      margin-top: rem(2px);
+    }
+  }
 }
 
 .media-center-recommend {
@@ -294,6 +336,7 @@
       @include font-fsl("title-2", 18px);
     }
   }
+
   &__list {
     margin-top: rem(100px);
 

@@ -1,0 +1,44 @@
+mixin reslider
+  .reslider(data-reslider-count=3)
+    .reslider__layout
+      .swiper
+        .swiper-wrapper
+          each i, index in repeat(3)
+            .swiper-slide
+              img.reslider__img(src='assets/images/masks-1.jpg' alt='' data-swiper-parallax='28%')
+    .reslider__content
+      .reslider__place
+        +container
+          +space(['block'], ['pt'])
+          +hr(['light'])
+          +space(['hr'])
+          +heading(['sub'], 2)
+            |Наши ценности
+          +space(['sub-block'])
+          +grid(['3-6'])
+            .grid__item
+              +grid(['controls'])
+                .grid__item
+                  .circle.circle--blue
+                    button.circle__button(type="button" data-reslider-prev)
+                      +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                .grid__item
+                  .circle.circle--blue
+                    button.circle__button(type="button" data-reslider-next)
+                      +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+            -
+              var titles = [
+                'Стремление к идеальному продукту',
+                'Развитие эффективных технологий защиты',
+                'Приоритет клиента',
+              ];
+            .grid__item(data-reslider-title=JSON.stringify(titles))
+              |item
+      .reslider__place
+        +container
+          +grid(['5-1'])
+            .grid__item
+              |123
+            .grid__item
+              |123
+          +space(['sub-block'], ['pb'])

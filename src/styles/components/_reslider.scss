@@ -1,0 +1,49 @@
+.reslider {
+  position: relative;
+  z-index: 0;
+
+  overflow: hidden;
+
+  background-color: color(black);
+  border-radius: 0 0 rem(120px) 0;
+  color: color(white);
+
+  &__layout {
+    position: absolute;
+    z-index: 1;
+    top: $column-padding;
+    bottom: $column-padding;
+    right: $column-padding;
+
+    width: calc(#{columns(6)});
+    overflow: hidden;
+
+    border-radius: 0 0 rem(100px) 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+
+    min-height: 80vh;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    align-content: space-between;
+    row-gap: rem(80px); // ?
+  }
+
+  &__img {
+    @include rectangle(100%);
+
+    display: block;
+    object-fit: cover;
+  }
+
+  .swiper {
+    height: 100%;
+
+    &-slide {
+      overflow: hidden;
+    }
+  }
+}

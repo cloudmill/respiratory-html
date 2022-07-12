@@ -12,3 +12,6 @@ export const getPercent = (value) => `${value}%`;
 export const getSelector = (name) => `[data-${name}]`;
 
 export const getPx = (value) => `${value}px`;
+
+export const getClassesFromMods = (className, mods) =>
+  mods.map((mod) => `${className}--${mod}`);

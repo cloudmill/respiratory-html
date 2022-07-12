@@ -1,6 +1,12 @@
 .grid {
   $component: &;
 
+  &--3-6 {
+    display: grid;
+    grid-template-columns: calc(#{columns(3)}) calc(#{columns(6)});
+    column-gap: $column-gap;
+  }
+
   &--gallery {
     height: 100%;
     display: grid;
@@ -279,5 +285,11 @@
         }
       }
     }
+  }
+
+  &--5-1 {
+    display: grid;
+    grid-template-columns: calc(#{columns(5)}) calc(#{columns(1)});
+    column-gap: $column-gap;
   }
 }

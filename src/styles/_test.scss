@@ -282,7 +282,10 @@
   display: grid;
   grid-template-columns: repeat(2, calc(#{columns(6)}));
   column-gap: $column-gap;
-
+  @media #{media("<")} {
+    grid-template-columns: 1fr;
+    row-gap: rem(24px);
+  }
   // col
 
   &__col {
@@ -292,7 +295,10 @@
 
   &__text {
     @include font-fsl("title-2", 18px, 120%);
-
+    @media #{media("<")} {
+      @include fsl(12px);
+      max-width: none;
+    }
     max-width: calc(#{columns(4)});
   }
 }
@@ -304,7 +310,9 @@
 
   &__link {
     @include font-fsl("title-2", 60px, 110%);
-
+    @media #{media("<")} {
+      @include fsl(28px);
+    }
     position: relative;
     z-index: 0;
 

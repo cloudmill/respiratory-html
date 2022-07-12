@@ -3,6 +3,9 @@
 
   &--large {
     --gap: #{rem(8px)};
+    @media #{media("<")} {
+      --gap: #{rem(6px)};
+    }
   }
 
   &--socials {

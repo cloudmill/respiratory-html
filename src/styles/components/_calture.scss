@@ -7,6 +7,11 @@
   z-index: 0;
 
   padding: rem(32px) rem(32px) rem(2 * 32px + 64px) rem(32px);
+  @media #{media("<")} {
+    padding: rem(20px);
+    width: rem(315px);
+    min-height: rem(254px);
+  }
   height: 100%;
   min-height: rem(360px);
   display: block;
@@ -59,11 +64,17 @@
     $offset: rem(32px);
 
     @include rectangle(rem(64px));
-    
+    @media #{media("<")} {
+      @include rectangle(rem(36px));
+    }
     position: absolute;
     z-index: 0;
     bottom: $offset;
     right: $offset;
+    @media #{media("<")} {
+      bottom: rem(20px);
+      right: rem(20px);
+    }
     
     display: flex;
     justify-content: center;
@@ -89,7 +100,9 @@
 
   &__svg {
     @include rectangle(rem(21px));
-
+    @media #{media("<")} {
+      @include rectangle(rem(12px));
+    }
     position: relative;
     z-index: 2;
   }

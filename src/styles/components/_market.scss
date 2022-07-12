@@ -4,6 +4,9 @@
 
   &--2 {
     width: calc(#{columns(2)});
+    @media #{media("<")} {
+      width: calc(#{columns-small(2)});
+    }
   }
 
   &--auto {

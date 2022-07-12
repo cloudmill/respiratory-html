@@ -31,13 +31,19 @@ block content
   +container
     .peculiarity
       .peculiarity__place
+        .mobile-only
+          +hr
+          +space([16])
+          h2.sub-title
+            |Продукция
         img.peculiarity__img(src='assets/images/peculiarity.jpeg')
       .peculiarity__place
-        +hr
-        +space([16])
-        h2.sub-title
-          |Продукция
-        +space([54])
+        .desktop-only
+          +hr
+          +space([16])
+          h2.sub-title
+            |Продукция
+          +space([54])
         .article.article--indent
           |Главной особенностью медицинс- ких респираторов нашего производства является 
           span.article__highlight
@@ -102,16 +108,20 @@ block content
               .examples-slider__content-item
                 .examples-slider__table
                   .examples-slider__table-row
-                    h4.examples-slider__table-title
-                      |Класс защиты
-                    h4.examples-slider__table-title
-                      |Клапан выдоха
-                  .examples-slider__table-row
-                    p.examples-slider__table-value
-                      |FFP1 R D
-                    p.examples-slider__table-value
-                      |Нет
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                      p.examples-slider__table-value
+                        |Нет
               .examples-slider__content-item
+                .examples-slider__content-mobile 
+                  +press.press--white 
+                    |о защите
                 .examples-slider__feature
                   +feature-4-svg.examples-slider__feature-svg
                   .examples-slider__feature-content
@@ -143,16 +153,20 @@ block content
               .examples-slider__content-item
                 .examples-slider__table
                   .examples-slider__table-row
-                    h4.examples-slider__table-title
-                      |Класс защиты
-                    h4.examples-slider__table-title
-                      |Клапан выдоха
-                  .examples-slider__table-row
-                    p.examples-slider__table-value
-                      |FFP1 R D
-                    p.examples-slider__table-value
-                      |Нет
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                      p.examples-slider__table-value
+                        |Нет
               .examples-slider__content-item
+                .examples-slider__content-mobile 
+                  +press.press--white 
+                    |о защите
                 .examples-slider__feature
                   +feature-4-svg.examples-slider__feature-svg
                   .examples-slider__feature-content
@@ -173,6 +187,10 @@ block content
                                 |#{item}
           .control.examples-slider__label
             +arrow-left-svg.control__svg.control__svg--tilt
+    +container 
+      .slider-btn 
+        +press({ icon: ['press/li-blue.svg', 'press/li-black.svg', 'left'] }).press--li
+          |О серии
   +space(['section'])
   +container
     +hr

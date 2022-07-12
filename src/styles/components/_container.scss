@@ -14,6 +14,9 @@
   &--about-article {
     padding-left: calc(#{columns(2)} + #{$column-gap});
     padding-right: calc(#{$column} + #{$column-gap});
+    @media #{media("<")} {
+      padding: 0;
+    }
   }
 
   &--card {

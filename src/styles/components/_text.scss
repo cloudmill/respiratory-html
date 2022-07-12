@@ -98,6 +98,9 @@
   }
   &--4 {
     width: calc(#{columns(4)});
+    @media #{media("<")} {
+      width: auto;
+    }
   }
   &--5 {
     width: calc(#{columns(5)});

@@ -1,6 +1,9 @@
 .heading {
   &--calture {
     @include font-fsl("title-2", 20px, 130%);
+    @media #{media("<")} {
+      @include fsl(14px);
+    }
   }
   &--where {
     @include font-fsl("title-2", 24px, 100%);
@@ -10,15 +13,24 @@
   }
   &--sub {
     @include font-fsl("title-2", 18px, 120%);
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
   }
   &--feature {
     @include font-fsl("title-2", 24px, 120%);
   }
   &--large {
     @include font-fsl("title-3", 54px, 100%);
+    @media #{media("<")} {
+      @include fsl(16px);
+    }
   }
   &--main {
     @include font-fsl("title-3", 72px, 100%);
+    @media #{media("<")} {
+      @include fsl(24px);
+    }
   }
   &--page {
     @include font-fsl("title-3", 130px, 100%);

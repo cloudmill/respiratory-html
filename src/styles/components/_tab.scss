@@ -41,10 +41,16 @@
 
   &--large {
     --height: #{rem(60px)};
+    @media #{media("<")} {
+      --height: #{rem(28px)}; 
+    }
 
     #{$component} {
       &__text {
         @include fsl(20px);
+        @media #{media("<")} {
+          @include fsl(12px);
+        }
       }
     }
   }

@@ -1,6 +1,41 @@
 .grid {
   $component: &;
 
+  &--history {
+    min-height: rem(460px);
+    display: grid;
+    grid-template-columns: calc(#{columns(2)}) repeat(2, calc(#{columns(4)})) calc(
+        #{columns(2)}
+      );
+    column-gap: $column-gap;
+    row-gap: rem(80px); // ?
+    align-content: space-between;
+
+    > {
+      #{$component} {
+        &__item {
+          &:nth-child(1) {
+            @include grid-area(1, 1, 1, 1);
+          }
+          &:nth-child(2) {
+            @include grid-area(2, 1, 1, 1);
+          }
+          &:nth-child(3) {
+            @include grid-area(3, 1, 1, 1);
+          }
+          &:nth-child(4) {
+            @include grid-area(1, 2, 1, 1);
+          }
+          &:nth-child(5) {
+            @include grid-area(2, 2, 3, 1);
+
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+  }
+
   &--aie {
     align-items: end;
   }
@@ -14,7 +49,9 @@
   &--gallery {
     height: 100%;
     display: grid;
-    grid-template-columns: calc(#{columns(4)} * 4.9406564584124654e-324 / 4.9406564584124654e-324) calc(#{columns(2)});
+    grid-template-columns:
+      calc(#{columns(4)} * 4.9406564584124654e-324 / 4.9406564584124654e-324)
+      calc(#{columns(2)});
     grid-template-rows: repeat(2, calc((100% - #{$column-gap}) / 2));
     column-gap: $column-gap;
     row-gap: $column-gap;

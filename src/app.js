@@ -21,6 +21,7 @@ import * as aside from "./scripts/aside";
 import * as gallery from "./scripts/gallery";
 import * as reslider from "./scripts/reslider";
 import * as fslider from "./scripts/fslider";
+import * as history from "./scripts/history";
 
 import { examplesSlider } from "./scripts/examplesSlider";
 
@@ -47,6 +48,7 @@ addEventListener("DOMContentLoaded", () => {
   gallery.start();
   reslider.start();
   fslider.start();
+  history.start();
 });
 
 addEventListener("load", async () => {

@@ -1,5 +1,8 @@
 .no-transition-child {
-  * {
+  *,
+  *::before,
+  *::after {
     @include prefix(transition, none !important);
+    @include prefix(animation-duration, 0s !important);
   }
 }

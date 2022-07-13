@@ -4,6 +4,10 @@
 
   @include font-fsl("title-3", 130px, 100%);
 
+  &--blue {
+    color: color(blue);
+  }
+
   &--reslider {
     @include fsl(72px);
   }

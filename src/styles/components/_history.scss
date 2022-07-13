@@ -1,0 +1,51 @@
+.history {
+  $duration: 1s;
+  $timing-function: timing-function(major);
+
+  &__fade {
+    display: grid;
+
+    &-item {
+      @keyframes history-fade-in {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          pointer-events: all;
+
+          opacity: 1;
+        }
+      }
+      @keyframes history-fade-out {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @include grid-area(1, 1, 1, 1);
+
+      pointer-events: none;
+
+      opacity: 0;
+      animation-duration: math.div($duration, 2);
+      animation-timing-function: $timing-function;
+      animation-fill-mode: forwards;
+
+      &--in {
+        animation-name: history-fade-in;
+      }
+      &--out {
+        animation-name: history-fade-out;
+      }
+    }
+  }
+
+  &__text {
+    @include font-fsl("content-1", 20px, 160%);
+  }
+}

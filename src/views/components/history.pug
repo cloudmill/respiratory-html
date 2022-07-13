@@ -1,0 +1,44 @@
+mixin history
+  -
+    var items = [
+      '1992-1993',
+      '2003',
+      '2010',
+      '2017',
+      '2018',
+      '2020',
+      '2021',
+    ];
+    var active = 2;
+  .history(data-history)
+    +container
+      +hr
+      +space(['hr'])
+      +grid(['history'])
+        .grid__item
+          +heading(['sub'], 2)
+            |Наша история
+        .grid__item
+          .history__title(data-history-title=JSON.stringify(items))
+        .grid__item
+          .history__fade
+            each item, index in items
+              .history__fade-item(class=(index === active && 'history__fade-item--in') data-history-fade)
+                .history__text
+                  |Владимир Сергеевич Астахов, основатель и руководитель предприятия, в 1992 году определил производство средств индивидуальной защиты органов дыхания как перспективное направление для нового бизнеса, а в 1993 был налажен выпуск формованных респираторов ЮЛИЯ®. #{item}
+        .grid__item
+          +grid(['controls'])
+            .grid__item
+              .circle
+                button.circle__button(type="button" data-history-prev)
+                  +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .grid__item
+              .circle
+                button.circle__button(type="button" data-history-next)
+                  +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+        .grid__item
+          +wrap-list(['large'])
+            each item, index in items
+              li.wrap-list__item
+                +tab([index === active && 'active'])(data-history-tab)
+                  |!{item}

@@ -1,81 +1,83 @@
-mixin reslider
-  mixin reslider-list
-    -
-      var items = [
-        'Аэрозоли концентрацией до 50 ПДК',
-        'Кислые и органические пары и газы',
-        'Пары аммиака, ртути и прочие вещества',
-      ]
-
+mixin reslider(mod)
+  
+  mixin reslider-list(items)
     ul.reslider__list
       each item in items
         li.reslider__list-item
           +li-svg.reslider__list-svg
           .reslider__list-text= item
-
-  .reslider(data-reslider-count=3)
-    .reslider__layout
-      .swiper
-        .swiper-wrapper
-          each i, index in repeat(3)
-            .swiper-slide
-              img.reslider__img(src='assets/images/masks-1.jpg' alt='' data-swiper-parallax='28%')
-    .reslider__content
-      .reslider__place
-        +container
-          +space(['block'], ['pt'])
-          +hr(['light'])
-          +space(['hr'])
-          +heading(['sub'], 2)
-            |Наши ценности
-          +space(['sub-block'])
-          +grid(['3-6'])
-            .grid__item
-              +grid(['controls'])
+  
+  case mod
+    when 'about'
+      .reslider(data-reslider-count=3)
+        .reslider__layout
+          .swiper
+            .swiper-wrapper
+              each i, index in repeat(3)
+                .swiper-slide
+                  img.reslider__img(src=`assets/images/reslider/about/${index}.jpg` alt='' data-swiper-parallax='28%')
+        .reslider__content
+          .reslider__place
+            +container
+              +space(['block'], ['pt'])
+              +hr(['light'])
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Наши ценности
+              +space(['sub-block'])
+              +grid(['3-6'])
                 .grid__item
-                  .circle.circle--blue
-                    button.circle__button(type="button" data-reslider-prev)
-                      +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                  +grid(['controls'])
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-prev)
+                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-next)
+                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                -
+                  var titles = [
+                    'Стремление к идеальному продукту',
+                    'Развитие эффективных технологий защиты',
+                    'Приоритет клиента',
+                  ];
+                .grid__item(data-reslider-title=JSON.stringify(titles))
+          .reslider__place
+            +container
+              +grid(['5-1', 'aie'])
                 .grid__item
-                  .circle.circle--blue
-                    button.circle__button(type="button" data-reslider-next)
-                      +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
-            -
-              var titles = [
-                'Стремление к идеальному продукту',
-                'Развитие эффективных технологий защиты',
-                'Приоритет клиента',
-              ];
-            .grid__item(data-reslider-title=JSON.stringify(titles))
-              |item
-      .reslider__place
-        +container
-          +grid(['5-1', 'aie'])
-            .grid__item
-              .reslider__wrapper
-                .reslider__fade
-                  each i, index in repeat(3)
-                    .reslider__fade-item(class=(index === 0 && 'reslider__fade-item--active'))
-                      +stack(['small'])
-                        .stack__item
-                          .reslider__description
-                            |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
-                        .stack__item
-                          +reslider-list
-            .grid__item
-              .reslider__fade
-                each i, index in repeat(3)
-                  .reslider__fade-item(class=(index === 0 && 'reslider__fade-item--active'))
-                    .reslider__progress
-                      .reslider__progress-cur
-                        .reslider__progress-text.reslider__progress-text--fake
-                          |1
-                        .reslider__progress-text.reslider__progress-text--fake
-                          |2
-                        .reslider__progress-text.reslider__progress-text--fake
-                          |3
-                        .reslider__progress-text
-                          |#{index + 1}
-                      .reslider__progress-all
-                        |/3
-          +space(['sub-block'], ['pb'])
+                  .reslider__wrapper
+                    .reslider__fade
+                      .reslider__fade-item.reslider__fade-item--active
+                        +stack(['small'])
+                          .stack__item
+                            .reslider__description
+                              |Испытания фильтрующих материалов и&nbsp;новых сорбентов в&nbsp;наших лабораториях помогают совершенствовать защитные характеристики респираторов. Мониторинг клиентского опыта&nbsp;&mdash; источник адаптации наших продуктов и&nbsp;повышения комфорта использования полумасок.
+                      .reslider__fade-item
+                        +stack(['small'])
+                          .stack__item
+                            .reslider__description
+                              |Технологическое развитие является важнейшим пунктом корпоративной стратегии предприятия. Мы&nbsp;автоматизируем процессы, внедряем технологии бережливого производства и&nbsp;совершенствуем парк оборудования.
+                      .reslider__fade-item
+                        +stack(['small'])
+                          .stack__item
+                            .reslider__description
+                              |Понимание потребностей клиентов помогает нам выпускать продукцию, отвечающую самым строгим требованиям. Клиентский сервис включает информационную и&nbsp;техническую поддержку партнеров, онлайн и&nbsp;очное обучение.
+                .grid__item
+                  .reslider__fade
+                    each i, index in repeat(3)
+                      .reslider__fade-item(class=(index === 0 && 'reslider__fade-item--active'))
+                        .reslider__progress
+                          .reslider__progress-cur
+                            .reslider__progress-text.reslider__progress-text--fake
+                              |1
+                            .reslider__progress-text.reslider__progress-text--fake
+                              |2
+                            .reslider__progress-text.reslider__progress-text--fake
+                              |3
+                            .reslider__progress-text
+                              |#{index + 1}
+                          .reslider__progress-all
+                            |/3
+              +space(['sub-block'], ['pb'])

@@ -1,4 +1,7 @@
 .fslider {
+  // $duration: duration(default);
+  $duration: 1s;
+
   position: relative;
   z-index: 0;
 
@@ -25,6 +28,63 @@
 
     background-color: color(white);
     border-radius: rem(30px);
+  }
+
+  &__fade-container {
+    overflow: hidden;
+  }
+  &__fade {
+    @keyframes fslider-fade-in-up {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes fslider-fade-out-down {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    @keyframes fslider-fade-in-down {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes fslider-fade-out-up {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    animation-duration: math.div($duration, 2);
+    animation-timing-function: timing-function(major);
+    animation-fill-mode: forwards;
+
+    &--in-up {
+      animation-name: fslider-fade-in-up;
+    }
+    &--out-down {
+      animation-name: fslider-fade-out-down;
+    }
+
+    &--in-down {
+      animation-name: fslider-fade-in-down;
+    }
+    &--out-up {
+      animation-name: fslider-fade-out-up;
+    }
   }
 
   .swiper {

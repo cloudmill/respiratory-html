@@ -11,6 +11,14 @@
     }
   }
 
+  &--fslider {
+    #{$component} {
+      &__all {
+        margin-left: rem(16px);
+      }
+    }
+  }
+
   &__cur {
     display: grid;
   }

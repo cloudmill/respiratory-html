@@ -1,5 +1,5 @@
 mixin fslider
-  - var count = 12;
+  - var count = 5;
   
   .fslider(data-fslider data-fslider-count=count)
     .fslider__layout
@@ -21,12 +21,12 @@ mixin fslider
                 button.circle__button(type="button" data-fslider-next)
                   +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .grid__item
-          .progress.progress--dark
-            .progress__cur
-              each i, index in repeat(12)
+          .progress.progress--dark.progress--fslider
+            .progress__cur.fslider__fade-container
+              each i, index in repeat(count)
                 .progress__text.progress__text--fake
                   |#{index + 1}
-              .progress__text(data-fslider-cur)
+              .progress__text.fslider__fade(data-fslider-cur data-fslider-fade)
                 |1
             .progress__all
               |/#{count}

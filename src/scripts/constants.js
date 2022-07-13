@@ -7,4 +7,4 @@ export const GALLERY_DURATION = 600;
 
 export const RESLIDER_DURATION = 600;
 
-export const FSLIDER_DURATION = 600;
+export const FSLIDER_DURATION = 1000;

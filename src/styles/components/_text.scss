@@ -58,6 +58,10 @@
   }
   &--address {
     @include font-fsl("title-2", 32px, 120%);
+
+    @media #{media("<")} {
+      @include font-fsl("title-2", 16px, 120%);
+    }
   }
   &--404-desc {
     @include font-fsl("title-2", 32px, 120%);

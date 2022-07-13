@@ -257,6 +257,11 @@
 
     cursor: pointer;
 
+    @media #{media('<')} {
+      width: 100%;
+      justify-content: center;
+    }
+
     &:hover {
       #{$component} {
         &__content,

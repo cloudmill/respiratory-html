@@ -30,12 +30,20 @@
     }
     &--block {
       #{$property}: rem(80px);
+
+      @media #{media("<")} {
+        #{$property}: rem(32px);
+      }
     }
     &--sub-section {
       #{$property}: rem(100px);
     }
     &--mid-section {
       #{$property}: rem(120px);
+
+      @media #{media("<")} {
+        #{$property}: rem(48px);
+      }
     }
     &--l-section {
       #{$property}: rem(160px);
@@ -45,6 +53,10 @@
     }
     &--section {
       #{$property}: rem(180px);
+
+      @media #{media("<")} {
+        #{$property}: rem(48px);
+      }
     }
 
     &--gap {

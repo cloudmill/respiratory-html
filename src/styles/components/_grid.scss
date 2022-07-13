@@ -157,18 +157,30 @@
 
   &--5-7 {
     display: grid;
-    grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
-    column-gap: $column-gap;
+    grid-template-columns: auto;
+
+    @media #{media("<")} {
+      row-gap: rem(20px);
+    }
+    @media #{media(">")} {
+      grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
+      column-gap: $column-gap;
+    }
   }
 
   &--3-4 {
     display: grid;
-    grid-template-columns: calc(#{columns(3)}) calc(#{columns(4)});
-    column-gap: $column-gap;
+    grid-template-columns: calc(#{columns-small(2)} + #{$column-gap-small}) calc(#{columns-small(2)});
+
+    @media #{media(">")} {
+      grid-template-columns: calc(#{columns(3)}) calc(#{columns(4)});
+      column-gap: $column-gap;
+    }
   }
 
   &--4-8 {
     display: grid;
+    grid-template-columns: auto;
     grid-template-columns: calc(#{columns(4)}) calc(#{columns(8)});
     column-gap: $column-gap;
   }

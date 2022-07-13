@@ -1,6 +1,10 @@
 .grid {
   $component: &;
 
+  &--aie {
+    align-items: end;
+  }
+
   &--3-6 {
     display: grid;
     grid-template-columns: calc(#{columns(3)}) calc(#{columns(6)});

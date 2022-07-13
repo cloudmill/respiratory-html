@@ -13,5 +13,7 @@ export const getSelector = (name) => `[data-${name}]`;
 
 export const getPx = (value) => `${value}px`;
 
+export const getClassFromMod = (className, mod) => `${className}--${mod}`;
+
 export const getClassesFromMods = (className, mods) =>
-  mods.map((mod) => `${className}--${mod}`);
+  mods.map((mod) => getClassFromMod(className, mod));

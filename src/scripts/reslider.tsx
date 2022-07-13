@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Words, Move } from "./components/Words";
 import { RESLIDER_DURATION as DURATION } from "./constants";
 import { createStore, Reducer, Action } from "redux";
+import { getClassFromMod } from "./utils";
 
 const start = () => {
   const resliders = document.querySelectorAll<HTMLElement>(".reslider");
@@ -11,8 +12,6 @@ const start = () => {
   resliders.forEach((reslider) => {
     // props
     const count = +(reslider.dataset.resliderCount || 0);
-
-    console.log(count);
 
     // state
     type Animation =
@@ -118,13 +117,44 @@ const start = () => {
 
     const store = createStore(reducer);
 
-    store.subscribe(() => {
-      console.log(store.getState());
+    // fade
+    const fadesContainers = reslider.querySelectorAll(".reslider__fade");
+    fadesContainers.forEach((fadesContainer) => {
+      const fades = fadesContainer.querySelectorAll(".reslider__fade-item");
+
+      const removeMod = (mod) => {
+        fades.forEach((fade) =>
+          fade.classList.remove(getClassFromMod("reslider__fade-item", mod))
+        );
+      };
+      const addMod = (mod, index) => {
+        fades[index].classList.add(getClassFromMod("reslider__fade-item", mod));
+      };
+
+      store.subscribe(() => {
+        const { index, animation } = store.getState();
+
+        if (animation) {
+          const [start, end, part] = animation;
+
+          if (part === "left") {
+            addMod("out", start);
+          } else {
+            removeMod("active");
+            removeMod("out");
+            addMod("active", end);
+            addMod("in", end);
+          }
+        } else {
+          removeMod("active");
+          removeMod("in");
+          addMod("active", index);
+        }
+      });
     });
 
     // image
     const swiperEl = reslider.querySelector<HTMLElement>(".swiper");
-    console.log(swiperEl);
 
     if (swiperEl) {
       const swiper = new Swiper(swiperEl, {

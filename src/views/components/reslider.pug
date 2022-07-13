@@ -1,4 +1,18 @@
 mixin reslider
+  mixin reslider-list
+    -
+      var items = [
+        'Аэрозоли концентрацией до 50 ПДК',
+        'Кислые и органические пары и газы',
+        'Пары аммиака, ртути и прочие вещества',
+      ]
+
+    ul.reslider__list
+      each item in items
+        li.reslider__list-item
+          +li-svg.reslider__list-svg
+          .reslider__list-text= item
+
   .reslider(data-reslider-count=3)
     .reslider__layout
       .swiper
@@ -36,9 +50,32 @@ mixin reslider
               |item
       .reslider__place
         +container
-          +grid(['5-1'])
+          +grid(['5-1', 'aie'])
             .grid__item
-              |123
+              .reslider__wrapper
+                .reslider__fade
+                  each i, index in repeat(3)
+                    .reslider__fade-item(class=(index === 0 && 'reslider__fade-item--active'))
+                      +stack(['small'])
+                        .stack__item
+                          .reslider__description
+                            |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
+                        .stack__item
+                          +reslider-list
             .grid__item
-              |123
+              .reslider__fade
+                each i, index in repeat(3)
+                  .reslider__fade-item(class=(index === 0 && 'reslider__fade-item--active'))
+                    .reslider__progress
+                      .reslider__progress-cur
+                        .reslider__progress-text.reslider__progress-text--fake
+                          |1
+                        .reslider__progress-text.reslider__progress-text--fake
+                          |2
+                        .reslider__progress-text.reslider__progress-text--fake
+                          |3
+                        .reslider__progress-text
+                          |#{index + 1}
+                      .reslider__progress-all
+                        |/3
           +space(['sub-block'], ['pb'])

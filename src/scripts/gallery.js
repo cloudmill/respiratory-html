@@ -18,8 +18,6 @@ const start = () => {
       });
     }
 
-    console.log(items);
-
     imgs.forEach((img) => {
       const index = img.dataset.gallery;
 
@@ -30,7 +28,7 @@ const start = () => {
       });
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

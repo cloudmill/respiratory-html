@@ -37,6 +37,10 @@
     }
     &--sub-section {
       #{$property}: rem(100px);
+
+      @media #{media("<")} {
+        #{$property}: rem(32px);
+      }
     }
     &--mid-section {
       #{$property}: rem(120px);

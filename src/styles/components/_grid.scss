@@ -9,6 +9,10 @@
     column-gap: $column-gap;
     row-gap: $column-gap;
 
+    @media #{media("<")} {
+      grid-template-columns: calc(#{columns-small(2)} + (#{$column-small} / 3) * 2) calc(#{$column-small} + #{$column-gap-small} + (#{$column-small} / 3));
+    }
+
     > {
       #{$component} {
         &__item {
@@ -45,25 +49,55 @@
     display: grid;
     grid-template-columns: repeat(2, calc(#{$column}));
     column-gap: $column-gap;
+
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, calc(#{$column-small}));
+      column-gap: $column-gap-small;
+    }
   }
 
   &--card-new {
     display: grid;
-    grid-template-columns: calc(#{columns(4)}) calc(#{columns(2)});
-    column-gap: $column-gap;
+    row-gap: rem(12px);
+
+    @media #{media(">")} {
+      grid-template-columns: calc(#{columns(4)}) calc(#{columns(2)});
+      column-gap: $column-gap;
+    }
   }
 
   &--card-title {
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: rem(12px);
+
+    @media #{media("<")} {
+      align-items: center;
+    }
   }
 
   &--col {
     &-3 {
       display: grid;
+
+      @media #{media("<")} {
+        row-gap: rem(8px);
+      }
+      @media #{media(">")} {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: $column-gap;
+      }
+    }
+
+    &-3-desk-2-mob {
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
       column-gap: $column-gap;
+
+      @media #{media("<")} {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: $column-gap-small;
+      }
     }
   }
 
@@ -74,8 +108,11 @@
 
   &--3-3 {
     display: grid;
-    grid-template-columns: repeat(2, calc(#{columns(3)}));
     column-gap: $column-gap;
+
+    @media #{media(">")} {
+      grid-template-columns: repeat(2, calc(#{columns(3)}));
+    }
   }
 
   &--404-nav {
@@ -347,6 +384,9 @@
 
   &--row-gap {
     row-gap: $column-gap;
+    @media #{media("<")} {
+      row-gap: $column-gap-small;
+    }
   }
 
   &--feature {
@@ -373,5 +413,11 @@
         }
       }
     }
+  }
+}
+
+.mob-bottom {
+  @media #{media("<")} {
+    order: 1;
   }
 }

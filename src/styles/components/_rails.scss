@@ -1,7 +1,11 @@
 .rails {
-  height: 100%;
 
-  &__train {
-    position: sticky;
+  @media #{media(">")} {
+
+    height: 100%;
+
+    &__train {
+      position: sticky;
+    } 
   }
 }

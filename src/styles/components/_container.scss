@@ -20,8 +20,10 @@
   }
 
   &--card {
-    margin: 0 auto;
-    width: calc(#{columns(4)});
+    @media #{media(">")} {
+      margin: 0 auto;
+      width: calc(#{columns(4)});
+    }
   }
 
   &--li {

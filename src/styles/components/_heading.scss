@@ -46,6 +46,10 @@
   }
   &--404 {
     @include font-fsl("title-3", 200px, 100%);
+
+    @media #{media("<")} {
+      @include fsl(100px);
+    }
   }
   &--card-value-title {
     @include font-fsl("content-1", 14px, 130%);

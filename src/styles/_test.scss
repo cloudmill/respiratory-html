@@ -1529,6 +1529,10 @@
 
     margin: 0 auto;
     display: block;
+
+    @media #{media("<")} {
+      @include rectangle(rem(73px));
+    }
   }
 }
 

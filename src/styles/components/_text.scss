@@ -67,6 +67,10 @@
     @include font-fsl("title-2", 32px, 120%);
 
     color: color(gray-dark);
+
+    @media #{media("<")} {
+      @include fsl(16px)
+    }
   }
   &--card {
     @include font-fsl('content-1', 16px, 160%);

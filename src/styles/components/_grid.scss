@@ -83,6 +83,11 @@
     grid-template-columns: repeat(2, auto);
     column-gap: rem(12px);
     justify-content: center;
+
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $column-gap;
+    }
   }
 
   &--last-bottom {

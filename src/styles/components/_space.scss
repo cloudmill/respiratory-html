@@ -47,6 +47,10 @@
     }
     &--l-section {
       #{$property}: rem(160px);
+
+      @media #{media("<")} {
+        #{$property}: rem(34px);
+      }
     }
     &--header {
       #{$property}: rem(169px);

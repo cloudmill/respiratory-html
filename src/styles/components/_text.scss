@@ -75,6 +75,10 @@
   &--card {
     @include font-fsl('content-1', 16px, 160%);
 
+    @media #{media("<")} {
+      @include fsl(14px)
+    }
+
     &-info {
       &-title {
         @include font-fsl('content-1', 14px, 130%);

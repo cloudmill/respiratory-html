@@ -24,6 +24,9 @@
     }
     &--sub-block {
       #{$property}: rem(40px);
+      @media #{media("<")} {
+        #{$property}: rem(12px);
+      }
     }
     &--mid-block {
       #{$property}: rem(60px);

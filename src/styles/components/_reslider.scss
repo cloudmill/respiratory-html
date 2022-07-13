@@ -1,5 +1,7 @@
 .reslider {
-  $transition: transition(major);
+  $duration: 1s;
+  $timing-function: timing-function(major);
+  $transition: $duration $timing-function;
 
   position: relative;
   z-index: 0;
@@ -70,8 +72,8 @@
 
       opacity: 0;
       transition: opacity $transition;
-      animation-duration: math.div(duration(default), 2);
-      animation-timing-function: timing-function(major);
+      animation-duration: math.div($duration, 2);
+      animation-timing-function: $timing-function;
       animation-fill-mode: forwards;
 
       &--in {
@@ -178,6 +180,63 @@
       margin-left: rem(24px);
 
       color: color(white);
+    }
+  }
+
+  &__progress-container {
+    overflow: hidden;
+  }
+  &__progress {
+    @keyframes reslider-progress-in-up {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes reslider-progress-out-down {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    @keyframes reslider-progress-in-down {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes reslider-progress-out-up {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    animation-duration: math.div($duration, 2);
+    animation-timing-function: timing-function(major);
+    animation-fill-mode: forwards;
+
+    &--in-up {
+      animation-name: reslider-progress-in-up;
+    }
+    &--out-down {
+      animation-name: reslider-progress-out-down;
+    }
+
+    &--in-down {
+      animation-name: reslider-progress-in-down;
+    }
+    &--out-up {
+      animation-name: reslider-progress-out-up;
     }
   }
 

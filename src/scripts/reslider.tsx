@@ -271,6 +271,56 @@ const start = () => {
         }
       });
     }
+
+    // cur
+
+    const cur = reslider.querySelector("[data-reslider-cur]");
+
+    store.subscribe(() => {
+      const { index, animation } = store.getState();
+
+      if (animation) {
+        const [start, end, part] = animation;
+
+        if (part === "right") {
+          cur.textContent = end + 1;
+        }
+      }
+    });
+
+    // progress
+
+    const progress = reslider.querySelector("[data-reslider-progress]");
+
+    const getClass = (mod) => `reslider__progress--${mod}`;
+    const removeMods = (mods) =>
+      mods.forEach((mod) => progress.classList.remove(getClass(mod)));
+
+    store.subscribe(() => {
+      const { index, animation } = store.getState();
+
+      if (animation) {
+        const [start, end, part] = animation;
+
+        if (part === "left") {
+          removeMods(["in-up", "in-down", "out-up", "out-down"]);
+
+          if (start < end) {
+            progress.classList.add(getClass("out-up"));
+          } else {
+            progress.classList.add(getClass("out-down"));
+          }
+        } else {
+          removeMods(["in-up", "in-down", "out-up", "out-down"]);
+
+          if (start < end) {
+            progress.classList.add(getClass("in-down"));
+          } else {
+            progress.classList.add(getClass("in-up"));
+          }
+        }
+      }
+    });
   });
 };
 

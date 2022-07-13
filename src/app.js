@@ -20,6 +20,7 @@ import * as rails from "./scripts/rails";
 import * as aside from "./scripts/aside";
 import * as gallery from "./scripts/gallery";
 import * as reslider from "./scripts/reslider";
+import * as fslider from "./scripts/fslider";
 
 import { examplesSlider } from "./scripts/examplesSlider";
 
@@ -45,6 +46,7 @@ addEventListener("DOMContentLoaded", () => {
   aside.start();
   gallery.start();
   reslider.start();
+  fslider.start();
 });
 
 addEventListener("load", async () => {

@@ -1,0 +1,39 @@
+.progress {
+  $component: &;
+
+  display: flex;
+
+  &--dark {
+    #{$component} {
+      &__all {
+        color: color(black);
+      }
+    }
+  }
+
+  &__cur {
+    display: grid;
+  }
+
+  &__text {
+    @include grid-area(1, 1, 1, 1);
+    @include font-fsl("title-2", 40px, 100%);
+
+    color: color(blue);
+
+    &--fake {
+      visibility: hidden;
+      pointer-events: none;
+
+      opacity: 0;
+    }
+  }
+
+  &__all {
+    @include font-fsl("title-2", 16px, 100%);
+
+    margin-left: rem(24px);
+
+    color: color(white);
+  }
+}

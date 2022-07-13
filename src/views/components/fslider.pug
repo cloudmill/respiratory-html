@@ -1,0 +1,32 @@
+mixin fslider
+  - var count = 12;
+  
+  .fslider(data-fslider data-fslider-count=count)
+    .fslider__layout
+      .swiper(data-fslider-swiper)
+        .swiper-wrapper
+          each i in repeat(count)
+            .swiper-slide
+              img(src='assets/images/fslider.jpeg' alt='' data-swiper-parallax='28%')
+    .fslider__panel
+      +grid(['space-between'])
+        .grid__item
+          +grid(['controls'])
+            .grid__item
+              .circle
+                button.circle__button(type="button" data-fslider-prev)
+                  +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .grid__item
+              .circle
+                button.circle__button(type="button" data-fslider-next)
+                  +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+        .grid__item
+          .progress.progress--dark
+            .progress__cur
+              each i, index in repeat(12)
+                .progress__text.progress__text--fake
+                  |#{index + 1}
+              .progress__text(data-fslider-cur)
+                |1
+            .progress__all
+              |/#{count}

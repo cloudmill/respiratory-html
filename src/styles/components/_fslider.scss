@@ -1,0 +1,48 @@
+.fslider {
+  position: relative;
+  z-index: 0;
+
+  height: 80vh;
+  overflow: hidden;
+
+  border-radius: 0 0 rem(100px) 0;
+
+  &__layout {
+    @include inset;
+
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__panel {
+    position: absolute;
+    z-index: 2;
+    top: $column-padding;
+    left: $column-padding;
+
+    padding: $column-padding;
+    width: calc(#{columns(3)});
+
+    background-color: color(white);
+    border-radius: rem(30px);
+  }
+
+  .swiper {
+    height: 100%;
+
+    .swiper-slide {
+      overflow: hidden;
+
+      &:last-child {
+        border-radius: 0 0 rem(100px) 0;
+      }
+    }
+
+    img {
+      @include rectangle(100%);
+
+      display: block;
+      object-fit: cover;
+    }
+  }
+}

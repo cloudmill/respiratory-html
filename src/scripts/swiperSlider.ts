@@ -4,7 +4,7 @@ import Swiper, {
   Navigation,
   Pagination,
 } from "swiper";
-import { GALLERY_DURATION } from "./constants";
+import { GALLERY_DURATION, FSLIDER_DURATION } from "./constants";
 
 const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
   const swiperId = swiperEl.dataset.swiperSlider;

@@ -1,5 +1,5 @@
 .swiper-slider {
-  $ids: (0, card);
+  $ids: (0);
 
   @mixin swiper-slider($id) {
     @if $id == 0 {

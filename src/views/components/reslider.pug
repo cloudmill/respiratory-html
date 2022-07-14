@@ -9,14 +9,14 @@ mixin reslider(mod)
   
   case mod
     when 'about'
-      - var count = 5;
+      - var count = 3;
       .reslider(data-reslider-count=count)
         .reslider__layout
           .swiper
             .swiper-wrapper
               each i, index in repeat(count)
                 .swiper-slide
-                  img.reslider__img(src=`assets/images/reslider/about/${index % 3}.jpg` alt='' data-swiper-parallax='28%')
+                  img.reslider__img(src=`assets/images/reslider/about/${index % count}.jpg` alt='' data-swiper-parallax='28%')
         .reslider__content
           .reslider__place
             +container
@@ -42,8 +42,6 @@ mixin reslider(mod)
                     'Стремление к идеальному продукту',
                     'Развитие эффективных технологий защиты',
                     'Приоритет клиента',
-                    'Стремление к идеальному продукту',
-                    'Развитие эффективных технологий защиты',
                   ];
                 .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
@@ -67,21 +65,6 @@ mixin reslider(mod)
                           .stack__item
                             .reslider__description
                               |Понимание потребностей клиентов помогает нам выпускать продукцию, отвечающую самым строгим требованиям. Клиентский сервис включает информационную и&nbsp;техническую поддержку партнеров, онлайн и&nbsp;очное обучение.
-                      .reslider__fade-item
-                        +stack(['small'])
-                          .stack__item
-                            .reslider__description
-                              |Технологическое развитие является важнейшим пунктом корпоративной стратегии предприятия. Мы&nbsp;автоматизируем процессы, внедряем технологии бережливого производства и&nbsp;совершенствуем парк оборудования.
-                      .reslider__fade-item
-                        +stack(['small'])
-                          .stack__item
-                            .reslider__description
-                              |Понимание потребностей клиентов помогает нам выпускать продукцию, отвечающую самым строгим требованиям. Клиентский сервис включает информационную и&nbsp;техническую поддержку партнеров, онлайн и&nbsp;очное обучение.
-                      .reslider__fade-item
-                        +stack(['small'])
-                          .stack__item
-                            .reslider__description
-                              |Технологическое развитие является важнейшим пунктом корпоративной стратегии предприятия. Мы&nbsp;автоматизируем процессы, внедряем технологии бережливого производства и&nbsp;совершенствуем парк оборудования.
                 .grid__item
                   .progress
                     .progress__cur.reslider__progress-container

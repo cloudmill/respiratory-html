@@ -236,3 +236,87 @@ mixin reslider(mod)
                     .progress__all
                       |/#{count}
               +space(['sub-block'], ['pb'])
+    when 'industrial'
+      - var count = 3;
+      .reslider(data-reslider-count=count)
+        .reslider__layout
+          .swiper
+            .swiper-wrapper
+              each i, index in repeat(count)
+                .swiper-slide
+                  img.reslider__img(src=`assets/images/reslider/industrial/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+        .reslider__content
+          .reslider__place
+            +container
+              +space(['block'], ['pt'])
+              +hr(['light'])
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Мы предлагаем
+              +space(['sub-block'])
+              +grid(['3-6'])
+                .grid__item
+                  +grid(['controls'])
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-prev)
+                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-next)
+                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                -
+                  var titles = [
+                    'Ассортимент',
+                    'Кастомизация',
+                    'Качество',
+                  ];
+                .grid__item(data-reslider-title=JSON.stringify(titles))
+          .reslider__place
+            +container
+              +grid(['5-1', 'aie'])
+                .grid__item
+                  .reslider__wrapper
+                    .reslider__fade
+                      .reslider__fade-item.reslider__fade-item--active
+                        +stack(['small'])
+                          .stack__item
+                            .reslider__description
+                              |Разнообразие конструкций и&nbsp;защитных характеристик респираторов помогает подобрать СИЗОД под запросы ваших сотрудников и&nbsp;условия труда:
+                          .stack__item
+                            -
+                              var items = [
+                                'Аэрозоли концентрацией до 50 ПДК',
+                                'Кислые и органические пары и газы',
+                                'Пары аммиака, ртути и прочие вещества',
+                              ];
+                            +reslider-list(items)
+                      .reslider__fade-item
+                        +stack(['small'])
+                          .stack__item
+                            .reslider__description
+                              |Наш профессиональный интерес&nbsp;&mdash; индивидуальные требования заказчиков. Благодаря технологическому уровню предприятия компания решает задачи клиентов:
+                          .stack__item
+                            -
+                              var items = [
+                                'Особая упаковка и комплектация продукции',
+                                'Дополнительная маркировка',
+                                'Нанесение логотипа',
+                                'Размещение меток радиочастотной идентификации',
+                                'Новый продукт по техническому заданию заказчика',
+                              ];
+                            +reslider-list(items)
+                      .reslider__fade-item
+                        .reslider__description
+                          |Качество нашей продукции обеспечивается лучшими фильтрующими и&nbsp;сорбционными материалами, современным оборудованием и&nbsp;опытным персоналом, а&nbsp;стабильность&nbsp;&mdash; технологичностью производства, отлаженными процессами и&nbsp;постоянным контролем.
+                .grid__item
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
+              +space(['sub-block'], ['pb'])

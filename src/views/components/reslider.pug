@@ -164,3 +164,75 @@ mixin reslider(mod)
                     .progress__all
                       |/#{count}
               +space(['sub-block'], ['pb'])
+    when 'work'
+      - var count = 3;
+      .reslider(data-reslider-count=count)
+        .reslider__layout
+          .swiper
+            .swiper-wrapper
+              each i, index in repeat(count)
+                .swiper-slide
+                  img.reslider__img(src=`assets/images/reslider/work/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+        .reslider__content
+          .reslider__place
+            +container
+              +space(['block'], ['pt'])
+              +hr(['light'])
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Почему стоит выбрать Респираторный комплекс
+              +space(['sub-block'])
+              +grid(['3-6'])
+                .grid__item
+                  +grid(['controls'])
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-prev)
+                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-next)
+                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                -
+                  var titles = [
+                    'профессионализм',
+                    'социальная ответственность',
+                    'развитие',
+                  ];
+                .grid__item(data-reslider-title=JSON.stringify(titles))
+          .reslider__place
+            +container
+              +grid(['5-1', 'aie'])
+                .grid__item
+                  .reslider__wrapper
+                    .reslider__fade
+                      .reslider__fade-item.reslider__fade-item--active
+                        -
+                          var items = [
+                            'Мы эксперты в области средств индивидуальной защиты органов дыхания',
+                            'Разрабатываем и производим продукцию, которая много лет неизменно держит высокую планку качества и заслужила доверие потребителей',
+                            'Работой в Респираторном комплексе можно гордиться, ведь предприятие создает важный продукт и делает это хорошо',
+                          ];
+                        +reslider-list(items)
+                      .reslider__fade-item
+                        -
+                          var items = [
+                            'Предлагаем официальное оформление, белую зарплату, ДМС, настраиваемый график работы',
+                            'Сотрудники производства обеспечены качественной спецодеждой',
+                            'У нас богатая корпоративная жизнь: экскурсии и праздники для сотрудников и их детей, спортивные и туристические мероприятия',
+                          ];
+                        +reslider-list(items)
+                      .reslider__fade-item
+                        .reslider__description
+                          |Организуем обучение сотрудников, поощряем участие в&nbsp;рационализаторской деятельности, поддерживаем проектную работу. Вы&nbsp;можете воплощать свои идеи, влиять на&nbsp;общий результат и&nbsp;каждый день расти вместе с&nbsp;Респираторным комплексом
+                .grid__item
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
+              +space(['sub-block'], ['pb'])

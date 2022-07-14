@@ -320,3 +320,75 @@ mixin reslider(mod)
                     .progress__all
                       |/#{count}
               +space(['sub-block'], ['pb'])
+    when 'trade'
+      - var count = 3;
+      .reslider(data-reslider-count=count)
+        .reslider__layout
+          .swiper
+            .swiper-wrapper
+              each i, index in repeat(count)
+                .swiper-slide
+                  img.reslider__img(src=`assets/images/reslider/trade/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+        .reslider__content
+          .reslider__place
+            +container
+              +space(['block'], ['pt'])
+              +hr(['light'])
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Мы предлагаем
+              +space(['sub-block'])
+              +grid(['3-6'])
+                .grid__item
+                  +grid(['controls'])
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-prev)
+                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-next)
+                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                -
+                  var titles = [
+                    'Различные варианты упаковки и комплектации ',
+                    'Информационная поддержка',
+                    'Маркетинговая поддержка',
+                  ];
+                .grid__item(data-reslider-title=JSON.stringify(titles))
+          .reslider__place
+            +container
+              +grid(['5-1', 'aie'])
+                .grid__item
+                  .reslider__wrapper
+                    .reslider__fade
+                      .reslider__fade-item.reslider__fade-item--active
+                        .reslider__description
+                          |Специальная упаковка с&nbsp;подвесами для розничных магазинов, компактная индивидуальная упаковка, коробки и&nbsp;пакеты для комплектов из&nbsp;нескольких изделий&nbsp;&mdash; мы&nbsp;даем нашим партнерам возможность организовать поставку предприятиям или выкладку товаров и&nbsp;продажу самым удобным способом. Прислушиваемся к&nbsp;пожеланиям и&nbsp;дорабатываем упаковку, а&nbsp;в&nbsp;отдельных случаях, разрабатываем новую.
+                      .reslider__fade-item
+                        +stack
+                          .stack__item
+                            .reslider__description
+                              |Организуем для партнеров обучение, постоянно обновляем комплекты материалов с&nbsp;описанием и&nbsp;техническими данными. Делимся нашим опытом продаж и&nbsp;знаниями в&nbsp;области защиты органов дыхания.
+                          .stack__item
+                            +press.press--info
+                              |Оставить заявку на обучение
+                      .reslider__fade-item
+                        +stack
+                          .stack__item
+                            .reslider__description
+                              |Наши рекламные и&nbsp;презентационные материалы помогут поддержать продажи. Объединение усилий в&nbsp;продвижении продукции, выпуск совместной полиграфии, проведение совместных рекламных кампаний укрепляет сотрудничество и&nbsp;делает наши действия значительно эффективнее. Мы&nbsp;открыты к&nbsp;предложениям!
+                          .stack__item
+                            +press.press--info
+                              |Обсудить совместный проект
+                .grid__item
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
+              +space(['sub-block'], ['pb'])

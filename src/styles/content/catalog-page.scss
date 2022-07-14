@@ -1,0 +1,159 @@
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+
+  &__place {
+    &:nth-child(odd) {
+      .product {
+        border-left: none;
+      }
+    }
+
+    &:nth-child(even) {
+      margin-left: -1px;
+
+      .product {
+        border-right: none;
+      }
+    }
+
+    &:not(:nth-child(-n + 2)) {
+      margin-top: -1px;
+    }
+  }
+}
+
+.product {
+  $component: &;
+
+  position: relative;
+  z-index: 0;
+
+  padding: $column-padding;
+  display: block;
+
+  background-color: color(white);
+  border: 1px solid color(gray);
+
+  &:hover {
+    z-index: 1;
+
+    border-color: color(blue);
+
+    #{$component} {
+      &__title {
+        color: color(blue);
+      }
+    }
+  }
+
+  &__icon {
+    @include getSize(rem(64px));
+
+    position: absolute;
+    bottom: $column-padding;
+    right: $column-padding;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background-color: color(blue);
+  }
+
+  &__svg {
+    @include getSize(rem(18px));
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: calc(#{columns(3)}) 1fr;
+    column-gap: $column-gap;
+  }
+
+  &__cell {
+    &--info {
+      padding-bottom: rem(64px + 40px);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: rem(552px);
+    min-height: 100%;
+    display: block;
+    object-fit: cover;
+    overflow: hidden;
+
+    border-radius: 0px rem(16px) rem(16px) 0px;
+  }
+
+  &__title {
+    @include font("title-3");
+
+    font-size: rem(54px);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__table {
+    margin-top: rem(40px);
+
+    &-row {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: rem(9px);
+      }
+    }
+
+    &-col {
+      width: calc(#{columns(1)});
+      flex-shrink: 0;
+
+      &:not(:first-child) {
+        margin-left: $column-gap;
+      }
+    }
+
+    &-title {
+      @include font("content-1");
+
+      font-size: rem(14px);
+      line-height: 1.3;
+    }
+
+    &-value {
+      @include font("title-2");
+
+      font-size: rem(16px);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  &__features {
+    margin-top: rem(40px);
+  }
+
+  &__feature {
+    display: flex;
+
+    &-svg {
+      @include getSize(rem(60px));
+
+      flex-shrink: 0;
+    }
+
+    &-text {
+      @include font("content-1");
+
+      margin-left: rem(15px);
+      padding-top: rem(20px);
+
+      font-size: rem(14px);
+      line-height: 1.3;
+    }
+  }
+}

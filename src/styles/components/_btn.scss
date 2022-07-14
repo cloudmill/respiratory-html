@@ -318,4 +318,94 @@
   &__img {
     display: block;
   }
+
+  &__link {
+    $element: &;
+
+    &--variant {
+      &--default {
+        padding: rem(18px);
+
+        background-color: color(blue);
+        border: 1px solid color(blue);
+        border-radius: rem(8px);
+        cursor: pointer;
+
+        &:hover {
+          background-color: color(white);
+          border-color: color(blue);
+        }
+      }
+
+      &--text {
+        &:hover {
+          #{$component} {
+            &__text {
+              color: color(blue);
+            }
+          }
+        }
+
+        #{$component} {
+          &__text {
+            @include font-fsl;
+
+            font-size: rem(13px);
+            line-height: 1;
+            color: color(white);
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &--filter {
+        padding: rem(22px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          #{$component} {
+            &__text {
+              color: color(blue);
+            }
+          }
+        }
+
+        #{$component} {
+          &__icon {
+            display: flex;
+          }
+
+          &__svg {
+            @include getSize(17px);
+          }
+
+          &__text {
+            margin-left: rem(12px);
+          }
+        }
+      }
+
+      &--full {
+        width: 100%;
+      }
+
+      &--dark {
+        background-color: color(black);
+        border: 1px solid color(black);
+
+        &:hover {
+          background-color: color(white);
+          border-color: color(black);
+
+          #{$component} {
+            &__text {
+              color: color(black);
+            }
+          }
+        }
+      }
+    }
+  }
 }

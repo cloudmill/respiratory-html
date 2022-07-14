@@ -50,26 +50,64 @@ block content
         +grid(['controls'])
           .grid__item
             .circle
-              button.circle__button(type="button")
+              button.circle__button(type="button" data-swiper-slider-prev=0)
                 +arrow-left-svg.circle__svg.circle__svg--arrow-left
           .grid__item
             .circle
-              button.circle__button(type="button")
+              button.circle__button(type="button" data-swiper-slider-next=0)
                 +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
     +space(['sub-section'])
     .swiper.swiper-slider(data-swiper-slider=0)
       .swiper-wrapper
-        each i, index in repeat(6)
+        -
+          var caltures = [
+            {
+              title: 'АО «Оскольский электрометаллургический комбинат»',
+              items: [
+                'Поставка продукции',
+                'Обучение службы охраны труда',
+                'Обучение персонала',
+              ],
+            },
+            {
+              title: 'Волховская межрайонная больница',
+              items: [
+                'Поставка продукции',
+                'Обучение персонала',
+              ],
+            },
+            {
+              title: 'АО «Оскольский электрометаллургический комбинат»',
+              items: [
+                'Поставка продукции',
+              ],
+            },
+            {
+              title: 'Волховская межрайонная больница',
+              items: [
+                'Поставка продукции',
+                'Обучение службы охраны труда',
+                'Обучение персонала',
+              ],
+            },
+            {
+              title: 'АО «Оскольский электрометаллургический комбинат»',
+              items: [
+                'Поставка продукции',
+                'Обучение службы охраны труда',
+                'Обучение персонала',
+              ],
+            },
+            {
+              title: 'Волховская межрайонная больница',
+              items: [
+                'Поставка продукции',
+                'Обучение персонала',
+              ],
+            },
+          ];
+        each calture in caltures
           .swiper-slide
-            -
-              var calture = {
-                title: 'АО «Оскольский электрометаллургический комбинат»',
-                items: [
-                  'Поставка продукции',
-                  'Обучение службы охраны труда',
-                  'Обучение персонала',
-                ],
-              };
             +calture(calture)
     +space(['section'])
     +hr
@@ -156,3 +194,6 @@ block content
   +space(['section'])
   +history
   +space(['section'])
+
+block modal
+  +modal

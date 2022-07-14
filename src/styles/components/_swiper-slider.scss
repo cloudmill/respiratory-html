@@ -6,9 +6,13 @@
       overflow: visible;
 
       .swiper-slide {
-        padding-right: calc(#{$column-gap});
-        width: calc(#{columns(3)} + #{$column-gap}) !important;
+        width: calc(#{columns(3)}) !important;
         height: auto;
+
+        &:not(:last-child) {
+          padding-right: calc(#{$column-gap});
+          width: calc(#{columns(3)} + #{$column-gap}) !important;
+        }
       }
     }
   }

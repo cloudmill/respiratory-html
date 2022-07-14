@@ -11,44 +11,57 @@ const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
 
   switch (swiperId) {
     case "card":
-      const prevEl = swiperEl.querySelector<HTMLElement>(
-        "[data-swiper-slider-prev]"
-      );
-      const nextEl = swiperEl.querySelector<HTMLElement>(
-        "[data-swiper-slider-next]"
-      );
+      {
+        const prevEl = swiperEl.querySelector<HTMLElement>(
+          "[data-swiper-slider-prev]"
+        );
+        const nextEl = swiperEl.querySelector<HTMLElement>(
+          "[data-swiper-slider-next]"
+        );
 
-      const paginationSrc: string[] = JSON.parse(
-        swiperEl.dataset.swiperSliderPagination || "[]"
-      );
-      const paginationList = swiperEl.querySelector<HTMLElement>(
-        "[data-swiper-slider-list]"
-      );
-      const paginationRender = (index, className) => `
+        const paginationSrc: string[] = JSON.parse(
+          swiperEl.dataset.swiperSliderPagination || "[]"
+        );
+        const paginationList = swiperEl.querySelector<HTMLElement>(
+          "[data-swiper-slider-list]"
+        );
+        const paginationRender = (index, className) => `
         <div class="gallery__bullet ${className}">
           <img class="gallery__bullet-img" src="${paginationSrc[index]}" />
         </div>
       `;
 
-      return {
-        modules: [Parallax, Navigation, Pagination],
-        parallax: true,
-        navigation: {
-          prevEl,
-          nextEl,
-        },
-        speed: GALLERY_DURATION,
-        pagination: {
-          el: paginationList,
-          clickable: true,
-          renderBullet: paginationRender,
-        },
-      };
+        return {
+          modules: [Parallax, Navigation, Pagination],
+          parallax: true,
+          navigation: {
+            prevEl,
+            nextEl,
+          },
+          speed: GALLERY_DURATION,
+          pagination: {
+            el: paginationList,
+            clickable: true,
+            renderBullet: paginationRender,
+          },
+        };
+      }
+      break;
     case "0":
-      return {
-        loop: true,
-        slidesPerView: "auto",
-      };
+      {
+        const prevBtn = document.querySelector('[data-swiper-slider-prev="0"]');
+        const nextBtn = document.querySelector('[data-swiper-slider-next="0"]');
+
+        return {
+          slidesPerView: "auto",
+          modules: [Navigation],
+          navigation: {
+            prevEl: prevBtn,
+            nextEl: nextBtn,
+          },
+        };
+      }
+      break;
     default:
       return {};
   }

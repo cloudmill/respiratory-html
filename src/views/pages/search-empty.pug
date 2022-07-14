@@ -1,0 +1,52 @@
+extends ../app
+
+block preloader
+
+//- block grid-test
+
+block content
+  .indent.indent--page--catalog.isolation.first-section
+    .indent__item
+      .container--default
+        .wall
+          .wall__list
+            -
+              var items = [
+                'Главная',
+                'Результататы поиска',
+              ]
+            each item, index in items
+              if index < items.length - 1
+                .wall__item
+                  .badge
+                    a.badge__link.badge__link--variant--breadcrumb(href="#")
+                      |#{item}
+              else
+                .wall__item
+                  .badge
+                    .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
+                      |#{item}
+    .indent__item
+      .container--default
+        h1.title.title--page
+          |Результататы поиска
+
+    .search-row
+      .container--default
+        .search-row__info
+          |По запросу «
+          span.request респиратор123
+          |» найдено результатов:&nbsp;
+          span 0
+
+        .search-row__form
+          input.form-field__input(placeholder='респиратор')
+
+          .section-form__submit
+            +press.press--info
+              |Поиск
+
+    .indent__item
+      .catalog.search-result-empty
+        img(src="assets/images/search-empty.png", alt="")
+

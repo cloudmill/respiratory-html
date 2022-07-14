@@ -392,3 +392,85 @@ mixin reslider(mod)
                     .progress__all
                       |/#{count}
               +space(['sub-block'], ['pb'])
+    when 'medical'
+      - var count = 3;
+      .reslider(data-reslider-count=count)
+        .reslider__layout
+          .swiper
+            .swiper-wrapper
+              each i, index in repeat(count)
+                .swiper-slide
+                  img.reslider__img(src=`assets/images/reslider/medical/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+        .reslider__content
+          .reslider__place
+            +container
+              +space(['block'], ['pt'])
+              +hr(['light'])
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Работа с нами
+              +space(['sub-block'])
+              +grid(['3-6'])
+                .grid__item
+                  +grid(['controls'])
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-prev)
+                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-next)
+                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                -
+                  var titles = [
+                    'Экспертный подход',
+                    'Качество',
+                    'Сервис',
+                  ];
+                .grid__item(data-reslider-title=JSON.stringify(titles))
+          .reslider__place
+            +container
+              +grid(['5-1', 'aie'])
+                .grid__item
+                  .reslider__wrapper
+                    .reslider__fade
+                      .reslider__fade-item.reslider__fade-item--active
+                        +stack
+                          .stack__item
+                            .reslider__description
+                              |Многолетний опыт поставок в&nbsp;медучреждения позволил нам изучить процесс во&nbsp;всех деталях и&nbsp;глубоко погрузиться в&nbsp;специфику закупок в&nbsp;здравоохранении. Делимся знаниями и&nbsp;помогаем найти оптимальный порядок поставок СИЗОД.
+                          .stack__item
+                            +press.press--info
+                              |задать вопрос
+                      .reslider__fade-item
+                        +stack
+                          .stack__item
+                            -
+                              var items = [
+                                'Как разработчик и производитель медицинских респираторов предприятие сертифицировано по стандарту ISO 13485-2017',
+                                'Ежегодно проводим внутреннюю проверку качества и внешний аудит',
+                              ];
+                            +reslider-list(items)
+                          .stack__item
+                            +press.press--info
+                              |контроль качества
+                      .reslider__fade-item
+                        -
+                          var items = [
+                            'Помогаем на всех этапах внедрения СИЗОД в медучреждениях',
+                            'Поддерживаем клиентов технической информацией, помогаем контролировать качество поставляемой продукции',
+                            'Проводим в собственной лаборатории испытания и предоставляем протоколы',
+                            'Проводим мастер-классы и тренинги',
+                          ];
+                        +reslider-list(items)
+                .grid__item
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
+              +space(['sub-block'], ['pb'])

@@ -1,5 +1,5 @@
 .first-section {
-  margin-top: 190px;
+  margin-top: rem(190px);
 }
 
 .indent {
@@ -31,6 +31,10 @@
 
           &--large {
             margin-top: rem(80px);
+
+            @media #{media('<')} {
+              margin-top: rem(32px);
+            }
           }
         }
       }
@@ -57,7 +61,18 @@
     margin-top: -$gap;
     margin-left: -$gap;
     display: flex;
-    flex-wrap: wrap;
+
+    @media #{media('<')} {
+      margin-left: -$column-padding-small;
+      margin-right: -$column-padding-small;
+      padding: 0 $column-padding-small;
+
+      overflow-x: scroll;
+      @include scrollbar-hidden;
+    }
+    @media #{media('>')} {
+      flex-wrap: wrap;
+    } 
   }
 
   &__item {

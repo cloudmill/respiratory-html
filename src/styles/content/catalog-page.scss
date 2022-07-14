@@ -1,6 +1,9 @@
 .catalog {
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
+  
+  @media #{media('>')} {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
 
   &__place {
     &:nth-child(odd) {
@@ -35,6 +38,10 @@
   background-color: color(white);
   border: 1px solid color(gray);
 
+  @media #{media('<')} {
+    padding: $column-padding-small;
+  }
+
   &:hover {
     z-index: 1;
 
@@ -67,9 +74,15 @@
   }
 
   &__grid {
+    position: relative;
     display: grid;
     grid-template-columns: calc(#{columns(3)}) 1fr;
     column-gap: $column-gap;
+
+    @media #{media('<')} {
+      grid-template-columns: repeat(2, calc(#{columns-small(2)}));
+      column-gap: $column-gap-small;
+    }
   }
 
   &__cell {
@@ -80,13 +93,16 @@
 
   &__img {
     width: 100%;
-    height: rem(552px);
     min-height: 100%;
     display: block;
     object-fit: cover;
     overflow: hidden;
 
     border-radius: 0px rem(16px) rem(16px) 0px;
+
+    @media #{media('>')} {
+      height: rem(552px);
+    }
   }
 
   &__title {
@@ -95,6 +111,10 @@
     font-size: rem(54px);
     line-height: 1;
     text-transform: uppercase;
+
+    @media #{media('<')} {
+      font-size: rem(24px);
+    }
   }
 
   &__table {
@@ -112,8 +132,16 @@
       width: calc(#{columns(1)});
       flex-shrink: 0;
 
+      @media #{media('<')} {
+        width: calc(#{columns-small(1)});
+      }
+
       &:not(:first-child) {
         margin-left: $column-gap;
+
+        @media #{media('<')} {
+          margin-left: $column-gap-small;
+        }
       }
     }
 

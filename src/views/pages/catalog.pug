@@ -64,7 +64,9 @@ block content
                   |фильтры
     .indent__item
       .catalog
+
         - for (let i = 0; i < 5; i++)
+
           .catalog__place
             a.product(href="#")
               .product__grid
@@ -84,10 +86,18 @@ block content
                         |FFP1 R D
                       .product__table-col
                         |Нет
-                  .product__features
+
+                  .product__features.only-desktop
                     .product__feature
                       img.product__feature-svg(src="assets/images/feature.svg")
                       .product__feature-text
                         |Защита от всех видов аэрозолей
-              .product__icon
-                +phone-svg.product__svg
+
+                .product__icon
+                  +phone-svg.product__svg
+
+              .product__features.only-mobile
+                .product__feature
+                  img.product__feature-svg(src="assets/images/feature.svg")
+                  .product__feature-text
+                    |Защита от всех видов аэрозолей

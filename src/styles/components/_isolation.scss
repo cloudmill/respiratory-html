@@ -109,6 +109,10 @@
       font-size: rem(72px);
       line-height: 1;
       text-transform: uppercase;
+
+      @media #{media("<")} {
+        font-size: rem(24px);
+      }
     }
   }
 

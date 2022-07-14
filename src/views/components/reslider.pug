@@ -474,3 +474,99 @@ mixin reslider(mod)
                     .progress__all
                       |/#{count}
               +space(['sub-block'], ['pb'])
+    when 'consumers'
+      - var count = 3;
+      .reslider(data-reslider-count=count)
+        .reslider__layout
+          .swiper
+            .swiper-wrapper
+              each i, index in repeat(count)
+                .swiper-slide
+                  img.reslider__img(src=`assets/images/reslider/consumers/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+        .reslider__content
+          .reslider__place
+            +container
+              +space(['block'], ['pt'])
+              +hr(['light'])
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Наша продукция
+              +space(['sub-block'])
+              +grid(['3-6'])
+                .grid__item
+                  +grid(['controls'])
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-prev)
+                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-next)
+                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                -
+                  var titles = [
+                    'Защитные свойства для решения Ваших задач',
+                    'Надежное качество',
+                    'Отклик производителя',
+                  ];
+                .grid__item(data-reslider-title=JSON.stringify(titles))
+          .reslider__place
+            +container
+              +grid(['5-1', 'aie'])
+                .grid__item
+                  .reslider__wrapper
+                    .reslider__fade
+                      .reslider__fade-item.reslider__fade-item--active
+                        +stack(['small'])
+                          .stack__item
+                            .reslider__description
+                              |Работаете в&nbsp;противотуберкулезном диспансере, занимаетесь сваркой или шкурите стены&nbsp;&mdash; в&nbsp;нашем ассортименте респираторы для разных условий:
+                          .stack__item
+                            -
+                              var items = [
+                                'Эластичные, чашеобразные, складные респираторы',
+                                'С клапаном и без',
+                                'Все классы защиты',
+                                'Дополнительные сорбенты для поглощения запахов',
+                              ];
+                            +reslider-list(items)
+                      .reslider__fade-item
+                        +stack
+                          .stack__item
+                            -
+                              var items = [
+                                'Сделано в Ленинградской области',
+                                'Соответствует ГОСТ 12.4.294-2015',
+                                'Сертифицировано по ТР ТС 019/2011',
+                              ];
+                            +reslider-list(items)
+                          .stack__item
+                            +press.press--info
+                              |система контроля качества
+                      .reslider__fade-item
+                        +stack
+                          .stack__item
+                            -
+                              var items = [
+                                'Предоставляем сертификаты и другую разрешительную документацию',
+                                'Даем обратную связь на запросы потребителей',
+                                'Дорабатываем продукцию в соответствии с вашими пожеланиями',
+                              ];
+                            +reslider-list(items)
+                          .stack__item
+                            .reslider__description
+                              |Если вы&nbsp;не&nbsp;уверены в&nbsp;подлинности респиратора, имеете замечания к&nbsp;качеству или предложения по&nbsp;совершенствованию продукции, обратитесь к&nbsp;нам.
+                          .stack__item
+                            +press.press--info
+                              |связаться с нами
+                .grid__item
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
+              +space(['sub-block'], ['pb'])

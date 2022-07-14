@@ -100,7 +100,8 @@ $colors: (
   gray-3: #5d6064,
   transparent: rgba(0, 0, 0, 0),
   shadow-drop: rgba(42, 46, 55, 0.12),
-  grid-test: rgba(0, 0, 0, 0.1),
+  modal: rgba(0, 0, 0, 0.2),
+  grid-test: rgba(255, 0, 0, 0.05),
   header-transparent-border: rgba(255, 255, 255, 0.2),
 );
 @function color($variant: black) {

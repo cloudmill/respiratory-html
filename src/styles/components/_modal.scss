@@ -1,0 +1,52 @@
+.modal {
+  $component: &;
+  $duration: duration(default);
+  $timing-function: timing-function(major);
+  $transition: $duration $timing-function;
+  $fade-delay: $duration;
+
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 100vw;
+  pointer-events: none;
+
+  background-color: color(transparent); // ?
+  transition: background-color $transition;
+
+  &--active {
+    background-color: color(modal);
+
+    #{$component} {
+      &__container {
+        transform: translateX(0);
+      }
+
+      &__fade {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%);
+
+    width: calc((100% - #{$column-gap}) / 2);
+    pointer-events: all;
+
+    background-color: color(white);
+    transition: transform $transition;
+  }
+
+  &__fade {
+    opacity: 0;
+    transition: opacity $transition;
+  }
+}

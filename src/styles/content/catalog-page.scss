@@ -67,6 +67,12 @@
 
     border-radius: 50%;
     background-color: color(blue);
+
+    @media #{media('<')} {
+      // @include getSize(rem(36px));
+      bottom: 0;
+      right: 0;
+    }
   }
 
   &__svg {
@@ -120,6 +126,10 @@
   &__table {
     margin-top: rem(40px);
 
+    @media #{media('<')} {
+      margin-top: rem(20px);
+    }
+
     &-row {
       display: flex;
 
@@ -163,6 +173,10 @@
 
   &__features {
     margin-top: rem(40px);
+
+    @media #{media('<')} {
+      margin-top: rem(20px);
+    }
   }
 
   &__feature {

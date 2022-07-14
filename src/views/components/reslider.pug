@@ -93,3 +93,74 @@ mixin reslider(mod)
                     .progress__all
                       |/#{count}
               +space(['sub-block'], ['pb'])
+    when 'quality'
+      - var count = 4;
+      .reslider(data-reslider-count=count)
+        .reslider__layout
+          .swiper
+            .swiper-wrapper
+              each i, index in repeat(count)
+                .swiper-slide
+                  img.reslider__img(src=`assets/images/reslider/quality/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+        .reslider__content
+          .reslider__place
+            +container
+              +space(['block'], ['pt'])
+              +hr(['light'])
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Производственный процесс
+              +space(['sub-block'])
+              +grid(['3-6'])
+                .grid__item
+                  +grid(['controls'])
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-prev)
+                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                    .grid__item
+                      .circle.circle--blue
+                        button.circle__button(type="button" data-reslider-next)
+                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                -
+                  var titles = [
+                    'Выбор поставщика',
+                    'Производство',
+                    'Лабораторный контроль',
+                    'Поставка покупателю',
+                  ];
+                .grid__item(data-reslider-title=JSON.stringify(titles))
+          .reslider__place
+            +container
+              +grid(['5-1', 'aie'])
+                .grid__item
+                  .reslider__wrapper
+                    .reslider__fade
+                      .reslider__fade-item.reslider__fade-item--active
+                        -
+                          var items = [
+                            'Лабораторный контроль качества материалов',
+                            'Опытные испытания',
+                            'Контроль качества комплектующих',
+                          ];
+                        +reslider-list(items)
+                      .reslider__fade-item
+                        .reslider__description
+                          |Выборочный контроль качества изделий на&nbsp;всех звеньях цепи производства.
+                      .reslider__fade-item
+                        .reslider__description
+                          |Испытания на&nbsp;соответствие ГОСТ 12.4.294-2015 и&nbsp;внутренним стандартам
+                      .reslider__fade-item
+                        .reslider__description
+                          |Сбор обратной связи от&nbsp;клиентов и&nbsp;потребителей для оценки удовлетворенности и&nbsp;внедрения улучшений
+                .grid__item
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
+              +space(['sub-block'], ['pb'])

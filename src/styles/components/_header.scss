@@ -5,12 +5,11 @@
   --hover-color: #{color(blue)};
   --logo-color: #{color(blue)};
 
-  @include inset;
-
   position: fixed;
   z-index: 2;
-
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
 
   &--transparent {
     --hover-color: #{color(yellow)};
@@ -92,8 +91,6 @@
 
   &__top,
   &__bottom {
-    pointer-events: all;
-
     background-color: color(white);
   }
 

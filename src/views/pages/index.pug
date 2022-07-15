@@ -6,14 +6,13 @@ block js-test
 
 block content
   +space(['header'], ['pt'])
-  +space(['section'])
+  +space(['block'])
 
   +container
-    .wrap-list.wrap-list--large
-      ul.wrap-list__list
-        each route in app.routes
-          li.wrap-list__item
-            +press({ icon: ['press/li-yellow.svg', 'press/li-black.svg', 'left'], href: route.path }).press--menu
-              |#{route.title}
+    +stack(['index'])
+      each route in app.routes
+        .stack__item
+          +press({ icon: ['press/li-yellow.svg', 'press/li-black.svg', 'left'], href: route.path }).press--menu
+            |#{route.title}
   
   +space(['section'])

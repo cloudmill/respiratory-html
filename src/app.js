@@ -1,6 +1,8 @@
 import "./styles/app.scss";
 
 import AOS from "aos";
+import parsley from "parsleyjs";
+import "parsleyjs/dist/i18n/ru";
 
 import { wait } from "./scripts/wait";
 
@@ -22,6 +24,7 @@ import * as gallery from "./scripts/gallery";
 import * as reslider from "./scripts/reslider";
 import * as fslider from "./scripts/fslider";
 import * as history from "./scripts/history";
+import forms from "./scripts/forms";
 
 import { examplesSlider } from "./scripts/examplesSlider";
 
@@ -49,6 +52,9 @@ addEventListener("DOMContentLoaded", () => {
   reslider.start();
   fslider.start();
   history.start();
+
+  forms();
+
 });
 
 addEventListener("load", async () => {

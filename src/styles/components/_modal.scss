@@ -1,9 +1,10 @@
+$duration: duration(default);
+$timing-function: timing-function(major);
+$transition: $duration $timing-function;
+$fade-delay: $duration;
+
 .modal {
   $component: &;
-  $duration: duration(default);
-  $timing-function: timing-function(major);
-  $transition: $duration $timing-function;
-  $fade-delay: $duration;
 
   position: fixed;
   z-index: 2;
@@ -48,5 +49,84 @@
   &__fade {
     opacity: 0;
     transition: opacity $transition;
+  }
+}
+
+.modals-container {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: $transition;
+
+  &.active {
+    background: rgba(0, 0, 0, .3);
+    pointer-events: all;
+  }
+}
+
+.form-response-modal {
+  background: #FFFFFF;
+  padding: rem(60px);
+  // width: calc(#{columns(4)});
+  width: rem(610px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transform: scale(0);
+  transition: $transition;
+
+  @media #{media('<')} {
+    width: calc(#{columns-small(4)});
+    padding: rem(32px) rem(20px);
+  }
+
+  &.active {
+    transform: none;
+  }
+
+  svg {
+    margin-bottom: rem(32px);
+
+    @media #{media('<')} {
+      margin-bottom: rem(16px);
+    }
+  }
+
+  &__ttl {
+    @include font-fsl('title-2', 32px, 120%);
+    font-weight: 550;
+    margin-bottom: rem(12px);
+    text-align: center;
+
+    @media #{media('<')} {
+      margin-bottom: rem(8px);
+    }
+  }
+
+  &__txt {
+    @include font-fsl('content-1', 20px, 160%);
+    margin-bottom: rem(32px);
+    text-align: center;
+
+    @media #{media('<')} {
+      margin-bottom: rem(16px);
+    }
+  }
+}
+
+.modal-close {
+  @media #{media('<')} {
+    width: 100%;
   }
 }

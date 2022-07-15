@@ -1231,13 +1231,13 @@
     }
   }
 
-  &--error {
-    #{$component} {
-      &__error {
-        display: block;
-      }
-    }
-  }
+  // &--error {
+  //   #{$component} {
+  //     &__error, .parsley-errors-list {
+  //       display: block;
+  //     }
+  //   }
+  // }
 
   &__input {
     @include font-fsl("content-1", 16px, 130%);
@@ -1261,11 +1261,11 @@
     }
   }
 
-  &__error {
+  &__error, .parsley-errors-list {
     @include font-fsl("content-1", 12px, 130%);
 
     margin-top: rem(8px);
-    display: none;
+    // display: none;
 
     color: color(red);
   }
@@ -1275,14 +1275,15 @@
   $component: &;
 
   display: flex;
+  flex-direction: column;
 
-  &--error {
-    #{$component} {
-      &__error {
-        display: block;
-      }
-    }
-  }
+  // &--error {
+  //   #{$component} {
+  //     &__error, .parsley-errors-list {
+  //       display: block;
+  //     }
+  //   }
+  // }
 
   &__label {
     position: relative;
@@ -1364,11 +1365,11 @@
     color: color(blue);
   }
 
-  &__error {
+  &__error, .parsley-errors-list {
     @include font-fsl("content-1", 12px, 130%);
 
     margin-top: rem(8px);
-    display: none;
+    // display: none;
     grid-column: 1 / span 2;
 
     color: color(red);

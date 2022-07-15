@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require('webpack');
 const WebpackNotifierPlugin = require("webpack-notifier");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -193,6 +194,13 @@ module.exports = (env) => {
       new WebpackNotifierPlugin({
         title: "Bundler",
       }),
+
+      new webpack.ProvidePlugin({
+				$: 'jquery',
+				jQuery: 'jquery',
+				'window.$': 'jquery',
+				'window.jQuery': 'jquery'
+			}),
     ],
   };
 };

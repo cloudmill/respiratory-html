@@ -53,6 +53,7 @@
     "lodash.throttle": "^4.1.1",
     "normalize.css": "^8.0.1",
     "npm": "^8.13.1",
+    "parsleyjs": "^2.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "redux": "^4.2.0",

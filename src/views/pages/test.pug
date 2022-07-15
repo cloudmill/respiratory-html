@@ -1,55 +1,8 @@
 extends ../app
 
-block header
-block footer
-
 block grid-test
 block preloader
 block js-test
 
 block content
-  +container
-    +stack(['small'])
-      -
-        var items = [
-          {
-            link: 'info@szpe.ru',
-            desc: 'Общий',
-          },
-          {
-            link: 'zakaz@rkszpe.ru',
-            desc: 'Отдел продаж',
-          },
-          {
-            link: 'tse@szpe.ru',
-            desc: 'Для СМИ',
-          },
-        ];
-      each item in items
-        .stack__item
-          +link(['email'])
-            a.link__link(href='#')
-              |!{item.link}
-          +space([8])
-          +text(['desc', 'pre-line'])
-            |!{item.desc}
-    +stack(['small'])
-      -
-        var items = [
-          {
-            link: '8 812 703-37-33',
-            desc: 'Многоканальный',
-          },
-          {
-            link: '8 812 329-11-65',
-            desc: 'Отдел продаж, только для юридических лиц',
-          },
-        ];
-      each item in items
-        .stack__item
-          +link(['phone'])
-            a.link__link(href='#')
-              |!{item.link}
-          +space([4])
-          +text(['desc', 'pre-line'])
-            |!{item.desc}
+  |test

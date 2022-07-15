@@ -2,8 +2,14 @@
   font-size: $font-size;
 
   @each $variant, $breakpoint in $breakpoints {
-    @media #{media("<", $variant)} {
-      font-size: vw($font-size, $variant);
+    @if ($variant == "d" or $variant == "xxl") {
+      @media #{media("<", $variant)} {
+        font-size: vw($font-size, $variant);
+      }
+    } @else {
+      @media #{media("<=", $variant)} {
+        font-size: vw($font-size, $variant);
+      }
     }
   }
 }

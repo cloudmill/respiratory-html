@@ -7,6 +7,8 @@ block definitions
 block preloader
 block grid-test
 block js-test
+block modal
+  include ../components/form-response-modal
 
 block content
   +space(['header'], ['pt'])
@@ -134,46 +136,46 @@ block content
             span.article__highlight
               |Задать ВОпрос
       .form-section__content-item
-        form.section-form
+        form.section-form(data-parsley-validate)
           .section-form__grid
             .section-form__item
               .form-field
-                input.form-field__input(placeholder='Имя')
-                .form-field__error
-                  |Допустимы только буквы
+                input.form-field__input(placeholder='Имя' required)
+                //- .form-field__error
+                //-   |Допустимы только буквы
             .section-form__item
               .form-field
-                input.form-field__input(placeholder='Название компании')
-                .form-field__error
-                  |Допустимы только буквы
+                input.form-field__input(placeholder='Название компании' required)
+                //- .form-field__error
+                //-   |Допустимы только буквы
             .section-form__item
               .form-field
-                input.form-field__input(placeholder='Телефон')
-                .form-field__error
-                  |Допустимы только буквы
+                input.form-field__input(placeholder='Телефон' required)
+                //- .form-field__error
+                //-   |Допустимы только буквы
             .section-form__item
               .form-field
-                input.form-field__input(placeholder='E-mail')
-                .form-field__error
-                  |Допустимы только буквы
+                input.form-field__input(placeholder='E-mail' required)
+                //- .form-field__error
+                //-   |Допустимы только буквы
             .section-form__item.section-form__item--row
               .form-field.form-field--textarea
-                textarea.form-field__input(placeholder='Сообщение')
-                .form-field__error
-                  |Допустимы только буквы
+                textarea.form-field__input(placeholder='Сообщение' required)
+                //- .form-field__error
+                //-   |Допустимы только буквы
             .section-form__item.section-form__item--right.section-form__bottom
               .section-form__agrement
                 .simple-checkbox
                   label.simple-checkbox__label
-                    input.simple-checkbox__input(name='agreement' type='checkbox')
+                    input.simple-checkbox__input(name='agreement' type='checkbox' required)
                     .simple-checkbox__box
                       +check-svg.simple-checkbox__svg
                     .simple-checkbox__content
                       |Даю согласие на обработку 
                       a.simple-checkbox__link(href="#")
                         |персональных данных
-                    .simple-checkbox__error
-                      |Допустимы только буквы
-              .section-form__submit
+                    //- .simple-checkbox__error
+                    //-   |Допустимы только буквы
+              button.section-form__submit(type='submit')
                 +press.press--info
                   |Отправить

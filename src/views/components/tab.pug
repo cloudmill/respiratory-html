@@ -1,8 +1,16 @@
-mixin tab(mods = [])
+mixin tab(mods = [], isLink = false)
   .tab(class=getClassesFromMods('tab', mods))&attributes(attributes)
-    .tab__button
-      .tab__bgs
-        .tab__bg.tab__bg--default
-        .tab__bg.tab__bg--yellow
-      .tab__text
-        block
+    if isLink
+      a.tab__button(href='#')
+        .tab__bgs
+          .tab__bg.tab__bg--default
+          .tab__bg.tab__bg--yellow
+        .tab__text
+          block
+    else
+      .tab__button
+        .tab__bgs
+          .tab__bg.tab__bg--default
+          .tab__bg.tab__bg--yellow
+        .tab__text
+          block

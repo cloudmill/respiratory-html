@@ -42,7 +42,7 @@
   &--large {
     --height: #{rem(60px)};
     @media #{media("<")} {
-      --height: #{rem(28px)}; 
+      --height: #{rem(28px)};
     }
 
     #{$component} {
@@ -50,6 +50,25 @@
         @include fsl(20px);
         @media #{media("<")} {
           @include fsl(12px);
+        }
+      }
+    }
+  }
+
+  &--small {
+    --height: #{rem(30px)};
+    --padding: #{rem(12px)};
+
+    @media #{media("<")} {
+      --height: #{rem(27px)};
+    }
+
+    #{$component} {
+      &__text {
+        @include font-fsl("content-1", 12px, 130%);
+
+        @media #{media("<")} {
+          @include fsl(10px);
         }
       }
     }

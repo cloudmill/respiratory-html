@@ -73,6 +73,9 @@
     &--gap {
       #{$property}: $column-gap;
     }
+    &--padding {
+      #{$property}: $column-padding;
+    }
   }
 
   @each $mod, $property in $properties {

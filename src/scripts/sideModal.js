@@ -3,34 +3,46 @@ import * as scrollPage from "./scrollPage";
 const ACTIVE_CLASS = "side-modal--active";
 
 const start = () => {
-  // data
-  const sideModal = document.querySelector("[data-side-modal]");
-  const overlay = sideModal.querySelector("[data-side-modal-overlay]");
+  const sideModalAll = document.querySelectorAll("[data-side-modal]");
 
-  const triggerAll = document.querySelectorAll("[data-side-modal-trigger]");
+  sideModalAll.forEach((sideModal) => {
+    // data
+    const id = sideModal.dataset.sideModal;
+    const overlay = sideModal.querySelector("[data-side-modal-overlay]");
 
-  // state
-  const state = {
-    isOpen: false,
-  };
+    const triggerAll = document.querySelectorAll(
+      `[data-side-modal-trigger=${id}]`
+    );
 
-  // methods
-  const open = () => {
-    sideModal.classList.add(ACTIVE_CLASS);
-    scrollPage.lock();
+    console.log({
+      id,
+      overlay,
+      triggerAll,
+    });
 
-    state.isOpen = true;
-  };
-  const close = () => {
-    sideModal.classList.remove(ACTIVE_CLASS);
-    scrollPage.unlock();
+    // state
+    const state = {
+      isOpen: false,
+    };
 
-    state.isOpen = false;
-  };
+    // methods
+    const open = () => {
+      sideModal.classList.add(ACTIVE_CLASS);
+      scrollPage.lock();
 
-  // events
-  triggerAll.forEach((trigger) => trigger.addEventListener("click", open));
-  overlay.addEventListener("click", close);
+      state.isOpen = true;
+    };
+    const close = () => {
+      sideModal.classList.remove(ACTIVE_CLASS);
+      scrollPage.unlock();
+
+      state.isOpen = false;
+    };
+
+    // events
+    triggerAll.forEach((trigger) => trigger.addEventListener("click", open));
+    overlay.addEventListener("click", close);
+  });
 };
 
 export { start };

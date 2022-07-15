@@ -8,11 +8,16 @@ block header
   +header({ mods: ['transparent'] })
 
 block preloader
-block grid-test
+//- block grid-test
 block js-test
 
 block side-modal
-  +side-modal
+  +side-modal('case-1')
+  +side-modal('case-2')
+  +side-modal('case-3')
+  +side-modal('case-4')
+  +side-modal('case-5')
+  +side-modal('case-6')
 
 block content
   +first('assets/images/about.jpeg')
@@ -109,9 +114,9 @@ block content
               ],
             },
           ];
-        each calture in caltures
+        each calture, index in caltures
           .swiper-slide
-            +calture(calture)
+            +calture(calture)(data-side-modal-trigger=`case-${index + 1}`)
     +space(['section'])
     +hr
     +space(['hr'])

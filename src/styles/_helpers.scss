@@ -26,9 +26,9 @@ $breakpoints: (
 @function media($direction: ">", $variant: d) {
   @if $direction == ">" {
     @return "(min-width: #{breakpoint($variant)})";
-  } @else if $direction == "<"{
+  } @else if $direction == "<" {
     @return "(max-width: #{breakpoint($variant) - 1px})";
-  } @else if $direction == "<="{
+  } @else if $direction == "<=" {
     @return "(max-width: #{breakpoint($variant)})";
   }
 }
@@ -43,9 +43,12 @@ $font-family-content: "Manrope";
 @mixin font($configuration: "title-1") {
   @if $configuration == "title-1" {
     font-family: $font-family-title;
+    font-weight: 500;
+    letter-spacing: normal;
     text-transform: uppercase;
   } @else if $configuration == "title-2" {
     font-family: $font-family-title;
+    font-weight: 500;
     letter-spacing: -0.02em;
     text-transform: uppercase;
   } @else if $configuration == "title-3" {
@@ -55,17 +58,22 @@ $font-family-content: "Manrope";
   } @else if $configuration == "content-1" {
     font-family: $font-family-content;
     font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
   } @else if $configuration == "content-2" {
     font-family: $font-family-content;
     font-weight: 500;
     letter-spacing: -0.01em;
+    text-transform: none;
   } @else if $configuration == "content-3" {
     font-family: $font-family-content;
     font-weight: 600;
+    text-transform: none;
   } @else if $configuration == "content-4" {
     font-family: $font-family-content;
     font-weight: 600;
     letter-spacing: -0.02em;
+    text-transform: none;
   }
 }
 @mixin fsl($fs: $font-size, $lh: false) {

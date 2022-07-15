@@ -1,4 +1,8 @@
 .heading {
+  &--case {
+    @include font-fsl("title-2", 32px, 120%);
+  }
+
   &--calture {
     @include font-fsl("title-2", 20px, 130%);
     @media #{media("<")} {
@@ -58,7 +62,7 @@
     @include font-fsl("title-2", 32px, 100%);
   }
   &--card-new {
-    @include font-fsl('title-2', 20px, 130%);
+    @include font-fsl("title-2", 20px, 130%);
   }
 
   &--pre-line {

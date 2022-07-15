@@ -1,6 +1,20 @@
 .container {
   $component: &;
 
+  &--case {
+    padding-left: calc(#{$column} - #{$column-padding});
+  }
+
+  &--side-modal {
+    @include scrollbar-hidden;
+
+    padding: 0 calc(#{$column-gap} + #{$column} + #{$column-padding}) 0
+      calc(#{$column-padding});
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   &--default {
     padding-left: $column-padding;
     padding-right: $column-padding;

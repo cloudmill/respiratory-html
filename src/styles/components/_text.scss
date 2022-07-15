@@ -1,4 +1,8 @@
 .text {
+  &--case {
+    @include font-fsl("content-1", 20px, 160%);
+  }
+
   &--qpv {
     @include font-fsl("content-1", 16px, 130%);
     @media #{media("<")} {

@@ -5,12 +5,11 @@
   --hover-color: #{color(blue)};
   --logo-color: #{color(blue)};
 
-  @include inset;
-
   position: fixed;
   z-index: 2;
-
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
 
   &--transparent {
     --hover-color: #{color(yellow)};
@@ -43,6 +42,18 @@
           path {
             fill: color(white);
           }
+        }
+      }
+
+      &__mobile {
+        background: transparent;
+      }
+
+      &__burger {
+        border-color: color(white);
+        &::before,
+        &::after {
+          background: color(white);
         }
       }
     }
@@ -80,8 +91,6 @@
 
   &__top,
   &__bottom {
-    pointer-events: all;
-
     background-color: color(white);
   }
 
@@ -106,6 +115,11 @@
       calc(#{columns(3)}) calc(#{columns(2)}) calc(#{columns(4)})
       calc(#{columns(3)});
     column-gap: $column-gap;
+    @media #{media("<")} {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
     &--align {
       &-baseline {
@@ -126,11 +140,37 @@
     }
   }
 
+  &__col {
+    &:nth-child(2) {
+      @media #{media("<")} {
+        display: flex;
+      }
+    }
+  }
+
+  &__button {
+    margin-right: rem(12px);
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+
+    &-item {
+
+      &:not(:first-child) {
+        margin-left: rem(16px);
+      }
+    }
+  }
+
   // container
 
   &__container {
     padding: rem(24px) 0;
-
+    @media #{media("<")} {
+      padding: rem(15px) 0;
+    }
     &--top {
       padding: rem(19px) 0 rem(22px);
     }
@@ -227,7 +267,9 @@
 
     &-svg {
       @include rectangle(rem(194px), rem(49px));
-
+      @media #{media("<")} {
+        @include rectangle(rem(102px), rem(26px));
+      }
       path {
         fill: var(--logo-color);
         transition: fill $transition;
@@ -266,5 +308,48 @@
   &__last {
     display: flex;
     justify-content: flex-end;
+  }
+
+  &__desktop {
+    @media #{media("<")} {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    @media #{media(">")} {
+      display: none;
+    }
+
+    background: color(white);
+  }
+
+  &__burger {
+    position: relative;
+    z-index: 1;
+
+    width: rem(22px);
+    height: rem(16px);
+
+    border-top: 2px solid color(black);
+    border-bottom: 2px solid color(black);
+    transition: border-color $transition;
+    // transition: height 0.4s 0.4s $transition-timing-function, border-color 0.4s 0.4s $transition-timing-function;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+
+      width: 100%;
+      height: 2px;
+
+      transition: background $transition;
+      // transition: transform 0.4s $transition-timing-function;
+      background: color(black);
+    }
   }
 }

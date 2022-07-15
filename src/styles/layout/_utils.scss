@@ -1,0 +1,11 @@
+.only-mobile {
+  @media #{media(">")} {
+    display: none !important;
+  }
+}
+
+.only-desktop {
+  @media #{media("<")} {
+    display: none !important;
+  }
+}

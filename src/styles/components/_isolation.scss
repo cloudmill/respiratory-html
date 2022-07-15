@@ -2,6 +2,9 @@
   .gap {
     &--section {
       margin-top: rem(180px);
+      @media #{media("<")} {
+        margin-top: rem(48px);
+      }
     }
   
     &--block {
@@ -20,7 +23,9 @@
   .separator {
     &--section {
       padding-top: rem(16px);
-  
+      @media #{media("<")} {
+        padding-top: rem(8px);
+      }
       border-top: 1px solid color(gray);
     }
   }
@@ -32,6 +37,9 @@
     &--panel {
       display: grid;
       column-gap: $column-gap;
+      @media #{media("<")} {
+        display: block;
+      }
     }
   
     &--section {
@@ -51,14 +59,26 @@
           #{columns(6)}
         );
     }
+
+    &__col {
+      &:nth-child(2) {
+        @media #{media("<")} {
+          margin-top: rem(24px);
+        }
+      }
+    }
   }
 
   .article-2 {
     @include font("title-2");
-  
+    
     font-size: rem(60px);
     line-height: 1.1;
     text-indent: rem(150px);
+    @media #{media("<")} {
+      text-indent: 0;
+      font-size: rem(16px);
+    }
     text-transform: uppercase;
   
     &--small {
@@ -76,6 +96,9 @@
       @include font("title-2");
   
       font-size: rem(18px);
+      @media #{media("<")} {
+        font-size: rem(12px);
+      }
       line-height: 1;
       text-transform: uppercase;
     }
@@ -86,6 +109,10 @@
       font-size: rem(72px);
       line-height: 1;
       text-transform: uppercase;
+
+      @media #{media("<")} {
+        font-size: rem(24px);
+      }
     }
   }
 
@@ -93,9 +120,16 @@
     display: grid;
     grid-template-columns: repeat(3, calc(#{columns(4)}));
     column-gap: rem(20px);
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      row-gap: rem(24px);
+    }
   
     &--margin {
       margin-top: rem(32px);
+      @media #{media("<")} {
+        margin-top: rem(24px);
+      }
     }
   
     &__item {
@@ -113,6 +147,11 @@
     height: rem(600px);
     display: block;
     overflow: hidden;
+    @media #{media("<")} {
+      padding: 0;
+      height: auto;
+      border-radius: 0; 
+    }
   
     $radius: rem(16px);
     border-radius: 0px $radius $radius $radius;
@@ -120,18 +159,30 @@
   
     &::before {
       position: absolute;
+      z-index: 1;
       $offset: rem(40px);
       top: $offset;
       right: $offset;
+      @media #{media("<")} {
+        top: rem(16px);
+        right: rem(16px);
+      }
   
       content: "";
       $size: rem(20px);
       width: $size;
       height: $size;
+      @media #{media("<")} {
+        width: rem(12px);
+        height: rem(12px);
+      }
   
       border-top: 1px solid color(blue);
       border-right: 1px solid color(blue);
       border-radius: 0 rem(10px) 0 0;
+      @media #{media("<")} {
+        border-radius: 0 rem(5px) 0 0;
+      }
     }
   
     &:hover {
@@ -147,7 +198,10 @@
       line-height: 1.1;
       color: color(white);
       text-transform: uppercase;
-  
+      @media #{media("<")} {
+        color: color(black);
+        font-size: rem(12px);
+      }
       &--dark {
         color: color(black);
       }
@@ -158,10 +212,17 @@
       $offset: rem(40px);
       bottom: $offset;
       right: $offset;
-  
+      @media #{media("<")} {
+        bottom: rem(16px);
+        right: rem(16px);
+      }
       $size: rem(64px);
       width: $size;
       height: $size;
+      @media #{media("<")} {
+        width: rem(36px);
+        height: rem(36px);
+      }
       display: flex;
       justify-content: center;
       align-items: center;
@@ -170,6 +231,21 @@
       border-radius: 50%;
   
       &-svg {
+        @media #{media("<")} {
+          width: rem(13.5px);
+          height: rem(13.5px);
+        }
+      }
+    }
+
+    &__container {
+      @media #{media("<")} {
+        position: relative;
+        z-index: 0;
+        margin-bottom: rem(8px);
+
+        border-radius: 0 rem(12px) rem(12px) rem(12px);
+        overflow: hidden;
       }
     }
   
@@ -178,16 +254,32 @@
   
       position: absolute;
       z-index: -1;
+      @media #{media("<")} {
+        display: none;
+      }
   
       width: 100%;
       height: 100%;
       object-fit: cover;
       pointer-events: none;
+
+      &-mobile {
+        display: none;
+        @media #{media("<")} {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
     }
   }
 
   .info {
     padding: rem(80px) 0;
+    @media #{media("<")} {
+      padding: 0;
+    }
     overflow: hidden;
   
     border-radius: 0px 0px rem(120px) 0px;
@@ -195,6 +287,9 @@
     background-image: url("assets/images/info.jpg");
     background-size: cover;
     background-position: center;
+    @media #{media("<")} {
+      background: none;
+    }
     color: color(white);
   
     &__bottom {
@@ -204,12 +299,22 @@
       margin-top: rem(240px);
       margin-left: auto;
       width: calc(#{columns(4)});
+      @media #{media("<")} {
+        margin-top: rem(20px);
+        margin-left: 0;
+        width: auto;
+
+        color: color(black);
+      }
   
       &::before {
         position: absolute;
         z-index: -1;
         bottom: rem(-25px);
         left: rem(-120px);
+        @media #{media("<")} {
+          display: none;
+        }
   
         content: "";
         $size: rem(425px);
@@ -227,15 +332,51 @@
       @include font("content-2");
   
       width: rem(432px);
-  
+      @media #{media("<")} {
+        width: auto;
+
+        font-size: rem(14px);
+      }
       font-size: rem(24px);
       line-height: 1.3;
     }
     &__button-link {
       margin-top: rem(40px);
+      @media #{media("<")} {
+        margin-top: rem(24px);
+      }
+    }
+
+    &__container {
+      padding: 0 rem(40px);
+      @media #{media("<")} {
+        position: relative;
+        z-index: 0;
+        padding: 0;
+
+        border-radius: 0 0 rem(30px) 0;
+        overflow: hidden;
+      }
+    }
+
+    &__image {
+      display: none;
+      @media #{media("<")} {
+        display: block;
+        min-height: rem(340px);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   
     &__top {
+      @media #{media("<")} {
+        position: absolute;
+        left: rem(30px);
+        right: rem(30px);
+        bottom: rem(30px);
+      }
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -245,6 +386,10 @@
       @include font("title-3");
   
       font-size: rem(90px);
+      @media #{media("<")} {
+        font-size: rem(30px);
+        white-space: wrap;
+      }
       line-height: 1;
       text-transform: uppercase;
       white-space: nowrap;
@@ -266,6 +411,9 @@
       height: rem(92px);
       display: flex;
       overflow: hidden;
+      @media #{media("<")} {
+        display: none;
+      }
   
       border-radius: rem(60px);
     }

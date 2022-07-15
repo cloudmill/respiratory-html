@@ -1,0 +1,96 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'Медиацентр';
+
+block preloader
+
+block grid-test
+
+block header
+  +header-no-trnsp
+
+block content
+  .indent.indent--page--catalog.first-section.isolation
+    .indent__item
+      .container--default
+        .wall
+          .wall__list
+            -
+              var items = [
+                'Главная',
+                'Медиацентр',
+              ]
+            each item, index in items
+              if index < items.length - 1
+                .wall__item
+                  .badge
+                    a.badge__link.badge__link--variant--breadcrumb(href="#")
+                      |#{item}
+              else
+                .wall__item
+                  .badge
+                    .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
+                      |#{item}
+    .indent__item
+      .container--default
+        h1.title.title--page
+          |Медиацентр
+    .indent__item.indent__item--large
+      .container--default
+        .row.row--filter
+          .row__col
+            .wall
+              .wall__list
+                -
+                  var items = [
+                    'Все',
+                    'Новости',
+                    'Статьи',
+                    'Жизнь компании',
+                  ]
+                each item, index in items
+                  .wall__item
+                    .badge
+                      if index === 1
+                        .badge__link.badge__link--variant--tab.badge__link--variant--tab-active(href="#")
+                          |#{item}
+                      else
+                        .badge__link.badge__link--variant--tab(href="#")
+                          |#{item}
+
+    .indent__item
+      .container--default
+        .media-center-table
+
+          - for (i=0; i<8;i++)
+
+            a.slide.slide--small(href="http://localhost:8080/main#slider-2")
+              .slide__top
+                img.slide__img(src="http://localhost:8080/assets/images/slider/slider-2.jpeg")
+                .slide__mark
+                  svg.slide__mark-svg(xmlns="http://www.w3.org/2000/svg", width="18", height="18", viewBox="0 0 18 18", fill="none")
+                    path(d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416", stroke="white", stroke-width="1.5")
+                    line(y1="-0.75", x2="17", y2="-0.75", transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)", stroke="white", stroke-width="1.5")
+              .slide__bottom
+                .slide__panel
+                  .slide__panel-col
+                    .slide__date
+                      .slide__date-day 15
+                      .slide__date-month /11
+                    
+                  .slide__panel-col
+                    .slide__label
+                      .slide__label-button Новости
+                .slide__text-wrapper
+                  .slide__text
+                    span.slide__word-wrapper
+                      span.slide__word
+                        span.slide__word-text Профилактика профессионального туберкулеза у медицинского персонала
+
+          .media-center-table__dots
+            .dot
+            .dot
+            .dot
+                  

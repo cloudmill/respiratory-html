@@ -9,6 +9,11 @@
         width: calc(#{columns(3)}) !important;
         height: auto;
 
+        @media #{media("<")} {
+          width: auto !important;
+          padding-right: rem(20px);
+        }
+
         &:not(:last-child) {
           padding-right: calc(#{$column-gap});
           width: calc(#{columns(3)} + #{$column-gap}) !important;

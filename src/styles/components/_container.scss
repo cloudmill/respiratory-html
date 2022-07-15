@@ -14,11 +14,16 @@
   &--about-article {
     padding-left: calc(#{columns(2)} + #{$column-gap});
     padding-right: calc(#{$column} + #{$column-gap});
+    @media #{media("<")} {
+      padding: 0;
+    }
   }
 
   &--card {
-    margin: 0 auto;
-    width: calc(#{columns(4)});
+    @media #{media(">")} {
+      margin: 0 auto;
+      width: calc(#{columns(4)});
+    }
   }
 
   &--li {

@@ -18,9 +18,18 @@ const examplesSlider = () => {
 
       speed: 750,
 
-      allowTouchMove: false,
+      allowTouchMove: true,
 
-      slidesPerView: 2,
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+
+      breakpoints: {
+        1280: {
+          slidesPerView: 2,
+          spaceBetween: 0,
+          allowTouchMove: false,
+        }
+      },
 
       navigation: {
         prevEl,

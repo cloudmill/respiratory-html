@@ -1,0 +1,92 @@
+extends ../app
+
+block preloader
+
+//- block grid-test
+
+block content
+  .indent.indent--page--catalog.isolation.first-section
+    .indent__item
+      .container--default
+        .wall
+          .wall__list
+            -
+              var items = [
+                'Главная',
+                'Результататы поиска',
+              ]
+            each item, index in items
+              if index < items.length - 1
+                .wall__item
+                  .badge
+                    a.badge__link.badge__link--variant--breadcrumb(href="#")
+                      |#{item}
+              else
+                .wall__item
+                  .badge
+                    .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
+                      |#{item}
+    .indent__item
+      .container--default
+        h1.title.title--page
+          |Результататы поиска
+
+    .search-row
+      .container--default
+        .search-row__info
+          |По запросу «
+          span.request респиратор
+          |» найдено результатов:&nbsp;
+          span 12
+
+        .search-row__form
+          input.form-field__input(placeholder='респиратор')
+
+          .section-form__submit
+            +press.press--info
+              |Поиск
+
+    .indent__item
+      .catalog.search-result
+
+        - for (let i = 0; i < 4; i++)
+
+          .catalog__place
+            a.product(href="#")
+              .product__grid
+                .product__cell
+                  img.product__img(src=`assets/images/photo-${i % 2 + 1}.jpg`)
+                .product__cell.product__cell--info
+                  h2.product__title
+                    |RK 9010
+                  .product__table
+                    .product__table-row.product__table-title
+                      .product__table-col
+                        |Класс защиты
+                      .product__table-col
+                        |Клапан выдоха
+                    .product__table-row.product__table-value
+                      .product__table-col
+                        |FFP1 R D
+                      .product__table-col
+                        |Нет
+
+                  .product__features.only-desktop
+                    .product__feature
+                      img.product__feature-svg(src="assets/images/feature.svg")
+                      .product__feature-text
+                        |Защита от всех видов аэрозолей
+
+                .product__icon
+                  +phone-svg.product__svg
+
+              .product__features.only-mobile
+                .product__feature
+                  img.product__feature-svg(src="assets/images/feature.svg")
+                  .product__feature-text
+                    |Защита от всех видов аэрозолей
+
+        .media-center-table__dots
+          .dot
+          .dot
+          .dot

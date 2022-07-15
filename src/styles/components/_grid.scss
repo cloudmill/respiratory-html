@@ -56,6 +56,10 @@
     column-gap: $column-gap;
     row-gap: $column-gap;
 
+    @media #{media("<")} {
+      grid-template-columns: calc(#{columns-small(2)} + (#{$column-small} / 3) * 2) calc(#{$column-small} + #{$column-gap-small} + (#{$column-small} / 3));
+    }
+
     > {
       #{$component} {
         &__item {
@@ -79,6 +83,10 @@
     display: grid;
     grid-template-columns: repeat(2, calc(#{columns(3)})) calc(#{columns(6)});
     column-gap: $column-gap;
+
+    @media #{media("<")} {
+      display: none;
+    }
   }
 
   &--date {
@@ -92,25 +100,55 @@
     display: grid;
     grid-template-columns: repeat(2, calc(#{$column}));
     column-gap: $column-gap;
+
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, calc(#{$column-small}));
+      column-gap: $column-gap-small;
+    }
   }
 
   &--card-new {
     display: grid;
-    grid-template-columns: calc(#{columns(4)}) calc(#{columns(2)});
-    column-gap: $column-gap;
+    row-gap: rem(12px);
+
+    @media #{media(">")} {
+      grid-template-columns: calc(#{columns(4)}) calc(#{columns(2)});
+      column-gap: $column-gap;
+    }
   }
 
   &--card-title {
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: rem(12px);
+
+    @media #{media("<")} {
+      align-items: center;
+    }
   }
 
   &--col {
     &-3 {
       display: grid;
+
+      @media #{media("<")} {
+        row-gap: rem(8px);
+      }
+      @media #{media(">")} {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: $column-gap;
+      }
+    }
+
+    &-3-desk-2-mob {
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
       column-gap: $column-gap;
+
+      @media #{media("<")} {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: $column-gap-small;
+      }
     }
   }
 
@@ -121,8 +159,11 @@
 
   &--3-3 {
     display: grid;
-    grid-template-columns: repeat(2, calc(#{columns(3)}));
     column-gap: $column-gap;
+
+    @media #{media(">")} {
+      grid-template-columns: repeat(2, calc(#{columns(3)}));
+    }
   }
 
   &--404-nav {
@@ -130,6 +171,11 @@
     grid-template-columns: repeat(2, auto);
     column-gap: rem(12px);
     justify-content: center;
+
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $column-gap;
+    }
   }
 
   &--last-bottom {
@@ -138,6 +184,9 @@
         &__item {
           &:last-child {
             align-self: flex-end;
+            @media #{media("<")} {
+              display: none;
+            }
           }
         }
       }
@@ -155,6 +204,10 @@
     display: grid;
     grid-template-columns: repeat(3, calc(#{columns(2)}));
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $column-gap-small;
+    }
   }
 
   &--where {
@@ -162,16 +215,27 @@
     grid-template-columns: calc(#{columns(6)}) repeat(3, calc(#{columns(2)}));
     column-gap: $column-gap;
     align-items: center;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      row-gap: rem(8px);
+    }
 
     > {
       #{$component} {
         &__item {
           &:first-child {
             padding-left: rem(40px);
+            @media #{media("<")} {
+              padding-left: 0;
+              margin-bottom: rem(12px);
+            }
           }
 
           &:last-child {
             padding-right: rem(40px);
+            @media #{media("<")} {
+              padding-right: 0;
+            }
           }
         }
       }
@@ -186,18 +250,30 @@
 
   &--5-7 {
     display: grid;
-    grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
-    column-gap: $column-gap;
+    grid-template-columns: auto;
+
+    @media #{media("<")} {
+      row-gap: rem(20px);
+    }
+    @media #{media(">")} {
+      grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
+      column-gap: $column-gap;
+    }
   }
 
   &--3-4 {
     display: grid;
-    grid-template-columns: calc(#{columns(3)}) calc(#{columns(4)});
-    column-gap: $column-gap;
+    grid-template-columns: calc(#{columns-small(2)} + #{$column-gap-small}) calc(#{columns-small(2)});
+
+    @media #{media(">")} {
+      grid-template-columns: calc(#{columns(3)}) calc(#{columns(4)});
+      column-gap: $column-gap;
+    }
   }
 
   &--4-8 {
     display: grid;
+    grid-template-columns: auto;
     grid-template-columns: calc(#{columns(4)}) calc(#{columns(8)});
     column-gap: $column-gap;
   }
@@ -206,6 +282,10 @@
     display: grid;
     grid-template-columns: calc(#{columns(8)}) calc(#{columns(4)});
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      row-gap: rem(20px);
+    }
 
     > {
       #{$component} {
@@ -223,12 +303,20 @@
     display: grid;
     grid-template-columns: repeat(2, calc(#{columns(6)}));
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      row-gap: rem(24px);
+    }
   }
 
   &--3 {
     display: grid;
     grid-template-columns: repeat(3, calc(#{columns(4)}));
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      gap: rem(8px);
+    }
   }
 
   &--4 {
@@ -236,6 +324,9 @@
     grid-template-columns: repeat(4, calc(#{columns(3)}));
     column-gap: $column-gap;
     row-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+    }
   }
 
   &--6 {
@@ -243,6 +334,11 @@
     grid-template-columns: repeat(6, calc(#{columns(2)}));
     column-gap: $column-gap;
     row-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: rem(16px);
+      row-gap: rem(20px);
+    }
   }
 
   &--centered {
@@ -250,16 +346,25 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: $column-gap;
     justify-content: space-between;
+    @media #{media("<")} {
+      display: block;
+    }
 
     > {
       #{$component} {
         &__item {
           &:nth-child(2) {
             justify-self: center;
+            @media #{media("<")} {
+              display: none;
+            }
           }
 
           &:nth-child(3) {
             justify-self: end;
+            @media #{media("<")} {
+              display: none;
+            }
           }
         }
       }
@@ -272,6 +377,10 @@
         &__item {
           margin-left: auto;
           width: calc(#{columns(7)});
+          @media #{media("<")} {
+            margin-left: 0;
+            width: auto;
+          }
         }
       }
     }
@@ -282,6 +391,18 @@
     grid-template-columns: repeat(2, auto);
     column-gap: $column-gap;
     justify-content: space-between;
+
+    > {
+      #{$component} {
+        &__item {
+          &:nth-child(2) {
+            @media #{media("<")} {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 
   &--centered-6 {
@@ -289,6 +410,9 @@
     grid-template-columns: calc(#{columns(6)});
     column-gap: $column-gap;
     justify-content: center;
+    @media #{media("<")} {
+      display: block;
+    }
   }
 
   &--centered-4 {
@@ -296,6 +420,9 @@
     grid-template-columns: calc(#{columns(4)});
     column-gap: $column-gap;
     justify-content: center;
+    @media #{media("<")} {
+      display: block;
+    }
   }
 
   &--row-gap-40 {
@@ -308,13 +435,19 @@
 
   &--row-gap {
     row-gap: $column-gap;
+    @media #{media("<")} {
+      row-gap: $column-gap-small;
+    }
   }
 
   &--feature {
     display: grid;
     grid-template-columns: calc(#{$column}) calc(#{columns(4)});
     column-gap: $column-gap;
-
+    @media #{media("<")} {
+      display: flex;
+      column-gap: 0;
+    }
     > {
       #{$component} {
         &__item {
@@ -322,6 +455,11 @@
             padding-left: rem(40px);
             display: flex;
             justify-content: end;
+            @media #{media("<")} {
+              padding-left: 0;
+              display: flex;
+              flex-shrink: 0;
+            }
           }
         }
       }
@@ -332,5 +470,11 @@
     display: grid;
     grid-template-columns: calc(#{columns(5)}) calc(#{columns(1)});
     column-gap: $column-gap;
+  }
+}
+
+.mob-bottom {
+  @media #{media("<")} {
+    order: 1;
   }
 }

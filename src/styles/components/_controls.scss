@@ -5,6 +5,9 @@
   &__item {
     &:not(:first-child) {
       margin-left: rem(8px);
+      @media #{media("<")} {
+        margin-left: 4px;
+      }
     }
   }
 }

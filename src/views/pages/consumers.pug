@@ -29,7 +29,8 @@ block content
   +space(['block'])
   .isolation
     section.info
-      +container
+      .info__container
+        img.info__image(src="assets/images/info.jpg", alt="")
         h2.info__top
           .info__title
             |Используйте респиратор
@@ -42,6 +43,7 @@ block content
                 img.info__img(src="assets/images/avatar.jpg")
           .info__title
             |органов дыхания
+      +container
         .info__bottom
           .info__article
             |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций
@@ -101,7 +103,7 @@ block content
             .slider-panel__sub-col
               +press.press--info
                 |Перейти в каталог
-    .swiper.examples-slider.sub-section-margin(data-examples-slider-container)
+    .swiper.examples-slider.mid-section-margin(data-examples-slider-container)
       .swiper-wrapper
         a.swiper-slide.examples-slider__slide(href="#")
           .examples-slider__row
@@ -114,16 +116,20 @@ block content
               .examples-slider__content-item
                 .examples-slider__table
                   .examples-slider__table-row
-                    h4.examples-slider__table-title
-                      |Класс защиты
-                    h4.examples-slider__table-title
-                      |Клапан выдоха
-                  .examples-slider__table-row
-                    p.examples-slider__table-value
-                      |FFP1 R D
-                    p.examples-slider__table-value
-                      |Нет
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                      p.examples-slider__table-value
+                        |Нет
               .examples-slider__content-item
+                .examples-slider__content-mobile 
+                  +press.press--white 
+                    |о защите
                 .examples-slider__feature
                   +feature-4-svg.examples-slider__feature-svg
                   .examples-slider__feature-content
@@ -155,16 +161,20 @@ block content
               .examples-slider__content-item
                 .examples-slider__table
                   .examples-slider__table-row
-                    h4.examples-slider__table-title
-                      |Класс защиты
-                    h4.examples-slider__table-title
-                      |Клапан выдоха
-                  .examples-slider__table-row
-                    p.examples-slider__table-value
-                      |FFP1 R D
-                    p.examples-slider__table-value
-                      |Нет
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Класс защиты
+                      p.examples-slider__table-value
+                        |FFP1 R D
+                    .examples-slider__table-col
+                      h4.examples-slider__table-title
+                        |Клапан выдоха
+                      p.examples-slider__table-value
+                        |Нет
               .examples-slider__content-item
+                .examples-slider__content-mobile 
+                  +press.press--white 
+                    |о защите
                 .examples-slider__feature
                   +feature-4-svg.examples-slider__feature-svg
                   .examples-slider__feature-content
@@ -185,6 +195,10 @@ block content
                                 |#{item}
           .control.examples-slider__label
             +arrow-left-svg.control__svg.control__svg--tilt
+    +container 
+      .slider-btn 
+        +press.press--info
+          |Перейти в каталог
   +space(['section'])
   +container
     .border
@@ -227,6 +241,10 @@ block content
         each market in markets
           .grid__item
             +market({ src: getImageSrc(market.filename), text: market.text })
+    .mobile-only
+      +space(['sub-section']) 
+      +press.press--info
+        |полный список
   +space(['section'])
   section.form-section
     .form-section__content

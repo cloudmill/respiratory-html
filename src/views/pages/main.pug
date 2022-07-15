@@ -48,18 +48,21 @@ block content
           each item, index in items
             .cards__item
               a.card(href="#")
+                .card__container
+                  .card__label
+                    +arrow-tilt-svg.card__label-svg
+                  img.card__background(src=`assets/images/card-${index + 1}.jpg`)
+                  img.card__background-mobile(src=`assets/images/card-${index + 1}-mobile.jpg`)
                 h3.card__title(class=(index > 0 ? 'card__title--dark' : ''))
                   |#{item}
-                .card__label
-                  +arrow-tilt-svg.card__label-svg
-                img.card__background(src=`assets/images/card-${index + 1}.jpg`)
   .isolation
     .gap.gap--section
       +series
   .isolation
     .gap.gap--section
       section.info
-        +container
+        .info__container
+          img.info__image(src="assets/images/info.jpg", alt="")
           h2.info__top
             .info__title
               |Используйте респиратор
@@ -72,6 +75,7 @@ block content
                   img.info__img(src="assets/images/avatar.jpg")
             .info__title
               |органов дыхания
+        +container
           .info__bottom
             .info__article
               |На пыльных производствах, при взаимодействии с лакокрасочными составами и химическими растворами,или в очаге распространения опасных инфекций

@@ -1,6 +1,8 @@
 .where {
   padding: rem(38px) 0 rem(36px);
-
+  @media #{media("<")} {
+    padding: rem(16px);
+  }
   border: 1px solid color(gray);
 
   &__link-wrapper {
@@ -8,13 +10,18 @@
   }
   &__link {
     @include font-fsl("content-1", 16px, 130%);
-
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
     text-decoration: underline;
     color: color(blue);
   }
 
   &__location {
     @include font-fsl("content-1", 16px, 130%);
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
   }
 
   &__address-wrapper {
@@ -23,11 +30,17 @@
   }
   &__svg {
     @include rectangle(rem(18px));
-
+    @media #{media("<")} {
+      @include rectangle(rem(14px));
+      margin-right: rem(8px);
+    }
     margin-right: rem(12px);
     flex-shrink: 0;
   }
   &__address {
     @include font-fsl("content-1", 16px, 130%);
+    @media #{media("<")} {
+      @include fsl(12px);
+    }
   }
 }

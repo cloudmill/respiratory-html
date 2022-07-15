@@ -14,6 +14,10 @@
           text-decoration-color: color(black);
           transition: color $transition, text-decoration-color $transition;
 
+          @media #{media("<")} {
+            @include font-fsl("title-2", 16px, 120%);
+          }
+
           &:hover {
             color: color(blue);
             text-decoration-color: color(transparent);
@@ -32,6 +36,10 @@
           text-decoration-line: underline;
           text-decoration-color: color(black);
           transition: color $transition, text-decoration-color $transition;
+
+          @media #{media("<")} {
+            @include font-fsl("title-2", 16px, 120%);
+          }
 
           &:hover {
             color: color(blue);

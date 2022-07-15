@@ -14,19 +14,21 @@ block content
   +space(['sub-block'])
   +container
     +grid([2])
-      .grid__item
-        +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'])
+      .grid__item.mob-bottom
 
-        +space(['sub-block'])
-        +grid(['card-title'])
-          .grid__item
-            .circle.circle--blue.circle--small
-              a.circle__button(href='#')
-                +arrow-left-svg.circle__svg.circle__svg--arrow-left
-          .grid__item
-            +heading(['main'], 1)
-              |АЛИНА®-100
-        +space(['gap'])
+        .only-desktop
+          +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'])
+
+          +space(['sub-block'])
+          +grid(['card-title'])
+            .grid__item
+              .circle.circle--blue.circle--small
+                a.circle__button(href='#')
+                  +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .grid__item
+              +heading(['main'], 1)
+                |АЛИНА®-100
+          +space(['gap'])
 
         +space(['mid-block'])
         +heading(['sub'], 2)
@@ -52,7 +54,8 @@ block content
             .grid__item
               +guard(guard)
         +space(['mid-block'])
-        +grid(['col-3'])
+        
+        +grid(['col-3-desk-2-mob'])
           -
             var values = [
               {
@@ -218,7 +221,23 @@ block content
           each doc in docs
             .grid__item
               +doc(doc)
+              
       .grid__item
+
+        .only-mobile
+          +breadcrumbs(['Главная', 'АЛИНА®', 'АЛИНА®-100'])
+
+          +space(['sub-block'])
+          +grid(['card-title'])
+            .grid__item
+              .circle.circle--blue.circle--small
+                a.circle__button(href='#')
+                  +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .grid__item
+              +heading(['main'], 1)
+                |АЛИНА®-100
+          +space(['gap'])
+
         .rails
           .rails__train
             .aside

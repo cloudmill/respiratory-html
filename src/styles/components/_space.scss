@@ -24,27 +24,50 @@
     }
     &--sub-block {
       #{$property}: rem(40px);
+      @media #{media("<")} {
+        #{$property}: rem(12px);
+      }
     }
     &--mid-block {
       #{$property}: rem(60px);
     }
     &--block {
       #{$property}: rem(80px);
+
+      @media #{media("<")} {
+        #{$property}: rem(32px);
+      }
     }
     &--sub-section {
       #{$property}: rem(100px);
+
+      @media #{media("<")} {
+        #{$property}: rem(32px);
+      }
     }
     &--mid-section {
       #{$property}: rem(120px);
+
+      @media #{media("<")} {
+        #{$property}: rem(48px);
+      }
     }
     &--l-section {
       #{$property}: rem(160px);
+
+      @media #{media("<")} {
+        #{$property}: rem(34px);
+      }
     }
     &--header {
       #{$property}: rem(169px);
     }
     &--section {
       #{$property}: rem(180px);
+
+      @media #{media("<")} {
+        #{$property}: rem(48px);
+      }
     }
 
     &--gap {

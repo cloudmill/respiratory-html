@@ -1,5 +1,7 @@
 import throttle from "lodash.throttle";
 
+
+
 const start = () => {
   const header = document.querySelector<HTMLElement>(".header");
 

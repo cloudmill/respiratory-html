@@ -8,9 +8,24 @@
   background: color(gray-light);
   border-radius: 0 rem(12px) rem(12px) rem(12px);
 
+  @media #{media("<")} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: rem(16px);
+  }
+
   &__img {
-    position: absolute;
-    top: rem(16px);
-    left: rem(21px);
+    @media #{media("<")} {
+      width: rem(48px);
+      height: rem(48px);
+      margin: 0 auto;
+    }
+    @media #{media(">")} {
+      position: absolute;
+      top: rem(16px);
+      left: rem(21px);
+    }
   }
 }

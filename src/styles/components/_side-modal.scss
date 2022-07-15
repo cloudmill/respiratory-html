@@ -1,0 +1,57 @@
+.side-modal {
+  $component: &;
+  $transition: transition(major);
+
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 100vw;
+  pointer-events: none;
+
+  &--active {
+    #{$component} {
+      &__overlay {
+        pointer-events: all;
+
+        opacity: 1;
+      }
+
+      &__content {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__overlay {
+    @include inset;
+
+    position: absolute;
+    z-index: 1;
+
+    background-color: color(modal);
+    opacity: 0;
+    transition: opacity $transition;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%);
+
+    width: calc(#{columns(6)} + #{$column-padding});
+    pointer-events: all;
+
+    background-color: color(white);
+    transition: transform $transition;
+
+    @media #{media('<')} {
+      width: calc(100vw - #{$column-padding-small});
+    }
+  }
+}

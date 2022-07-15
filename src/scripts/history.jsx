@@ -131,11 +131,6 @@ const start = () => {
       }
     }
 
-    console.log(store.getState());
-    store.subscribe(() => {
-      console.log(store.getState());
-    });
-
     // ui events
 
     tabAll.forEach((tab, index) =>

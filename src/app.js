@@ -24,6 +24,7 @@ import * as gallery from "./scripts/gallery";
 import * as reslider from "./scripts/reslider";
 import * as fslider from "./scripts/fslider";
 import * as history from "./scripts/history";
+import * as sideModal from "./scripts/sideModal";
 import forms from "./scripts/forms";
 
 import { examplesSlider } from "./scripts/examplesSlider";
@@ -52,9 +53,9 @@ addEventListener("DOMContentLoaded", () => {
   reslider.start();
   fslider.start();
   history.start();
+  sideModal.start();
 
   forms();
-
 });
 
 addEventListener("load", async () => {

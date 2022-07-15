@@ -19,6 +19,7 @@
 
   background-color: color(gray-light);
   border-radius: 0 $radius $radius $radius;
+  cursor: pointer;
 
   &::before {
     @include inset;

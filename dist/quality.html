@@ -502,44 +502,32 @@
 						</div>
 					</div>
 					<div class="form-section__content-item">
-						<form class="section-form">
+						<form class="section-form" data-parsley-validate>
 							<div class="section-form__grid">
 								<div class="section-form__item">
-									<div class="form-field"><input class="form-field__input" placeholder="Имя">
-										<div class="form-field__error">Допустимы только буквы</div>
-									</div>
+									<div class="form-field"><input class="form-field__input" placeholder="Имя" required></div>
 								</div>
 								<div class="section-form__item">
-									<div class="form-field"><input class="form-field__input" placeholder="Название компании">
-										<div class="form-field__error">Допустимы только буквы</div>
-									</div>
+									<div class="form-field"><input class="form-field__input" placeholder="Название компании" required></div>
 								</div>
 								<div class="section-form__item">
-									<div class="form-field"><input class="form-field__input" placeholder="Телефон">
-										<div class="form-field__error">Допустимы только буквы</div>
-									</div>
+									<div class="form-field"><input class="form-field__input" placeholder="Телефон" required></div>
 								</div>
 								<div class="section-form__item">
-									<div class="form-field"><input class="form-field__input" placeholder="E-mail">
-										<div class="form-field__error">Допустимы только буквы</div>
-									</div>
+									<div class="form-field"><input class="form-field__input" placeholder="E-mail" required></div>
 								</div>
 								<div class="section-form__item section-form__item--row">
-									<div class="form-field form-field--textarea"><textarea class="form-field__input" placeholder="Сообщение"></textarea>
-										<div class="form-field__error">Допустимы только буквы</div>
-									</div>
+									<div class="form-field form-field--textarea"><textarea class="form-field__input" placeholder="Сообщение" required></textarea></div>
 								</div>
 								<div class="section-form__item section-form__item--right section-form__bottom">
 									<div class="section-form__agrement">
-										<div class="simple-checkbox"><label class="simple-checkbox__label"><input class="simple-checkbox__input" name="agreement" type="checkbox">
+										<div class="simple-checkbox"><label class="simple-checkbox__label"><input class="simple-checkbox__input" name="agreement" type="checkbox" id="checkbox" required>
 												<div class="simple-checkbox__box"><svg class="simple-checkbox__svg" xmlns="http://www.w3.org/2000/svg" width="17" height="11" viewBox="0 0 17 11" fill="none">
 														<path d="M1 5.5L4.58579 9.08579C5.36684 9.86684 6.63316 9.86684 7.41421 9.08579L15.5 1" stroke="white" stroke-width="1.5"></path>
 													</svg></div>
 												<div class="simple-checkbox__content">Даю согласие на обработку <a class="simple-checkbox__link" href="#">персональных данных</a></div>
-												<div class="simple-checkbox__error">Допустимы только буквы</div>
 											</label></div>
-									</div>
-									<div class="section-form__submit">
+									</div><button class="section-form__submit" type="submit">
 										<div class="press press--info">
 											<div class="press__btn">
 												<div class="press__content">
@@ -566,7 +554,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</button>
 								</div>
 							</div>
 						</form>
@@ -679,6 +667,42 @@
 					</div>
 				</div>
 			</footer>
+		</div>
+		<div class="modals-container">
+			<div class="form-response-modal"><svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="27" cy="27" r="27" fill="#2967EB"></circle>
+					<path d="M14 25.75L22.8421 34.5L38 19.5" stroke="white" stroke-width="1.5"></path>
+				</svg>
+				<div class="form-response-modal__ttl">Отправлено</div>
+				<div class="form-response-modal__txt only-desktop">Спасибо, мы с вами свяжемся в ближайшее время</div>
+				<div class="form-response-modal__txt only-mobile">Спасибо, мы с вами свяжемся<br>в ближайшее время</div>
+				<div class="press press--white modal-close">
+					<div class="press__btn">
+						<div class="press__content">
+							<div class="press__content-item press__content-item--start">
+								<div class="press__text press__text--start">закрыть</div>
+							</div>
+							<div class="press__content-item press__content-item--end">
+								<div class="press__text press__text--end">закрыть</div>
+							</div>
+						</div>
+						<div class="press__bg">
+							<div class="press__bg-item press__bg-item--start"></div>
+							<div class="press__bg-item press__bg-item--end"></div>
+						</div>
+						<div class="press__decor">
+							<div class="press__decor-item press__decor-item--start">
+								<div class="press__decor-arrow"></div>
+								<div class="press__decor-arrow"></div>
+							</div>
+							<div class="press__decor-item press__decor-item--end">
+								<div class="press__decor-arrow"></div>
+								<div class="press__decor-arrow"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 

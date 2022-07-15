@@ -11,81 +11,101 @@ mixin header(props = {})
   - var classes = getClassesFromMods('header', props.mods);
 
   header.header(class=classes)
-    .wrapper
-      .header__top
-        +container
-          .header__container.header__container--top
-            .header__row.header__row--align-baseline
-              .header__row-item
-                .header__grid.header__grid--right.header__grid--align-baseline
-                  .header__grid-item
+    .header__desktop
+      .wrapper
+        .header__top
+          +container
+            .header__container.header__container--top
+              .header__row.header__row--align-baseline
+                .header__row-item
+                  .header__grid.header__grid--right.header__grid--align-baseline
+                    .header__grid-item
+                      -
+                        var items = [
+                          'en',
+                          'Fr',
+                          'Kaz',
+                          'JP',
+                          'UZ',
+                        ];
+                      +drop(items).drop--small.drop--yellow
+                        |RU
+                    .header__grid-item
+                      +header-link
+                        |О компании
+                .header__row-item
+                  +header-link
+                    |Контроль качества
+                .header__row-item
+                  .header__triple
                     -
                       var items = [
-                        'en',
-                        'Fr',
-                        'Kaz',
-                        'JP',
-                        'UZ',
+                        'Работа у нас',
+                        'Документация',
+                        'Медиа-центр',
                       ];
-                    +drop(items).drop--small.drop--yellow
-                      |RU
-                  .header__grid-item
-                    +header-link
-                      |О компании
-              .header__row-item
-                +header-link
-                  |Контроль качества
-              .header__row-item
-                .header__triple
-                  -
-                    var items = [
-                      'Работа у нас',
-                      'Документация',
-                      'Медиа-центр',
-                    ];
-                  each item in items
+                    each item in items
+                      .header__triple-item
+                        +header-link= item
+                .header__row-item
+                  .header__grid.header__grid--left
+                    .header__grid-item
+                      +header-link
+                        |Где купить
+                    .header__grid-item
+                      +header-link
+                        |Контакты
+        .header__bottom
+          +container
+            .header__container
+              .header__row.header__row--align-center
+                .header__row-item
+                  .header__logo
+                    a.header__logo-link(href="#")
+                      +logo-svg.header__logo-svg
+                .header__row-item
+                  +press({ icon: ['menu-start.svg', 'menu-end.svg', 'left'] }).press--menu
+                    |Продукция
+                .header__row-item.header__row-item--align-transform
+                  .header__triple.header__triple--align-baseline
                     .header__triple-item
-                      +header-link= item
-              .header__row-item
-                .header__grid.header__grid--left
-                  .header__grid-item
-                    +header-link
-                      |Где купить
-                  .header__grid-item
-                    +header-link
-                      |Контакты
-      .header__bottom
+                      -
+                        var items = [
+                          'Промышленным предприятиям',
+                          'Медицинским учреждениям',
+                          'Торговым организациям',
+                        ];
+                      +drop(items).drop--yellow
+                        |Партнерам
+                    .header__triple-item
+                      +header-link({ large: true })
+                        |Потребителям
+                    .header__triple-item
+                      .header__search.header__search--align-transform
+                        +search-svg.header__search-svg
+                .header__row-item
+                  .header__last
+                    +press.press--white
+                      |оформить заказ
+    .header__mobile 
+      .wrapper 
         +container
           .header__container
-            .header__row.header__row--align-center
-              .header__row-item
+            .header__row
+              .header__col
                 .header__logo
                   a.header__logo-link(href="#")
                     +logo-svg.header__logo-svg
-              .header__row-item
-                +press({ icon: ['menu-start.svg', 'menu-end.svg', 'left'] }).press--menu
-                  |Продукция
-              .header__row-item.header__row-item--align-transform
-                .header__triple.header__triple--align-baseline
-                  .header__triple-item
-                    -
-                      var items = [
-                        'Промышленным предприятиям',
-                        'Медицинским учреждениям',
-                        'Торговым организациям',
-                      ];
-                    +drop(items).drop--yellow
-                      |Партнерам
-                  .header__triple-item
-                    +header-link({ large: true })
-                      |Потребителям
-                  .header__triple-item
-                    .header__search.header__search--align-transform
-                      +search-svg.header__search-svg
-              .header__row-item
-                .header__last
+              .header__col
+                .header__button 
                   +press.press--white
                     |оформить заказ
+                .header__buttons 
+                  .header__buttons-item 
+                    .header__search
+                      +search-svg.header__search-svg
+                  .header__buttons-item
+                    .header__burger 
 
 mixin header-no-trnsp
   header.header.no-transp

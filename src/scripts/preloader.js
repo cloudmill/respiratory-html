@@ -1,5 +1,4 @@
-import anime from "animejs";
-
+const PROGRESS_DURATION = 1500;
 const HIDE_DURATION = 2000;
 
 const get = () => document.querySelector("[data-preloader]");
@@ -8,31 +7,8 @@ const style = () => getComputedStyle(get());
 
 const progress = () =>
   new Promise((resolve) => {
-    const state = {
-      value: "0%",
-      duration: 1500,
-      easing: "easeInOutQuint",
-    };
-
-    const update = () => {
-      get().style.setProperty("--progress", state.value);
-    };
-
-    anime({
-      targets: state,
-
-      value: "100%",
-
-      duration: state.duration,
-      easing: state.easing,
-
-      update,
-
-      complete: () => {
-        update();
-        resolve();
-      },
-    });
+    get().classList.add("preloader--progress");
+    setTimeout(resolve, PROGRESS_DURATION);
   });
 
 const hide = () =>

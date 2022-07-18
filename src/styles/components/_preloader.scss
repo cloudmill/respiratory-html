@@ -1,9 +1,27 @@
 .preloader {
   $component: &;
 
+  $progress-transition: 1.5s timing-function(major);
   $hide-transition: 2s timing-function(major);
 
-  --progress: 0%;
+  @keyframes preloader-progress-off {
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+  @keyframes preloader-progress-on {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
 
   @keyframes preloader-hide {
     0% {
@@ -23,6 +41,19 @@
   width: 100vw;
 
   pointer-events: none;
+
+  &--progress {
+    #{$component} {
+      &__svg {
+        &:nth-child(1) {
+          animation: preloader-progress-off $progress-transition forwards;
+        }
+        &:nth-child(2) {
+          animation: preloader-progress-on $progress-transition forwards;
+        }
+      }
+    }
+  }
 
   &--hide {
     #{$component} {
@@ -62,15 +93,13 @@
     transform: translate(-50%, -50%);
 
     &:nth-child(1) {
-      clip-path: inset(0 0 0 var(--progress));
-
       path {
         fill: color(gray);
       }
     }
 
     &:nth-child(2) {
-      clip-path: inset(0 calc(100% - var(--progress)) 0 0);
+      clip-path: inset(0 100% 0 0);
 
       path {
         fill: color(blue);

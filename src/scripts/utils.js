@@ -13,7 +13,8 @@ export const getSelector = (name) => `[data-${name}]`;
 
 export const getPx = (value) => `${value}px`;
 
-export const getClassFromMod = (className, mod) => `${className}--${mod}`;
+export const getClassFromMod = (className, mod) =>
+  (mod && `${className}--${mod}`) || "";
 
 export const getClassesFromMods = (className, mods) =>
-  mods.map((mod) => getClassFromMod(className, mod));
+  mods && mods.map((mod) => getClassFromMod(className, mod));

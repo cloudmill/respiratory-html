@@ -61,6 +61,11 @@ export const DATA: Data = {
           title: "Защита от всех видов аэрозолей",
           labels: ["Пыль", "Дым", "Туман"],
         },
+        {
+          image: "assets/images/series/additional-protection.svg",
+          title: "Дополнительная защита",
+          labels: ["Радиоактивные и канцерогенные аэрозоли"],
+        },
       ],
       images: [
         "assets/images/series/1/0.jpeg",

@@ -299,10 +299,10 @@
   &__back {
     width: 100%;
     margin-top: rem(32px);
-    border: 1px solid color(gray);
+    // border: 1px solid color(gray);
     border-radius: 8px;
 
-    padding: rem(13px);
+    // padding: rem(13px);
 
     display: flex;
     justify-content: center;
@@ -315,8 +315,19 @@
     @media #{media('>')} {
       width: calc(#{columns(6)});
       margin: rem(120px) calc(#{$column} + #{$column-gap}) 0;
-      padding: rem(23px);
+      // padding: rem(23px);
       @include font-fsl("title-1", 13px);
+    }
+
+    .press__btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .press__decor {
+      display: none;
+    }
+    .press__text {
+      margin-top: rem(2px);
     }
 
     svg {

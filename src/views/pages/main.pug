@@ -32,29 +32,37 @@ block content
               |Помогаем выстраивать процессы и развивать культуру профессионального использования 
               a.article-2__link(href="#")
                 |СИЗОД
-  .isolation
-    .gap.gap--section
-      +container
-        .separator.separator--section
-        h2.title.title--section
-          |Условия сотрудничества
-        .cards.cards--margin
-          -
-            var items = [
-              'Промышленным предприятиям',
-              'Медицинским учреждениям',
-              'Торговым организациям',
-            ]
-          each item, index in items
-            .cards__item
-              a.card(href="#")
-                .card__container
-                  .card__label
-                    +arrow-tilt-svg.card__label-svg
-                  img.card__background(src=`assets/images/card-${index + 1}.jpg`)
-                  img.card__background-mobile(src=`assets/images/card-${index + 1}-mobile.jpg`)
-                h3.card__title(class=(index > 0 ? 'card__title--dark' : ''))
-                  |#{item}
+  
+  +space(['section'])
+  +container
+    +hr
+    +space(['hr'])
+    +heading(['sub'], 2)
+      |Условия сотрудничества
+    +space([32])
+    +grid(['cooperation'])
+      -
+        var items = [
+          {
+            title: 'Промышленным предприятиям',
+            src: 'assets/images/cooperation/0.jpeg',
+            titleMods: ['d-white'],
+          },
+          {
+            title: 'Медицинским учреждениям',
+            src: 'assets/images/cooperation/1.jpeg',
+            titleMods: [],
+          },
+          {
+            title: 'Торговым организациям',
+            src: 'assets/images/cooperation/2.jpeg',
+            titleMods: [],
+          },
+        ];
+      each item in items
+        .grid__item
+          +cooperation({ data: item })
+
   .isolation
     .gap.gap--section
       +series

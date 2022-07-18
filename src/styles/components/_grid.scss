@@ -1,6 +1,19 @@
 .grid {
   $component: &;
 
+  &--cooperation {
+    @media #{media(">")} {
+      display: grid;
+      grid-template-columns: repeat(3, calc(#{columns(4)}));
+      column-gap: $column-gap;
+    }
+
+    @media #{media("<")} {
+      display: grid;
+      row-gap: rem(24px);
+    }
+  }
+
   &--history {
     min-height: rem(460px);
     display: grid;
@@ -57,7 +70,9 @@
     row-gap: $column-gap;
 
     @media #{media("<")} {
-      grid-template-columns: calc(#{columns-small(2)} + (#{$column-small} / 3) * 2) calc(#{$column-small} + #{$column-gap-small} + (#{$column-small} / 3));
+      grid-template-columns:
+        calc(#{columns-small(2)} + (#{$column-small} / 3) * 2)
+        calc(#{$column-small} + #{$column-gap-small} + (#{$column-small} / 3));
     }
 
     > {
@@ -263,7 +278,9 @@
 
   &--3-4 {
     display: grid;
-    grid-template-columns: calc(#{columns-small(2)} + #{$column-gap-small}) calc(#{columns-small(2)});
+    grid-template-columns: calc(#{columns-small(2)} + #{$column-gap-small}) calc(
+        #{columns-small(2)}
+      );
 
     @media #{media(">")} {
       grid-template-columns: calc(#{columns(3)}) calc(#{columns(4)});
@@ -313,6 +330,7 @@
     display: grid;
     grid-template-columns: repeat(3, calc(#{columns(4)}));
     column-gap: $column-gap;
+
     @media #{media("<")} {
       grid-template-columns: 1fr;
       gap: rem(8px);

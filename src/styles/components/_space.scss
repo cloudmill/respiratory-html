@@ -16,6 +16,14 @@
       }
     }
 
+    &--cooperation {
+      #{$property}: rem(32px);
+
+      @media #{media("<")} {
+        #{$property}: rem(24px);
+      }
+    }
+
     &--sub-hr {
       #{$property}: rem(12px);
     }

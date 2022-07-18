@@ -1,0 +1,172 @@
+.cooperation {
+  $component: &;
+  $transition: transition(major);
+
+  position: relative;
+  z-index: 0;
+
+  height: calc(#{columns(4)});
+  display: block;
+
+  @media #{media('<')} {
+    height: auto;
+  }
+
+  &:hover {
+    #{$component} {
+      &__image {
+        &::before {
+          transform: translate(rem(-10px), rem(10px));
+
+          border-color: color(yellow);
+
+          @media #{media("<")} {
+            transform: translate(rem(-5px), rem(5px));
+          }
+        }
+      }
+      &__img {
+        transform: scale(1.15);
+      }
+      &__mark {
+        &::before {
+          transform: scale(1);
+        }
+      }
+      &__svg {
+        path,
+        line {
+          stroke: color(black);
+        }
+      }
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+
+    @media #{media('>')} {
+      @include inset;
+
+      position: absolute;
+      z-index: 1;
+
+      border-radius: 0 rem(16px) rem(16px) rem(16px);
+    }
+
+    @media #{media('<')} {
+      position: relative;
+      z-index: 0;
+
+      height: calc(100vw * 120 / 375);
+
+      border-radius: 0 rem(12px) rem(12px) rem(12px);
+    }
+
+    &::before {
+      @include rectangle(rem(20px));
+
+      position: absolute;
+      z-index: 2;
+      top: rem(40px);
+      right: rem(40px);
+      transform: translate(0, 0);
+
+      content: "";
+      pointer-events: none;
+
+      border: 2px solid color(blue);
+      border-left: none;
+      border-bottom: none;
+      border-radius: 0 rem(10px) 0 0;
+      transition: border-color $transition, transform $transition;
+
+      @media #{media("<")} {
+        @include rectangle(rem(12px));
+
+        top: rem(16px);
+        right: rem(16px);
+
+        border-width: 1px;
+        border-radius: 0 rem(6px) 0 0;
+      }
+    }
+  }
+  &__img {
+    @include rectangle(100%);
+
+    position: relative;
+    z-index: 1;
+
+    object-fit: cover;
+
+    transition: transform $transition;
+  }
+  &__mark {
+    @include rectangle(rem(64px));
+
+    position: absolute;
+    z-index: 2;
+    bottom: rem(40px);
+    right: rem(40px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: color(blue);
+    border-radius: 50%;
+
+    @media #{media('<')} {
+      @include rectangle(rem(36px));
+
+      bottom: rem(16px);
+      right: rem(16px);
+    }
+
+    &::before {
+      @include inset;
+
+      position: absolute;
+      z-index: 1;
+      transform: scale(0);
+
+      content: "";
+
+      background-color: color(yellow);
+      border-radius: 50%;
+      transition: transform $transition;
+    }
+  }
+  &__svg {
+    @include rectangle(rem(17px));
+
+    position: relative;
+    z-index: 2;
+
+    @media #{media('<')} {
+      @include rectangle(rem(10px));
+    }
+
+    path,
+    line {
+      transition: stroke $transition;
+    }
+  }
+
+  &__title {
+    @media #{media('>')} {
+      position: absolute;
+      z-index: 2;
+      top: rem(40px);
+      left: rem(40px);
+
+      max-width: calc(#{columns(3)} - #{rem(40px)});
+      max-height: calc(100% - #{rem(40px + 40px)});
+    }
+
+    @media #{media('<')} {
+      margin-top: rem(8px);
+    }
+  }
+}

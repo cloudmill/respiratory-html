@@ -1,4 +1,20 @@
 .heading {
+  &--d {
+    &-white {
+      @media #{media('>')} {
+        color: color(white);
+      }
+    }
+  }
+
+  &--cooperation {
+    @include font-fsl("title-2", 28px, 110%);
+
+    @media #{media('<')} {
+      @include fsl(12px, 115%);
+    }
+  }
+
   &--case {
     @include font-fsl("title-2", 32px, 120%);
   }

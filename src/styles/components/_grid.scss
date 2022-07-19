@@ -1,6 +1,13 @@
 .grid {
   $component: &;
 
+  &--unit {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{columns(3)}));
+    column-gap: $column-gap;
+  }
+
   &--cooperation {
     @media #{media(">")} {
       display: grid;

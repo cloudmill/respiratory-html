@@ -6,33 +6,7 @@ block js-test
 
 block content
   +space(['header'], ['pt'])
+  
+  +unit
 
   +space(['section'])
-  +container
-    +hr
-    +space(['hr'])
-    +heading(['sub'], 2)
-      |Условия сотрудничества
-    +space(['cooperation'])
-    +grid(['cooperation'])
-      -
-        var items = [
-          {
-            title: 'Промышленным предприятиям',
-            src: 'assets/images/cooperation/0.jpeg',
-            titleMods: ['d-white'],
-          },
-          {
-            title: 'Медицинским учреждениям',
-            src: 'assets/images/cooperation/1.jpeg',
-            titleMods: [],
-          },
-          {
-            title: 'Торговым организациям',
-            src: 'assets/images/cooperation/2.jpeg',
-            titleMods: [],
-          },
-        ];
-      each item in items
-        .grid__item
-          +cooperation({ data: item })

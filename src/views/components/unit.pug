@@ -1,0 +1,11 @@
+mixin unit
+  a.unit(href='#')
+    +grid(['unit'])
+      .grid__item
+        .unit__image
+          img.unit__img(src='assets/images/unit/unit.jpeg')
+      .grid__item
+        .unit__content
+          .unit__mark
+            +arrow-tilt-svg.unit__svg
+

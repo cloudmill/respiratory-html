@@ -18,6 +18,7 @@
       #{$component} {
         &__item {
           &:not(:first-child) {
+            display: block;
             margin-top: rem(40px);
           }
         }

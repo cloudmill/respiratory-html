@@ -153,7 +153,7 @@ block content
 
         +space(['sub-section'])
         +heading(['sub'], 2)
-          |Применение
+          |Описание
         +space(['hr'])
         +container(['card'])
           +text(['card', 'pre-line'])
@@ -244,35 +244,13 @@ block content
               +grid(['gallery'])
                 .grid__item
                   +container(['gallery'])
-                    -
-                      var pagination = [
-                        'assets/images/tile-1.jpg',
-                        'assets/images/tile-2.jpg',
-                        'assets/images/tile-3.jpg',
-                        'assets/images/tile-1.jpg',
-                        'assets/images/tile-2.jpg',
-                      ];
-                    .swiper.gallery(data-swiper-slider='card' data-swiper-slider-pagination=JSON.stringify(pagination))
-                      .swiper-wrapper.gallery__wrapper
-                        each i, index in repeat(5)
-                          .swiper-slide.gallery__slide
-                            img.gallery__img(src='assets/images/masks-1.jpg' data-swiper-parallax='28%' data-gallery=index)
-                      .gallery__bullets
-                        .gallery__bullets-list(data-swiper-slider-list)
-                      .gallery__navigation.gallery__prev
-                        .circle.circle--small
-                          button.circle__button(type='button' data-swiper-slider-prev)
-                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                      .gallery__navigation.gallery__next
-                        .circle.circle--small
-                          button.circle__button(type='button' data-swiper-slider-next)
-                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                    img(src='assets/images/card/card.jpeg' data-gallery=0)
                 .grid__item
                   +container(['gallery'])
-                    img(src='assets/images/masks-2.jpg' data-gallery=5)
+                    img(src='assets/images/masks-2.jpg' data-gallery=1)
                 .grid__item
                   +container(['gallery'])
-                    img(src='assets/images/masks-3.jpg' data-gallery=6)
+                    img(src='assets/images/masks-3.jpg' data-gallery=2)
               
 
   +space(['mid-block'])

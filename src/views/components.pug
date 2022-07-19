@@ -49,6 +49,12 @@ mixin first(src)
     .first__layout
       block
 
+mixin first-vid(src)
+  .first
+    video.first__bg(src=src autoplay muted loop)
+    .first__layout
+      block
+
 //- second
 
 mixin second

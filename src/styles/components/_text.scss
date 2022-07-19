@@ -35,7 +35,16 @@
     }
   }
   &--vbx {
-    @include font-fsl("title-2", 60px, 110%);
+    // @include font-fsl("title-2", 60px, 110%);
+    @include font-fsl("title-2", 84px, 100%);
+    font-weight: 550;
+
+    sup {
+      @include font-fsl("title-2", 30px, 100%);
+      font-weight: 600;
+      letter-spacing: -0.06em;
+      vertical-align: top;
+    }
   }
   &--gwv {
     @include font-fsl("title-2", 32px, 120%);

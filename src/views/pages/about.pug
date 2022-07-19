@@ -20,7 +20,7 @@ block side-modal
   +side-modal('case-6')
 
 block content
-  +first('assets/images/about.jpeg')
+  +first-vid('assets/videos/about-back.m4v')
     .top-bottom
       .top-bottom__item
         +container
@@ -124,12 +124,19 @@ block content
       |Наше производство
     +space([96])
     +grid([3])
+      .our
+        +text(['vbx', 'blue'])
+          |7000 м
+          sup 2
+        +space(['gap'])
+        +text(['qpv', 'right'])
+          |Производственно-складской комплекс
       -
         var ours = [
-          {
-            title: '7000 м²',
-            text: 'Производственно-складской комплекс',
-          },
+          //- {
+          //-   title: '7000 м²',
+          //-   text: 'Производственно-складской комплекс',
+          //- },
           {
             title: '2',
             text: 'Собственные испытательные лаборатории',

@@ -409,3 +409,21 @@
     }
   }
 }
+
+.btn-file {
+  background: white;
+  padding: rem(20px) rem(60px);
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include font-fsl('title-1', 13px, 100%);
+  font-weight: 550;
+
+  svg {
+    margin-right: rem(8px);
+  }
+}

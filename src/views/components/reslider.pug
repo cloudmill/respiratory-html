@@ -17,35 +17,66 @@ mixin reslider(mod)
               each i, index in repeat(count)
                 .swiper-slide
                   img.reslider__img(src=`assets/images/reslider/about/${index % count}.jpg` alt='' data-swiper-parallax='28%')
+          .mobile-only
+            +grid(['controls', 'controls--absolute'])
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .reslider__content
           .reslider__place
             +container
               +space(['block'], ['pt'])
               +hr(['light'])
               +space(['hr'])
-              +heading(['sub'], 2)
-                |Наши ценности
+              .reslider__top
+                +heading(['sub'], 2)
+                  |Наши ценности
+                .mobile__only 
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
               +space(['sub-block'])
               +grid(['3-6'])
                 .grid__item
-                  +grid(['controls'])
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-prev)
-                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-next)
-                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                  .desktop-only
+                    +grid(['controls'])
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 -
                   var titles = [
                     'Стремление к идеальному продукту',
                     'Развитие эффективных технологий защиты',
                     'Приоритет клиента',
                   ];
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .desktop-only
+                  .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
             +container
+              -
+                var titles = [
+                  'Стремление к идеальному продукту',
+                  'Развитие эффективных технологий защиты',
+                  'Приоритет клиента',
+                ];
+              .mobile-only
+                .reslider__title(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper
@@ -66,15 +97,16 @@ mixin reslider(mod)
                             .reslider__description
                               |Понимание потребностей клиентов помогает нам выпускать продукцию, отвечающую самым строгим требованиям. Клиентский сервис включает информационную и&nbsp;техническую поддержку партнеров, онлайн и&nbsp;очное обучение.
                 .grid__item
-                  .progress
-                    .progress__cur.reslider__progress-container
-                      each i, index in repeat(count)
-                        .progress__text.progress__text--fake
-                          |#{index + 1}
-                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
-                        |1
-                    .progress__all
-                      |/#{count}
+                  .desktop-only
+                    .progress
+                      .progress__cur.reslider__progress-container
+                        each i, index in repeat(count)
+                          .progress__text.progress__text--fake
+                            |#{index + 1}
+                        .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                          |1
+                      .progress__all
+                        |/#{count}
               +space(['sub-block'], ['pb'])
     when 'quality'
       - var count = 4;
@@ -85,26 +117,48 @@ mixin reslider(mod)
               each i, index in repeat(count)
                 .swiper-slide
                   img.reslider__img(src=`assets/images/reslider/quality/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+          .mobile-only
+            +grid(['controls', 'controls--absolute'])
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .reslider__content
           .reslider__place
             +container
               +space(['block'], ['pt'])
               +hr(['light'])
               +space(['hr'])
-              +heading(['sub'], 2)
-                |Производственный процесс
+              .reslider__top
+                +heading(['sub'], 2)
+                  |Производственный процесс
+                .mobile__only 
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
               +space(['sub-block'])
               +grid(['3-6'])
                 .grid__item
-                  +grid(['controls'])
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-prev)
-                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-next)
-                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                  .desktop-only
+                    +grid(['controls'])
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 -
                   var titles = [
                     'Выбор поставщика',
@@ -112,9 +166,19 @@ mixin reslider(mod)
                     'Лабораторный контроль',
                     'Поставка покупателю',
                   ];
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .desktop-only
+                  .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
             +container
+              -
+                var titles = [
+                  'Выбор поставщика',
+                  'Производство',
+                  'Лабораторный контроль',
+                  'Поставка покупателю',
+                ];
+              .desktop-only
+                .grid__item(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper
@@ -137,16 +201,18 @@ mixin reslider(mod)
                         .reslider__description
                           |Сбор обратной связи от&nbsp;клиентов и&nbsp;потребителей для оценки удовлетворенности и&nbsp;внедрения улучшений
                 .grid__item
-                  .progress
-                    .progress__cur.reslider__progress-container
-                      each i, index in repeat(count)
-                        .progress__text.progress__text--fake
-                          |#{index + 1}
-                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
-                        |1
-                    .progress__all
-                      |/#{count}
-              +space(['sub-block'], ['pb'])
+                  .desktop-only
+                    .progress
+                      .progress__cur.reslider__progress-container
+                        each i, index in repeat(count)
+                          .progress__text.progress__text--fake
+                            |#{index + 1}
+                        .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                          |1
+                      .progress__all
+                        |/#{count}
+              .desktop-only
+                +space(['sub-block'], ['pb'])
     when 'work'
       - var count = 3;
       .reslider(data-reslider-count=count)
@@ -156,35 +222,64 @@ mixin reslider(mod)
               each i, index in repeat(count)
                 .swiper-slide
                   img.reslider__img(src=`assets/images/reslider/work/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+          .mobile-only
+            +grid(['controls', 'controls--absolute'])
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .reslider__content
           .reslider__place
             +container
               +space(['block'], ['pt'])
               +hr(['light'])
               +space(['hr'])
-              +heading(['sub'], 2)
-                |Почему стоит выбрать Респираторный комплекс
+              .reslider__top
+                +heading(['sub'], 2)
+                  |Почему стоит выбрать Респираторный комплекс
+                .mobile__only 
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
               +space(['sub-block'])
               +grid(['3-6'])
                 .grid__item
-                  +grid(['controls'])
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-prev)
-                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-next)
-                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                  .desktop-only
+                    +grid(['controls'])
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 -
                   var titles = [
                     'профессионализм',
                     'социальная ответственность',
                     'развитие',
                   ];
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .desktop-only
+                  .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
             +container
+              -
+                var titles = [
+                  'профессионализм',
+                  'социальная ответственность',
+                  'развитие',
+                ];
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper
@@ -209,15 +304,16 @@ mixin reslider(mod)
                         .reslider__description
                           |Организуем обучение сотрудников, поощряем участие в&nbsp;рационализаторской деятельности, поддерживаем проектную работу. Вы&nbsp;можете воплощать свои идеи, влиять на&nbsp;общий результат и&nbsp;каждый день расти вместе с&nbsp;Респираторным комплексом
                 .grid__item
-                  .progress
-                    .progress__cur.reslider__progress-container
-                      each i, index in repeat(count)
-                        .progress__text.progress__text--fake
-                          |#{index + 1}
-                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
-                        |1
-                    .progress__all
-                      |/#{count}
+                  .desktop-only
+                    .progress
+                      .progress__cur.reslider__progress-container
+                        each i, index in repeat(count)
+                          .progress__text.progress__text--fake
+                            |#{index + 1}
+                        .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                          |1
+                      .progress__all
+                        |/#{count}
               +space(['sub-block'], ['pb'])
     when 'industrial'
       - var count = 3;
@@ -228,35 +324,66 @@ mixin reslider(mod)
               each i, index in repeat(count)
                 .swiper-slide
                   img.reslider__img(src=`assets/images/reslider/industrial/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+          .mobile-only
+            +grid(['controls', 'controls--absolute'])
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .reslider__content
           .reslider__place
             +container
               +space(['block'], ['pt'])
               +hr(['light'])
               +space(['hr'])
-              +heading(['sub'], 2)
-                |Мы предлагаем
+              .reslider__top
+                +heading(['sub'], 2)
+                  |Мы предлагаем
+                .mobile__only 
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
               +space(['sub-block'])
               +grid(['3-6'])
-                .grid__item
-                  +grid(['controls'])
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-prev)
-                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-next)
-                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                .desktop-only
+                  .grid__item
+                    +grid(['controls'])
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 -
                   var titles = [
                     'Ассортимент',
                     'Кастомизация',
                     'Качество',
                   ];
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .desktop-only
+                  .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
             +container
+              -
+                var titles = [
+                  'Ассортимент',
+                  'Кастомизация',
+                  'Качество',
+                ];
+              .mobile-only
+                .grid__item(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper
@@ -293,16 +420,18 @@ mixin reslider(mod)
                         .reslider__description
                           |Качество нашей продукции обеспечивается лучшими фильтрующими и&nbsp;сорбционными материалами, современным оборудованием и&nbsp;опытным персоналом, а&nbsp;стабильность&nbsp;&mdash; технологичностью производства, отлаженными процессами и&nbsp;постоянным контролем.
                 .grid__item
-                  .progress
-                    .progress__cur.reslider__progress-container
-                      each i, index in repeat(count)
-                        .progress__text.progress__text--fake
-                          |#{index + 1}
-                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
-                        |1
-                    .progress__all
-                      |/#{count}
-              +space(['sub-block'], ['pb'])
+                  .desktop-only
+                    .progress
+                      .progress__cur.reslider__progress-container
+                        each i, index in repeat(count)
+                          .progress__text.progress__text--fake
+                            |#{index + 1}
+                        .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                          |1
+                      .progress__all
+                        |/#{count}
+              .desktop-only
+                +space(['sub-block'], ['pb'])
     when 'trade'
       - var count = 3;
       .reslider(data-reslider-count=count)
@@ -312,35 +441,66 @@ mixin reslider(mod)
               each i, index in repeat(count)
                 .swiper-slide
                   img.reslider__img(src=`assets/images/reslider/trade/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+          .mobile-only
+            +grid(['controls', 'controls--absolute'])
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .reslider__content
           .reslider__place
             +container
               +space(['block'], ['pt'])
               +hr(['light'])
               +space(['hr'])
-              +heading(['sub'], 2)
-                |Мы предлагаем
+              .reslider__top
+                +heading(['sub'], 2)
+                  |Мы предлагаем
+                .mobile__only 
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
               +space(['sub-block'])
               +grid(['3-6'])
                 .grid__item
-                  +grid(['controls'])
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-prev)
-                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-next)
-                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                  .desktop-only
+                    +grid(['controls'])
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 -
                   var titles = [
                     'Различные варианты упаковки и комплектации ',
                     'Информационная поддержка',
                     'Маркетинговая поддержка',
                   ];
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .desktop-only
+                  .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
             +container
+              -
+                var titles = [
+                  'Различные варианты упаковки и комплектации ',
+                  'Информационная поддержка',
+                  'Маркетинговая поддержка',
+                ];
+              .mobile-only
+                .grid__item(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper
@@ -365,16 +525,18 @@ mixin reslider(mod)
                             +press.press--info
                               |Обсудить совместный проект
                 .grid__item
-                  .progress
-                    .progress__cur.reslider__progress-container
-                      each i, index in repeat(count)
-                        .progress__text.progress__text--fake
-                          |#{index + 1}
-                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
-                        |1
-                    .progress__all
-                      |/#{count}
-              +space(['sub-block'], ['pb'])
+                  .desktop-only
+                    .progress
+                      .progress__cur.reslider__progress-container
+                        each i, index in repeat(count)
+                          .progress__text.progress__text--fake
+                            |#{index + 1}
+                        .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                          |1
+                      .progress__all
+                        |/#{count}
+              .desktop-only
+                +space(['sub-block'], ['pb'])
     when 'medical'
       - var count = 3;
       .reslider(data-reslider-count=count)
@@ -384,35 +546,66 @@ mixin reslider(mod)
               each i, index in repeat(count)
                 .swiper-slide
                   img.reslider__img(src=`assets/images/reslider/medical/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+          .mobile-only
+            +grid(['controls', 'controls--absolute'])
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .reslider__content
           .reslider__place
             +container
               +space(['block'], ['pt'])
               +hr(['light'])
               +space(['hr'])
-              +heading(['sub'], 2)
-                |Работа с нами
+              .reslider__top
+                +heading(['sub'], 2)
+                  |Работа с нами
+                .mobile__only 
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
               +space(['sub-block'])
               +grid(['3-6'])
                 .grid__item
-                  +grid(['controls'])
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-prev)
-                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-next)
-                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                  .desktop-only
+                    +grid(['controls'])
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 -
                   var titles = [
                     'Экспертный подход',
                     'Качество',
                     'Сервис',
                   ];
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .desktop-only
+                  .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
             +container
+              -
+                var titles = [
+                  'Защитные свойства для решения Ваших задач',
+                  'Надежное качество',
+                  'Отклик производителя',
+                ];
+              .mobile-only
+                .grid__item(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper
@@ -447,16 +640,18 @@ mixin reslider(mod)
                           ];
                         +reslider-list(items)
                 .grid__item
-                  .progress
-                    .progress__cur.reslider__progress-container
-                      each i, index in repeat(count)
-                        .progress__text.progress__text--fake
-                          |#{index + 1}
-                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
-                        |1
-                    .progress__all
-                      |/#{count}
-              +space(['sub-block'], ['pb'])
+                  .desktop-only
+                    .progress
+                      .progress__cur.reslider__progress-container
+                        each i, index in repeat(count)
+                          .progress__text.progress__text--fake
+                            |#{index + 1}
+                        .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                          |1
+                      .progress__all
+                        |/#{count}
+              .desktop-only
+                +space(['sub-block'], ['pb'])
     when 'consumers'
       - var count = 3;
       .reslider(data-reslider-count=count)
@@ -466,35 +661,66 @@ mixin reslider(mod)
               each i, index in repeat(count)
                 .swiper-slide
                   img.reslider__img(src=`assets/images/reslider/consumers/${index % count}.jpeg` alt='' data-swiper-parallax='28%')
+          .mobile-only
+            +grid(['controls', 'controls--absolute'])
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-prev)
+                    +arrow-left-svg.circle__svg.circle__svg--arrow-left
+              .grid__item
+                .circle.circle--blue
+                  button.circle__button(type="button" data-reslider-next)
+                    +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
         .reslider__content
           .reslider__place
             +container
               +space(['block'], ['pt'])
               +hr(['light'])
               +space(['hr'])
-              +heading(['sub'], 2)
-                |Наша продукция
+              .reslider__top
+                +heading(['sub'], 2)
+                  |Наша продукция
+                .mobile__only 
+                  .progress
+                    .progress__cur.reslider__progress-container
+                      each i, index in repeat(count)
+                        .progress__text.progress__text--fake
+                          |#{index + 1}
+                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                        |1
+                    .progress__all
+                      |/#{count}
               +space(['sub-block'])
               +grid(['3-6'])
                 .grid__item
-                  +grid(['controls'])
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-prev)
-                          +arrow-left-svg.circle__svg.circle__svg--arrow-left
-                    .grid__item
-                      .circle.circle--blue
-                        button.circle__button(type="button" data-reslider-next)
-                          +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+                  .desktop-only
+                    +grid(['controls'])
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-prev)
+                            +arrow-left-svg.circle__svg.circle__svg--arrow-left
+                      .grid__item
+                        .circle.circle--blue
+                          button.circle__button(type="button" data-reslider-next)
+                            +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
                 -
                   var titles = [
                     'Защитные свойства для решения Ваших задач',
                     'Надежное качество',
                     'Отклик производителя',
                   ];
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .desktop-only
+                  .grid__item(data-reslider-title=JSON.stringify(titles))
           .reslider__place
             +container
+              -
+                var titles = [
+                  'Защитные свойства для решения Ваших задач',
+                  'Надежное качество',
+                  'Отклик производителя',
+                ];
+              .mobile-only
+                .grid__item(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper
@@ -543,13 +769,15 @@ mixin reslider(mod)
                             +press.press--info
                               |связаться с нами
                 .grid__item
-                  .progress
-                    .progress__cur.reslider__progress-container
-                      each i, index in repeat(count)
-                        .progress__text.progress__text--fake
-                          |#{index + 1}
-                      .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
-                        |1
-                    .progress__all
-                      |/#{count}
-              +space(['sub-block'], ['pb'])
+                  .desktop-only
+                    .progress
+                      .progress__cur.reslider__progress-container
+                        each i, index in repeat(count)
+                          .progress__text.progress__text--fake
+                            |#{index + 1}
+                        .progress__text.reslider__progress(data-reslider-cur data-reslider-progress)
+                          |1
+                      .progress__all
+                        |/#{count}
+              .desktop-only
+                +space(['sub-block'], ['pb'])

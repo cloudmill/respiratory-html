@@ -9,6 +9,7 @@
   @media #{media("<")} {
     padding-top: rem(58px + 20px);
     padding-bottom: rem(48px);
+    height: 50vh;
   }
 
   // bg
@@ -841,6 +842,9 @@
   display: grid;
   grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
   column-gap: $column-gap;
+  @media #{media("<")} {
+    display: block;
+  }
 
   &__col {
     &:nth-child(2) {
@@ -1551,5 +1555,12 @@
 .desktop-only {
   @media #{media("<")} {
     display: none;
+  }
+}
+
+.slider-mobile {
+  .swiper-slide {
+    width: auto;
+    padding-right: rem(16px);
   }
 }

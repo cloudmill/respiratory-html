@@ -1,5 +1,8 @@
 .first-section {
   margin-top: rem(190px);
+  @media #{media("<")} {
+    margin-top: rem(78px);
+  }
 }
 
 .indent {

@@ -19,6 +19,9 @@
         &__item {
           &:not(:first-child) {
             margin-top: rem(40px);
+            @media #{media("<")} {
+              margin-top: rem(20px);
+            }
           }
         }
       }

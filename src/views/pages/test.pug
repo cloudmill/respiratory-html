@@ -1,5 +1,8 @@
 extends ../app
 
+block header
+block footer
+
 //- block grid-test
 block preloader
 block js-test
@@ -7,6 +10,28 @@ block js-test
 block content
   +space(['header'], ['pt'])
   
-  +unit
+  +space(['sub-section'])
+  +container
+    +hr
+    +space(['hr'], ['pt'])
+    +grid(['unit-panel'])
+      .grid__item
+        +heading(['sub'])
+          |аналоги
+      .grid__item
+        +grid(['controls'])
+          .grid__item
+            .circle
+              button.circle__button(type="button" data-swiper-slider-prev='unit')
+                +arrow-left-svg.circle__svg.circle__svg--arrow-left
+          .grid__item
+            .circle
+              button.circle__button(type="button" data-swiper-slider-next='unit')
+                +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+  +space(['sub-block'])
+  .swiper.swiper-slider(data-swiper-slider='unit')
+    .swiper-wrapper
+      .swiper-slide
+        +unit
 
-  +space(['section'])
+  //- +space(['section'])

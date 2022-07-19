@@ -1,5 +1,5 @@
 .swiper-slider {
-  $ids: (0);
+  $ids: (0, "unit");
 
   @mixin swiper-slider($id) {
     @if $id == 0 {
@@ -17,6 +17,18 @@
         &:not(:last-child) {
           padding-right: calc(#{$column-gap});
           width: calc(#{columns(3)} + #{$column-gap}) !important;
+        }
+      }
+    } @else if $id == "unit" {
+      left: -1px;
+
+      width: calc(100% + 2px);
+
+      .swiper-slide {
+        border: 1px solid color(gray);
+
+        &:not(:last-child) {
+          border-right: none;
         }
       }
     }

@@ -62,6 +62,17 @@ const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
         };
       }
       break;
+    case "unit":
+      return {
+        slidesPerView: 2,
+        modules: [Navigation],
+        allowTouchMove: false,
+        navigation: {
+          prevEl: document.querySelector('[data-swiper-slider-prev="unit"]'),
+          nextEl: document.querySelector('[data-swiper-slider-next="unit"]'),
+        },
+      };
+      break;
     default:
       return {};
   }

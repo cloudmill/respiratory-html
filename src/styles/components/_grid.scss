@@ -6,6 +6,18 @@
     display: grid;
     grid-template-columns: repeat(2, calc(#{columns(3)}));
     column-gap: $column-gap;
+
+    &-props {
+      display: grid;
+      grid-template-columns: repeat(2, calc(#{$column}));
+      column-gap: $column-gap;
+    }
+
+    &-panel {
+      display: grid;
+      grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
+      column-gap: $column-gap;
+    }
   }
 
   &--cooperation {

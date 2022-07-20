@@ -19,32 +19,28 @@ html.html.no-transition-child(lang="ru")
     meta(property="og:title", content="Респираторный")
     meta(property="og:image", content="https://raw.githubusercontent.com/cloudmill/respiratory-html/master/dist/assets/images/public/openpraph.png")
   
-  body.body
-    
-    block header
-      +header
-    
+  body
+
     .wrapper
     
+      block header
+        +header
+      
       block content
         |content
 
       block footer
         +footer
     
-    .modals-container
+      .modals-container
+        block modal
+      
+      block side-modal
 
-      block modal
-    
-    block side-modal
+      block preloader
+        +preloader
 
-    block preloader
-      +preloader
+      block grid-test
+        +grid-test
 
-    block grid-test
-      +grid-test
-
-    block js-test
-      +js-test
-
-    block scripts
+      block scripts

@@ -71,6 +71,16 @@
           }
         }
       }
+
+      &--zen {
+        #{$component} {
+          &__svg {
+            path {
+              fill: color(black);
+            }
+          }
+        }
+      }
     }
   }
 
@@ -138,8 +148,28 @@
     }
   }
 
+  &--zen {
+    #{$component} {
+      &__svg {
+        // @include rectangle(rem(30px), rem(18px));
+
+        // @media #{media("<")} {
+        //   @include rectangle(rem(20px), rem(12px));
+        // }
+
+        path {
+          transition: fill $transition;
+        }
+      }
+    }
+  }
+
   &__svg {
     position: relative;
     z-index: 3;
+
+    &-color path {
+      fill: color(blue);
+    }
   }
 }

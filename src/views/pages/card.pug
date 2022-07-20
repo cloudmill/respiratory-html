@@ -6,7 +6,12 @@ block definitions
 
 block preloader
 block js-test
-block grid-test
+//- block grid-test
+
+block side-modal
+  +side-modal('unit-1')
+  +side-modal('unit-2')
+  +side-modal('unit-3')
 
 block content
   +space(['header'], ['pt'])
@@ -275,8 +280,9 @@ block content
               button.circle__button(type="button" data-swiper-slider-next='unit')
                 +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
   +space(['sub-block'])
-  .swiper.swiper-slider(data-swiper-slider='unit')
-    .swiper-wrapper
-      each i in repeat(3)
-        .swiper-slide
-          +unit
+  +container(['unit'])
+    .swiper.swiper-slider(data-swiper-slider='unit')
+      .swiper-wrapper
+        each i, index in repeat(3)
+          .swiper-slide
+            +unit(`unit-${index + 1}`)

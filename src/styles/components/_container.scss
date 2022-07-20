@@ -1,6 +1,15 @@
 .container {
   $component: &;
 
+  &--unit {
+    @media #{media("<")} {
+      overflow: hidden;
+
+      padding: $column-padding-small;
+      padding-top: 0;
+    }
+  }
+
   &--case {
     padding-left: calc(#{$column} - #{$column-padding});
   }

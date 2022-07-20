@@ -20,15 +20,25 @@
         }
       }
     } @else if $id == "unit" {
-      left: -1px;
+      @media #{media('>')} {
+        left: -1px;
 
-      width: calc(100% + 2px);
+        width: calc(100% + 2px);
 
-      .swiper-slide {
-        border: 1px solid color(gray);
+        .swiper-slide {
+          border: 1px solid color(gray);
 
-        &:not(:last-child) {
-          border-right: none;
+          &:not(:last-child) {
+            border-right: none;
+          }
+        }
+      }
+
+      @media #{media('<')} {
+        overflow: visible;
+
+        .swiper-slide {
+          width: rem(375px - 20px - 50px);
         }
       }
     }

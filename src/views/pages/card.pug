@@ -8,6 +8,11 @@ block preloader
 block js-test
 //- block grid-test
 
+block side-modal
+  +side-modal('unit-1')
+  +side-modal('unit-2')
+  +side-modal('unit-3')
+
 block content
   +space(['header'], ['pt'])
 
@@ -278,6 +283,6 @@ block content
   +container(['unit'])
     .swiper.swiper-slider(data-swiper-slider='unit')
       .swiper-wrapper
-        each i in repeat(3)
+        each i, index in repeat(3)
           .swiper-slide
-            +unit
+            +unit(`unit-${index + 1}`)

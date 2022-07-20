@@ -1,9 +1,9 @@
-mixin unit
-  a.unit(href='#')
+mixin unit(id)
+  a.unit(href='#' data-unit)
     +grid(['unit'])
       .grid__item
         .unit__image
-          img.unit__img(src='assets/images/unit/unit.jpeg')
+          img.unit__img(src='assets/images/unit/unit.jpeg' data-unit-inactive data-side-modal-trigger=id)
       .grid__item
         .unit__content
           +heading(['unit'])

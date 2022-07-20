@@ -1,6 +1,7 @@
 .header {
   $component: &;
   $transition: transition(major);
+  $headerTopHeight: rem(61px);
 
   --hover-color: #{color(blue)};
   --logo-color: #{color(blue)};
@@ -15,6 +16,9 @@
 
   &--hide {
     transform: translateY(-100%);
+  }
+  &--short {
+    transform: translateY(-#{$headerTopHeight});
   }
 
   &--transparent {
@@ -101,7 +105,7 @@
   }
 
   &__top {
-    height: rem(61px);
+    height: $headerTopHeight;
 
     border-bottom: 1px solid color(gray);
     transition: background-color $transition, border-color $transition;

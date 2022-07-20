@@ -27,12 +27,14 @@ function headerOnScroll() {
         if (newScrollTop > scrollTop) {
           header.classList.add('header--hide')
         } else {
-          header.classList.remove('header--hide')
+          header.classList.remove('header--hide');
+          header.classList.add('header--short');
         }
       }
 
       if (scrollTop < 1) {
-        header.classList.remove('header--hide')
+        header.classList.remove('header--short');
+        header.classList.remove('header--hide');
       }
 
       scrollTop = newScrollTop;

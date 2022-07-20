@@ -1,12 +1,12 @@
-mixin side-modal(id)
-  .side-modal(data-side-modal=id)
+mixin side-modal(props = {})
+  .side-modal(data-side-modal=props.id)
     .side-modal__overlay(data-side-modal-overlay)
     .side-modal__content
 
-      button.side-modal__close
+      button.side-modal__close(data-side-modal-close)
         +close-cross-svg
 
-      case id
+      case props.id
         when 'case-1'
           +container(['side-modal'])
             +space(['padding'], ['pt'])

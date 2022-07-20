@@ -4,14 +4,15 @@ block definitions
   -
     app.title = 'Карточка товара';
 
+    var unitCount = 3;
+
 block preloader
 block js-test
 //- block grid-test
 
 block side-modal
-  +side-modal('unit-1')
-  +side-modal('unit-2')
-  +side-modal('unit-3')
+  each i, index in repeat(unitCount)
+    +side-modal({ id: `unit-${index + 1}` })
 
 block content
   +space(['header'], ['pt'])
@@ -283,6 +284,6 @@ block content
   +container(['unit'])
     .swiper.swiper-slider(data-swiper-slider='unit')
       .swiper-wrapper
-        each i, index in repeat(3)
+        each i, index in repeat(unitCount)
           .swiper-slide
-            +unit(`unit-${index + 1}`)
+            +unit({ sideModalId: `unit-${index + 1}` })

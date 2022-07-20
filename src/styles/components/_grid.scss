@@ -4,7 +4,7 @@
   &--unit {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(2, calc(#{columns(3)}));
+    grid-template-columns: calc(#{columns(3)}) 1fr;
     column-gap: $column-gap;
 
     &-props {

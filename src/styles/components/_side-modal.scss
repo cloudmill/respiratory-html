@@ -25,6 +25,10 @@
     }
   }
 
+  &--unit {
+    
+  }
+
   &__overlay {
     @include inset;
 
@@ -58,8 +62,8 @@
   &__close {
     width: rem(48px);
     height: rem(48px);
-    background: #FFFFFF;
-    border: 1px solid #E5E9EF;
+    background: #ffffff;
+    border: 1px solid #e5e9ef;
     box-shadow: 0px 12px 20px rgba(42, 46, 55, 0.12);
     border-radius: 50%;
     cursor: pointer;

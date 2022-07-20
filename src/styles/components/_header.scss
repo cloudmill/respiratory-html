@@ -12,6 +12,9 @@
   left: 0;
   right: 0;
 
+  width: 100vw;
+  overflow: hidden;
+
   transition: $transition;
 
   &--hide {
@@ -167,7 +170,6 @@
     align-items: center;
 
     &-item {
-
       &:not(:first-child) {
         margin-left: rem(16px);
       }

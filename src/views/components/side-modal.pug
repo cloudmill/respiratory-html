@@ -1,5 +1,5 @@
 mixin side-modal(props = {})
-  .side-modal(data-side-modal=props.id)
+  .side-modal(data-side-modal=props.id class=getClassesFromMods('side-modal', props.mods))
     .side-modal__overlay(data-side-modal-overlay)
     .side-modal__content
 

@@ -9,6 +9,7 @@
   left: 0;
 
   width: 100vw;
+  overflow: hidden;
   pointer-events: none;
 
   &--active {
@@ -26,7 +27,38 @@
   }
 
   &--unit {
-    
+    @media #{media('>')} {
+      display: none;
+    }
+
+    #{$component} {
+      &__content {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+
+        width: auto;
+        height: 47%;
+      }
+
+      &__close {
+        top: rem(20px);
+        right: rem(20px);
+
+        width: rem(38px);
+        height: rem(38px);
+      }
+    }
+
+    &#{$component}--active {
+      #{$component} {
+        &__content {
+          transform: translateY(0);
+        }
+      }
+    }
   }
 
   &__overlay {

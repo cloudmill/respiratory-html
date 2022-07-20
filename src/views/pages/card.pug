@@ -12,7 +12,7 @@ block js-test
 
 block side-modal
   each i, index in repeat(unitCount)
-    +side-modal({ id: `unit-${index + 1}` })
+    +side-modal({ id: `unit-${index + 1}`, mods: ['unit'] })
 
 block content
   +space(['header'], ['pt'])

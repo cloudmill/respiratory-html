@@ -11,6 +11,12 @@
   left: 0;
   right: 0;
 
+  transition: $transition;
+
+  &--hide {
+    transform: translateY(-100%);
+  }
+
   &--transparent {
     --hover-color: #{color(yellow)};
     --logo-color: #{color(white)};

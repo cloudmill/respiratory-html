@@ -28,6 +28,7 @@ import * as sideModal from "./scripts/sideModal";
 import * as unit from "./scripts/unit";
 
 import forms from "./scripts/forms";
+import { headerOnScroll } from "./scripts/header-on-scroll";
 
 import { examplesSlider } from "./scripts/examplesSlider";
 
@@ -60,6 +61,7 @@ addEventListener("DOMContentLoaded", () => {
   unit.start();
 
   forms();
+  headerOnScroll();
 });
 
 addEventListener("load", async () => {

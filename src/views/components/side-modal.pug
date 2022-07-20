@@ -2,6 +2,10 @@ mixin side-modal(id)
   .side-modal(data-side-modal=id)
     .side-modal__overlay(data-side-modal-overlay)
     .side-modal__content
+
+      button.side-modal__close
+        +close-cross-svg
+
       case id
         when 'case-1'
           +container(['side-modal'])

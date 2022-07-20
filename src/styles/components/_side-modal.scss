@@ -54,4 +54,27 @@
       width: calc(100vw - #{$column-padding-small});
     }
   }
+
+  &__close {
+    width: rem(48px);
+    height: rem(48px);
+    background: #FFFFFF;
+    border: 1px solid #E5E9EF;
+    box-shadow: 0px 12px 20px rgba(42, 46, 55, 0.12);
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: rem(40px);
+    right: rem(40px);
+
+    svg {
+      width: rem(17px);
+      height: rem(17px);
+    }
+  }
 }

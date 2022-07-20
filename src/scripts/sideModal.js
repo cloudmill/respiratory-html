@@ -14,6 +14,8 @@ const start = () => {
       `[data-side-modal-trigger=${id}]`
     );
 
+    const closeBtn = sideModal.querySelector('.side-modal__close');
+
     console.log({
       id,
       overlay,
@@ -42,6 +44,7 @@ const start = () => {
     // events
     triggerAll.forEach((trigger) => trigger.addEventListener("click", open));
     overlay.addEventListener("click", close);
+    closeBtn.addEventListener("click", close);
   });
 };
 

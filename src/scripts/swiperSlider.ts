@@ -4,7 +4,7 @@ import Swiper, {
   Navigation,
   Pagination,
 } from "swiper";
-import { GALLERY_DURATION, FSLIDER_DURATION } from "./constants";
+import { GALLERY_DURATION, FSLIDER_DURATION, UNIT_DURATION } from "./constants";
 
 const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
   const swiperId = swiperEl.dataset.swiperSlider;
@@ -64,12 +64,24 @@ const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
       break;
     case "unit":
       return {
-        slidesPerView: 2,
         modules: [Navigation],
-        allowTouchMove: false,
         navigation: {
           prevEl: document.querySelector('[data-swiper-slider-prev="unit"]'),
           nextEl: document.querySelector('[data-swiper-slider-next="unit"]'),
+        },
+
+        speed: UNIT_DURATION,
+
+        slidesPerView: "auto",
+        spaceBetween: 20,
+
+        breakpoints: {
+          1280: {
+            slidesPerView: 2,
+            spaceBetween: 0,
+
+            allowTouchMove: false,
+          },
         },
       };
       break;

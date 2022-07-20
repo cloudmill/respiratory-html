@@ -313,9 +313,12 @@ block content
                 //- .form-field__error
                 //-   |Допустимы только буквы
             .section-form__item 
-              button.btn-file(type='file')
-                +clip-svg
-                |прикрепить файл
+              label.btn-file
+                input(type='file')
+
+                span
+                  +clip-svg
+                  |прикрепить файл
 
             .section-form__item.section-form__item--right.section-form__bottom
               .section-form__agrement

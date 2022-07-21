@@ -28,7 +28,7 @@ const start = () => {
       });
     });
   } catch (error) {
-    console.error(error);
+    console.warn(error);
   }
 };
 

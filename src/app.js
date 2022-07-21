@@ -56,7 +56,7 @@ addEventListener("DOMContentLoaded", () => {
   reslider.start();
   fslider.start();
   history.start();
-  
+
   sideModal.start();
   unit.start();
 

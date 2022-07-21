@@ -119,7 +119,7 @@ const start = () => {
 
     selects.forEach((select) => new Select(select));
   } catch (error) {
-    console.error(error);
+    console.warn(error);
   }
 };
 

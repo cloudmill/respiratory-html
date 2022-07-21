@@ -78,7 +78,7 @@ const Content: React.FC<{
         </FadeContainer>
         <Words
           duration={Math.floor(DURATION / 2)}
-          move={(dir && getMove(mode, 'next')) || false}
+          move={(dir && getMove(mode, "next")) || false}
         >
           {title}
         </Words>
@@ -133,14 +133,6 @@ const Contents: React.FC<{
   animation: SliderAnimation;
 }> = ({ slides, slide, animation }) => {
   const [transition, setTransition] = useState<Transition>(false);
-
-  useEffect(() => {
-    console.log({
-      slides,
-      slide,
-      animation,
-    });
-  });
 
   useEffect(() => {
     if (animation) {

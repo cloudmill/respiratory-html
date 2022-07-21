@@ -11,7 +11,7 @@ const getData = (series: HTMLElement): Data => {
 
     return data;
   } catch (error) {
-    console.error(error);
+    console.warn(error);
 
     // test
     series.dataset.data = JSON.stringify(DATA);
@@ -22,9 +22,7 @@ const getData = (series: HTMLElement): Data => {
 
 const startReact = (series: HTMLElement) => {
   const root = ReactDOM.createRoot(series);
-  root.render(
-    <Slider data={getData(series)} onLoad={() => console.log("series load")} />
-  );
+  root.render(<Slider data={getData(series)} onLoad={() => {}} />);
 };
 
 const start = () => {

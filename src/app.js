@@ -25,7 +25,10 @@ import * as reslider from "./scripts/reslider";
 import * as fslider from "./scripts/fslider";
 import * as history from "./scripts/history";
 import * as sideModal from "./scripts/sideModal";
+import * as unit from "./scripts/unit";
+
 import forms from "./scripts/forms";
+import { headerOnScroll } from "./scripts/header-on-scroll";
 
 import { examplesSlider } from "./scripts/examplesSlider";
 
@@ -53,9 +56,12 @@ addEventListener("DOMContentLoaded", () => {
   reslider.start();
   fslider.start();
   history.start();
+
   sideModal.start();
+  unit.start();
 
   forms();
+  headerOnScroll();
 });
 
 addEventListener("load", async () => {

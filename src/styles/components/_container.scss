@@ -1,6 +1,15 @@
 .container {
   $component: &;
 
+  &--unit {
+    @media #{media("<")} {
+      overflow: hidden;
+
+      padding: $column-padding-small;
+      padding-top: 0;
+    }
+  }
+
   &--case {
     padding-left: calc(#{$column} - #{$column-padding});
   }
@@ -52,7 +61,8 @@
           @include rectangle(rem(24px));
 
           position: absolute;
-          top: rem(5px);
+          // top: rem(5px);
+          top: 0;
           left: 0;
         }
       }
@@ -81,6 +91,7 @@
   &--gallery {
     height: 100%;
     overflow: hidden;
+    cursor: pointer;
 
     border-radius: rem(16px);
 

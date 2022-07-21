@@ -35,7 +35,19 @@
     }
   }
   &--vbx {
-    @include font-fsl("title-2", 60px, 110%);
+    // @include font-fsl("title-2", 60px, 110%);
+    @include font-fsl("title-2", 84px, 100%);
+    font-weight: 550;
+    position: relative;
+
+    sup {
+      @include font-fsl("title-2", 25px, 100%);
+      font-weight: 600;
+      letter-spacing: -0.06em;
+      position: absolute;
+      top: 0;
+      transform: translateY(-30%);
+    }
   }
   &--gwv {
     @include font-fsl("title-2", 32px, 120%);

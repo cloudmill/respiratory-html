@@ -9,7 +9,7 @@
   @media #{media("<")} {
     padding-top: rem(58px + 20px);
     padding-bottom: rem(48px);
-    height: 50vh;
+    height: rem(290px);
   }
 
   // bg
@@ -931,19 +931,36 @@
     }
     border-right: 1px solid color(gray);
 
+    .slide__mark {
+      width: rem(64px);
+      height: rem(64px);
+      right: rem(40px);
+      bottom: rem(40px);
+    }
+
     &:hover {
       #{$component} {
         &__picture {
           transform: scale(1.3);
         }
 
-        &__label {
-          background-color: color(yellow);
+        // &__label {
+        //   background-color: color(yellow);
 
-          path,
-          line {
-            stroke: color(black);
-          }
+        //   path,
+        //   line {
+        //     stroke: color(black);
+        //   }
+        // }
+
+      }
+
+      .slide__mark {
+        background-color: #ffed49;
+
+        path,
+        line {
+          stroke: color(black);
         }
       }
     }

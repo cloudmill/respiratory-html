@@ -1,8 +1,12 @@
-mixin side-modal(id)
-  .side-modal(data-side-modal=id)
+mixin side-modal(props = {})
+  .side-modal(data-side-modal=props.id class=getClassesFromMods('side-modal', props.mods))
     .side-modal__overlay(data-side-modal-overlay)
     .side-modal__content
-      case id
+
+      button.side-modal__close(data-side-modal-close)
+        +close-cross-svg
+
+      case props.id
         when 'case-1'
           +container(['side-modal'])
             +space(['padding'], ['pt'])
@@ -55,3 +59,10 @@ mixin side-modal(id)
           |case-5
         when 'case-6'
           |case-6
+        
+        when 'unit-1'
+          |unit-1
+        when 'unit-2'
+          |unit-2
+        when 'unit-3'
+          |unit-3

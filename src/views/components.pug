@@ -40,12 +40,20 @@ include ./components/fslider
 include ./components/history
 include ./components/side-modal
 include ./components/cooperation
+include ./components/unit
+include ./components/app
 
 //- first
 
 mixin first(src)
   .first
     img.first__bg(src=src)
+    .first__layout
+      block
+
+mixin first-vid(src)
+  .first
+    video.first__bg(src=src autoplay muted loop)
     .first__layout
       block
 
@@ -62,8 +70,8 @@ mixin second
           .second__content
             .second__content-text
               span.second__content-highlight
-                |Работайте и&nbsp;достигайте успеха 
-              |вместе с&nbsp;Респира-торным комплексом
+                |Работайте и достигайте #[br] успеха 
+              span вместе с Респира-#[br]торным комплексом
         .second__bottom
           .second__text
             |Верим, что достижения компании неразрывно связаны с&nbsp;работой людей. Людей, которые разделяют наши ценности и&nbsp;своей инициативой и&nbsp;ответственным трудом двигают компанию вперед

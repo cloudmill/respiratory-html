@@ -6,13 +6,6 @@ block definitions
 
 block header
   +header({ mods: ['transparent'] })
-//- block footer
-
-block preloader
-
-block grid-test
-
-block js-test
 
 block modal
   include ../components/form-response-modal
@@ -40,11 +33,11 @@ block content
             |успешно представлены:
         .funds__list
           ul.funds-list
-            each i in repeat(3)
+            each item in ['У крупнейших поставщиков СИЗ и спецодежды', 'В торговых сетях', 'На маркет-плейсах']
               .funds-list__item
                 img.funds-list__img(src='assets/images/fund.svg')
                 .funds-list__text
-                  |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
+                  |#{item}
   .section-margin(data-examples-slider-component)
     +container
       .border
@@ -160,6 +153,8 @@ block content
       .slider-btn 
         +press.press--info
           |Перейти в каталог
+
+  a(name="to-form")
   section.form-section
     .form-section__content
       .form-section__content-item
@@ -172,6 +167,17 @@ block content
             |Обратитесь в&nbsp;отдел продаж, чтобы обсудить 
             span.article__highlight
               |условия сотрудничества
+
+      .funds__block
+        .funds__list
+          ul.funds-list
+            each item in ['Порядок оформления заказа', 'Условия оплаты и доставки', 'Любые вопросы по совместной работе']
+              .funds-list__item
+                img.funds-list__img(src='assets/images/fund.svg')
+                .funds-list__text
+                  |#{item}
+
+      
       .form-section__content-item
         form.section-form(data-parsley-validate)
           .section-form__grid

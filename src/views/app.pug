@@ -13,33 +13,27 @@ html.html.no-transition-child(lang="ru")
     meta(charset="utf-8")
     title= `Респираторный: ${app.title}`
     meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    link(rel="icon", href="assets/images/public/favicon.svg")
+    link(rel="apple-touch-icon", href="assets/images/public/avicon_180.svg")
+    meta(property="og:title", content="Респираторный")
+    meta(property="og:image", content="https://raw.githubusercontent.com/cloudmill/respiratory-html/master/dist/assets/images/public/openpraph.png")
   
   body.body
 
-    block header
-      +header
+    +app
     
-    .wrapper
-    
+      block header
+        +header
       block content
         |content
-
       block footer
         +footer
     
-    .modals-container
-
-      block modal
-    
-    block side-modal
-
-    block preloader
-      +preloader
-
-    block grid-test
-      +grid-test
-
-    block js-test
-      +js-test
-
-    block scripts
+      .modals-container
+        block modal
+      
+      block side-modal
+      block preloader
+      block grid-test
+      block scripts

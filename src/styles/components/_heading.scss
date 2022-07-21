@@ -7,8 +7,17 @@
     }
   }
 
+  &--unit {
+    @include font-fsl("title-3", 54px, 100%);
+
+    &-feature {
+      @include font-fsl("title-2", 13px, 100%);
+    }
+  }
+
   &--cooperation {
     @include font-fsl("title-2", 28px, 110%);
+    font-weight: 550;
 
     @media #{media('<')} {
       @include fsl(12px, 115%);
@@ -33,9 +42,11 @@
   }
   &--small-sub {
     @include font-fsl("title-2", 13px, 100%);
+    font-weight: 550;
   }
   &--sub {
     @include font-fsl("title-2", 18px, 120%);
+    font-weight: 550;
     @media #{media("<")} {
       @include fsl(12px);
     }

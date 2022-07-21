@@ -1,5 +1,5 @@
 .swiper-slider {
-  $ids: (0);
+  $ids: (0, "unit");
 
   @mixin swiper-slider($id) {
     @if $id == 0 {
@@ -21,6 +21,28 @@
             width: auto !important;
             padding-right: rem(20px);
           }
+        }
+      }
+    } @else if $id == "unit" {
+      @media #{media('>')} {
+        left: -1px;
+
+        width: calc(100% + 2px);
+
+        .swiper-slide {
+          border: 1px solid color(gray);
+
+          &:not(:last-child) {
+            border-right: none;
+          }
+        }
+      }
+
+      @media #{media('<')} {
+        overflow: visible;
+
+        .swiper-slide {
+          width: rem(375px - 20px - 50px);
         }
       }
     }

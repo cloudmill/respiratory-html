@@ -3,17 +3,12 @@ extends ../app
 block definitions
   -
     app.title = 'Главная';
-
+    
 block header
   +header({ mods: ['transparent'] })
-block footer
-  .isolation
-    .gap.gap--section
-      +footer
-
-//- block preloader
-//- block grid-test
-block js-test
+  
+block preloader
+  +preloader
 
 block content
   +top
@@ -24,7 +19,7 @@ block content
         .row.row--section
           .row__col
             h2.title.title--section
-              |Не просто производим
+              |Не только производим
           .row__col
             p.article-2
               |Помогаем выстраивать процессы и развивать культуру профессионального использования 
@@ -91,3 +86,5 @@ block content
   .isolation
     .gap.gap--section
       +slider
+
+  +space(['section'])

@@ -1,0 +1,63 @@
+mixin unit(props = {})
+  a.unit(href='#' data-unit)
+    +grid(['unit'])
+      .grid__item
+        .unit__image
+          img.unit__img(src='assets/images/unit/unit.jpeg' data-unit-inactive data-side-modal-trigger=props.sideModalId)
+      .grid__item
+        .unit__content
+          +heading(['unit'])
+            |RK 9000
+          .unit__props
+            +grid(['unit-props'])
+              .grid__item
+                .unit__prop
+                  .unit__prop-name
+                    |Класс защиты
+                  .unit__prop-value
+                    |FFP1 NR D
+              .grid__item
+                .unit__prop
+                  .unit__prop-name
+                    |Клапан выдоха
+                  .unit__prop-value
+                    |Есть
+          .unit__features
+            +stack(['unit-features'])
+              -
+                var items = [
+                  {
+                    src: 'assets/images/card/label-1.svg',
+                    title: 'Защита от всех видов аэрозолей',
+                    tabs: [
+                      'Пыль',
+                      'Дым',
+                      'Туман',
+                    ],
+                  },
+                  {
+                    src: 'assets/images/card/label-2.svg',
+                    title: 'Дополнительная защита',
+                    tabs: [
+                      'Кислые газы',
+                      'Неорганические газы',
+                      'Основные газы',
+                      'Пары ртути',
+                    ],
+                  },
+                ];
+              each item in items
+                .stack__item
+                  .unit__feature
+                    img.unit__feature-img(src=item.src)
+                    +heading(['unit-feature'])
+                      |!{item.title}
+                    .unit__feature-list
+                      +wrap-list
+                        each tab in item.tabs
+                          li.wrap-list__item
+                            +static-tab(['unit-feature'])
+                              |!{tab}
+          .unit__mark
+            +arrow-tilt-svg.unit__svg
+

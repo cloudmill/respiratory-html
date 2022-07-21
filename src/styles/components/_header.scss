@@ -1,6 +1,7 @@
 .header {
   $component: &;
   $transition: transition(major);
+  $headerTopHeight: rem(61px);
 
   --hover-color: #{color(blue)};
   --logo-color: #{color(blue)};
@@ -10,6 +11,15 @@
   top: 0;
   left: 0;
   right: 0;
+
+  transition: $transition;
+
+  &--hide {
+    transform: translateY(-100%);
+  }
+  &--short {
+    transform: translateY(-#{$headerTopHeight});
+  }
 
   &--transparent {
     --hover-color: #{color(yellow)};
@@ -95,7 +105,7 @@
   }
 
   &__top {
-    height: rem(61px);
+    height: $headerTopHeight;
 
     border-bottom: 1px solid color(gray);
     transition: background-color $transition, border-color $transition;
@@ -157,7 +167,6 @@
     align-items: center;
 
     &-item {
-
       &:not(:first-child) {
         margin-left: rem(16px);
       }

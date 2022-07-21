@@ -344,7 +344,7 @@
   &__text {
     @include font-fsl("content-1", 18px, 130%);
 
-    margin-top: rem(5px); // ?
+    margin-top: rem(10px); // ?
     max-width: calc(#{columns(2)});
 
     color: color(white);

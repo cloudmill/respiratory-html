@@ -4,23 +4,62 @@ block definitions
   -
     app.title = 'О компании';
 
+    var caltures = [
+      {
+        title: 'АО «Оскольский электрометаллургический комбинат»',
+        items: [
+          'Поставка продукции',
+          'Обучение службы охраны труда',
+          'Обучение персонала',
+        ],
+      },
+      {
+        title: 'Волховская межрайонная больница',
+        items: [
+          'Поставка продукции',
+          'Обучение персонала',
+        ],
+      },
+      {
+        title: 'АО «Оскольский электрометаллургический комбинат»',
+        items: [
+          'Поставка продукции',
+        ],
+      },
+      {
+        title: 'Волховская межрайонная больница',
+        items: [
+          'Поставка продукции',
+          'Обучение службы охраны труда',
+          'Обучение персонала',
+        ],
+      },
+      {
+        title: 'АО «Оскольский электрометаллургический комбинат»',
+        items: [
+          'Поставка продукции',
+          'Обучение службы охраны труда',
+          'Обучение персонала',
+        ],
+      },
+      {
+        title: 'Волховская межрайонная больница',
+        items: [
+          'Поставка продукции',
+          'Обучение персонала',
+        ],
+      },
+    ];
+
 block header
   +header({ mods: ['transparent'] })
 
-block preloader
-block grid-test
-block js-test
-
 block side-modal
-  +side-modal('case-1')
-  +side-modal('case-2')
-  +side-modal('case-3')
-  +side-modal('case-4')
-  +side-modal('case-5')
-  +side-modal('case-6')
-
+  each i, index in caltures
+    +side-modal({ id: `case-${index + 1}` })
+    
 block content
-  +first('assets/images/about.jpeg')
+  +first-vid('assets/videos/about-back.m4v')
     .top-bottom
       .top-bottom__item
         +container
@@ -124,12 +163,19 @@ block content
       |Наше производство
     +space([96])
     +grid([3])
+      .our
+        +text(['vbx', 'blue'])
+          |7000 м
+          sup 2
+        +space(['gap'])
+        +text(['qpv', 'right'])
+          |Производственно-складской комплекс
       -
         var ours = [
-          {
-            title: '7000 м²',
-            text: 'Производственно-складской комплекс',
-          },
+          //- {
+          //-   title: '7000 м²',
+          //-   text: 'Производственно-складской комплекс',
+          //- },
           {
             title: '2',
             text: 'Собственные испытательные лаборатории',

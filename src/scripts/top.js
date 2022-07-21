@@ -1,5 +1,6 @@
 import Swiper, { Parallax as SwiperParallax, Autoplay } from "swiper";
 import * as ease from "./ease";
+import * as scrollPage from "./scrollPage";
 
 class Slider {
   static SLIDE_DURATION = 5000;
@@ -76,7 +77,7 @@ class Parallax {
 
   start() {
     this.elements = document.querySelectorAll("[data-top-parallax]");
-    addEventListener("scroll", this.handleScroll);
+    scrollPage.onScroll(this.handleScroll);
   }
 
   handleScroll() {
@@ -123,7 +124,7 @@ class Reveal {
 
     // swiper.on("slideChangeTransitionStart", this.remove);
     // swiper.on("slideChangeTransitionEnd", () => this.set(swiper.activeIndex));
-    
+
     swiper.on("slideChangeTransitionStart", () => {
       this.remove();
 

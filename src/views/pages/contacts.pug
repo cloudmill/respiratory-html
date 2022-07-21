@@ -4,9 +4,6 @@ block definitions
   -
     app.title = 'Контакты';
 
-block preloader
-block grid-test
-block js-test
 block modal
   include ../components/form-response-modal
 
@@ -28,8 +25,9 @@ block content
         +heading(['sub'], 2)
           |Главный офис
       .grid__item
-        +text([5, 'address'])
-          |Россия, 195027, Санкт-Петербург, ул. Магнитогорская, д.23, к.1, лит. А
+        .nowrap-desk
+          +text([5, 'address'])
+            |Россия, 195027, Санкт-Петербург, #[br] ул. Магнитогорская, д.23, к.1, лит. А
         +space(['hr'])
         +press({ icon: ['map-blue.svg', 'map-black.svg', 'left']  }).press--li
           |На карте
@@ -90,8 +88,9 @@ block content
         +heading(['sub'], 2)
           |Производственно-складской комплекс
       .grid__item
-        +text([5, 'address'])
-          |188679, Ленинградская обл., Всеволожский р-н, гп&nbsp;им. Морозова, ул. Чекалова, д.&nbsp;3, здание 592
+        .nowrap-desk
+          +text([5, 'address'])
+            |188679, Ленинградская обл., #[br] Всеволожский р-н, гп&nbsp;им. Морозова, #[br] ул. Чекалова, д.&nbsp;3, здание 592
         +space(['hr'])
         +press({ icon: ['map-blue.svg', 'map-black.svg', 'left']  }).press--li
           |На карте
@@ -114,8 +113,10 @@ block content
       .grid__item
         +wrap-list(['socials'])
           li.wrap-list__item
-            +social(['fb'])
-              +social-fb-svg.social__svg
+            //- +social(['fb'])
+            //-   +social-fb-svg.social__svg
+            +social(['zen'])
+              +zen-svg.social__svg.social__svg-color
           li.wrap-list__item
             +social(['yt'])
               +social-yt-svg.social__svg

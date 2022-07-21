@@ -6,7 +6,11 @@ block definitions
 
 block preloader
 block grid-test
-block js-test
+
+block definitions
+  -
+    app.title = 'Потребителям';
+
 block modal
   include ../components/form-response-modal
 
@@ -49,8 +53,8 @@ block content
         .info__bottom
           .info__article
             |На&nbsp;пыльных производствах, при&nbsp;взаимодействии с&nbsp;лакокрасочными составами и&nbsp;химическими растворами, или&nbsp;в&nbsp;очаге распространения опасных инфекций
-          +press.press--info.info__button-link
-            |Информация для потребителей
+          //- +press.press--info.info__button-link
+          //-   |Информация для потребителей
   +space(['section'])
   +container
     +grid(['centered-4'])
@@ -64,16 +68,16 @@ block content
       -
         var items = [
           {
-            src: getImageSrc('items-1.svg'),
-            text: 'Собственный научный центр, конструкторское бюро, лаборатории, склады',
+            src: getImageSrc('items-4.svg'),
+            text: 'На металлургических производствах',
           },
           {
-            src: getImageSrc('items-2.svg'),
-            text: 'Производственная мощность достигает 100 миллионов респираторов в&nbsp;год',
+            src: getImageSrc('items-5.svg'),
+            text: 'В шахтах и цементных заводах',
           },
           {
-            src: getImageSrc('items-3.svg'),
-            text: 'Налаженные цепочки поставок сырья и&nbsp;комплектующих. Опытный логистический дивизион',
+            src: getImageSrc('items-6.svg'),
+            text: 'В инфекционных больницах',
           },
         ];
       each item in items
@@ -150,8 +154,14 @@ block content
                             .tag
                               .tag__tag
                                 |#{item}
-          .control.examples-slider__label
-            +arrow-left-svg.control__svg.control__svg--tilt
+          //- .control.examples-slider__label
+          //-   +arrow-left-svg.control__svg.control__svg--tilt
+
+          .slide__mark
+            svg.slide__mark-svg(xmlns="http://www.w3.org/2000/svg", width="18", height="18", viewBox="0 0 18 18", fill="none")
+              path(d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416", stroke="white", stroke-width="1.5")
+              line(y1="-0.75", x2="17", y2="-0.75", transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)", stroke="white", stroke-width="1.5")
+
         a.swiper-slide.examples-slider__slide(href="#")
           .examples-slider__row
             .examples-slider__image
@@ -195,8 +205,12 @@ block content
                             .tag
                               .tag__tag
                                 |#{item}
-          .control.examples-slider__label
-            +arrow-left-svg.control__svg.control__svg--tilt
+          //- .control.examples-slider__label
+          //-   +arrow-left-svg.control__svg.control__svg--tilt
+          .slide__mark
+            svg.slide__mark-svg(xmlns="http://www.w3.org/2000/svg", width="18", height="18", viewBox="0 0 18 18", fill="none")
+              path(d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416", stroke="white", stroke-width="1.5")
+              line(y1="-0.75", x2="17", y2="-0.75", transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)", stroke="white", stroke-width="1.5")
     +container 
       .slider-btn 
         +press.press--info
@@ -248,6 +262,7 @@ block content
       +press.press--info
         |полный список
   +space(['section'])
+  a(name='to-form')
   section.form-section
     .form-section__content
       .form-section__content-item
@@ -268,11 +283,11 @@ block content
           +space([60])
           .funds__list
             ul.funds-list
-              each i in repeat(3)
+              each text in ['Обе стороны упаковки', 'Маркировка с датой изготовления и номером партии на упаковке', 'Маркировка на лицевой части респиратора']
                 .funds-list__item
                   img.funds-list__img(src='assets/images/fund.svg')
                   .funds-list__text
-                    |У&nbsp;крупнейших поставщиков СИЗ и&nbsp;спецодежды
+                    |#{text}
       .form-section__content-item
         form.section-form(data-parsley-validate)
           .section-form__grid
@@ -301,6 +316,14 @@ block content
                 textarea.form-field__input(placeholder='Сообщение' required)
                 //- .form-field__error
                 //-   |Допустимы только буквы
+            .section-form__item 
+              label.btn-file
+                input(type='file')
+
+                span
+                  +clip-svg
+                  |прикрепить файл
+
             .section-form__item.section-form__item--right.section-form__bottom
               .section-form__agrement
                 .simple-checkbox.simple-checkbox--error

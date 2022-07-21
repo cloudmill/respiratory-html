@@ -4,10 +4,6 @@ block definitions
   -
     app.title = 'Где купить';
 
-block preloader
-block grid-test
-block js-test
-
 block content
   +space(['header'], ['pt'])
 
@@ -30,34 +26,6 @@ block content
             li.wrap-list__item
               +tab(['large', index === 0 && 'active']).js-tab-button
                 |!{item}
-      .grid__item
-        -
-          var select = {
-            placeholder: 'Город',
-            items: [
-              {
-                value: 'Санкт-Петербург',
-                text: 'Санкт-Петербург',
-              },
-              {
-                value: 'Курск',
-                text: 'Курск',
-              },
-              {
-                value: 'Брест',
-                text: 'Брест',
-              },
-              {
-                value: 'Санкт-Петербург',
-                text: 'Санкт-Петербург',
-              },
-              {
-                value: 'Курск',
-                text: 'Курск',
-              },
-            ],
-          };
-        +select(select)
     
   +space(['sub-block'])
   .tab-container.js-tab-container
@@ -100,12 +68,8 @@ block content
               -
                 var markets = [
                   {
-                    filename: 'company-0.jpeg',
-                    text: 'Интернет-магазин OZON',
-                  },
-                  {
-                    filename: 'company-1.jpeg',
-                    text: 'Интернет-магазин WILDBERRIES',
+                    filename: 'company-6.jpeg',
+                    text: 'Сеть супермаркетов «Домовой»',
                   },
                   {
                     filename: 'company-2.jpeg',
@@ -114,10 +78,6 @@ block content
                   {
                     filename: 'company-3.jpeg',
                     text: 'Торговая сеть «Леруа Мерлен»',
-                  },
-                  {
-                    filename: 'company-4.jpeg',
-                    text: 'Сеть магазинов «Строитель»',
                   },
                   {
                     filename: 'company-5.jpeg',
@@ -132,12 +92,20 @@ block content
                     text: 'Интернет-магазин WILDBERRIES',
                   },
                   {
-                    filename: 'company-2.jpeg',
-                    text: 'Торговая сеть «Максидом»',
+                    filename: 'company-7.jpeg',
+                    text: 'Диамал',
                   },
                   {
-                    filename: 'company-3.jpeg',
-                    text: 'Торговая сеть «Леруа Мерлен»',
+                    filename: 'company-8.jpeg',
+                    text: 'СОЮЗСПЕЦОДЕЖДА',
+                  },
+                  {
+                    filename: 'company-9.jpeg',
+                    text: 'Ursus',
+                  },
+                  {
+                    filename: 'company-10.jpeg',
+                    text: 'МаксиПРО',
                   },
                   {
                     filename: 'company-4.jpeg',
@@ -163,8 +131,8 @@ block content
                     text: 'Интернет-магазин OZON',
                   },
                   {
-                    filename: 'company-1.jpeg',
-                    text: 'Интернет-магазин WILDBERRIES',
+                    filename: 'company-11.jpeg',
+                    text: 'ОМА',
                   },
                 ]
               each market in markets

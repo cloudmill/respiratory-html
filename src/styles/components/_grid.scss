@@ -1,6 +1,14 @@
 .grid {
   $component: &;
 
+  &--catalog {
+    &-panel {
+      display: grid;
+      grid-template-columns: calc(#{columns(9)}) calc(#{columns(3)});
+      column-gap: $column-gap;
+    }
+  }
+
   &--unit {
     height: 100%;
     display: grid;

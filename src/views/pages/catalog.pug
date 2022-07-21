@@ -1,11 +1,33 @@
 extends ../app
 
-block preloader
+block definitions
+  -
+    app.title = 'Каталог';
 
-block grid-test
+block preloader
+//- block grid-test
 
 block content
-  .indent.indent--page--catalog.isolation.first-section
+  +space(['header'], ['pt'])
+  
+  +space(['sub-block'])
+  +container
+    +breadcrumbs(['Главная', 'продукция'])
+    +space(['sub-block'])
+    +heading(['main'], 1)
+      |продукция
+    
+  +space(['block'])
+  +container
+    +grid(['catalog-panel'])
+      .grid__item
+        +wrap-list(['large'])
+          .wrap-list__item
+            |123
+      .grid__item
+        |123
+
+  //- .indent.indent--page--catalog.isolation.first-section
     .indent__item
       .container--default
         .wall

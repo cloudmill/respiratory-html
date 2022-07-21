@@ -1,6 +1,18 @@
 .stack {
   $component: &;
 
+  &--unit-mobile {
+    > {
+      #{$component} {
+        &__item {
+          &:not(:first-child) {
+            margin-top: rem(12px);
+          }
+        }
+      }
+    }
+  }
+
   &--unit-features {
     > {
       #{$component} {

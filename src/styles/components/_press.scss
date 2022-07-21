@@ -245,6 +245,32 @@
     }
   }
 
+  &--unit {
+    #{$component} {
+      &__btn {
+        width: auto
+      }
+
+      &__text {
+        &--start {
+          color: color(black);
+        }
+    
+        &--end {
+          color: color(black);
+        }
+      }
+
+      &__bg {
+        &-item {
+          &--start {
+            border: 1px solid color(gray);
+          }
+        }
+      }
+    }
+  }
+
   // btn
 
   &__btn {

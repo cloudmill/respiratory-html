@@ -26,6 +26,21 @@
       grid-template-columns: calc(#{columns(5)}) calc(#{columns(7)});
       column-gap: $column-gap;
     }
+
+    &-mobile {
+      height: 100%;
+      display: grid;
+      grid-template-columns: rem(120px) 1fr;
+      column-gap: $column-gap-small;
+
+      > {
+        #{$component} {
+          &__item {
+            min-height: rem(150px);
+          }
+        }
+      }
+    }
   }
 
   &--cooperation {

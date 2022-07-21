@@ -1,9 +1,9 @@
 mixin unit(props = {})
-  a.unit(href='#' data-unit)
+  a.unit(href='#')
     +grid(['unit'])
       .grid__item
         .unit__image
-          img.unit__img(src='assets/images/unit/unit.jpeg' data-unit-inactive data-side-modal-trigger=props.sideModalId)
+          img.unit__img(src='assets/images/unit/unit.jpeg')
       .grid__item
         .unit__content
           +heading(['unit'])
@@ -60,4 +60,32 @@ mixin unit(props = {})
                               |!{tab}
           .unit__mark
             +arrow-tilt-svg.unit__svg
-
+  a.unit-mobile(href='#' data-unit data-unit-inactive data-side-modal-trigger=props.sideModalId)
+    +grid(['unit-mobile'])
+      .grid__item
+        .unit-mobile__image
+          img.unit-mobile__img(src='assets/images/unit/unit.jpeg')
+      .grid__item
+        .unit-mobile__content
+          .unit-mobile__mark
+            +arrow-tilt-svg.unit-mobile__svg
+          .unit-mobile__content-top
+            +heading(['unit-mobile'])
+              |RK 9000
+            .unit-mobile__list
+              +stack(['unit-mobile'])
+                .stack__item
+                  .unit-mobile__prop
+                    .unit-mobile__prop-name
+                      |Класс защиты
+                    .unit-mobile__prop-value
+                      |FFP1 NR D
+                .stack__item
+                  .unit-mobile__prop
+                    .unit-mobile__prop-name
+                      |Клапан выдоха
+                    .unit-mobile__prop-value
+                      |Есть
+          .unit-mobile__content-bottom
+            +press.press--unit
+              |о защите

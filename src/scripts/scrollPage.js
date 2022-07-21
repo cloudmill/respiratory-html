@@ -1,6 +1,8 @@
-export const toTop = () => scrollTo({ top: 0 });
-export const toLeft = () => scrollTo({ left: 0 });
-export const toStart = () => scrollTo({ top: 0, left: 0 });
+const getPageElement = () => document.querySelector("[data-wrapper]");
 
-export const lock = () => (document.body.style.overflow = "hidden");
-export const unlock = () => (document.body.style.overflow = "");
+export const toTop = () => getPageElement().scrollTo({ top: 0 });
+export const toLeft = () => getPageElement().scrollTo({ left: 0 });
+export const toStart = () => getPageElement().scrollTo({ top: 0, left: 0 });
+
+export const lock = () => (getPageElement().style.overfloyY = "hidden");
+export const unlock = () => (getPageElement().style.overflow = "");

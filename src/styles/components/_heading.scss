@@ -17,6 +17,7 @@
 
   &--cooperation {
     @include font-fsl("title-2", 28px, 110%);
+    font-weight: 550;
 
     @media #{media('<')} {
       @include fsl(12px, 115%);

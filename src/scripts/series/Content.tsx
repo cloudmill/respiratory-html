@@ -78,7 +78,7 @@ const Content: React.FC<{
         </FadeContainer>
         <Words
           duration={Math.floor(DURATION / 2)}
-          move={(dir && getMove(mode, dir)) || false}
+          move={(dir && getMove(mode, 'next')) || false}
         >
           {title}
         </Words>

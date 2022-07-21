@@ -88,7 +88,7 @@ const Slider: React.FC<{ data: Data; onLoad: () => void }> = ({
     animation && {
       prev: getImagesSrc(animation.prev, index),
       next: getImagesSrc(animation.next, index),
-      dir: animation.prev < animation.next ? "next" : "prev",
+      dir: "next",
     };
 
   return (

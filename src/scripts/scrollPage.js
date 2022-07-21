@@ -6,3 +6,10 @@ export const toStart = () => getPageElement().scrollTo({ top: 0, left: 0 });
 
 export const lock = () => (getPageElement().style.overflowY = "hidden");
 export const unlock = () => (getPageElement().style.overflowY = "");
+
+export const getScrollY = () => {
+  return getPageElement().scrollTop;
+};
+
+export const onScroll = (callback, options) =>
+  getPageElement().addEventListener("scroll", callback, options);

@@ -1,4 +1,5 @@
 import throttle from "lodash.throttle";
+import * as scrollPage from "./scrollPage";
 
 const start = () => {
   const header = document.querySelector<HTMLElement>(".header");
@@ -7,7 +8,7 @@ const start = () => {
     const dropAll = header?.querySelectorAll<HTMLElement>(".drop");
 
     const handleScroll = () => {
-      if (scrollY > 5) {
+      if (scrollPage.getScrollY() > 5) {
         header?.classList.remove("header--transparent");
         dropAll?.forEach((drop) => drop.classList.remove("drop--yellow"));
       } else {
@@ -18,7 +19,7 @@ const start = () => {
 
     const throttledHandleScroll = throttle(handleScroll, 100);
 
-    addEventListener("scroll", throttledHandleScroll);
+    scrollPage.onScroll(throttledHandleScroll);
   }
 };
 

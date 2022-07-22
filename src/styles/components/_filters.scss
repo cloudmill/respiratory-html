@@ -1,0 +1,60 @@
+.filters {
+  $panel-height: rem(100px);
+
+  height: 100%;
+  display: grid;
+  grid-template-rows: calc(100% - #{$panel-height}) $panel-height;
+
+  &__content {
+    position: relative;
+    z-index: 0;
+  }
+
+  &__scrollbar {
+    position: absolute;
+    z-index: 0;
+    top: rem(8px);
+    bottom: rem(8px);
+    right: rem(8px);
+
+    width: rem(4px);
+    overflow: hidden;
+
+    background-color: color(gray);
+    border-radius: rem(5px);
+
+    &-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 50%;
+
+      background-color: color(blue);
+      border-radius: rem(5px);
+    }
+  }
+
+  &__panel {
+    height: $panel-height;
+    padding: 0 rem(40px);
+    display: grid;
+    grid-template-columns: repeat(2, calc((100% - #{$column-gap}) / 2));
+    column-gap: $column-gap;
+    align-items: center;
+
+    border-top: 1px solid color(gray);
+
+    &-col {
+    }
+  }
+
+  &__fake {
+    min-height: 150vh;
+  }
+
+  &__window {
+    color: orangered;
+  }
+}

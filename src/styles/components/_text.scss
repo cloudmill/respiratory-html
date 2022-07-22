@@ -107,6 +107,7 @@
   }
   &--card-value-text {
     @include font-fsl("title-2", 16px, 100%);
+    font-weight: 600;
   }
   &--guard {
     @include font-fsl("content-1", 12px, 130%);

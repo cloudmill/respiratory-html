@@ -50,11 +50,12 @@
   }
   &--small-sub {
     @include font-fsl("title-2", 13px, 100%);
-    font-weight: 550;
+    font-weight: 600;
   }
   &--sub {
     @include font-fsl("title-2", 18px, 120%);
-    font-weight: 550;
+    font-weight: 600;
+
     @media #{media("<")} {
       @include fsl(12px);
     }

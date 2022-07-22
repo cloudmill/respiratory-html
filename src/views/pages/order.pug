@@ -33,7 +33,7 @@ block content
                 .select.select--mid(data-select-component)
                   .select__mask(data-select-mask)
                     .select__panel(data-select-panel)
-                      .select__text(data-select-text)
+                      .select__text.select__text--normal(data-select-text)
                         |Выберите серию
                       .select__icon
                         +arrow-drop-svg.select__svg
@@ -49,8 +49,8 @@ block content
                 .select.select--big(data-select-component)
                   .select__mask(data-select-mask)
                     .select__panel(data-select-panel)
-                      .select__text(data-select-text)
-                        |Выберите серию
+                      .select__text.select__text--normal(data-select-text)
+                        |Выберите модель
                       .select__icon
                         +arrow-drop-svg.select__svg
                     .select__drop

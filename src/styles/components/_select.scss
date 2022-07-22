@@ -118,6 +118,10 @@
     padding: 0 rem(20px);
 
     color: color(gray-dark);
+
+    &--normal {
+      text-transform: none;
+    }
   }
 
   &__icon {
@@ -207,12 +211,13 @@
 
       max-width: rem(48px);
     }
+    max-width: rem(119px);
     display: flex;
     align-items: center;
   }
   
   &__img {
-    display: block;
+    border-radius: 4px;
   }
 
   &__title {

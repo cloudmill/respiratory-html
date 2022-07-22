@@ -102,6 +102,7 @@
 
       &-value {
         @include font-fsl('title-2', 16px, 100%);
+        font-weight: 600;
       }
     }
   }

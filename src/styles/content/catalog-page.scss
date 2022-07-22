@@ -92,6 +92,9 @@
   }
 
   &__cell {
+    @media #{media("<", )} {
+      
+    }
     &--info {
       padding-bottom: rem(64px + 40px);
     }

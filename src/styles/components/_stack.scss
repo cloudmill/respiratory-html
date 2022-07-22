@@ -44,6 +44,9 @@
           &:not(:first-child) {
             display: block;
             margin-top: rem(40px);
+            @media #{media("<")} {
+              margin-top: rem(20px);
+            }
           }
         }
       }

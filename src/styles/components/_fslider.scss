@@ -9,6 +9,9 @@
   overflow: hidden;
 
   border-radius: 0 0 rem(100px) 0;
+  @media #{media("<")} {
+    border-radius: 0 0 rem(30px) 0;
+  }
 
   &__layout {
     @include inset;
@@ -22,12 +25,22 @@
     z-index: 2;
     top: $column-padding;
     left: $column-padding;
+    @media #{media("<")} {
+      top: rem(20px);
+      left: rem(20px);
+      right: rem(20px);
 
+      padding: rem(20px);
+      width: auto;
+    }
     padding: $column-padding;
     width: calc(#{columns(3)});
 
     background-color: color(white);
     border-radius: rem(30px);
+    @media #{media("<")} {
+      border-radius: rem(20px);
+    }
   }
 
   &__fade-container {
@@ -95,6 +108,9 @@
 
       &:last-child {
         border-radius: 0 0 rem(100px) 0;
+        @media #{media("<")} {
+          border-radius: 0 0 rem(30px) 0;
+        }
       }
     }
 

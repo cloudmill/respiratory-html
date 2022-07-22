@@ -46,7 +46,30 @@ mixin slider
         .slider-panel__place.slider-panel__place--slider
           +template
           .js-slider-root
-            |slider
+            .swiper.slider-mobile(data-swiper-slider='0')
+              .swiper-wrapper 
+                - for (i = 0; i < 6; i++)
+                  .swiper-slide 
+                    a.slide.slide--small(href="#")
+                      .slide__top
+                        img(src="assets/images/slider/slider-2.jpeg", alt="") 
+                        .slide__mark 
+                          +slider-mark-svg.slide__mark-svg
+                      .slide__bottom 
+                        .slide__panel
+                          .slide__panel-col
+                            .slide__date 
+                              .slide__date-day 
+                                |15
+                              .slide__date-month 
+                                |/11
+                          .slide__panel-col
+                            .slide__label 
+                              .slide__label-button 
+                                |Новости
+                        .slide__text-wrapper 
+                          .slide__text 
+                            |Как правильно использовать респиратор
         .slider-panel__place.slider-panel__place--bottom
           .controls.slider-panel__controls
             .controls__item

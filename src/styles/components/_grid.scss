@@ -255,6 +255,18 @@
     grid-template-columns: repeat(2, auto);
     column-gap: rem(8px);
     justify-content: start;
+    @media #{media("<")} {
+      column-gap: rem(4px);
+    }
+
+    &--absolute {
+      @media #{media("<")} {
+        position: absolute;
+        z-index: 1;
+        left: rem(40px);
+        top: rem(20px);
+      }
+    }
   }
 
   &--about-markets {
@@ -303,6 +315,10 @@
     display: grid;
     grid-template-columns: repeat(4, calc(#{columns(2)}));
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $column-gap-small;
+    }
   }
 
   &--5-7 {
@@ -335,6 +351,10 @@
     grid-template-columns: auto;
     grid-template-columns: calc(#{columns(4)}) calc(#{columns(8)});
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+      row-gap: rem(20px);
+    }
   }
 
   &--8-4 {
@@ -463,6 +483,20 @@
         }
       }
     }
+
+    &--alt {
+      > {
+        #{$component} {
+          &__item {
+            &:nth-child(2) {
+              @media #{media("<")} {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   &--centered-6 {
@@ -491,6 +525,9 @@
 
   &--row-gap-60 {
     row-gap: rem(60px);
+    @media #{media("<")} {
+      row-gap: rem(20px);
+    }
   }
 
   &--row-gap {
@@ -530,6 +567,9 @@
     display: grid;
     grid-template-columns: calc(#{columns(5)}) calc(#{columns(1)});
     column-gap: $column-gap;
+    @media #{media("<")} {
+      grid-template-columns: 1fr;
+    }
   }
 }
 

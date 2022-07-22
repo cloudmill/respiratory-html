@@ -18,6 +18,9 @@
 
   &--white {
     --radius: #{rem(12px)};
+    @media #{media("<")} {
+      --radius: #{rem(6px)};
+    }
 
     #{$component} {
       &__btn {
@@ -44,6 +47,9 @@
 
       &__text {
         @include fsl(13px);
+        @media #{media("<")} {
+          @include fsl(8px);
+        }
 
         &--start {
           color: color(black);
@@ -54,6 +60,10 @@
         &-item {
           padding: 0 rem(40px);
           height: rem(60px);
+          @media #{media("<")} {
+            padding: 0 rem(10px);
+            height: rem(28px);
+          }
         }
       }
 
@@ -76,11 +86,19 @@
           &:nth-child(1) {
             top: $white-offset;
             left: $white-offset;
+            @media #{media("<")} {
+              top: 4px;
+              left: 4px;
+            }
           }
 
           &:nth-child(2) {
             bottom: $white-offset;
             right: $white-offset;
+            @media #{media("<")} {
+              bottom: 4px;
+              right: 4px;
+            }
           }
         }
       }

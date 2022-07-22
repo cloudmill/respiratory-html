@@ -10,6 +10,9 @@
 
   &--reslider {
     @include fsl(72px);
+    @media #{media("<")} {
+      @include fsl(20px);
+    }
   }
 
   &--up-mid {

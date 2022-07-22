@@ -349,6 +349,22 @@
 								<div class="swiper-slide"><img class="reslider__img" src="assets/images/reslider/consumers/2.jpeg" alt="" data-swiper-parallax="28%"></div>
 							</div>
 						</div>
+						<div class="mobile-only">
+							<div class="grid grid--controls grid--controls--absolute">
+								<div class="grid__item">
+									<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-prev><svg class="circle__svg circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+												<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+											</svg></button></div>
+								</div>
+								<div class="grid__item">
+									<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-next><svg class="circle__svg circle__svg--invert circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+												<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+											</svg></button></div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="reslider__content">
 						<div class="reslider__place">
@@ -356,31 +372,51 @@
 								<div class="space space--block space--pt"></div>
 								<div class="hr hr--light"></div>
 								<div class="space space--hr space--mt"></div>
-								<h2 class="heading heading--sub">Наша продукция</h2>
+								<div class="reslider__top">
+									<h2 class="heading heading--sub">Наша продукция</h2>
+									<div class="mobile__only">
+										<div class="progress">
+											<div class="progress__cur reslider__progress-container">
+												<div class="progress__text progress__text--fake">1</div>
+												<div class="progress__text progress__text--fake">2</div>
+												<div class="progress__text progress__text--fake">3</div>
+												<div class="progress__text reslider__progress" data-reslider-cur data-reslider-progress>1</div>
+											</div>
+											<div class="progress__all">/3</div>
+										</div>
+									</div>
+								</div>
 								<div class="space space--sub-block space--mt"></div>
 								<div class="grid grid--3-6">
 									<div class="grid__item">
-										<div class="grid grid--controls">
-											<div class="grid__item">
-												<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-prev><svg class="circle__svg circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-															<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
-															<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
-														</svg></button></div>
-											</div>
-											<div class="grid__item">
-												<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-next><svg class="circle__svg circle__svg--invert circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-															<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
-															<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
-														</svg></button></div>
+										<div class="desktop-only">
+											<div class="grid grid--controls">
+												<div class="grid__item">
+													<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-prev><svg class="circle__svg circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+																<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+															</svg></button></div>
+												</div>
+												<div class="grid__item">
+													<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-next><svg class="circle__svg circle__svg--invert circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+																<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+															</svg></button></div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="grid__item" data-reslider-title="[&quot;Защитные свойства для решения Ваших задач&quot;,&quot;Надежное качество&quot;,&quot;Отклик производителя&quot;]"></div>
+									<div class="desktop-only">
+										<div class="grid__item" data-reslider-title="[&quot;Защитные свойства для решения Ваших задач&quot;,&quot;Надежное качество&quot;,&quot;Отклик производителя&quot;]"></div>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="reslider__place">
 							<div class="container container--default">
+								<div class="mobile-only">
+									<div class="grid__item" data-reslider-title="[&quot;Защитные свойства для решения Ваших задач&quot;,&quot;Надежное качество&quot;,&quot;Отклик производителя&quot;]"></div>
+								</div>
 								<div class="grid grid--5-1 grid--aie">
 									<div class="grid__item">
 										<div class="reslider__wrapper">
@@ -534,18 +570,22 @@
 										</div>
 									</div>
 									<div class="grid__item">
-										<div class="progress">
-											<div class="progress__cur reslider__progress-container">
-												<div class="progress__text progress__text--fake">1</div>
-												<div class="progress__text progress__text--fake">2</div>
-												<div class="progress__text progress__text--fake">3</div>
-												<div class="progress__text reslider__progress" data-reslider-cur data-reslider-progress>1</div>
+										<div class="desktop-only">
+											<div class="progress">
+												<div class="progress__cur reslider__progress-container">
+													<div class="progress__text progress__text--fake">1</div>
+													<div class="progress__text progress__text--fake">2</div>
+													<div class="progress__text progress__text--fake">3</div>
+													<div class="progress__text reslider__progress" data-reslider-cur data-reslider-progress>1</div>
+												</div>
+												<div class="progress__all">/3</div>
 											</div>
-											<div class="progress__all">/3</div>
 										</div>
 									</div>
 								</div>
-								<div class="space space--sub-block space--pb"></div>
+								<div class="desktop-only">
+									<div class="space space--sub-block space--pb"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -577,7 +617,168 @@
 										<div class="js-slider-text">Респираторный комплекс – итоги года</div>
 									</div>
 								</template>
-								<div class="js-slider-root">slider</div>
+								<div class="js-slider-root">
+									<div class="swiper slider-mobile" data-swiper-slider="0">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide"><a class="slide slide--small" href="#">
+													<div class="slide__top"><img src="assets/images/slider/slider-2.jpeg" alt="">
+														<div class="slide__mark"><svg classname="slide__mark-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 18 18" fill="none">
+																<path d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416" stroke="white" strokewidth="1.5"></path>
+																<line y1="-0.75" x2="17" y2="-0.75" transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)" stroke="white" strokewidth="1.5"></line>
+															</svg></div>
+													</div>
+													<div class="slide__bottom">
+														<div class="slide__panel">
+															<div class="slide__panel-col">
+																<div class="slide__date">
+																	<div class="slide__date-day">15</div>
+																	<div class="slide__date-month">/11</div>
+																</div>
+															</div>
+															<div class="slide__panel-col">
+																<div class="slide__label">
+																	<div class="slide__label-button">Новости</div>
+																</div>
+															</div>
+														</div>
+														<div class="slide__text-wrapper">
+															<div class="slide__text">Как правильно использовать респиратор</div>
+														</div>
+													</div>
+												</a></div>
+											<div class="swiper-slide"><a class="slide slide--small" href="#">
+													<div class="slide__top"><img src="assets/images/slider/slider-2.jpeg" alt="">
+														<div class="slide__mark"><svg classname="slide__mark-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 18 18" fill="none">
+																<path d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416" stroke="white" strokewidth="1.5"></path>
+																<line y1="-0.75" x2="17" y2="-0.75" transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)" stroke="white" strokewidth="1.5"></line>
+															</svg></div>
+													</div>
+													<div class="slide__bottom">
+														<div class="slide__panel">
+															<div class="slide__panel-col">
+																<div class="slide__date">
+																	<div class="slide__date-day">15</div>
+																	<div class="slide__date-month">/11</div>
+																</div>
+															</div>
+															<div class="slide__panel-col">
+																<div class="slide__label">
+																	<div class="slide__label-button">Новости</div>
+																</div>
+															</div>
+														</div>
+														<div class="slide__text-wrapper">
+															<div class="slide__text">Как правильно использовать респиратор</div>
+														</div>
+													</div>
+												</a></div>
+											<div class="swiper-slide"><a class="slide slide--small" href="#">
+													<div class="slide__top"><img src="assets/images/slider/slider-2.jpeg" alt="">
+														<div class="slide__mark"><svg classname="slide__mark-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 18 18" fill="none">
+																<path d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416" stroke="white" strokewidth="1.5"></path>
+																<line y1="-0.75" x2="17" y2="-0.75" transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)" stroke="white" strokewidth="1.5"></line>
+															</svg></div>
+													</div>
+													<div class="slide__bottom">
+														<div class="slide__panel">
+															<div class="slide__panel-col">
+																<div class="slide__date">
+																	<div class="slide__date-day">15</div>
+																	<div class="slide__date-month">/11</div>
+																</div>
+															</div>
+															<div class="slide__panel-col">
+																<div class="slide__label">
+																	<div class="slide__label-button">Новости</div>
+																</div>
+															</div>
+														</div>
+														<div class="slide__text-wrapper">
+															<div class="slide__text">Как правильно использовать респиратор</div>
+														</div>
+													</div>
+												</a></div>
+											<div class="swiper-slide"><a class="slide slide--small" href="#">
+													<div class="slide__top"><img src="assets/images/slider/slider-2.jpeg" alt="">
+														<div class="slide__mark"><svg classname="slide__mark-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 18 18" fill="none">
+																<path d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416" stroke="white" strokewidth="1.5"></path>
+																<line y1="-0.75" x2="17" y2="-0.75" transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)" stroke="white" strokewidth="1.5"></line>
+															</svg></div>
+													</div>
+													<div class="slide__bottom">
+														<div class="slide__panel">
+															<div class="slide__panel-col">
+																<div class="slide__date">
+																	<div class="slide__date-day">15</div>
+																	<div class="slide__date-month">/11</div>
+																</div>
+															</div>
+															<div class="slide__panel-col">
+																<div class="slide__label">
+																	<div class="slide__label-button">Новости</div>
+																</div>
+															</div>
+														</div>
+														<div class="slide__text-wrapper">
+															<div class="slide__text">Как правильно использовать респиратор</div>
+														</div>
+													</div>
+												</a></div>
+											<div class="swiper-slide"><a class="slide slide--small" href="#">
+													<div class="slide__top"><img src="assets/images/slider/slider-2.jpeg" alt="">
+														<div class="slide__mark"><svg classname="slide__mark-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 18 18" fill="none">
+																<path d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416" stroke="white" strokewidth="1.5"></path>
+																<line y1="-0.75" x2="17" y2="-0.75" transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)" stroke="white" strokewidth="1.5"></line>
+															</svg></div>
+													</div>
+													<div class="slide__bottom">
+														<div class="slide__panel">
+															<div class="slide__panel-col">
+																<div class="slide__date">
+																	<div class="slide__date-day">15</div>
+																	<div class="slide__date-month">/11</div>
+																</div>
+															</div>
+															<div class="slide__panel-col">
+																<div class="slide__label">
+																	<div class="slide__label-button">Новости</div>
+																</div>
+															</div>
+														</div>
+														<div class="slide__text-wrapper">
+															<div class="slide__text">Как правильно использовать респиратор</div>
+														</div>
+													</div>
+												</a></div>
+											<div class="swiper-slide"><a class="slide slide--small" href="#">
+													<div class="slide__top"><img src="assets/images/slider/slider-2.jpeg" alt="">
+														<div class="slide__mark"><svg classname="slide__mark-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 18 18" fill="none">
+																<path d="M6.00202 1.41528H12.5283C14.7375 1.41528 16.5283 3.20614 16.5283 5.41528V11.9416" stroke="white" strokewidth="1.5"></path>
+																<line y1="-0.75" x2="17" y2="-0.75" transform="matrix(-0.707107 0.707107 0.707107 0.707107 13.3862 5.34448)" stroke="white" strokewidth="1.5"></line>
+															</svg></div>
+													</div>
+													<div class="slide__bottom">
+														<div class="slide__panel">
+															<div class="slide__panel-col">
+																<div class="slide__date">
+																	<div class="slide__date-day">15</div>
+																	<div class="slide__date-month">/11</div>
+																</div>
+															</div>
+															<div class="slide__panel-col">
+																<div class="slide__label">
+																	<div class="slide__label-button">Новости</div>
+																</div>
+															</div>
+														</div>
+														<div class="slide__text-wrapper">
+															<div class="slide__text">Как правильно использовать респиратор</div>
+														</div>
+													</div>
+												</a></div>
+										</div>
+									</div>
+								</div>
 							</div>
 							<div class="slider-panel__place slider-panel__place--bottom">
 								<div class="controls slider-panel__controls">

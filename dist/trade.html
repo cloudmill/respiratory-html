@@ -307,6 +307,22 @@
 								<div class="swiper-slide"><img class="reslider__img" src="assets/images/reslider/trade/2.jpeg" alt="" data-swiper-parallax="28%"></div>
 							</div>
 						</div>
+						<div class="mobile-only">
+							<div class="grid grid--controls grid--controls--absolute">
+								<div class="grid__item">
+									<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-prev><svg class="circle__svg circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+												<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+											</svg></button></div>
+								</div>
+								<div class="grid__item">
+									<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-next><svg class="circle__svg circle__svg--invert circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+												<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+											</svg></button></div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="reslider__content">
 						<div class="reslider__place">
@@ -314,31 +330,51 @@
 								<div class="space space--block space--pt"></div>
 								<div class="hr hr--light"></div>
 								<div class="space space--hr space--mt"></div>
-								<h2 class="heading heading--sub">Мы предлагаем</h2>
+								<div class="reslider__top">
+									<h2 class="heading heading--sub">Мы предлагаем</h2>
+									<div class="mobile__only">
+										<div class="progress">
+											<div class="progress__cur reslider__progress-container">
+												<div class="progress__text progress__text--fake">1</div>
+												<div class="progress__text progress__text--fake">2</div>
+												<div class="progress__text progress__text--fake">3</div>
+												<div class="progress__text reslider__progress" data-reslider-cur data-reslider-progress>1</div>
+											</div>
+											<div class="progress__all">/3</div>
+										</div>
+									</div>
+								</div>
 								<div class="space space--sub-block space--mt"></div>
 								<div class="grid grid--3-6">
 									<div class="grid__item">
-										<div class="grid grid--controls">
-											<div class="grid__item">
-												<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-prev><svg class="circle__svg circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-															<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
-															<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
-														</svg></button></div>
-											</div>
-											<div class="grid__item">
-												<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-next><svg class="circle__svg circle__svg--invert circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-															<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
-															<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
-														</svg></button></div>
+										<div class="desktop-only">
+											<div class="grid grid--controls">
+												<div class="grid__item">
+													<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-prev><svg class="circle__svg circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+																<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+															</svg></button></div>
+												</div>
+												<div class="grid__item">
+													<div class="circle circle--blue"><button class="circle__button" type="button" data-reslider-next><svg class="circle__svg circle__svg--invert circle__svg--arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																<path d="M8.44322 4.9999L3.82843 9.61469C2.26633 11.1768 2.26633 13.7094 3.82843 15.2715L8.44322 19.8863" stroke="white" stroke-width="1.5"></path>
+																<line x1="6" y1="12.2498" x2="23" y2="12.2498" stroke="white" stroke-width="1.5"></line>
+															</svg></button></div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="grid__item" data-reslider-title="[&quot;Различные варианты упаковки и комплектации &quot;,&quot;Информационная поддержка&quot;,&quot;Маркетинговая поддержка&quot;]"></div>
+									<div class="desktop-only">
+										<div class="grid__item" data-reslider-title="[&quot;Различные варианты упаковки и комплектации &quot;,&quot;Информационная поддержка&quot;,&quot;Маркетинговая поддержка&quot;]"></div>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="reslider__place">
 							<div class="container container--default">
+								<div class="mobile-only">
+									<div class="grid__item" data-reslider-title="[&quot;Различные варианты упаковки и комплектации &quot;,&quot;Информационная поддержка&quot;,&quot;Маркетинговая поддержка&quot;]"></div>
+								</div>
 								<div class="grid grid--5-1 grid--aie">
 									<div class="grid__item">
 										<div class="reslider__wrapper">
@@ -418,18 +454,22 @@
 										</div>
 									</div>
 									<div class="grid__item">
-										<div class="progress">
-											<div class="progress__cur reslider__progress-container">
-												<div class="progress__text progress__text--fake">1</div>
-												<div class="progress__text progress__text--fake">2</div>
-												<div class="progress__text progress__text--fake">3</div>
-												<div class="progress__text reslider__progress" data-reslider-cur data-reslider-progress>1</div>
+										<div class="desktop-only">
+											<div class="progress">
+												<div class="progress__cur reslider__progress-container">
+													<div class="progress__text progress__text--fake">1</div>
+													<div class="progress__text progress__text--fake">2</div>
+													<div class="progress__text progress__text--fake">3</div>
+													<div class="progress__text reslider__progress" data-reslider-cur data-reslider-progress>1</div>
+												</div>
+												<div class="progress__all">/3</div>
 											</div>
-											<div class="progress__all">/3</div>
 										</div>
 									</div>
 								</div>
-								<div class="space space--sub-block space--pb"></div>
+								<div class="desktop-only">
+									<div class="space space--sub-block space--pb"></div>
+								</div>
 							</div>
 						</div>
 					</div>

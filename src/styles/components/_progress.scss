@@ -15,6 +15,9 @@
     #{$component} {
       &__all {
         margin-left: rem(16px);
+        @media #{media("<")} {
+          margin-left: 8px;
+        }
       }
     }
   }
@@ -26,7 +29,9 @@
   &__text {
     @include grid-area(1, 1, 1, 1);
     @include font-fsl("title-2", 40px, 100%);
-
+    @media #{media("<")} {
+      @include fsl(24px);
+    }
     color: color(blue);
 
     &--fake {
@@ -39,7 +44,10 @@
 
   &__all {
     @include font-fsl("title-2", 16px, 100%);
-
+    @media #{media("<")} {
+      @include fsl(12px);
+      margin-left: 8px;
+    }
     margin-left: rem(24px);
 
     color: color(white);

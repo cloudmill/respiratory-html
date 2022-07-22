@@ -1,0 +1,401 @@
+// sub title (h2, h3)
+.pfwgww {
+  @include font('title-2');
+
+  font-size: rem(18px);
+  line-height: 1;
+  text-transform: uppercase;
+
+  // sub-title увеличенный
+  &--wiwhvt {
+    font-size: rem(32px);
+    line-height: 1.2;
+  }
+}
+
+// features grid (or other staff)
+.ndxzhy {
+  --gap: #{$column-gap};
+  --col-count: 3;
+
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+
+  // 2 колонки
+  &--zoxaue {
+    --col-count: 2;
+  }
+
+  // 1 колонка
+  &--jbjufj {
+    --gap: #{rem(8px)};
+    --col-count: 1;
+  }
+}
+
+// gaps (padding)
+.wubhhh {
+  padding-top: rem(180px);
+}
+.lmsyry {
+  padding-top: rem(80px);
+}
+
+// gaps (margin)
+.akrsnt {
+  margin-top: rem(120px);
+}
+.ravxnv {
+  margin-top: rem(80px);
+}
+.nvmuyk {
+  margin-top: rem(40px);
+}
+.kzgrca {
+  margin-top: rem(20px);
+}
+
+// держательно контента с декорацией (Оформление заказа)
+.chkzqs {
+  border-top: 1px solid color(gray);
+
+  &__content {
+    margin: 0 auto;
+    padding: 0 calc(#{$column} + #{$column-gap});
+    width: calc(#{columns(8)});
+
+    border-left: 1px solid color(gray);
+    border-right: 1px solid color(gray);
+  }
+}
+
+// кнопка с иконкой
+.mcusad {
+  $component: &;
+
+  position: relative;
+  z-index: 0;
+
+  padding: rem(18px);
+  width: 100%;
+  min-height: rem(60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: color(blue);
+  border: none;
+  border-radius: rem(8px);
+  cursor: pointer;
+
+  &:disabled {
+    background-color: color(gray-light);
+    cursor: not-allowed;
+
+    #{$component} {
+      &__decoration {
+        &::before,
+        &::after {
+          border-color: color(gray);
+        }
+      }
+
+      &__text {
+        color: color(gray-dark);
+        opacity: 0.3;
+      }
+
+      &__svg {
+        path {
+          stroke: color(gray);
+        }
+      }
+    }
+  }
+
+  // ограничение по ширине в 3 колонки
+  &--antzhn {
+    max-width: calc(#{columns(3)});
+  }
+
+  &__decoration {
+    $offset: rem(10px);
+    $size: rem(10px);
+
+    @include inset(0);
+
+    position: absolute;
+    z-index: -1;
+
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      @include getSize($size);
+
+      position: absolute;
+
+      content: "";
+
+      border-top: 1px solid color(yellow);
+      border-right: 1px solid color(yellow);
+      // border-radius: 0 math.div($size, 2) 0 0;
+    }
+
+    &::before {
+      top: $offset;
+      right: $offset;
+    }
+
+    &::after {
+      bottom: $offset;
+      left: $offset;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__svg {
+    @include getSize(rem(24px));
+
+    margin-right: rem(8px);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    @include font('title-1');
+
+    font-size: rem(13px);
+    line-height: 1;
+    color: color(white);
+    text-transform: uppercase;
+  }
+}
+
+// текстовое поле
+.lpxpkk {
+  @include font('title-4');
+
+  @include placeholder() {
+    color: color(gray-dark);
+  }
+
+  padding: rem(19px) rem(24px) rem(20px) rem(24px);
+  width: 100%;
+  height: rem(60px);
+  display: block;
+
+  background: color(gray-light);
+  border: 1px solid color(gray);
+  border-radius: rem(12px);
+  font-size: rem(16px);
+  line-height: 1.3;
+
+  // textarea
+  &--vkvfwb {
+    height: rem(141px);
+    resize: none;
+  }
+}
+
+// checkbox/radio button
+.nugtcb {
+  $component: &;
+
+  position: relative;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    opacity: 0;
+
+    &:checked {
+      & + {
+        #{$component} {
+          &__label {
+            background-color: color(yellow);
+            border-color: color(yellow);
+
+            #{$component} {
+              &__mark {
+                background-color: color(black);
+                border-color: color(black);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    padding: rem(17px) rem(24px);
+    min-height: rem(60px);
+    display: flex;
+    overflow: hidden;
+
+    background-color: color(white);
+    border: 1px solid color(gray);
+    border-radius: rem(12px);
+    cursor: pointer;
+  }
+
+  &__mark {
+    @include getSize(rem(24px));
+
+    margin-right: rem(24px);
+    flex-shrink: 0;
+
+    background-color: color(white);
+    border: 1px solid color(gray);
+    border-radius: rem(4px);
+  }
+
+  &__text {
+    @include font('title-5');
+
+    padding: rem(1px) 0 rem(2px) 0;
+
+    font-size: rem(16px);
+    line-height: 1.3;
+  }
+}
+
+// пояснение к полю (textarea)
+.cmjcvs {
+  @include font('title-4');
+
+  font-size: rem(16px);
+  line-height: 1.6;
+  color: color(gray-dark);
+}
+
+// agreeement checkbox
+.aoabcj {
+  $component: &;
+
+  display: flex;
+
+  &__label {
+    position: relative;
+
+    display: flex;
+
+    cursor: pointer;
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    opacity: 0;
+
+    &:checked {
+      & + {
+        #{$component} {
+          &__mark {
+            background-color: color(blue);
+            border-color: color(blue);
+          }
+        }
+      }
+    }
+  }
+
+  &__mark {
+    @include getSize(rem(24px));
+
+    margin-right: rem(12px);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid color(gray);
+    border-radius: rem(4px);
+  }
+
+  &__svg {
+    @include getSize(rem(15px), rem(10px));
+  }
+
+  &__text {
+    @include font('title-4');
+
+    padding: rem(3px) 0;
+
+    font-size: rem(12px);
+    line-height: 1.6;
+  }
+
+  &__link {
+    color: color(blue);
+  }
+}
+
+// bottom формы с сабмитом и чекбоксом соглашения
+.pcvkpe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__col {
+    &:last-child {
+      margin-left: $column-gap;
+      width: rem(217px);
+      flex-shrink: 0;
+    }
+  }
+}
+
+// datapicker container
+.ozbbnq {
+  max-width: calc(#{columns(3)});
+}
+
+// close button
+.ppdaco {
+  @include getSize(rem(48px));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: color(white);
+  border: 1px solid color(gray);
+  border-radius: rem(40px);
+  box-shadow: 0px rem(12px) rem(20px) color(shadow-drop);
+  cursor: pointer;
+
+  &__svg {
+    @include getSize(rem(17px));
+  }
+}
+
+// block с селектами из Оформление заказа
+.qjwxwp {
+  position: relative;
+
+  padding: rem(24px);
+
+  background-color: color(gray-light);
+  border-radius: rem(12px);
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+}

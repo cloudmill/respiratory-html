@@ -1,0 +1,156 @@
+extends ../app
+
+block definitions
+  -
+    app.title = 'Каталог';
+
+block preloader
+block grid-test
+
+block content
+  +space(['header'], ['pt'])
+  
+  +space(['sub-block'])
+  +container
+    +breadcrumbs(['Главная', 'продукция'])
+    +space(['sub-block'])
+    +heading(['main'], 1)
+      |продукция
+  .ravxnv
+    .chkzqs
+      .chkzqs__content
+        .lmsyry
+          h2.pfwgww.pfwgww--wiwhvt
+            |Состав заказа
+
+        .nvmuyk
+          .qjwxwp
+            .qjwxwp__close
+              .ppdaco
+                +vptwok-svg.ppdaco__svg
+            .ndxzhy.ndxzhy--jbjufj
+              .ndxzhy__place
+                .select.select--mid(data-select-component)
+                  .select__mask(data-select-mask)
+                    .select__panel(data-select-panel)
+                      .select__text.select__text--normal(data-select-text)
+                        |Выберите серию
+                      .select__icon
+                        +arrow-drop-svg.select__svg
+                    .select__drop
+                      .select__inner
+                        each item in ['RK 9000', 'RK 6000', 'АЛИНА®', 'ЮЛИЯ®', 'нева®', 'GAGARA®', ]
+                          .select__item(data-select-value=item)
+                            .select__image
+                              img.select__img(src="assets/images/example.jpeg", alt="")
+                            .select__title 
+                              |#{item}
+              .ndxzhy__place
+                .select.select--big(data-select-component)
+                  .select__mask(data-select-mask)
+                    .select__panel(data-select-panel)
+                      .select__text.select__text--normal(data-select-text)
+                        |Выберите модель
+                      .select__icon
+                        +arrow-drop-svg.select__svg
+                    .select__drop
+                      each item in ['RK 9000', 'RK 6000', 'АЛИНА®', 'ЮЛИЯ®', 'нева®', 'GAGARA®', ]
+                        .select__value(data-select-value=item)
+                          .select__row
+                            .select__col
+                              img.select__img(src="assets/images/example.jpeg", alt="")
+                            .select__col
+                              .select__col-item
+                                .select__heading 
+                                  |#{item}
+                              .select__col-item
+                                .select__properties 
+                                  .select__properties-item 
+                                    .select__properties-label 
+                                      |Класс защиты
+                                    .select__properties-title 
+                                      |FFP1 R D
+                                  .select__properties-item 
+                                    .select__properties-label 
+                                      |Клапан выдоха
+                                    .select__properties-title 
+                                      |Нет
+        .nvmuyk
+          .mcusad.mcusad--antzhn
+            +kwcrsv-svg.mcusad__svg
+            .mcusad__text
+              |Добавить респиратор в заказ
+
+        .akrsnt
+          h2.pfwgww.pfwgww--wiwhvt
+            |Контактная информация
+        
+        .nvmuyk
+          .ndxzhy.ndxzhy--zoxaue
+            -
+              var items = [
+                'Название организации',
+                'ИНН',
+                'ФИО',
+                'Телефон',
+                'E-mail',
+              ]
+            each item in items
+              .ndxzhy__place
+                input.lpxpkk(placeholder=item)
+
+        .akrsnt
+          h2.pfwgww.pfwgww--wiwhvt
+            |Способ доставки
+        
+        .nvmuyk
+          .ndxzhy.ndxzhy--jbjufj
+            -
+              var items = [
+                'Самовывоз из гп. Им. Морозова (получение по подлинной доверенности)',
+                'Доставка до терминала транспортной компании (оплата транспортных расходов  покупателем)',
+                'Доставка «до двери» (оплата транспортных расходов  покупателем)',
+              ]
+            each item, index in items
+              .ndxzhy__place
+                .nugtcb
+                  input.nugtcb__input(id=`radio-${index}` type="radio" name="radio" checked=(index === 0))
+                  label.nugtcb__label(for=`radio-${index}`)
+                    .nugtcb__mark
+                    .nugtcb__text
+                      |#{item}
+
+        .akrsnt
+          h2.pfwgww.pfwgww--wiwhvt
+            |Дата отгрузки
+          
+        .nvmuyk
+          .ozbbnq
+            input.lpxpkk(placeholder='Выберите дату отгрузки')
+
+        .nvmuyk
+          textarea.lpxpkk.lpxpkk--vkvfwb(placeholder="Комментарий к заказу")
+        
+        .kzgrca
+          .cmjcvs
+            |Вы можете добавить адрес пункта назначения, выбрать транспортную компанию (ПЭК или Деловые линии) или дать дополнительные пояснения к заявке
+        
+        .akrsnt
+          .pcvkpe
+            .pcvkpe__col
+              .aoabcj
+                label.aoabcj__label
+                  input.aoabcj__input(type="checkbox")
+                  .aoabcj__mark
+                    +dapfjq-svg.aoabcj__svg
+                  .aoabcj__text
+                    |Даю согласие на обработку 
+                    a.aoabcj__link(href="#")
+                      |персональных данных
+            .pcvkpe__col
+              button.mcusad(disabled)
+                .mcusad__decoration
+                .mcusad__text
+                  |оформить заказ
+        
+        .wubhhh

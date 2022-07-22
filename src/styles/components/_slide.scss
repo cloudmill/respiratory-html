@@ -24,6 +24,9 @@
   }
 
   &--small {
+    @media #{media("<")} {
+      width: rem(290px);
+    }
     #{$component} {
       &__top {
         height: rem(193px);
@@ -31,6 +34,9 @@
 
       &__bottom {
         margin-top: rem(16px);
+        @media #{media("<")} {
+          margin-top: rem(12px);
+        }
       }
 
       &__panel {
@@ -43,7 +49,9 @@
 
       &__text {
         @include font-fsl("title-2", 14px, 130%);
-
+        @media #{media("<")} {
+          margin-top: rem(12px);
+        }
         margin-top: rem(16px);
       }
 
@@ -123,10 +131,16 @@
 
   &__mark {
     @include rectangle(rem(44px));
-
+    @media #{media("<")} {
+      @include rectangle(rem(36px));
+    }
     position: absolute;
     bottom: $column-gap;
     right: $column-gap;
+    @media #{media("<")} {
+      bottom: $column-gap-small;
+      right: $column-gap-small;
+    }
 
     display: flex;
     justify-content: center;
@@ -196,7 +210,9 @@
 
     &-button {
       @include font-fsl("content-1", 12px, 130%);
-
+      @media #{media("<")} {
+        @include fsl(10px);
+      }
       padding: 0 rem(12px);
       height: rem(30px);
       display: flex;

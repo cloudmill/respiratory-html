@@ -78,29 +78,32 @@ mixin side-modal(props = {})
           |case-6
         
         when 'unit-1'
-          +container
+          +space(['gap'], ['pt'])
+          +container(['unit-modal'])
             +hr
-            +space(['hr'])
+            +space([12])
             +stack(['small'])
               .stack__item
                 +unit-feature
               .stack__item
                 +unit-feature
         when 'unit-2'
-          |unit-2
+          +space(['gap'], ['pt'])
+          +container(['unit-modal'])
+            +hr
+            +space([12])
+            +stack(['small'])
+              .stack__item
+                +unit-feature
+              .stack__item
+                +unit-feature
         when 'unit-3'
-          |unit-3
-        when 'unit-4'
-          |unit-4
-        when 'unit-5'
-          |unit-5
-        when 'unit-6'
-          |unit-6
-        when 'unit-7'
-          |unit-7
-        when 'unit-8'
-          |unit-8
-        when 'unit-9'
-          |unit-9
-        when 'unit-10'
-          |unit-10
+          +space(['gap'], ['pt'])
+          +container(['unit-modal'])
+            +hr
+            +space([12])
+            +stack(['small'])
+              .stack__item
+                +unit-feature
+              .stack__item
+                +unit-feature

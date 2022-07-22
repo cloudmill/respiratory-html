@@ -3,7 +3,7 @@ extends ../app
 block definitions
   -
     app.title = 'Карточка товара';
-    var unitCount = 10;
+    var unitCount = 3;
 
 block side-modal
   each i, index in repeat(unitCount)
@@ -281,36 +281,4 @@ block content
       .swiper-wrapper
         each i, index in repeat(unitCount)
           .swiper-slide
-            a.product(href="#")
-              .product__grid
-                .product__cell
-                  img.product__img(src=`assets/images/unit/unit.jpeg`)
-                .product__cell.product__cell--inf
-                  h2.product__title
-                    |RK 9010
-                  .product__table
-                    .product__table-row.product__table-title
-                      .product__table-col
-                        |Класс защиты
-                      .product__table-col
-                        |Клапан выдоха
-                    .product__table-row.product__table-value
-                      .product__table-col
-                        |FFP1 R D
-                      .product__table-col
-                        |Нет
-
-                  .product__features.only-desktop
-                    .product__feature
-                      img.product__feature-svg(src="assets/images/feature.svg")
-                      .product__feature-text
-                        |Защита от всех видов аэрозолей
-
-                .product__icon
-                  +phone-svg.product__svg
-
-              .product__features.only-mobile
-                .product__feature
-                  img.product__feature-svg(src="assets/images/feature.svg")
-                  .product__feature-text
-                    |Защита от всех видов аэрозолей
+            +unit({ sideModalId: `unit-${index + 1}` })

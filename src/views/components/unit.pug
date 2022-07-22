@@ -1,65 +1,37 @@
 mixin unit(props = {})
-  a.unit(href='#')
-    +grid(['unit'])
-      .grid__item
-        .unit__image
-          img.unit__img(src='assets/images/unit/unit.jpeg')
-      .grid__item
-        .unit__content
-          +heading(['unit'])
-            |RK 9000
-          .unit__props
-            +grid(['unit-props'])
-              .grid__item
-                .unit__prop
-                  .unit__prop-name
-                    |Класс защиты
-                  .unit__prop-value
-                    |FFP1 NR D
-              .grid__item
-                .unit__prop
-                  .unit__prop-name
-                    |Клапан выдоха
-                  .unit__prop-value
-                    |Есть
-          .unit__features
-            +stack(['unit-features'])
-              -
-                var items = [
-                  {
-                    src: 'assets/images/card/label-1.svg',
-                    title: 'Защита от всех видов аэрозолей',
-                    tabs: [
-                      'Пыль',
-                      'Дым',
-                      'Туман',
-                    ],
-                  },
-                  {
-                    src: 'assets/images/card/label-2.svg',
-                    title: 'Дополнительная защита',
-                    tabs: [
-                      'Кислые газы',
-                      'Неорганические газы',
-                      'Основные газы',
-                      'Пары ртути',
-                    ],
-                  },
-                ];
-              each item in items
-                .stack__item
-                  .unit__feature
-                    img.unit__feature-img(src=item.src)
-                    +heading(['unit-feature'])
-                      |!{item.title}
-                    .unit__feature-list
-                      +wrap-list
-                        each tab in item.tabs
-                          li.wrap-list__item
-                            +static-tab(['unit-feature'])
-                              |!{tab}
-          .unit__mark
-            +arrow-tilt-svg.unit__svg
+  a.product.product--unit(href="#")
+    .product__grid
+      .product__cell
+        img.product__img(src=`assets/images/unit/unit.jpeg`)
+      .product__cell.product__cell--inf
+        h2.product__title
+          |RK 9010
+        .product__table
+          .product__table-row.product__table-title
+            .product__table-col
+              |Класс защиты
+            .product__table-col
+              |Клапан выдоха
+          .product__table-row.product__table-value
+            .product__table-col
+              |FFP1 R D
+            .product__table-col
+              |Нет
+
+        .product__features.only-desktop
+          .product__feature
+            img.product__feature-svg(src="assets/images/feature.svg")
+            .product__feature-text
+              |Защита от всех видов аэрозолей
+
+      .product__mark
+        +arrow-tilt-svg.product__svg
+
+    .product__features.only-mobile
+      .product__feature
+        img.product__feature-svg(src="assets/images/feature.svg")
+        .product__feature-text
+          |Защита от всех видов аэрозолей
   a.unit-mobile(href='#' data-unit data-unit-inactive data-side-modal-trigger=props.sideModalId)
     +grid(['unit-mobile'])
       .grid__item

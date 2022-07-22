@@ -35,6 +35,7 @@
 
     padding: 0 rem(3px);
     display: inline-flex;
+    align-items: flex-start;
 
     white-space: nowrap; // в слове может быть несколько текстов "25 лет"
     transition: transform $transition;

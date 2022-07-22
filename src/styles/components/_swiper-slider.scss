@@ -154,3 +154,7 @@
     object-fit: cover;
   }
 }
+
+.fancybox__counter, .fancybox__button--zoom, .fancybox__button--slideshow, .fancybox__button--fullscreen, .fancybox__button--thumbs {
+  display: none;
+}

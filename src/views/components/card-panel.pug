@@ -2,19 +2,22 @@ mixin card-panel
   .card-panel
     +container
       +space([27], ['pt'])
-      //- +grid(['card-panel'])
-      //-   -
-      //-     var items = [
-      //-       'КУПИТЬ У ОфициальнЫХ диллерОВ',
-      //-       'КУПИТЬ В розничныХ магазинАХ',
-      //-       'Самостоятельно сформировать заказ',
-      //-     ];
-      //-   each item in items
-      //-     .grid__item
-      //-       +press.press--info.press--full
-      //-         |!{item}
 
-      +press.press--info.press--full
-        |Купить
+      .only-desktop
+        +grid(['card-panel'])
+          -
+            var items = [
+              'КУПИТЬ У ОфициальнЫХ диллерОВ',
+              'КУПИТЬ В розничныХ магазинАХ',
+              'Самостоятельно сформировать заказ',
+            ];
+          each item in items
+            .grid__item
+              +press.press--info.press--full
+                |!{item}
+
+      .only-mobile
+        +press.press--info.press--full
+          |Купить
 
       +space(['sub-block'], ['pb'])

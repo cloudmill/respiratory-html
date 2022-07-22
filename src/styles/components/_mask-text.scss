@@ -53,6 +53,13 @@
       @include font-fsl("title-3", 80px, 100%);
 
       color: color(white);
+
+      sup {
+        @include fsl(30px, 100%);
+        font-weight: 550;
+        text-transform: uppercase;
+        vertical-align: top;
+      }
     }
 
     &--top {

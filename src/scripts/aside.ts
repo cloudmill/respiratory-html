@@ -2,12 +2,16 @@ import debounce from "lodash.debounce";
 import { getPx } from "./utils";
 
 const mediaQuery = window.matchMedia(`(min-width: 1280px)`);
+const mediaQueryMax = window.matchMedia(`(min-width: 1367px)`);
 
 const DEBOUNCE = 100;
 
 const start = () => {
 
-  if (mediaQuery.matches) {
+  if (mediaQuery.matches && !mediaQueryMax.matches) {
+
+    console.log(1);
+    
 
     const panel = document.querySelector(".card-panel");
     const asideAll = document.querySelectorAll<HTMLElement>(".aside");
@@ -36,6 +40,11 @@ const start = () => {
       addEventListener("resize", () => updateAsideDebounced());
     });
     
+  } else if (mediaQueryMax.matches && document.querySelector('.aside')) {
+
+    const aside = document.querySelector('.aside');
+    aside.style.height = '555px';
+
   }
 
 };

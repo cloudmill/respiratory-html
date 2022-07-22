@@ -8,6 +8,11 @@
       padding: $column-padding-small;
       padding-top: 0;
     }
+
+    &-modal {
+      padding-left: $column-padding-small;
+      padding-right: rem(16px + 38px + 16px);
+    }
   }
 
   &--case {

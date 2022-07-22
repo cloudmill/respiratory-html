@@ -213,3 +213,16 @@
     }
   }
 }
+
+.unit-feature {
+  &__img {
+    @include rectangle(rem(48px));
+
+    margin-bottom: rem(12px);
+    display: block;
+  }
+
+  &__list {
+    margin-top: rem(8px);
+  }
+}

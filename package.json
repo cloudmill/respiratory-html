@@ -1,7 +1,7 @@
 {
   "main": "app.js",
   "scripts": {
-    "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open --host 0.0.0.0",
+    "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open",
     "build": "rimraf dist && webpack --config webpack/webpack.config.js --env NODE_ENV=production --mode=production --progress"
   },
   "devDependencies": {

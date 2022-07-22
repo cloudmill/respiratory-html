@@ -1,3 +1,20 @@
+mixin unit-feature
+  .unit-feature
+    img.unit-feature__img(src='assets/images/card/label-1.svg')
+    +heading(['unit-feature-mobile'])
+      |Защита от всех видов аэрозолей
+    .unit-feature__list
+      +wrap-list
+        li.wrap-list__item
+          +static-tab(['unit-feature'])
+            |Пыль
+        li.wrap-list__item
+          +static-tab(['unit-feature'])
+            |Дым
+        li.wrap-list__item
+          +static-tab(['unit-feature'])
+            |Туман
+
 mixin side-modal(props = {})
   .side-modal(data-side-modal=props.id class=getClassesFromMods('side-modal', props.mods))
     .side-modal__overlay(data-side-modal-overlay)
@@ -61,7 +78,14 @@ mixin side-modal(props = {})
           |case-6
         
         when 'unit-1'
-          |unit-1
+          +container
+            +hr
+            +space(['hr'])
+            +stack(['small'])
+              .stack__item
+                +unit-feature
+              .stack__item
+                +unit-feature
         when 'unit-2'
           |unit-2
         when 'unit-3'

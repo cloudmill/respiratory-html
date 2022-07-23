@@ -273,13 +273,7 @@
 				<div class="space space--block space--mt"></div>
 				<div class="container container--default">
 					<div class="grid grid--catalog-panel">
-						<div class="grid__item">
-							<div class="wrap-list wrap-list--large">
-								<ul class="wrap-list__list">
-									<div class="wrap-list__item">123</div>
-								</ul>
-							</div>
-						</div>
+						<div class="grid__item"><button data-side-modal-trigger="filters">filters</button></div>
 						<div class="grid__item">123</div>
 					</div>
 				</div>
@@ -390,6 +384,394 @@
 					</div>
 				</footer>
 				<div class="modals-container"></div>
+				<div class="side-modal" data-side-modal="filters">
+					<div class="side-modal__overlay" data-side-modal-overlay></div>
+					<div class="side-modal__content"><button class="side-modal__close" data-side-modal-close><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M2.50467 14.5256L5.70172 11.3285C7.26382 9.76645 7.26382 7.2338 5.70172 5.6717L2.50467 2.47465" stroke="#191A1C" stroke-width="1.5"></path>
+								<path d="M14.4953 2.47465L11.2983 5.6717C9.73618 7.23379 9.73618 9.76645 11.2983 11.3285L14.4953 14.5256" stroke="#191A1C" stroke-width="1.5"></path>
+							</svg></button>
+						<div class="filters" data-filters>
+							<div class="filters__content">
+								<div class="filters__scrollbar" data-filters-scrollbar>
+									<div class="filters__scrollbar-thumb" data-filters-thumb></div>
+								</div>
+								<div class="filters__window" data-filters-window>
+									<div class="filters__window-content" data-filters-content>
+										<div class="filters__wrapper">
+											<div class="filters__container">
+												<div class="hr hr--d"></div>
+												<div class="space space--hr space--mt"></div>
+												<h2 class="heading heading--sub">фильтры</h2>
+												<div class="space space--block space--mt"></div>
+												<div class="stack stack--filters">
+													<div class="stack__item">
+														<h3 class="heading heading--sub">Класс защиты</h3>
+														<div class="space space--hr space--mt"></div>
+														<div class="wrap-list">
+															<ul class="wrap-list__list">
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">FFP1</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">FFP2</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">FFP13</div>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="stack__item">
+														<h3 class="heading heading--sub">Область применения</h3>
+														<div class="space space--hr space--mt"></div>
+														<div class="wrap-list">
+															<ul class="wrap-list__list">
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Промышленность</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Медицина</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">ГО и ЧС</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Атомная энергетика</div>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="stack__item">
+														<h3 class="heading heading--sub">Клапан выдоха</h3>
+														<div class="space space--hr space--mt"></div>
+														<div class="wrap-list">
+															<ul class="wrap-list__list">
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Есть</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Нет</div>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="stack__item">
+														<h3 class="heading heading--sub">Дополнительная защита</h3>
+														<div class="space space--hr space--mt"></div>
+														<div class="wrap-list">
+															<ul class="wrap-list__list">
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Органические газы и пары от нагрева металлов</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Сварочные аэрозоли, озон</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Кислые газы</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Неорганические газы</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Основные газы</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Вирусы и бактерии</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Пары ртути</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Радиоактивный йод</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Радиоактивные и канцерогенные аэрозоли</div>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="stack__item">
+														<h3 class="heading heading--sub">Режим использования</h3>
+														<div class="space space--hr space--mt"></div>
+														<div class="wrap-list">
+															<ul class="wrap-list__list">
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Одноразовый NR</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Многоразовый R</div>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="stack__item">
+														<h3 class="heading heading--sub">Конструкция</h3>
+														<div class="space space--hr space--mt"></div>
+														<div class="wrap-list">
+															<ul class="wrap-list__list">
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Неформованный</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Формованный</div>
+																		</div>
+																	</div>
+																</li>
+																<li class="wrap-list__item">
+																	<div class="tab tab--filter">
+																		<div class="tab__button">
+																			<div class="tab__bgs">
+																				<div class="tab__bg tab__bg--default"></div>
+																				<div class="tab__bg tab__bg--yellow"></div>
+																			</div>
+																			<div class="tab__text">Складной</div>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="filters__panel">
+								<div class="filters__panel-col">
+									<div class="press press--info press--full">
+										<div class="press__btn">
+											<div class="press__content">
+												<div class="press__content-item press__content-item--start">
+													<div class="press__text press__text--start">сбросить</div>
+												</div>
+												<div class="press__content-item press__content-item--end">
+													<div class="press__text press__text--end">сбросить</div>
+												</div>
+											</div>
+											<div class="press__bg">
+												<div class="press__bg-item press__bg-item--start"></div>
+												<div class="press__bg-item press__bg-item--end"></div>
+											</div>
+											<div class="press__decor">
+												<div class="press__decor-item press__decor-item--start">
+													<div class="press__decor-arrow"></div>
+													<div class="press__decor-arrow"></div>
+												</div>
+												<div class="press__decor-item press__decor-item--end">
+													<div class="press__decor-arrow"></div>
+													<div class="press__decor-arrow"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="filters__panel-col">
+									<div class="press press--info press--full">
+										<div class="press__btn">
+											<div class="press__content">
+												<div class="press__content-item press__content-item--start">
+													<div class="press__text press__text--start">применить</div>
+												</div>
+												<div class="press__content-item press__content-item--end">
+													<div class="press__text press__text--end">применить</div>
+												</div>
+											</div>
+											<div class="press__bg">
+												<div class="press__bg-item press__bg-item--start"></div>
+												<div class="press__bg-item press__bg-item--end"></div>
+											</div>
+											<div class="press__decor">
+												<div class="press__decor-item press__decor-item--start">
+													<div class="press__decor-arrow"></div>
+													<div class="press__decor-arrow"></div>
+												</div>
+												<div class="press__decor-item press__decor-item--end">
+													<div class="press__decor-arrow"></div>
+													<div class="press__decor-arrow"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>

@@ -26,6 +26,7 @@ import * as fslider from "./scripts/fslider";
 import * as history from "./scripts/history";
 import * as sideModal from "./scripts/sideModal";
 import * as unit from "./scripts/unit";
+import * as filters from "./scripts/filters";
 
 import forms from "./scripts/forms";
 import { headerOnScroll } from "./scripts/header-on-scroll";
@@ -59,6 +60,8 @@ addEventListener("DOMContentLoaded", () => {
 
   sideModal.start();
   unit.start();
+
+  filters.start();
 
   forms();
   headerOnScroll();

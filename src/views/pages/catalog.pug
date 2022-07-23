@@ -8,7 +8,7 @@ block preloader
 block grid-test
 
 block side-modal
-  +side-modal({ id: 'filter' })
+  +side-modal({ id: 'filters' })
 
 block content
   +space(['header'], ['pt'])
@@ -24,14 +24,7 @@ block content
   +container
     +grid(['catalog-panel'])
       .grid__item
-        button(data-side-modal-trigger='filter')
-          |show filter
-        //- +wrap-list(['large'])
-          .wrap-list__item
-            |123
-          .wrap-list__item
-            |123
-          .wrap-list__item
-            |123
+        button(data-side-modal-trigger='filters')
+          |filters
       .grid__item
         |123

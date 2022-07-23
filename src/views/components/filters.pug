@@ -1,17 +1,12 @@
 mixin filters
-  .filters
+  .filters(data-filters)
     .filters__content
-      .filters__scrollbar
-        .filters__scrollbar-thumb
-      .filters__window
-        |123
-      //- .filters__window
-        .filters__window-content
-          each i in repeat(25)
-            div
-              |Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem amet adipisci consectetur doloribus commodi impedit beatae totam vel non eius consequatur perspiciatis, voluptates, similique, molestias in sed est recusandae cum?
-        //- .filters__fake
-          |fake
+      .filters__scrollbar(data-filters-scrollbar)
+        .filters__scrollbar-thumb(data-filters-thumb)
+      .filters__window(data-filters-window)
+        .filters__window-content(data-filters-content)
+          .filters__fake
+            |123
     .filters__panel
       .filters__panel-col
         +press.press--info.press--full

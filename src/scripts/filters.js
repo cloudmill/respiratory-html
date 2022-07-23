@@ -1,0 +1,62 @@
+const start = () => {
+  const filtersAll = document.querySelectorAll("[data-filters]");
+
+  filtersAll.forEach((filters) => {
+    const scrollbar = filters.querySelector("[data-filters-scrollbar]");
+    const thumb = filters.querySelector("[data-filters-thumb]");
+    const wind = filters.querySelector("[data-filters-window]");
+    const content = filters.querySelector("[data-filters-content]");
+
+    const getData = () => ({
+      windowY: wind.getBoundingClientRect().top,
+      windowHeight: wind.getBoundingClientRect().height,
+
+      contentY: content.getBoundingClientRect().top,
+      contentHeight: content.getBoundingClientRect().height,
+    });
+
+    const getCalcData = () => {
+      const data = getData();
+
+      const heightPercentage = Math.min(
+        data.windowHeight / data.contentHeight,
+        1
+      );
+
+      const dist = Math.abs(data.windowY - data.contentY);
+      const maxDist = Math.max(0, data.contentHeight - data.windowHeight);
+
+      const distPercentage = maxDist > 0 ? Math.min(dist / maxDist, 1) : 0;
+
+      return {
+        heightPercentage,
+        distPercentage,
+      };
+    };
+
+    const getPercentage = (value) => `${value * 100}%`;
+
+    const updateScrollbar = () => {
+      const { heightPercentage, distPercentage } = getCalcData();
+
+      if (heightPercentage === 1) {
+        scrollbar.style.opacity = "0";
+      } else {
+        scrollbar.style.opacity = "1";
+      }
+
+      thumb.style.height = getPercentage(heightPercentage);
+      thumb.style.top = getPercentage((1 - heightPercentage) * distPercentage);
+    };
+
+    wind.addEventListener("scroll", () => {
+      updateScrollbar();
+    });
+
+    setInterval(() => {
+      updateScrollbar();
+    }, 500);
+  });
+};
+
+export { start };

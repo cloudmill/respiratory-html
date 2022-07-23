@@ -74,6 +74,25 @@
     }
   }
 
+  &--filter {
+    --height: #{rem(35px)};
+    --padding: #{rem(12px)};
+
+    @media #{media("<")} {
+      --height: #{rem(27px)};
+    }
+
+    #{$component} {
+      &__text {
+        @include font-fsl("content-1", 16px, 130%);
+
+        @media #{media("<")} {
+          @include fsl(10px);
+        }
+      }
+    }
+  }
+
   &__button,
   &__bgs,
   &__bg {

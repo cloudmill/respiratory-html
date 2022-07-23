@@ -5,8 +5,83 @@ mixin filters
         .filters__scrollbar-thumb(data-filters-thumb)
       .filters__window(data-filters-window)
         .filters__window-content(data-filters-content)
-          .filters__fake
-            |123
+          .filters__wrapper
+            .filters__container
+              +hr
+              
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |фильтры
+              
+              +space(['block'])
+              +stack(['filters'])
+                -
+                  var items = [
+                    {
+                      title: 'Класс защиты',
+                      tabs: [
+                        'FFP1',
+                        'FFP2',
+                        'FFP13',
+                      ],
+                    },
+                    {
+                      title: 'Область применения',
+                      tabs: [
+                        'Промышленность',
+                        'Медицина',
+                        'ГО и ЧС',
+                        'Атомная энергетика',
+                      ],
+                    },
+                    {
+                      title: 'Клапан выдоха',
+                      tabs: [
+                        'Есть',
+                        'Нет',
+                      ],
+                    },
+                    {
+                      title: 'Дополнительная защита',
+                      tabs: [
+                        'Органические газы и пары от нагрева металлов',
+                        'Сварочные аэрозоли, озон',
+                        'Кислые газы',
+                        'Неорганические газы',
+                        'Основные газы',
+                        'Вирусы и бактерии',
+                        'Пары ртути',
+                        'Радиоактивный йод',
+                        'Радиоактивные и канцерогенные аэрозоли',
+                      ],
+                    },
+                    {
+                      title: 'Режим использования',
+                      tabs: [
+                        'Одноразовый NR',
+                        'Многоразовый R',
+                      ],
+                    },
+                    {
+                      title: 'Конструкция',
+                      tabs: [
+                        'Неформованный',
+                        'Формованный',
+                        'Складной',
+                      ],
+                    },
+                  ];
+                each item in items
+                  .stack__item
+                    +heading(['sub'], 3)
+                      |!{item.title}
+                    
+                    +space(['hr'])
+                    +wrap-list
+                      each tab in item.tabs
+                        li.wrap-list__item
+                          +tab(['filter'])
+                            |!{tab}
     .filters__panel
       .filters__panel-col
         +press.press--info.press--full

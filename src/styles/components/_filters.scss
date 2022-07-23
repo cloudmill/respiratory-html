@@ -56,12 +56,6 @@
     }
   }
 
-  &__fake {
-    min-height: 150vh;
-
-    background-image: linear-gradient(to bottom, white, black);
-  }
-
   &__window {
     @include scrollbar-hidden;
 
@@ -74,5 +68,13 @@
 
     &-content {
     }
+  }
+
+  &__wrapper {
+    width: calc(#{columns(5)});
+  }
+  &__container {
+    padding: $column-padding;
+    padding-right: 0;
   }
 }

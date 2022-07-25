@@ -1275,6 +1275,10 @@
     &:focus {
       border-color: color(blue);
     }
+
+    &--dark {
+      background: color(gray-light);
+    }
   }
 
   &__error, .parsley-errors-list {

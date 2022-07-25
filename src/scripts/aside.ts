@@ -7,37 +7,32 @@ const mediaQueryMax = window.matchMedia(`(min-width: 1367px)`);
 const DEBOUNCE = 100;
 
 const start = () => {
-  if (mediaQuery.matches && !mediaQueryMax.matches) {
-    const panel = document.querySelector(".card-panel");
-    const asideAll = document.querySelectorAll<HTMLElement>(".aside");
+  const panel = document.querySelector(".card-panel");
+  const asideAll = document.querySelectorAll<HTMLElement>(".aside");
 
-    const getWindowHeight = () => document.documentElement.clientHeight;
-    const getPanelHeight = () => panel?.getBoundingClientRect().height || 0;
+  const getWindowHeight = () => document.documentElement.clientHeight;
+  const getPanelHeight = () => panel?.getBoundingClientRect().height || 0;
 
-    asideAll.forEach((aside) => {
-      const getAsideTop = () => aside.getBoundingClientRect().top;
+  asideAll.forEach((aside) => {
+    const getAsideTop = () => aside.getBoundingClientRect().top;
 
-      const getAsideHeight = () => {
-        const windowHeight = getWindowHeight();
-        const asideTop = getAsideTop();
-        const panelHeight = getPanelHeight();
+    const getAsideHeight = () => {
+      const windowHeight = getWindowHeight();
+      const asideTop = getAsideTop();
+      const panelHeight = getPanelHeight();
 
-        return windowHeight - (panelHeight + asideTop);
-      };
+      return windowHeight - (panelHeight + asideTop);
+    };
 
-      const updateAside = () => {
-        aside.style.height = getPx(getAsideHeight());
-      };
-      const updateAsideDebounced = debounce(updateAside, DEBOUNCE);
+    const updateAside = () => {
+      aside.style.height = getPx(getAsideHeight());
+    };
+    const updateAsideDebounced = debounce(updateAside, DEBOUNCE);
 
-      updateAsideDebounced();
-      addEventListener("load", () => updateAsideDebounced());
-      addEventListener("resize", () => updateAsideDebounced());
-    });
-  } else if (mediaQueryMax.matches && document.querySelector(".aside")) {
-    const aside = document.querySelector(".aside");
-    aside.style.height = "555px";
-  }
+    updateAsideDebounced();
+    addEventListener("load", () => updateAsideDebounced());
+    addEventListener("resize", () => updateAsideDebounced());
+  });
 };
 
 export { start };

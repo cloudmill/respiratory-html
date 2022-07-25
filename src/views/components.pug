@@ -54,7 +54,8 @@ mixin first(src)
 
 mixin first-vid(src)
   .first
-    video.first__bg(src=src autoplay muted loop)
+    video.first__bg(autoplay muted loop poster="assets/images/about.jpeg")
+      source(type="video/mp4" src=src)
     .first__layout
       block
 

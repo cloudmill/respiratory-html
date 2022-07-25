@@ -108,10 +108,10 @@
       calc(#{columns(4)} * 4.9406564584124654e-324 / 4.9406564584124654e-324)
       calc(#{columns(2)});
 
-    @media #{media('>', l)} {
-      grid-template-columns: 415px 198px;
-      place-content: end;
-    }
+    // @media #{media('>', l)} {
+    //   grid-template-columns: 415px 198px;
+    //   place-content: end;
+    // }
 
     grid-template-rows: repeat(2, calc((100% - #{$column-gap}) / 2));
     column-gap: $column-gap;

@@ -52,7 +52,7 @@ addEventListener("DOMContentLoaded", () => {
   select.start();
   swiperSlider.start();
   rails.start();
-  aside.start();
+  // aside.start();
   gallery.start();
   reslider.start();
   fslider.start();

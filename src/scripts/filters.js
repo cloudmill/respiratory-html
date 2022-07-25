@@ -6,6 +6,16 @@ const start = () => {
     const thumb = filters.querySelector("[data-filters-thumb]");
     const wind = filters.querySelector("[data-filters-window]");
     const content = filters.querySelector("[data-filters-content]");
+    const tabAll = filters.querySelectorAll("[data-filters-tab]");
+    const reset = filters.querySelector("[data-filters-reset]");
+
+    tabAll.forEach((tab) =>
+      tab.addEventListener("click", () => tab.classList.toggle("tab--active"))
+    );
+
+    reset.addEventListener("click", () =>
+      tabAll.forEach((tab) => tab.classList.remove("tab--active"))
+    );
 
     const getData = () => ({
       windowY: wind.getBoundingClientRect().top,

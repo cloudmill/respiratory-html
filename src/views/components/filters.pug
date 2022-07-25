@@ -80,11 +80,11 @@ mixin filters
                     +wrap-list
                       each tab in item.tabs
                         li.wrap-list__item
-                          +tab(['filter'])
+                          +tab(['filter'])(data-filters-tab)
                             |!{tab}
     .filters__panel
       .filters__panel-col
-        +press.press--info.press--full
+        +press.press--info.press--full(data-filters-reset)
           |сбросить
       .filters__panel-col
         +press.press--info.press--full

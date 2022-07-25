@@ -28,11 +28,15 @@ function headerOnScroll() {
           header.classList.add("header--hide");
 
           if (document.querySelector('.rails__train')) {
-            document.querySelector('.rails__train').style.transform = 'translateY(-40px)'
+            document.querySelector('.rails__train').style.transform = 'translateY(-10rem)'
           }
         } else {
           header.classList.remove("header--hide");
           header.classList.add("header--short");
+
+          if (document.querySelector('.rails__train')) {
+            document.querySelector('.rails__train').style.transform = 'translateY(-6rem)'
+          }
         }
       }
 

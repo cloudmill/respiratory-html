@@ -1,4 +1,8 @@
 .heading {
+  &--position {
+    @include font-fsl("title-1", 54px, 100%);
+  }
+
   &--d {
     &-white {
       @media #{media('>')} {

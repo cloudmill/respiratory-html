@@ -1,0 +1,45 @@
+.position {
+  $component: &;
+  $transition: transition(major);
+
+  padding: 0 $column-padding;
+  display: grid;
+  grid-template-columns: calc(#{columns(3)}) calc(
+      #{columns(3)} - (#{$column-padding} - (#{$column-gap} / 2))
+    );
+  align-items: start;
+  column-gap: $column-gap;
+
+  &:hover {
+    #{$component} {
+      &__title {
+        color: color(blue);
+      }
+    }
+  }
+
+  &__col {
+    padding: $column-padding 0;
+
+    &:nth-child(2) {
+      padding-bottom: calc(#{$column-padding} * 2 + #{rem(64px)});
+      min-height: 80vh;
+    }
+  }
+
+  &__image {
+    display: flex;
+  }
+
+  &__img {
+    border-radius: 0 rem(16px) rem(16px) 0;
+  }
+
+  &__content {
+    margin-top: rem(40px);
+  }
+
+  &__title {
+    transition: color $transition;
+  }
+}

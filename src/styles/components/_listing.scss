@@ -1,5 +1,5 @@
 .listing {
-  padding: 1px;
+  padding: 1px 0;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   column-gap: 1px;
@@ -9,12 +9,11 @@
     position: relative;
     z-index: 0;
 
-    height: 80vh;
-
     &::before {
       @include inset(-1px);
 
       position: absolute;
+      z-index: -1;
 
       content: "";
 

@@ -4,23 +4,23 @@ mixin heading(mods = [], tag)
   
   case tag
     when 1
-      h1.heading(class=classes)
+      h1.heading(class=classes)&attributes(attributes)
         block
     when 2
-      h2.heading(class=classes)
+      h2.heading(class=classes)&attributes(attributes)
         block
     when 3
-      h3.heading(class=classes)
+      h3.heading(class=classes)&attributes(attributes)
         block
     when 4
-      h4.heading(class=classes)
+      h4.heading(class=classes)&attributes(attributes)
         block
     when 5
-      h5.heading(class=classes)
+      h5.heading(class=classes)&attributes(attributes)
         block
     when 6
-      h6.heading(class=classes)
+      h6.heading(class=classes)&attributes(attributes)
         block
     default
-      .heading(class=classes)
+      .heading(class=classes)&attributes(attributes)
         block

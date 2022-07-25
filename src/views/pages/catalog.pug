@@ -24,6 +24,21 @@ block content
   +container
     +grid(['catalog-panel'])
       .grid__item
+        +wrap-list
+          -
+            var items = [
+              'Все',
+              'RK 9000',
+              'RK 6000',
+              'АЛИНА®',
+              'ЮЛИЯ®',
+              'нева®',
+              'GAGARA®',
+            ];
+          each item, index in items
+            li.wrap-list__item
+              +tab(['large', !index && 'active'])(data-filters-series)
+                |!{item}
         button(data-side-modal-trigger='filters')
           |filters
       .grid__item

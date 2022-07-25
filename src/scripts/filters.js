@@ -8,6 +8,14 @@ const start = () => {
     const content = filters.querySelector("[data-filters-content]");
     const tabAll = filters.querySelectorAll("[data-filters-tab]");
     const reset = filters.querySelector("[data-filters-reset]");
+    const seriesAll = document.querySelectorAll("[data-filters-series]");
+
+    seriesAll.forEach((series) =>
+      series.addEventListener("click", () => {
+        seriesAll.forEach((series) => series.classList.remove("tab--active"));
+        series.classList.add("tab--active");
+      })
+    );
 
     tabAll.forEach((tab) =>
       tab.addEventListener("click", () => tab.classList.toggle("tab--active"))

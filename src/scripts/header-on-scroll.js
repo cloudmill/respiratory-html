@@ -24,7 +24,12 @@ function headerOnScroll() {
 
       if (Math.abs(scrollTop - newScrollTop) >= 1) {
         if (newScrollTop > scrollTop) {
+          header.classList.remove("header--short");
           header.classList.add("header--hide");
+
+          if (document.querySelector('.rails__train')) {
+            document.querySelector('.rails__train').style.transform = 'translateY(-40px)'
+          }
         } else {
           header.classList.remove("header--hide");
           header.classList.add("header--short");
@@ -34,10 +39,15 @@ function headerOnScroll() {
       if (scrollTop < 1) {
         header.classList.remove("header--short");
         header.classList.remove("header--hide");
+
+        if (document.querySelector('.rails__train')) {
+          document.querySelector('.rails__train').style.transform = ''
+        }
       }
 
       scrollTop = newScrollTop;
     }
+
   }
 }
 

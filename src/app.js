@@ -99,12 +99,19 @@ addEventListener("load", async () => {
     top.zoom.in();
   }
 
-  document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
+  const aboutVideo = document.querySelector('[data-start-video]');
 
-    document.querySelector('[data-start-video]').play();
-    document.querySelector('[data-start-video]').setAttribute('autoplay', '');
+  if (aboutVideo) {
 
-  })
+    document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
+
+      console.log('can play');
+      document.querySelector('[data-start-video]').play();
+      document.querySelector('[data-start-video]').setAttribute('autoplay', '');
+  
+    })
+    
+  }
 
 });
 

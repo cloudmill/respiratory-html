@@ -98,6 +98,14 @@ addEventListener("load", async () => {
     top.controls.startProgress();
     top.zoom.in();
   }
+
+  document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
+
+    document.querySelector('[data-start-video]').play();
+    document.querySelector('[data-start-video]').setAttribute('autoplay', '');
+
+  })
+
 });
 
 addEventListener("beforeunload", () => {

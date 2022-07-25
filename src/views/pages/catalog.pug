@@ -4,7 +4,7 @@ block definitions
   -
     app.title = 'Каталог';
 
-//- block grid-test
+block grid-test
   +grid-test
 
 block side-modal
@@ -39,7 +39,8 @@ block content
             li.wrap-list__item
               +tab(['large', !index && 'active'])(data-filters-series)
                 |!{item}
-        button(data-side-modal-trigger='filters')
-          |filters
       .grid__item
-        |123
+        +press.press--info.press--full(data-side-modal-trigger='filters')
+          |фильтры
+    +space(['sub-block'])
+    +listing

@@ -1,12 +1,14 @@
 .rails {
 
+  $transition: transition(major);
+
   @media #{media(">")} {
 
     height: 100%;
 
     &__train {
       position: sticky;
-      transition: .5s;
+      transition: $transition;
       // height: 70vh;
       // display: flex;
       // justify-content: flex-end;

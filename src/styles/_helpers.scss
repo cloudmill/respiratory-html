@@ -113,6 +113,7 @@ $colors: (
   modal: rgba(0, 0, 0, 0.2),
   grid-test: rgba(255, 0, 0, 0.05),
   header-transparent-border: rgba(255, 255, 255, 0.2),
+  modal-layout: #C1C1C1,
 );
 @function color($variant: black) {
   @return map.get($colors, $variant);

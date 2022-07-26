@@ -10,6 +10,10 @@
   align-items: start;
   column-gap: $column-gap;
 
+  @media #{media('<')} {
+    display: none;
+  }
+
   &:hover {
     #{$component} {
       &__title {

@@ -1,0 +1,45 @@
+.position-mobile {
+  $component: &;
+  $transition: transition(major);
+
+  padding: rem(20px);
+
+  @media #{media('>')} {
+    display: none;
+  }
+
+  &:hover {
+    &__img {
+      transform: scale(1.15);
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(2, calc(#{columns-small(2)}));
+    column-gap: $column-gap-small;
+    align-items: start;
+  }
+
+  &__left {
+    display: flex;
+  }
+
+  &__right {
+  }
+
+  &__frame {
+    display: flex;
+    overflow: hidden;
+
+    border-radius: 0 rem(6px) rem(6px) 0;
+  }
+
+  &__img {
+    transition: transform $transition;
+  }
+
+  &__bottom {
+    margin-top: rem(20px);
+  }
+}

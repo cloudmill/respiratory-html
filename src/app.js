@@ -5,6 +5,8 @@ import parsley from "parsleyjs";
 import "parsleyjs/dist/i18n/ru";
 
 import { wait } from "./scripts/wait";
+import "./scripts/mobile-menu";
+import "./scripts/header-modals";
 
 import * as scrollPage from "./scripts/scrollPage";
 import * as noTransitionChild from "./scripts/noTransitionChild";

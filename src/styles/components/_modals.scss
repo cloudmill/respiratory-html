@@ -2,11 +2,27 @@
 
   position: relative;
   z-index: 0;
+  @media #{media("<")} {
+    padding-top: rem(58px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    width: 100%;
+  }
+
+  display: none;
 
   background: color(white);
 
   &__container {
     padding: rem(40px);
+    @media #{media("<")} {
+      padding: rem(20px);
+
+      border-top: 1px solid color(gray);
+    }
   }
 
   &__row {
@@ -21,7 +37,10 @@
 
     &:nth-child(2) {
       margin-left: rem(20px);
-
+      @media #{media("<")} {
+        margin-left: rem(8px);
+      }
+      
       width: rem(217px);
       flex-shrink: 0;
     }
@@ -32,6 +51,10 @@
     top: rem(12px);
     right: rem(12px);
     z-index: 1;
+    @media #{media("<")} {
+      top: rem(17px);
+      right: rem(20px);
+    }
 
     display: flex;
     align-items: center;
@@ -43,10 +66,16 @@
   &__svg {
     width: rem(17px);
     height: rem(17px);
+    @media #{media("<")} {
+      width: rem(22px);
+      height: rem(22px);
+    }
   }
 }
 
 .product-modal {
+
+  display: none;
 
   background: color(white);
 

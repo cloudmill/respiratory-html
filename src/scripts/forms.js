@@ -15,6 +15,15 @@ function forms() {
         $('.modals-container').addClass('active');
         response.addClass('active');
 
+
+
+        $(this).find("input").each(function() {
+          $(this).val('')
+        });
+        $(this).find("textarea").each(function() {
+          $(this).val('')
+        });
+
       }
 
     }, 0);

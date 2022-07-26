@@ -11,6 +11,18 @@
         }
       }
     }
+
+    &-mobile {
+      > {
+        #{$component} {
+          &__item {
+            &:not(:first-child) {
+              margin-top: rem(20px);
+            }
+          }
+        }
+      }
+    }
   }
 
   &--filters {

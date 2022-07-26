@@ -6,9 +6,19 @@
   &--unit-feature {
     #{$component} {
       &__btn {
-        @include font-fsl('content-1', 12px, 130%);
-        
+        @include font-fsl("content-1", 12px, 130%);
+
         height: rem(30px);
+      }
+    }
+
+    &-mobile {
+      #{$component} {
+        &__btn {
+          @include font-fsl("content-1", 10px, 130%);
+
+          height: rem(27px);
+        }
       }
     }
   }
@@ -16,8 +26,8 @@
   &--card-new {
     #{$component} {
       &__btn {
-        @include font-fsl('content-1', 12px, 130%);
-        
+        @include font-fsl("content-1", 12px, 130%);
+
         height: rem(30px);
       }
     }

@@ -4,6 +4,14 @@
 
     &-feature {
       @include font-fsl("title-2", 13px, 100%);
+
+      &-mobile {
+        @include font-fsl("title-2", 10px, 100%);
+      }
+    }
+
+    &-mobile {
+      @include font-fsl("title-3", 24px, 100%);
     }
   }
 

@@ -5,5 +5,60 @@ mixin position-mobile
         .position-mobile__frame
           img.position-mobile__img(src='assets/images/unit/unit.jpeg')
       .position-mobile__right
+        +heading(['position-mobile'], 2).position-mobile__title
+          |RK 9010
+        .position-mobile__props
+          -
+            var items = [
+              {
+                name: 'Класс защиты',
+                value: 'FFP1 R D',
+              },
+              {
+                name: 'Клапан выдоха',
+                value: 'нет',
+              },
+            ];
+          each item in items
+            .position-mobile__prop
+              .position-mobile__prop-name
+                |!{item.name}
+              .position-mobile__prop-value
+                |!{item.value}
+        .position-mobile__mark
+          +arrow-tilt-svg.position-mobile__svg
     .position-mobile__bottom
-      |123
+      +stack(['position-mobile'])
+        -
+          var items = [
+            {
+              src: 'assets/images/series/additional-protection.svg',
+              title: 'Защита от всех видов аэрозолей',
+              labels: [
+                'Пыль',
+                'Дым',
+                'Туман',
+              ],
+            },
+            {
+              src: 'assets/images/series/protection.svg',
+              title: 'Дополнительная защита',
+              labels: [
+                'Кислые газы',
+                'Неорганические газы',
+                'Основные газы',
+                'Пары ртути',
+              ],
+            },
+          ];
+        each item in items
+          .stack__item
+            .position-mobile__feature
+              img.position-mobile__feature-img(src=item.src)
+              +heading(['position-feature-mobile'], 6)
+                |!{item.title}
+              +wrap-list([]).position-mobile__feature-labels
+                each label in item.labels
+                  .wrap-list__item
+                    +static-tab(['unit-feature-mobile'])
+                      |!{label}

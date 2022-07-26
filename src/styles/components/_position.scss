@@ -10,14 +10,14 @@
   align-items: start;
   column-gap: $column-gap;
 
+  @media #{media('<')} {
+    display: none;
+  }
+
   &:hover {
     #{$component} {
       &__title {
         color: color(blue);
-      }
-
-      &__img {
-        transform: scale(1.15);
       }
 
       &__mark {

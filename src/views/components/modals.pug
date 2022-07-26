@@ -1,0 +1,109 @@
+
+mixin mobile-menu
+  .mobile-menu
+    .mobile-menu__top
+      .mobile-menu__close(data-menu-button='')
+        +cross-svg.mobile-menu__close-svg
+    .mobile-menu__body 
+      ul.mobile-menu__list
+        each item,i in ['Продукция', 'партнерам']
+          li.mobile-menu__item(data-modal-btn=i class=(i === 0 ? 'active' : ''))
+            .mobile-menu__text 
+              |#{item}
+            .mobile-menu__icon 
+              +arrow-drop-svg.mobile-menu__svg
+      .mobile-menu__container
+        nav.mobile-menu__nav
+          each item in ['потребителям', 'о компании', 'Контроль качества', 'Работа у нас', 'Документация', 'Медиа-центр', 'где купить', ]
+            .mobile-menu__nav-item 
+              a.mobile-menu__nav-link(href="#") 
+                |#{item}
+      ul.mobile-menu__list
+        li.mobile-menu__item(data-modal-btn='2')
+          .mobile-menu__text 
+            |ru
+          .mobile-menu__icon 
+            +arrow-drop-svg.mobile-menu__svg
+      .mobile-menu__modals 
+        .mobile-menu__modal(data-modal-menu='0')
+          ul.mobile-menu__list 
+            li.mobile-menu__item.active(data-modal-close='')
+              .mobile-menu__row
+                .mobile-menu__icon.mobile-menu__icon--left 
+                  +arrow-drop-svg.mobile-menu__svg
+                .mobile-menu__text 
+                  |меню
+          .mobile-menu__container
+            nav.mobile-menu__nav
+              each item in ['RK 9000', 'RK 6000', 'АЛИНА®', 'ЮЛИЯ®', 'НЕВА®', 'GAGARA®', ]
+                .mobile-menu__nav-item 
+                  a.mobile-menu__nav-link(href="#") 
+                    |#{item}
+          .mobile-menu__button 
+            +press.press--info
+              |в каталог
+        .mobile-menu__modal(data-modal-menu='1')
+          ul.mobile-menu__list 
+            li.mobile-menu__item.active(data-modal-close='')
+              .mobile-menu__row
+                .mobile-menu__icon.mobile-menu__icon--left 
+                  +arrow-drop-svg.mobile-menu__svg
+                .mobile-menu__text 
+                  |меню
+          .mobile-menu__container
+            nav.mobile-menu__nav
+              each item in ['Промышленным предприятиям', 'Медицинским учреждениям', 'Торговым организациям',]
+                .mobile-menu__nav-item 
+                  a.mobile-menu__nav-link(href="#") 
+                    |#{item}
+          .mobile-menu__button 
+            +press.press--info
+              |в каталог
+        .mobile-menu__modal(data-modal-menu='2')
+          ul.mobile-menu__list 
+            li.mobile-menu__item.active(data-modal-close='')
+              .mobile-menu__row
+                .mobile-menu__icon.mobile-menu__icon--left 
+                  +arrow-drop-svg.mobile-menu__svg
+                .mobile-menu__text 
+                  |меню
+          .mobile-menu__container
+            nav.mobile-menu__nav
+              each item in ['en', 'fr', 'kaz', 'jp', 'uz', ]
+                .mobile-menu__nav-item 
+                  a.mobile-menu__nav-link(href="#") 
+                    |#{item}
+          .mobile-menu__button 
+            +press.press--info
+              |в каталог
+
+mixin search-modal 
+  .search-modal(data-header-modal='search')
+    .search-modal__container 
+      form.search-modal__form(action="/")
+      .search-modal__row 
+        .search-modal__col
+          .form-field
+            input.form-field__input.form-field__input--dark(placeholder='Что вы хотите найти?' required)
+        .search-modal__col
+          +press.press--info.press--full
+            |искать
+    .search-modal__button(data-header-close='')
+      +cross-svg.search-modal__svg
+
+mixin product-modal 
+  .product-modal(data-header-modal='products')
+    .product-modal__grid
+      - for (i = 0; i < 6; i++)
+        a.product-modal__item(href="#") 
+          .product-modal__image
+            img.product-modal__img(src="assets/images/example.jpeg", alt="")
+          .product-modal__title 
+            |RK 9000
+          .product-modal__inner
+            .product-modal__icon 
+              +arrow-tilt-svg.product-modal__svg
+    .product-modal__container 
+      .product-modal__button
+        +press.press--info.press--full
+          |в каталог

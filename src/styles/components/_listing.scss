@@ -5,6 +5,10 @@
   column-gap: 1px;
   row-gap: 1px;
 
+  @media #{media('<')} {
+    grid-template-columns: 100%;
+  }
+
   &__item {
     position: relative;
     z-index: 0;

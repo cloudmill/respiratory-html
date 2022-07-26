@@ -20,10 +20,6 @@
         color: color(blue);
       }
 
-      &__img {
-        transform: scale(1.15);
-      }
-
       &__mark {
         &::before {
           transform: scale(1);

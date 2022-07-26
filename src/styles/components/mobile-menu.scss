@@ -1,0 +1,145 @@
+.mobile-menu {
+  $comp: &;
+  $transition: transition(minor);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  transform: translateX(100%);
+
+  width: 100vw;
+  height: 100vh;
+
+  @media #{media(">")} {
+    display: none;
+  }
+
+  transition: $transition;
+  background: color(white);
+
+  &__top {
+    padding: 0 rem(20px);
+
+    height: rem(58px); // header height
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__close-svg {
+    --size: #{rem(22px)};
+
+    width: var(--size);
+    height: var(--size);
+  }
+
+  &__body {
+    position: relative;
+    z-index: 0;
+  }
+
+  &__item {
+    padding: rem(14px) rem(20px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+    border-top: 1px solid color(gray);
+    border-bottom: 1px solid color(gray);
+
+    &:not(:first-child) {
+      margin-top: -1px;
+    }
+
+    &.active {
+      #{$comp}__text {
+        color: color(blue);
+      }
+      #{$comp}__svg {
+        path {
+          fill: color(blue);
+        }
+      }
+    }
+  }
+
+  &__text {
+    @include font-fsl("title-1", 12px, 100%);
+  }
+
+  &__icon {
+    margin-left: rem(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--left {
+      margin-left: 0;
+      margin-right: rem(4px);
+
+      #{$comp}__svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__svg {
+    --size: #{rem(18px)};
+
+    width: var(--size);
+    height: var(--size);
+
+    transform: rotate(-90deg);
+  }
+
+  &__container {
+    padding: rem(20px);
+  }
+
+  &__nav {
+  }
+  &__nav-item {
+    &:not(:first-child) {
+      margin-top: rem(20px);
+    }
+  }
+  &__nav-link {
+    @include font-fsl("title-1", 12px, 100%);
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 0 rem(20px);
+  }
+
+  &__modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    background: color(white);
+    transform: translateX(100%);
+    transition: $transition;
+
+    &.active {
+      transform: none;
+    }
+  }
+}

@@ -102,13 +102,13 @@
 
       &-value {
         @include font-fsl('title-2', 16px, 100%);
-        font-weight: 600;
+        font-weight: 550;
       }
     }
   }
   &--card-value-text {
     @include font-fsl("title-2", 16px, 100%);
-    font-weight: 600;
+    font-weight: 550;
   }
   &--guard {
     @include font-fsl("content-1", 12px, 130%);

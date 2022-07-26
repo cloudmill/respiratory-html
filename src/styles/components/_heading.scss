@@ -1,6 +1,10 @@
 .heading {
   &--position {
     @include font-fsl("title-1", 54px, 100%);
+
+    &-feature {
+      @include font-fsl("title-2", 13px, 100%);
+    }
   }
 
   &--d {

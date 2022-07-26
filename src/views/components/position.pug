@@ -1,12 +1,66 @@
 mixin position
   a.position(href='#')
     .position__col.position__image
-      img.position__img(src='assets/images/unit/unit.jpeg')
+      .position__frame
+        img.position__img(src='assets/images/unit/unit.jpeg')
     .position__col
       +heading(['position'], 2).position__title
         |RK 9010
       +stack(['position']).position__content
         .stack__item
-          |123
+          .position__props
+            -
+              var items = [
+                {
+                  name: 'Класс защиты',
+                  value: 'FFP1 R D',
+                },
+                {
+                  name: 'Клапан выдоха',
+                  value: 'Нет',
+                },
+              ];
+            each item in items
+              .position__prop
+                .position__prop-name
+                  |!{item.name}
+                .position__prop-value
+                  |!{item.value}
         .stack__item
-          |123
+          +stack(['position'])
+            -
+              var items = [
+                {
+                  src: 'assets/images/series/additional-protection.svg',
+                  title: 'Защита от всех видов аэрозолей',
+                  labels: [
+                    'Пыль',
+                    'Дым',
+                    'Туман',
+                  ],
+                },
+                {
+                  src: 'assets/images/series/protection.svg',
+                  title: 'Дополнительная защита',
+                  labels: [
+                    'Кислые газы',
+                    'Неорганические газы',
+                    'Основные газы',
+                    'Пары ртути',
+                  ],
+                },
+              ];
+            each item in items
+              .stack__item
+                .position__feature
+                  img.position__feature-img(src=item.src)
+                  +heading(['position-feature'], 6)
+                    |!{item.title}
+                  +wrap-list([]).position__feature-labels
+                    each label in item.labels
+                      .wrap-list__item
+                        +static-tab(['unit-feature'])
+                          |!{label}
+      .position__mark
+        +arrow-tilt-svg.position__svg
+

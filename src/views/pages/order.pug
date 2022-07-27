@@ -126,7 +126,11 @@ block content
           
         .nvmuyk
           .ozbbnq
-            input.lpxpkk(placeholder='Выберите дату отгрузки')
+            .datepicker-wrapper
+              .form-field
+                input.form-field__input.form-field__input--dark(placeholder='Выберите дату отгрузки' data-date-picker='')
+                .datepicker-wrapper__icon
+                  +date-svg.datepicker-wrapper__svg
 
         .nvmuyk
           textarea.lpxpkk.lpxpkk--vkvfwb(placeholder="Комментарий к заказу")

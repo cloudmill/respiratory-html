@@ -1,4 +1,6 @@
 .wrap-list {
+  $component: &;
+
   --gap: #{rem(4px)};
 
   &--large {
@@ -10,6 +12,35 @@
 
   &--socials {
     --gap: #{rem(12px)};
+  }
+
+  &--catalog {
+    @media #{media("<")} {
+      @include scrollbar-hidden;
+
+      position: relative;
+      left: -$column-padding-small;
+
+      padding-left: $column-padding-small;
+      width: 100vw;
+      overflow-x: auto;
+    }
+
+    #{$component} {
+      &__list {
+        @media #{media("<")} {
+          flex-wrap: nowrap;
+        }
+      }
+
+      &__item {
+        &:last-child {
+          @media #{media("<")} {
+            padding-right: $column-padding-small;
+          }
+        }
+      }
+    }
   }
 
   &__list {

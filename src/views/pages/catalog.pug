@@ -24,7 +24,7 @@ block content
   +container
     +grid(['catalog-panel'])
       .grid__item
-        +wrap-list
+        +wrap-list(['catalog'])
           -
             var items = [
               'Все',
@@ -43,5 +43,5 @@ block content
         +press.press--info.press--full(data-side-modal-trigger='filters')
           |фильтры
   
-  +space(['sub-block'])
+  +space(['listing'])
   +listing

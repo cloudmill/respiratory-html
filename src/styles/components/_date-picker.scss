@@ -1,0 +1,140 @@
+.datepicker {
+  $transition: transition(major);
+
+  &-picker {
+    padding: rem(28px) rem(20px);
+    @media #{media("<")} {
+      padding: rem(24px);
+    }
+    width: rem(367px);
+    
+    border-radius: rem(12px);
+    box-shadow: 0px 24px 30px rgba(42, 46, 55, 0.08) !important;
+  }
+
+  &-header {
+    margin-bottom: rem(28px);
+    @media #{media("<")} {
+      margin-bottom: rem(24px);
+    }
+  }
+
+  &-controls {
+    --size: #{rem(24px)};
+    @media #{media("<")} {
+      --size: #{rem(18px)};
+    }
+    .button {
+      padding: 0;
+      height: var(--size);
+
+      &.view-switch {
+        @include font-fsl("title-2", 13px, 100%);
+        @media #{media("<")} {
+          @include fsl(10px);
+        }
+      }
+
+      &:hover {
+        background-color: transparent !important;
+      }
+    }
+
+    .prev-btn,
+    .next-btn {
+      width: var(--size);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &-grid {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .datepicker-cell {
+    @include font-fsl("content-1", 16px, 130%);
+    @media #{media("<")} {
+      @include fsl(14px);
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    transition: $transition;
+
+    @for $i from 36 to 43 {
+      &:nth-child(#{$i}) {
+        display: none;
+      }
+    }
+
+    &.day {
+      --size: #{rem(44px)};
+
+      width: var(--size);
+      height: var(--size);
+      flex-basis: auto !important;
+      flex: 0;
+      
+      &.next,
+      &.prev {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &:hover {
+      background-color: color(yellow);
+    }
+    &.focused {
+      background-color: color(yellow);
+    }
+    &.selected {
+      color: color(black);
+    }
+  }
+
+  .days {
+    width: 100%;
+  }
+
+  .days-of-week {
+    margin-bottom: rem(28px);
+    @media #{media("<")} {
+      margin-bottom: rem(24px);
+    }
+  }
+
+  .dow {
+    @include font-fsl("content-1", 14px, 130%);
+
+    color: color(gray-dark);
+  }
+}
+
+.datepicker-wrapper {
+  position: relative;
+  z-index: 0;
+
+  &__icon {
+    position: absolute;
+    top: rem(18px);
+    right: rem(24px);
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__svg {
+    width: rem(24px);
+    height: rem(24px);
+  }
+}

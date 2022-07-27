@@ -7,6 +7,7 @@ import "parsleyjs/dist/i18n/ru";
 import { wait } from "./scripts/wait";
 import "./scripts/mobile-menu";
 import "./scripts/header-modals";
+import "./scripts/date-picker";
 
 import * as scrollPage from "./scripts/scrollPage";
 import * as noTransitionChild from "./scripts/noTransitionChild";
@@ -101,20 +102,19 @@ addEventListener("load", async () => {
     top.zoom.in();
   }
 
-  const aboutVideo = document.querySelector('[data-start-video]');
+  const aboutVideo = document.querySelector("[data-start-video]");
 
   if (aboutVideo) {
-
-    document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
-
-      console.log('can play');
-      document.querySelector('[data-start-video]').play();
-      document.querySelector('[data-start-video]').setAttribute('autoplay', '');
-  
-    })
-    
+    document
+      .querySelector("[data-start-video]")
+      .addEventListener("canplaythrough", () => {
+        console.log("can play");
+        document.querySelector("[data-start-video]").play();
+        document
+          .querySelector("[data-start-video]")
+          .setAttribute("autoplay", "");
+      });
   }
-
 });
 
 addEventListener("beforeunload", () => {

@@ -1255,6 +1255,28 @@
   //   }
   // }
 
+  &--date {
+    .datepicker-wrapper__svg {
+      path {
+        fill: color(blue);
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    #{$component} {
+      &__input {
+        border-color: color(blue);
+      }
+    }
+    .datepicker-wrapper__svg {
+      path {
+        fill: color(blue);
+      }
+    }
+  }
+
   &__input {
     @include font-fsl("content-1", 16px, 130%);
 
@@ -1271,10 +1293,7 @@
     border-radius: rem(12px);
     color: color(black);
 
-    &:hover,
-    &:focus {
-      border-color: color(blue);
-    }
+    
 
     &--dark {
       background: color(gray-light);

@@ -178,9 +178,11 @@ const start = () => {
     }
 
     // title
-    const title = reslider.querySelector<HTMLElement>("[data-reslider-title]");
+    const titleAll = reslider.querySelectorAll<HTMLElement>(
+      "[data-reslider-title]"
+    );
 
-    if (title) {
+    titleAll.forEach((title) => {
       const titlesStr = title.dataset.resliderTitle || "[]";
       const titles = JSON.parse(titlesStr);
 
@@ -233,40 +235,45 @@ const start = () => {
           </Words>
         );
       });
-    }
+    });
 
     // controls
-    const prevBtn = reslider.querySelector<HTMLButtonElement>(
+    const prevBtnAll = reslider.querySelectorAll<HTMLButtonElement>(
       "[data-reslider-prev]"
     );
-    const nextBtn = reslider.querySelector<HTMLButtonElement>(
+    const nextBtnAll = reslider.querySelectorAll<HTMLButtonElement>(
       "[data-reslider-next]"
     );
 
-    if (prevBtn && nextBtn) {
-      prevBtn.disabled = true;
+    if (prevBtnAll && nextBtnAll) {
+      prevBtnAll.forEach((prevBtn) => (prevBtn.disabled = true));
 
-      prevBtn.addEventListener("click", () => store.dispatch(prev()));
-      nextBtn.addEventListener("click", () => store.dispatch(next()));
+      prevBtnAll.forEach((prevBtn) =>
+        prevBtn.addEventListener("click", () => store.dispatch(prev()))
+      );
+      nextBtnAll.forEach((nextBtn) =>
+        nextBtn.addEventListener("click", () => store.dispatch(next()))
+      );
 
       store.subscribe(() => {
         const { index, animation } = store.getState();
 
-        prevBtn.disabled = nextBtn.disabled = false;
+        prevBtnAll.forEach((prevBtn) => (prevBtn.disabled = false));
+        nextBtnAll.forEach((nextBtn) => (nextBtn.disabled = false));
 
         if (animation) {
           const end = animation[1];
 
           if (end === 0) {
-            prevBtn.disabled = true;
+            prevBtnAll.forEach((prevBtn) => (prevBtn.disabled = true));
           } else if (end === count - 1) {
-            nextBtn.disabled = true;
+            nextBtnAll.forEach((nextBtn) => (nextBtn.disabled = true));
           }
         } else {
           if (index === 0) {
-            prevBtn.disabled = true;
+            prevBtnAll.forEach((prevBtn) => (prevBtn.disabled = true));
           } else if (index === count - 1) {
-            nextBtn.disabled = true;
+            nextBtnAll.forEach((nextBtn) => (nextBtn.disabled = true));
           }
         }
       });
@@ -274,7 +281,7 @@ const start = () => {
 
     // cur
 
-    const cur = reslider.querySelector("[data-reslider-cur]");
+    const curAll = reslider.querySelectorAll("[data-reslider-cur]");
 
     store.subscribe(() => {
       const { index, animation } = store.getState();
@@ -283,18 +290,22 @@ const start = () => {
         const [start, end, part] = animation;
 
         if (part === "right") {
-          cur.textContent = end + 1;
+          curAll.forEach((cur) => (cur.textContent = String(end + 1)));
         }
       }
     });
 
     // progress
 
-    const progress = reslider.querySelector("[data-reslider-progress]");
+    const progressAll = reslider.querySelectorAll("[data-reslider-progress]");
 
     const getClass = (mod) => `reslider__progress--${mod}`;
     const removeMods = (mods) =>
-      mods.forEach((mod) => progress.classList.remove(getClass(mod)));
+      mods.forEach((mod) =>
+        progressAll.forEach((progress) =>
+          progress.classList.remove(getClass(mod))
+        )
+      );
 
     store.subscribe(() => {
       const { index, animation } = store.getState();
@@ -306,17 +317,25 @@ const start = () => {
           removeMods(["in-up", "in-down", "out-up", "out-down"]);
 
           if (start < end) {
-            progress.classList.add(getClass("out-up"));
+            progressAll.forEach((progress) =>
+              progress.classList.add(getClass("out-up"))
+            );
           } else {
-            progress.classList.add(getClass("out-down"));
+            progressAll.forEach((progress) =>
+              progress.classList.add(getClass("out-down"))
+            );
           }
         } else {
           removeMods(["in-up", "in-down", "out-up", "out-down"]);
 
           if (start < end) {
-            progress.classList.add(getClass("in-down"));
+            progressAll.forEach((progress) =>
+              progress.classList.add(getClass("in-down"))
+            );
           } else {
-            progress.classList.add(getClass("in-up"));
+            progressAll.forEach((progress) =>
+              progress.classList.add(getClass("in-up"))
+            );
           }
         }
       }

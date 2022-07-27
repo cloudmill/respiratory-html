@@ -24,6 +24,14 @@
       }
     }
 
+    &--listing {
+      #{$property}: rem(40px);
+
+      @media #{media("<")} {
+        #{$property}: rem(20px);
+      }
+    }
+
     &--sub-hr {
       #{$property}: rem(12px);
     }
@@ -95,7 +103,7 @@
   @each $mod, $property in $properties {
     &--#{$mod} {
       &#{$component} {
-        @include space($property)
+        @include space($property);
       }
     }
   }

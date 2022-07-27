@@ -6,6 +6,18 @@
       display: grid;
       grid-template-columns: calc(#{columns(9)}) calc(#{columns(3)});
       column-gap: $column-gap;
+
+      @media #{media("<")} {
+        display: block;
+
+        #{$component} {
+          &__item {
+            &:nth-child(2) {
+              margin-top: $column-padding-small;
+            }
+          }
+        }
+      }
     }
   }
 

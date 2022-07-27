@@ -107,7 +107,6 @@ addEventListener("load", async () => {
 
     document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
 
-      console.log('can play');
       document.querySelector('[data-start-video]').play();
       document.querySelector('[data-start-video]').setAttribute('autoplay', '');
   

@@ -4,6 +4,10 @@
   overflow-x: hidden;
   overflow-y: auto;
 
+  @media #{media('<')} {
+    @include scrollbar-hidden;
+  }
+
   &__container {
     width: 100vw;
     min-height: 100vh;

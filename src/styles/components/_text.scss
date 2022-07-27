@@ -27,9 +27,11 @@
       margin-top: rem(8px);
       @include fsl(12px);
     }
+    font-weight: 550;
   }
   &--zay {
     @include font-fsl("title-2", 60px, 110%);
+    font-weight: 550;
     @media #{media("<")} {
       @include fsl(28px);
     }
@@ -74,18 +76,22 @@
   }
   &--address {
     @include font-fsl("title-2", 32px, 120%);
+    font-weight: 550;
 
     @media #{media("<")} {
       @include font-fsl("title-2", 16px, 120%);
+      font-weight: 550;
     }
   }
   &--404-desc {
     @include font-fsl("title-2", 32px, 120%);
+    font-weight: 550;
 
     color: color(gray-dark);
 
     @media #{media("<")} {
-      @include fsl(16px)
+      @include fsl(16px);
+      font-weight: 550;
     }
   }
   &--card {
@@ -115,9 +121,11 @@
   }
   &--day {
     @include font-fsl('title-2', 40px, 100%);
+    font-weight: 550;
   }
   &--month {
     @include font-fsl('title-2', 16px, 100%);
+    font-weight: 550;
   }
 
   &--blue {

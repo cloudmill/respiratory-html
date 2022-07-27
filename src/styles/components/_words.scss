@@ -3,6 +3,7 @@
   $easing: timing-function(major);
 
   @include font-fsl("title-3", 130px, 100%);
+  font-weight: 550;
 
   &--blue {
     color: color(blue);

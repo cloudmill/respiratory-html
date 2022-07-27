@@ -3,12 +3,14 @@
   @media #{media("<")} {
     @include font-fsl("title-2", 16px, 120%);
   }
+  font-weight: 550;
 
   &--large {
     @include font-fsl("title-3", 54px, 100%);
     @media #{media("<")} {
       @include font-fsl("title-3", 24px, 100%);
     }
+    font-weight: 550;
   }
 
   &--indent {

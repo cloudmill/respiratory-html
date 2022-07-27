@@ -9,6 +9,7 @@
       #{$component} {
         &__link {
           @include font-fsl("title-2", 32px, 120%);
+          font-weight: 550;
 
           text-decoration-line: underline;
           text-decoration-color: color(black);
@@ -16,6 +17,7 @@
 
           @media #{media("<")} {
             @include font-fsl("title-2", 16px, 120%);
+            font-weight: 550;
           }
 
           &:hover {
@@ -31,7 +33,7 @@
     > {
       #{$component} {
         &__link {
-          @include font-fsl("title-2", 18px, 120%);
+          @include font-fsl("title-2", 18px, 120%);font-weight: 550;
 
           text-decoration-line: underline;
           text-decoration-color: color(black);
@@ -39,6 +41,7 @@
 
           @media #{media("<")} {
             @include font-fsl("title-2", 16px, 120%);
+            font-weight: 550;
           }
 
           &:hover {

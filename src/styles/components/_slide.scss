@@ -49,6 +49,7 @@
 
       &__text {
         @include font-fsl("title-2", 14px, 130%);
+        font-weight: 550;
         @media #{media("<")} {
           margin-top: rem(12px);
         }
@@ -61,11 +62,12 @@
       &__date {
         &-day {
           @include font-fsl("title-2", 24px, 100%);
+          font-weight: 550;
         }
 
         &-month {
           @include font-fsl("title-2", 12px, 100%);
-
+          font-weight: 550;
           margin-left: rem(12px);
         }
       }
@@ -98,6 +100,7 @@
 
       &__text {
         @include font-fsl("title-2", 20px, 130%);
+        font-weight: 550;
 
         margin-top: rem(40px);
       }
@@ -108,11 +111,12 @@
       &__date {
         &-day {
           @include font-fsl("title-2", 40px, 100%);
+          font-weight: 550;
         }
 
         &-month {
           @include font-fsl("title-2", 16px, 100%);
-
+          font-weight: 550;
           margin-left: rem(10px);
         }
       }

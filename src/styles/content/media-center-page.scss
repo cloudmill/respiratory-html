@@ -102,6 +102,7 @@
         border: 1px solid color(gray);
         border-radius: rem(6px);
         font-size: rem(20px);
+        font-weight: 550;
         line-height: 1;
         text-transform: uppercase;
         white-space: nowrap;
@@ -132,6 +133,7 @@
         border: 1px solid color(gray);
         border-radius: rem(4px);
         font-size: rem(13px);
+        font-weight: 550;
         line-height: 1;
         text-transform: uppercase;
         white-space: nowrap;
@@ -245,6 +247,7 @@
 
     @media #{media('>')} {
       @include font-fsl("title-2", 32px);
+      font-weight: 550;
       margin: rem(120px) 0 rem(40px);
     }
 
@@ -363,6 +366,7 @@
     @media #{media('>')} {
       margin-top: 16px;
       @include font-fsl("title-2", 18px);
+      font-weight: 550;
     }
   }
 

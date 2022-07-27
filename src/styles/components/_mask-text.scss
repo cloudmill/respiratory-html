@@ -46,12 +46,14 @@
 
     &--title {
       @include font-fsl("title-3", 54px, 110%);
+      font-weight: 550;
 
       color: color(yellow);
     }
 
     &--large {
       @include font-fsl("title-3", 80px, 100%);
+      font-weight: 550;
 
       color: color(white);
 
@@ -65,8 +67,10 @@
 
     &--top {
       @include font-fsl("title-3", 24px, 100%);
+      font-weight: 550;
 
       margin-left: rem(5px);
+      margin-top: rem(14px);
 
       vertical-align: top;
       color: color(white);

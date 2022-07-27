@@ -1,9 +1,11 @@
 .heading {
   &--position {
     @include font-fsl("title-1", 54px, 100%);
+    font-weight: 550;
 
     &-feature {
       @include font-fsl("title-2", 13px, 100%);
+      font-weight: 550;
 
       &-mobile {
         @include font-fsl("title-2", 10px, 100%);
@@ -57,9 +59,11 @@
     @media #{media("<")} {
       @include fsl(14px);
     }
+    font-weight: 550;
   }
   &--where {
     @include font-fsl("title-2", 24px, 100%);
+    font-weight: 550;
     @media #{media("<")} {
       @include fsl(12px);
     }
@@ -78,6 +82,7 @@
   }
   &--feature {
     @include font-fsl("title-2", 24px, 120%);
+    font-weight: 550;
     @media #{media("<")} {
       @include fsl(12px);
     }
@@ -87,9 +92,11 @@
     @media #{media("<")} {
       @include fsl(16px);
     }
+    font-weight: 550;
   }
   &--main {
     @include font-fsl("title-3", 72px, 100%);
+    font-weight: 550;
     @media #{media("<")} {
       @include fsl(24px);
     }
@@ -99,12 +106,15 @@
     @media #{media("<")} {
       @include fsl(30px);
     }
+    font-weight: 550;
   }
   &--404 {
     @include font-fsl("title-3", 200px, 100%);
+    font-weight: 550;
 
     @media #{media("<")} {
       @include fsl(100px);
+      font-weight: 550;
     }
   }
   &--card-value-title {
@@ -112,9 +122,11 @@
   }
   &--guard {
     @include font-fsl("title-2", 32px, 100%);
+    font-weight: 550;
   }
   &--card-new {
     @include font-fsl("title-2", 20px, 130%);
+    font-weight: 550;
   }
 
   &--pre-line {

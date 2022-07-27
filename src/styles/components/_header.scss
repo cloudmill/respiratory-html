@@ -208,6 +208,7 @@
 
     &-link {
       @include font-fsl("title-1", 13px, 100%);
+      font-weight: 550;
 
       transition: color $transition;
 

@@ -164,6 +164,7 @@
 
   &__text {
     @include font-fsl("title-2", 18px, 100%);
+    font-weight: 550;
 
     position: relative;
     z-index: 2;

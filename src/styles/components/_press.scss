@@ -212,6 +212,7 @@
     #{$component} {
       &__text {
         @include font-fsl("title-1", 13px, 100%);
+        font-weight: 550;
 
         &--start {
           color: color(black);
@@ -355,6 +356,7 @@
 
   &__text {
     @include font-fsl("title-1", 11px, 100%);
+    font-weight: 550;
 
     white-space: nowrap;
     transition: color $transition;

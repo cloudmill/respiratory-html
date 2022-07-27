@@ -171,6 +171,7 @@
 
   &__title {
     @include font("title-3");
+    font-weight: 550;
 
     font-size: rem(54px);
     line-height: 1;
@@ -223,6 +224,7 @@
 
     &-value {
       @include font("title-2");
+      font-weight: 550;
 
       font-size: rem(16px);
       line-height: 1;
@@ -249,6 +251,7 @@
 
     &-text {
       @include font("content-1");
+      font-weight: 550;
 
       margin-left: rem(15px);
       padding-top: rem(20px);

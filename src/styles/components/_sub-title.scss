@@ -1,5 +1,6 @@
 .sub-title {
   @include font-fsl("title-2", 18px, 100%);
+  font-weight: 550;
 
   @media #{media("<")} {
     @include fsl(12px);

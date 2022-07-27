@@ -133,6 +133,7 @@
     @media #{media("<")} {
       @include fsl(10px);
     }
+    font-weight: 550;
     z-index: 3;
 
     white-space: nowrap;

@@ -273,6 +273,7 @@
 
     &-title {
       @include font-fsl("title-2", 13px, 100%);
+      font-weight: 550;
 
       margin-bottom: rem(8px);
     }

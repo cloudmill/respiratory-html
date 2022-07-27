@@ -83,6 +83,7 @@
 
     &-value {
       @include font-fsl("title-2", 16px, 100%);
+      font-weight: 550;
 
       margin-top: rem(9px);
     }

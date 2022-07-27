@@ -103,6 +103,7 @@
       @media #{media("<")} {
         @include fsl(24px);
       }
+      font-weight: 550;
       color: color(white);
       transition: color $transition;
       white-space: nowrap;
@@ -148,6 +149,7 @@
       @media #{media("<")} {
         @include fsl(24px);
       }
+      font-weight: 550;
       color: color(white);
       transition: color $transition;
 

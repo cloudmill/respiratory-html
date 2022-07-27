@@ -125,6 +125,7 @@
 
   &__cur {
     @include font-fsl("title-1", 18px, 100%);
+    font-weight: 550;
 
     transition: color $transition;
   }

@@ -216,6 +216,7 @@
 
     &-text {
       @include font-fsl("title-2", 18px, 100%);
+      font-weight: 550;
 
       transform: translate3d(0, var(--text-offset), 0);
       will-change: color, transform;

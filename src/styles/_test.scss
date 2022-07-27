@@ -40,6 +40,7 @@
     @include font-fsl("title-3", 24px, 100%);
   }
 
+  font-weight: 550;
   color: color(yellow);
 }
 
@@ -235,6 +236,7 @@
         @include font-fsl("title-3", 14px, 100%);
       }
       color: color(white);
+      font-weight: 550;
 
       &--pre-line {
         white-space: pre-line;
@@ -251,10 +253,12 @@
         @include font-fsl("title-3", 24px, 100%);
       }
       color: color(yellow);
+      font-weight: 550;
     }
 
     &-description {
       @include font-fsl("title-2", 18px, 120%);
+      font-weight: 550;
 
       margin-top: rem(20px);
       max-width: rem(630px);
@@ -295,6 +299,7 @@
       @include fsl(12px);
       max-width: none;
     }
+    font-weight: 550;
     max-width: calc(#{columns(4)});
   }
 }
@@ -309,6 +314,7 @@
     @media #{media("<")} {
       @include fsl(28px);
     }
+    font-weight: 550;
     position: relative;
     z-index: 0;
 
@@ -823,6 +829,7 @@
       margin-top: rem(8px);
     }
     margin-top: rem(24px);
+    font-weight: 550;
   }
 
   &__size {
@@ -1017,6 +1024,7 @@
     @media #{media("<")} {
       @include fsl(24px);
     }
+    font-weight: 550;
   }
 
   &__label {
@@ -1062,6 +1070,7 @@
       @media #{media("<")} {
         @include fsl(10px);
       }
+      font-weight: 550;
     }
   }
 
@@ -1082,6 +1091,7 @@
 
     &-title {
       @include font-fsl("title-2", 13px, 100%);
+      font-weight: 550;
     }
 
     &-value {

@@ -11,6 +11,15 @@
 
   &--reslider {
     @include fsl(72px);
+
+    @media #{media("<=", xl)} {
+      @include fsl(64px);
+    }
+
+    @media #{media("<=", ll)} {
+      @include fsl(52px);
+    }
+    
     @media #{media("<")} {
       @include fsl(20px);
     }

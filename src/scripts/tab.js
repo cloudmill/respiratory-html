@@ -19,12 +19,19 @@ const start = () => {
     };
 
     buttons.forEach((button, index) => {
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (e) => {
         if (index !== active) {
           removeActive();
           setActive(index);
 
           active = index;
+
+          if (e.target.closest('.where-buy-tubs') && index == 1) {
+            button.closest('.grid').classList.add('hide-second')
+          } else {
+            button.closest('.grid').classList.remove('hide-second')
+          }
+
         }
       });
     });

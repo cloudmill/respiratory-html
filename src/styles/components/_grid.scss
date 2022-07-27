@@ -589,6 +589,12 @@
       grid-template-columns: 1fr;
     }
   }
+
+  &.hide-second {
+    .grid__item:nth-child(2) {
+      display: none;
+    }
+  }
 }
 
 .mob-bottom {

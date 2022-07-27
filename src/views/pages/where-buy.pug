@@ -15,7 +15,7 @@ block content
       |Где купить
     +space(['block'])
     +grid(['8-4'])
-      .grid__item
+      .grid__item.where-buy-tubs
         +wrap-list(['large'])
           -
             var items = [
@@ -26,7 +26,36 @@ block content
             li.wrap-list__item
               +tab(['large', index === 0 && 'active']).js-tab-button
                 |!{item}
-    
+                
+      .grid__item
+        -
+          var select = {
+            placeholder: 'Город',
+            items: [
+              {
+                value: 'Санкт-Петербург',
+                text: 'Санкт-Петербург',
+              },
+              {
+                value: 'Курск',
+                text: 'Курск',
+              },
+              {
+                value: 'Брест',
+                text: 'Брест',
+              },
+              {
+                value: 'Санкт-Петербург',
+                text: 'Санкт-Петербург',
+              },
+              {
+                value: 'Курск',
+                text: 'Курск',
+              },
+            ],
+          };
+        +select(select)
+
   +space(['sub-block'])
   .tab-container.js-tab-container
     .tab-container__item.tab-container__item--active.js-tab-item

@@ -1,5 +1,4 @@
 .datepicker {
-  $transition: transition(major);
 
   &-picker {
     padding: rem(28px) rem(20px);
@@ -66,7 +65,6 @@
     justify-content: center;
 
     border-radius: 50%;
-    transition: $transition;
 
     @for $i from 36 to 43 {
       &:nth-child(#{$i}) {
@@ -131,6 +129,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    pointer-events: none;
   }
 
   &__svg {

@@ -172,6 +172,13 @@
     margin-bottom: 100px;
   }
 
+  .slide--small .slide__top {
+    height: rem(222px);
+    @media #{media('>')} {
+      height: rem(295px);
+    }
+  }
+
   &__dots {
     position: absolute;
     bottom: 0;

@@ -290,7 +290,7 @@
     background-color: color(black);
     background-image: url("assets/images/info.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     @media #{media("<")} {
       background: none;
     }

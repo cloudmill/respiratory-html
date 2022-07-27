@@ -270,6 +270,14 @@
         justify-content: flex-end;
       }
     }
+
+    &-bottom {
+      @media #{media('<', xl)} {
+        display: flex;
+        justify-content: space-between;
+        padding-left: rem(20px);
+      }
+    }
   }
 
   // logo

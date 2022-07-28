@@ -18,3 +18,9 @@ export const getClassFromMod = (className, mod) =>
 
 export const getClassesFromMods = (className, mods) =>
   mods && mods.map((mod) => getClassFromMod(className, mod));
+
+export const checkBrInString = (srt) => /<br>/.test(srt);
+
+export const getWordsWhiteSpace = (str) => str.split(" ");
+
+export const getWordsBr = (str: string): string[] => str.split("<br>");

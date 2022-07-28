@@ -187,6 +187,7 @@ const start = () => {
       const titles = JSON.parse(titlesStr);
 
       const titleRoot = ReactDOM.createRoot(title);
+      console.log(titles[0]);
       titleRoot.render(
         <Words duration={DURATION} move={false} mods={["reslider"]}>
           {titles[0]}
@@ -221,6 +222,8 @@ const start = () => {
 
       store.subscribe(() => {
         const { index, animation } = store.getState();
+
+        console.log(titles[index]);
 
         titleRoot.render(
           <Words

@@ -602,9 +602,9 @@ mixin reslider(mod)
             +container
               -
                 var titles = [
-                  'Защитные свойства для решения Ваших задач',
-                  'Надежное качество',
-                  'Отклик производителя',
+                  'Экспертный подход',
+                  'Качество',
+                  'Сервис',
                 ];
               .mobile-only
                 .grid__item(data-reslider-title=JSON.stringify(titles))
@@ -705,24 +705,12 @@ mixin reslider(mod)
                         .circle.circle--blue
                           button.circle__button(type="button" data-reslider-next)
                             +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
-                -
-                  var titles = [
-                    'Защитные свойства для решения Ваших задач',
-                    'Надежное качество',
-                    'Отклик производителя',
-                  ];
                 .desktop-only
-                  .grid__item(data-reslider-title=JSON.stringify(titles))
+                  .grid__item(data-reslider-title='["Защитные свойства для решения Ваших задач","Надежное<br>качество","Отклик производителя"]')
           .reslider__place
             +container
-              -
-                var titles = [
-                  'Защитные свойства для решения Ваших задач',
-                  'Надежное качество',
-                  'Отклик производителя',
-                ];
               .mobile-only
-                .grid__item(data-reslider-title=JSON.stringify(titles))
+                .grid__item(data-reslider-title='["Защитные свойства для решения Ваших задач","Надежное<br>качество","Отклик производителя"]')
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper

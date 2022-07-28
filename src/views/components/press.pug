@@ -67,3 +67,29 @@ mixin press(props = {})
           .press__decor-item.press__decor-item--end
             .press__decor-arrow
             .press__decor-arrow
+
+mixin press-header 
+  .press&attributes(attributes)
+    .press__btn
+      .press__content
+        .press__content-item.press__content-item--start
+          .press__icon.press__icon--start
+            img(src='assets/images/menu-start.svg').press__icon-img
+          .press__text.press__text--start
+            block
+        .press__content-item.press__content-item--end
+          .press__icon.press__icon--end
+            img(src='assets/images/menu-end.svg').press__icon-img.press__icon-show
+            img(src='assets/images/cross.svg').press__icon-img.press__icon-hidden
+          .press__text.press__text--end
+            block
+      .press__bg
+        .press__bg-item.press__bg-item--start
+        .press__bg-item.press__bg-item--end
+      .press__decor
+        .press__decor-item.press__decor-item--start
+          .press__decor-arrow
+          .press__decor-arrow
+        .press__decor-item.press__decor-item--end
+          .press__decor-arrow
+          .press__decor-arrow

@@ -532,6 +532,8 @@
 
   &__icon {
     margin-right: rem(18px);
+    position: relative;
+    z-index: 0;
     display: flex;
     flex-shrink: 0;
 
@@ -541,6 +543,18 @@
       @include rectangle(rem(20px));
 
       flex-shrink: 0;
+    }
+
+    &-hidden {
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      opacity: 0;
+      transition: opacity $transition;
+    }
+    &-show {
+      transition: opacity $transition;
     }
   }
 }

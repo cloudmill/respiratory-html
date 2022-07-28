@@ -188,7 +188,7 @@ const start = () => {
 
       const titleRoot = ReactDOM.createRoot(title);
       titleRoot.render(
-        <Words duration={DURATION} move={false} mods={["reslider"]}>
+        <Words duration={DURATION} move={false}>
           {titles[0]}
         </Words>
       );
@@ -226,7 +226,6 @@ const start = () => {
           <Words
             duration={Math.floor(DURATION / 2)}
             move={getMoveFromAnimation(animation)}
-            mods={["reslider"]}
           >
             {(animation &&
               ((animation[2] === "left" && titles[animation[0]]) ||

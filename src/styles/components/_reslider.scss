@@ -45,14 +45,14 @@
     position: relative;
     z-index: 2;
 
-    min-height: 80vh;
+    min-height: rem(920px);
     @media #{media("<")} {
       min-height: 50vh;
     }
     display: grid;
     grid-template-rows: repeat(2, auto);
     align-content: space-between;
-    row-gap: rem(80px); // ?
+    row-gap: rem(40px); // ?
   }
 
   &__img {
@@ -118,10 +118,10 @@
       padding: 0;
     }
     padding: 0 0 rem(40px) rem(40px);
-    
+
     &::before {
       @include rectangle(rem(20px));
-      
+
       position: absolute;
       bottom: 0;
       left: 0;

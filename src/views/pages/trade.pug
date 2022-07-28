@@ -184,33 +184,35 @@ block content
             .section-form__item
               .form-field.form-field--error
                 input.form-field__input(placeholder='Имя' required)
-                //- .form-field__error
-                //-   |Допустимы только буквы
+                
             .section-form__item
               .form-field
                 input.form-field__input(placeholder='Название компании' required)
-                //- .form-field__error
-                //-   |Допустимы только буквы
+                
             .section-form__item
               .form-field
                 input.form-field__input(placeholder='Телефон' required)
-                //- .form-field__error
-                //-   |Допустимы только буквы
+                
             .section-form__item
               .form-field
                 input.form-field__input(placeholder='E-mail' required)
-                //- .form-field__error
-                //-   |Допустимы только буквы
+                
             .section-form__item.section-form__item--row
               .form-field
                 input.form-field__input(placeholder='Тема обращения' required)
-                //- .form-field__error
-                //-   |Допустимы только буквы
+
             .section-form__item.section-form__item--row
               .form-field.form-field--textarea.form-field--error
                 textarea.form-field__input(placeholder='Вопрос или предложение' required)
-                //- .form-field__error
-                //-   |Допустимы только буквы
+
+            .section-form__item 
+              label.btn-file
+                input(type='file')
+
+                span
+                  +clip-svg
+                  |прикрепить файл
+
             .section-form__item.section-form__item--right.section-form__bottom
               .section-form__agrement
                 .simple-checkbox.simple-checkbox--error
@@ -222,8 +224,7 @@ block content
                       |Даю согласие на обработку 
                       a.simple-checkbox__link(href="#")
                         |персональных данных
-                    //- .simple-checkbox__error
-                    //-   |Допустимы только буквы
+                    
               button.section-form__submit(type='submit')
                 +press.press--info
                   |Отправить

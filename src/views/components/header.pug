@@ -28,7 +28,7 @@ mixin header(props = {})
                           'JP',
                           'UZ',
                         ];
-                      +drop(items).drop--small.drop--yellow
+                      +drop(items)(class=(classes.length ? 'drop--yellow' : '')).drop--small
                         |RU
                     .header__grid-item
                       +header-link
@@ -63,8 +63,8 @@ mixin header(props = {})
                   .header__logo
                     a.header__logo-link(href="#")
                       +logo-svg.header__logo-svg
-                .header__row-item.flex-end(data-header-button='products')
-                  +press({ icon: ['menu-start.svg', 'menu-end.svg', 'left'] }).press--menu
+                .header__row-item(data-header-button='products')
+                  +press-header.press--menu
                     |Продукция
                 .header__row-item.header__row-item--align-transform
                   .header__triple.header__triple--align-baseline.header__triple-bottom
@@ -75,7 +75,7 @@ mixin header(props = {})
                           'Медицинским учреждениям',
                           'Торговым организациям',
                         ];
-                      +drop(items).drop--yellow
+                      +drop(items)(class=(classes.length ? 'drop--yellow' : ''))
                         |Партнерам
                     .header__triple-item
                       +header-link({ large: true })

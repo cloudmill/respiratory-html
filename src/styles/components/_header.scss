@@ -153,6 +153,32 @@
           transform: translateY(rem(-5px));
         }
       }
+
+      &.active {
+        .press__bg,
+        .press__content {
+          &-item {
+            &--start {
+              clip-path: inset(0 0 100% 0);
+            }
+
+            &--end {
+              clip-path: inset(0 0 0 0);
+            }
+          }
+        }
+
+        .press__icon {
+          transform: translateX(-#{rem(8px)});
+
+          &-show {
+            opacity: 0;
+          }
+          &-hidden {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 

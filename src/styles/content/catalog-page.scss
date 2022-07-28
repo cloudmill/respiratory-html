@@ -43,6 +43,10 @@
     padding: $column-padding-small;
   }
 
+  &--border-none {
+    border: none;
+  }
+
   &:hover {
     z-index: 1;
 

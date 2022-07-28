@@ -49,8 +49,8 @@ const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
       break;
     case "0":
       {
-        const prevBtn = document.querySelector('[data-swiper-slider-prev="0"]');
-        const nextBtn = document.querySelector('[data-swiper-slider-next="0"]');
+        const prevBtn = document.querySelector<HTMLElement>('[data-swiper-slider-prev="0"]');
+        const nextBtn = document.querySelector<HTMLElement>('[data-swiper-slider-next="0"]');
 
         return {
           slidesPerView: "auto",
@@ -66,8 +66,12 @@ const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
       return {
         modules: [Navigation],
         navigation: {
-          prevEl: document.querySelector('[data-swiper-slider-prev="unit"]'),
-          nextEl: document.querySelector('[data-swiper-slider-next="unit"]'),
+          prevEl: document.querySelector<HTMLElement>(
+            '[data-swiper-slider-prev="unit"]'
+          ),
+          nextEl: document.querySelector<HTMLElement>(
+            '[data-swiper-slider-next="unit"]'
+          ),
         },
 
         speed: UNIT_DURATION,
@@ -77,8 +81,8 @@ const getSwiperOptions = (swiperEl: HTMLElement): SwiperOptions => {
 
         breakpoints: {
           1280: {
-            slidesPerView: 2,
-            spaceBetween: 0,
+            slidesPerView: 'auto',
+            spaceBetween: 1,
 
             allowTouchMove: false,
           },

@@ -177,7 +177,7 @@ mixin reslider(mod)
                   'Лабораторный контроль',
                   'Поставка покупателю',
                 ];
-              .desktop-only
+              .mobile-only
                 .grid__item(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
@@ -280,6 +280,8 @@ mixin reslider(mod)
                   'социальная ответственность',
                   'развитие',
                 ];
+              .mobile-only
+                .grid__item(data-reslider-title=JSON.stringify(titles))
               +grid(['5-1', 'aie'])
                 .grid__item
                   .reslider__wrapper

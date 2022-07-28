@@ -1,4 +1,5 @@
 .filters {
+  $component: &;
   $transition: transition(major);
   $panel-height: rem(100px);
 
@@ -8,6 +9,16 @@
   height: 100%;
   display: grid;
   grid-template-rows: calc(100% - #{$panel-height}) $panel-height;
+
+  &--medical {
+    grid-template-rows: 100%;
+
+    #{$component} {
+      &__panel {
+        display: none;
+      }
+    }
+  }
 
   &__content {
     position: relative;

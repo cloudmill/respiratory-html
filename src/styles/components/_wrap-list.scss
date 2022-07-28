@@ -3,6 +3,10 @@
 
   --gap: #{rem(4px)};
 
+  &--medical-post {
+    --gap: #{rem(20px)};
+  }
+
   &--large {
     --gap: #{rem(8px)};
     @media #{media("<")} {

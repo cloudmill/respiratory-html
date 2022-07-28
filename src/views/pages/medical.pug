@@ -10,6 +10,12 @@ block header
 block modal
   include ../components/form-response-modal
 
+block side-modal
+  +side-modal({ id: 'medical' })
+
+block grid-test
+  +grid-test
+
 block content
   +first('assets/images/medical-institutions.jpeg')
     .top-bottom
@@ -78,7 +84,7 @@ block content
                 li.wrap-list__item
                   +tab(['large', index === 0 && 'active'])= item
         .grid__item
-          +press({ icon: ['press/li-blue.svg', 'press/li-black.svg', 'left'] }).press--li
+          +press({ icon: ['press/li-blue.svg', 'press/li-black.svg', 'left'] }).press--li(data-side-modal-trigger='medical')
             |О серии
         .grid__item
           .controls
@@ -185,7 +191,7 @@ block content
             +arrow-left-svg.control__svg.control__svg--tilt
     +container 
       .slider-btn 
-        +press({ icon: ['press/li-blue.svg', 'press/li-black.svg', 'left'] }).press--li
+        +press({ icon: ['press/li-blue.svg', 'press/li-black.svg', 'left'] }).press--li(data-side-modal-trigger='medical')
           |О серии
   +space(['section'])
   +container

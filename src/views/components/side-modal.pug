@@ -108,5 +108,8 @@ mixin side-modal(props = {})
               .stack__item
                 +unit-feature
 
+        when 'medical'
+          +medical-modal
+
         when 'filters'
           +filters

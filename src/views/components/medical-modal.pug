@@ -1,0 +1,59 @@
+mixin medical-modal
+  .filters.filters--medical(data-filters)
+    .filters__content
+      .filters__scrollbar(data-filters-scrollbar)
+        .filters__scrollbar-thumb(data-filters-thumb)
+      .filters__window(data-filters-window)
+        .filters__window-content(data-filters-content)
+          .filters__wrapper
+            .filters__container
+              +hr
+              
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |О серии
+
+              .medical-info
+                .medical-info__title
+                  |Многоразовые медицинские респираторы
+                .medical-info__text
+                  |Профессиональные СИЗОД, обеспечивающие максимальную защиту специалистов при длительном использовании. Корпус респиратора усилен пластиковой распоркой, удерживающей материал на расстоянии от лица. Эластичная линия прилегания исключает проникновение загрязненного воздуха в дыхательные пути при любых мимических движениях лица и поворотах головы.
+                .medical-info__button
+                  +press.press--info
+                    |перейти в каталог
+
+              +hr
+              
+              +space(['hr'])
+              +heading(['sub'], 2)
+                |Статьи о серии
+
+              a.medical-post(href='#')
+                .medical-post__image-wrapper
+                  .medical-post__image
+                    img.medical-post__img(src='assets/images/medical/post.jpg')
+                    .medical-post__mark
+                      +arrow-tilt-svg.medical-post__svg
+                .medical-post__mid
+                  +wrap-list(['medical-post'])
+                    .wrap-list__item
+                      +grid(['date'])
+                        .grid__item
+                          +text(['blue', 'day'])
+                            |10
+                        .grid__item
+                          +text(['month'])
+                            |11
+                    .wrap-list__item
+                      +static-tab
+                        |Статьи
+                .medical-post__bottom
+                  |Преимущества серии АЛИНА®
+    .filters__panel
+      .filters__panel-col
+        +press.press--info.press--full(data-filters-reset)
+          |сбросить
+      .filters__panel-col
+        +press.press--info.press--full
+          |показать
+

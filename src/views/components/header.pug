@@ -28,7 +28,7 @@ mixin header(props = {})
                           'JP',
                           'UZ',
                         ];
-                      +drop(items).drop--small.drop--yellow
+                      +drop(items)(class=(classes.length ? 'drop--yellow' : '')).drop--small
                         |RU
                     .header__grid-item
                       +header-link
@@ -75,7 +75,7 @@ mixin header(props = {})
                           'Медицинским учреждениям',
                           'Торговым организациям',
                         ];
-                      +drop(items).drop--yellow
+                      +drop(items)(class=(classes.length ? 'drop--yellow' : ''))
                         |Партнерам
                     .header__triple-item
                       +header-link({ large: true })

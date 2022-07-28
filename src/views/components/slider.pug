@@ -83,3 +83,89 @@ mixin slider
           .slider-panel__button
             +press.press--info
               |все новости и статьи
+
+mixin slider-consumers
+  mixin template
+    template.js-slider-template
+      -
+        var slides = [
+          {
+            src: 'assets/images/slider/slider-1.jpeg',
+            href: '#slider-1',
+            day: '25',
+            month: '11',
+            label: 'Статьи',
+            text: 'Как правильно использовать респиратор',
+          },
+          {
+            src: 'assets/images/slider/slider-2.jpeg',
+            href: '#slider-2',
+            day: '15',
+            month: '11',
+            label: 'Статьи',
+            text: 'Как устроен респиратор',
+          },
+          {
+            src: 'assets/images/slider/slider-3.jpeg',
+            href: '#slider-3',
+            day: '10',
+            month: '11',
+            label: 'Статьи',
+            text: 'Как устроен респиратор',
+          },
+        ];
+      each slide in slides
+        .js-slider-slide
+          img.js-slider-src(src=slide.src)
+          a.js-slider-href(href=slide.href)
+          .js-slider-day= slide.day
+          .js-slider-month= slide.month
+          .js-slider-label= slide.label
+          .js-slider-text= slide.text
+  
+  +container.js-slider
+    .border
+      .slider-panel
+        .slider-panel__place
+          h2.sub-title
+            |Мы собрали для вас основную информацию, которая поможет в выборе респиратора
+        .slider-panel__place.slider-panel__place--slider
+          +template
+          .js-slider-root
+            .swiper.slider-mobile(data-swiper-slider='0')
+              .swiper-wrapper 
+                - for (i = 0; i < 6; i++)
+                  .swiper-slide 
+                    a.slide.slide--small(href="#")
+                      .slide__top
+                        img(src="assets/images/slider/slider-2.jpeg", alt="") 
+                        .slide__mark 
+                          +slider-mark-svg.slide__mark-svg
+                      .slide__bottom 
+                        .slide__panel
+                          .slide__panel-col
+                            .slide__date 
+                              .slide__date-day 
+                                |15
+                              .slide__date-month 
+                                |/11
+                          .slide__panel-col
+                            .slide__label 
+                              .slide__label-button 
+                                |Новости
+                        .slide__text-wrapper 
+                          .slide__text 
+                            |Как правильно использовать респиратор
+        .slider-panel__place.slider-panel__place--bottom
+          .controls.slider-panel__controls
+            .controls__item
+              .circle
+                button.circle__button.js-slider-prev(type="button")
+                  +arrow-left-svg.circle__svg.circle__svg--arrow-left
+            .controls__item
+              .circle
+                button.circle__button.js-slider-next(type="button")
+                  +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
+          .slider-panel__button
+            +press.press--info
+              |все новости и статьи

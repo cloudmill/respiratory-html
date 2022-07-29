@@ -50,105 +50,20 @@ block content
               .controls.slider-panel__controls
                 .controls__item
                   .circle
-                    button.circle__button.js-slider-prev(type="button" data-examples-slider-prev)
+                    button.circle__button.js-slider-prev(type="button" data-swiper-slider-prev='unit')
                       +arrow-left-svg.circle__svg.circle__svg--arrow-left
                 .controls__item
                   .circle
-                    button.circle__button.js-slider-next(type="button" data-examples-slider-next)
+                    button.circle__button.js-slider-next(type="button" data-swiper-slider-next='unit')
                       +arrow-left-svg.circle__svg.circle__svg--invert.circle__svg--arrow-left
             .slider-panel__sub-col
-    .swiper.examples-slider.mid-section-margin(data-examples-slider-container)
-      .swiper-wrapper
-        a.swiper-slide.examples-slider__slide(href="#")
-          .examples-slider__row
-            .examples-slider__image
-              +picture('example.jpeg').examples-slider__picture
-            .examples-slider__content
-              .examples-slider__content-item
-                h3.examples-slider__title
-                  |RK 9010
-              .examples-slider__content-item
-                .examples-slider__table
-                  .examples-slider__table-row
-                    .examples-slider__table-col
-                      h4.examples-slider__table-title
-                        |Класс защиты
-                      p.examples-slider__table-value
-                        |FFP1 R D
-                    .examples-slider__table-col
-                      h4.examples-slider__table-title
-                        |Клапан выдоха
-                      p.examples-slider__table-value
-                        |Нет
-              .examples-slider__content-item
-                .examples-slider__content-mobile 
-                  +press.press--white 
-                    |о защите
-                .examples-slider__feature
-                  +feature-4-svg.examples-slider__feature-svg
-                  .examples-slider__feature-content
-                    h4.examples-slider__feature-title
-                      |Защита от всех видов аэрозолей
-                    .wrap-list.examples-slider__feature-value
-                      .wrap-list__list
-                        -
-                          var items = [
-                            'Пыль',
-                            'Дым',
-                            'Туман',
-                          ]
-                        each item in items
-                          .wrap-list__item
-                            .tag
-                              .tag__tag
-                                |#{item}
-          .control.examples-slider__label
-            +arrow-left-svg.control__svg.control__svg--tilt
-        a.swiper-slide.examples-slider__slide(href="#")
-          .examples-slider__row
-            .examples-slider__image
-              +picture('example-2.jpeg').examples-slider__picture
-            .examples-slider__content
-              .examples-slider__content-item
-                h3.examples-slider__title
-                  |RK 9011
-              .examples-slider__content-item
-                .examples-slider__table
-                  .examples-slider__table-row
-                    .examples-slider__table-col
-                      h4.examples-slider__table-title
-                        |Класс защиты
-                      p.examples-slider__table-value
-                        |FFP1 R D
-                    .examples-slider__table-col
-                      h4.examples-slider__table-title
-                        |Клапан выдоха
-                      p.examples-slider__table-value
-                        |Нет
-              .examples-slider__content-item
-                .examples-slider__content-mobile 
-                  +press.press--white 
-                    |о защите
-                .examples-slider__feature
-                  +feature-4-svg.examples-slider__feature-svg
-                  .examples-slider__feature-content
-                    h4.examples-slider__feature-title
-                      |Защита от всех видов аэрозолей
-                    .wrap-list.examples-slider__feature-value
-                      .wrap-list__list
-                        -
-                          var items = [
-                            'Пыль',
-                            'Дым',
-                            'Туман',
-                          ]
-                        each item in items
-                          .wrap-list__item
-                            .tag
-                              .tag__tag
-                                |#{item}
-          .control.examples-slider__label
-            +arrow-left-svg.control__svg.control__svg--tilt
+    +space(['block'])
+    +container(['unit'])
+      .swiper.swiper-slider(data-swiper-slider='unit')
+        .swiper-wrapper
+          each i, index in repeat(3)
+            .swiper-slide
+              +unit
     +container 
       .slider-btn 
         +press.press--info

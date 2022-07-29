@@ -30,7 +30,7 @@ mixin slider
         ];
       each slide in slides
         .js-slider-slide
-          img.js-slider-src(src=slide.src)
+          img.js-slider-src(src=slide.src alt='')
           a.js-slider-href(href=slide.href)
           .js-slider-day= slide.day
           .js-slider-month= slide.month
@@ -52,7 +52,7 @@ mixin slider
                   .swiper-slide 
                     a.slide.slide--small(href="#")
                       .slide__top
-                        img(alt="" src="assets/images/slider/slider-2.jpeg", alt="") 
+                        img(src="assets/images/slider/slider-2.jpeg", alt="") 
                         .slide__mark 
                           +slider-mark-svg.slide__mark-svg
                       .slide__bottom 
@@ -116,7 +116,7 @@ mixin slider-consumers
         ];
       each slide in slides
         .js-slider-slide
-          img.js-slider-src(src=slide.src)
+          img.js-slider-src(src=slide.src alt='')
           a.js-slider-href(href=slide.href)
           .js-slider-day= slide.day
           .js-slider-month= slide.month
@@ -138,7 +138,7 @@ mixin slider-consumers
                   .swiper-slide 
                     a.slide.slide--small(href="#")
                       .slide__top
-                        img(alt="" src="assets/images/slider/slider-2.jpeg", alt="") 
+                        img(src="assets/images/slider/slider-2.jpeg", alt="") 
                         .slide__mark 
                           +slider-mark-svg.slide__mark-svg
                       .slide__bottom 

@@ -53,7 +53,7 @@ include ./components/medical-modal
 
 mixin first(src)
   .first
-    img.first__bg(src=src)
+    img.first__bg(src=src alt='')
     .first__layout
       block
 
@@ -72,7 +72,7 @@ mixin second
       .second__grid
         .second__bg
         .second__image
-          img.second__img(alt="" src='assets/images/second.jpeg')
+          img.second__img(src='assets/images/second.jpeg' alt='')
         .second__top
           .second__content
             .second__content-text
@@ -89,7 +89,7 @@ mixin second-2
       .second__grid
         .second__bg
         .second__image
-          img.second__img(alt="" src='assets/images/second-2.jpeg')
+          img.second__img(src='assets/images/second-2.jpeg' alt='')
         .second__top.second__top--small
           .second__content
             .second__content-title
@@ -104,7 +104,7 @@ mixin second-3
       .second__grid
         .second__bg
         .second__image
-          img.second__img(alt="" src='assets/images/second-3.jpeg')
+          img.second__img(src='assets/images/second-3.jpeg' alt='')
         .second__top
           .second__content.second__content--small
             .second__content-text
@@ -121,7 +121,7 @@ mixin second-4
       .second__grid
         .second__bg
         .second__image
-          img.second__img(alt="" src='assets/images/second-4.jpeg')
+          img.second__img(src='assets/images/second-4.jpeg' alt='')
         .second__top
           .second__content.second__content--small
             .second__content-text.second__content-text--pre-line
@@ -138,7 +138,7 @@ mixin second-4
               ]
             each item in items
               .funds-list__item
-                img.funds-list__img(alt="" src='assets/images/fund.svg')
+                img.funds-list__img(src='assets/images/fund.svg' alt='')
                 .funds-list__text= item
 
 mixin second-5
@@ -147,7 +147,7 @@ mixin second-5
       .second__grid
         .second__bg
         .second__image
-          img.second__img(alt="" src='assets/images/second-5.jpeg')
+          img.second__img(src='assets/images/second-5.jpeg' alt='')
         .second__top
           .second__content.second__content--small
             .second__content-text
@@ -165,7 +165,7 @@ mixin second-6
       .second__grid
         .second__bg
         .second__image
-          img.second__img(alt="" src='assets/images/second-6.jpeg')
+          img.second__img(src='assets/images/second-6.jpeg' alt='')
         .second__top.second__top--small
           .second__content
             .second__content-title
@@ -223,7 +223,7 @@ mixin why
     .why__layout
       +container.why__container
         .why__image
-          img.why__img(alt="" src='assets/images/why.jpeg')
+          img.why__img(src='assets/images/why.jpeg' alt='')
     .why__layout
       +container.why__container
         .why__top-bottom
@@ -285,7 +285,7 @@ mixin why-2
     .why__layout
       +container.why__container
         .why__image
-          img.why__img(alt="" src='assets/images/why-2.jpeg')
+          img.why__img(src='assets/images/why-2.jpeg' alt='')
     .why__layout
       +container.why__container
         .why__top-bottom
@@ -354,7 +354,7 @@ mixin why-3
     .why__layout
       +container.why__container
         .why__image
-          img.why__img(alt="" src='assets/images/why-3.jpeg')
+          img.why__img(src='assets/images/why-3.jpeg' alt='')
     .why__layout
       +container.why__container
         .why__top-bottom
@@ -419,7 +419,7 @@ mixin why-4
     .why__layout
       +container.why__container
         .why__image
-          img.why__img(alt="" src='assets/images/why-4.jpeg')
+          img.why__img(src='assets/images/why-4.jpeg' alt='')
     .why__layout
       +container.why__container
         .why__top-bottom
@@ -489,7 +489,7 @@ mixin why-5
     .why__layout
       +container.why__container
         .why__image
-          img.why__img(alt="" src='assets/images/why-5.jpeg')
+          img.why__img(src='assets/images/why-5.jpeg' alt='')
     .why__layout
       +container.why__container
         .why__top-bottom
@@ -551,7 +551,7 @@ mixin why-6
     .why__layout
       +container.why__container
         .why__image
-          img.why__img(alt="" src='assets/images/why-6.jpeg')
+          img.why__img(src='assets/images/why-6.jpeg' alt='')
     .why__layout
       +container.why__container
         .why__top-bottom

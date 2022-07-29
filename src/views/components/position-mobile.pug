@@ -3,7 +3,7 @@ mixin position-mobile
     .position-mobile__top
       .position-mobile__left
         .position-mobile__frame
-          img.position-mobile__img(alt="" src='assets/images/unit/unit.jpeg')
+          img.position-mobile__img(src='assets/images/unit/unit.jpeg' alt='')
       .position-mobile__right
         +heading(['position-mobile'], 2).position-mobile__title
           |RK 9010
@@ -54,7 +54,7 @@ mixin position-mobile
         each item in items
           .stack__item
             .position-mobile__feature
-              img.position-mobile__feature-img(alt="" src=item.src)
+              img.position-mobile__feature-img(src=item.src alt='')
               +heading(['position-feature-mobile'], 6)
                 |!{item.title}
               +wrap-list([]).position-mobile__feature-labels

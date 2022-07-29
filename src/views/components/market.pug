@@ -7,7 +7,7 @@
 mixin market(props = {})
   a.market(href='#' class=getClassesFromMods('market', props.mods))&attributes(attributes)
     .market__frame
-      img.market__img(alt="" src=props.src alt='')
+      img.market__img(src=props.src alt='')
     if (props.text)
       +space(['hr'])
       h3.market__text= props.text

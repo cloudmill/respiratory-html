@@ -34,6 +34,7 @@ import * as filters from "./scripts/filters";
 
 import forms from "./scripts/forms";
 import { headerOnScroll } from "./scripts/header-on-scroll";
+import aboutVideo from "./scripts/about-video";
 
 import { examplesSlider } from "./scripts/examplesSlider";
 
@@ -69,27 +70,8 @@ addEventListener("DOMContentLoaded", () => {
 
   forms();
   headerOnScroll();
-
-  const aboutVideo = document.querySelectorAll('[data-start-video]');
-
-  if (aboutVideo.length) {
-
-    aboutVideo.forEach(video => {
-
-      video.addEventListener('canplaythrough', () => {
-
-        console.log('canplaythrough');
-        video.play();
-        video.setAttribute('autoplay', '');
-    
-      });
+  aboutVideo();
   
-      console.log('video loaded');
-      video.play();
-      video.setAttribute('autoplay', '');
-
-    }) 
-  }
 });
 
 addEventListener("load", async () => {

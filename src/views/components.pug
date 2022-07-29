@@ -59,10 +59,9 @@ mixin first(src)
 
 mixin first-vid
   .first
-    video.first__bg.only-desktop(muted loop playsinline poster="assets/images/about.jpeg" data-start-video='')
-      source(type="video/mp4" src='assets/videos/about-back.mp4')
-    video.first__bg.only-mobile(muted loop playsinline poster="assets/images/about.jpeg" data-start-video='')
-      source(type="video/mp4" src='assets/videos/about-back-mob.mp4')
+    video.first__bg(muted loop playsinline poster="assets/images/about.jpeg" data-start-video='')
+      source(type="video/mp4" data-video-source='' src='')
+
     .first__layout
       block
 

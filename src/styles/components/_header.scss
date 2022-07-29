@@ -28,6 +28,10 @@
     #{$component} {
       // top & bottom:
 
+      &__desktop {
+        border-color: transparent;
+      }
+
       &__top,
       &__bottom {
         background-color: transparent;
@@ -374,6 +378,9 @@
   }
 
   &__desktop {
+    position: relative;
+    z-index: 1;
+
     @media #{media("<")} {
       display: none;
     }

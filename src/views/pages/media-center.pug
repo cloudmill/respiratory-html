@@ -8,24 +8,7 @@ block content
   .indent.indent--page--catalog.first-section.isolation
     .indent__item
       .container--default
-        .wall
-          .wall__list
-            -
-              var items = [
-                'Главная',
-                'Медиацентр',
-              ]
-            each item, index in items
-              if index < items.length - 1
-                .wall__item
-                  .badge
-                    a.badge__link.badge__link--variant--breadcrumb(href="#")
-                      |#{item}
-              else
-                .wall__item
-                  .badge
-                    .badge__link.badge__link--variant--breadcrumb.badge__link--variant--breadcrumb-active.badge__link--no-hover
-                      |#{item}
+        +breadcrumbs(['Главная', 'Медиацентр'])
     .indent__item
       .container--default
         h1.title.title--page
@@ -34,24 +17,18 @@ block content
       .container--default
         .row.row--filter
           .row__col
-            .wall
-              .wall__list
-                -
-                  var items = [
-                    'Все',
-                    'Новости',
-                    'Статьи',
-                    'Жизнь компании',
-                  ]
-                each item, index in items
-                  .wall__item
-                    .badge
-                      if index === 1
-                        .badge__link.badge__link--variant--tab.badge__link--variant--tab-active(href="#")
-                          |#{item}
-                      else
-                        .badge__link.badge__link--variant--tab(href="#")
-                          |#{item}
+            +wrap-list
+              -
+                var items = [
+                  'Все',
+                  'Новости',
+                  'Статьи',
+                  'Жизнь компании',
+                ]
+              each item, index in items
+                li.wrap-list__item
+                  +tab(['large', !index && 'active'])(data-filters-series)
+                    |!{item}
 
     .indent__item
       .container--default

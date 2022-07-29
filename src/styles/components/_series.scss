@@ -40,14 +40,33 @@
   &__tabs {
     --gap: #{rem(8px)};
 
-    margin-top: calc(var(--gap) * -1);
-    margin-left: calc(var(--gap) * -1);
+    @media #{media('>')} {
+      margin-top: calc(var(--gap) * -1);
+      margin-left: calc(var(--gap) * -1);
+    }
     display: flex;
     flex-wrap: wrap;
 
+    @media #{media('<')} {
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      @include scrollbar-hidden;
+      margin-left: -$column-padding-small;
+      margin-right: -$column-padding-small;
+      padding-left: $column-padding-small;
+      padding-right: $column-padding-small;
+    }
+
     &-item {
-      margin-top: var(--gap);
-      margin-left: var(--gap);
+      @media #{media('<')} {
+        &:not(:last-child) {
+          margin-right: rem(6px);
+        }
+      }
+      @media #{media('>')} {
+        margin-top: var(--gap);
+        margin-left: var(--gap);
+      }
     }
   }
 
@@ -271,6 +290,9 @@
 
   &__features {
     margin-top: rem(40px);
+    @media #{media('<')} {
+      margin-top: rem(24px);
+    }
   }
 
   &__feature {
@@ -280,6 +302,9 @@
 
     &:not(:first-child) {
       margin-top: rem(40px);
+      @media #{media('<')} {
+        margin-top: rem(24px);
+      }
     }
 
     &-image {
@@ -297,6 +322,10 @@
       font-weight: 550;
 
       margin-bottom: rem(8px);
+
+      @media #{media('<')} {
+        @include fsl(10px);
+      }
     }
 
     &-labels {
@@ -319,6 +348,12 @@
       background-color: color(gray-light);
       border-radius: rem(6px);
       white-space: nowrap;
+
+      @media #{media('<')} {
+        @include fsl(10px);
+        height: rem(27px);
+
+      }
     }
   }
 
@@ -329,7 +364,6 @@
     display: grid;
     
     column-gap: $column-gap;
-    row-gap: rem(8px);
 
     @media #{media('>')} {
       margin-top: rem(20px);
@@ -346,12 +380,21 @@
 
     @media #{media('<')} {
       padding-top: 0;
+      min-height: rem(21px);
+
+      &:not(:first-child) {
+        margin-top: rem(8px);
+      }
     }
 
     &-text {
       @include font-fsl("content-2", 16px, 130%);
 
       max-width: rem(320px);
+
+      @media #{media('<')} {
+        @include fsl(12px);
+      }
     }
 
     &-svg {

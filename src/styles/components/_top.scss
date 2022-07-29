@@ -409,5 +409,9 @@
       max-width: unset;
       margin-top: rem(5px);
     }
+
+    &--big {
+      max-width: rem(318px);
+    }
   }
 }

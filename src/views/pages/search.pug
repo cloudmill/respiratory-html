@@ -55,7 +55,7 @@ block content
             a.product(href="#")
               .product__grid
                 .product__cell
-                  img.product__img(src=`assets/images/photo-${i % 2 + 1}.jpg`)
+                  img.product__img(src=`assets/images/photo-${i % 2 + 1}.jpg` alt='')
                 .product__cell.product__cell--info
                   h2.product__title
                     |RK 9010
@@ -73,7 +73,7 @@ block content
 
                   .product__features.only-desktop
                     .product__feature
-                      img.product__feature-svg(src="assets/images/feature.svg")
+                      img.product__feature-svg(src="assets/images/feature.svg" alt='')
                       .product__feature-text
                         |Защита от всех видов аэрозолей
 
@@ -82,7 +82,7 @@ block content
 
               .product__features.only-mobile
                 .product__feature
-                  img.product__feature-svg(src="assets/images/feature.svg")
+                  img.product__feature-svg(src="assets/images/feature.svg" alt='')
                   .product__feature-text
                     |Защита от всех видов аэрозолей
 

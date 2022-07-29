@@ -11,4 +11,5 @@ mixin picture(fileName)
     img.picture__img(
       src=(File.getPath(fileTitle, fileExtension))
       srcset=(File.getPath(fileTitle + "_2x", fileExtension) + " 2x")
+      alt=''
     )

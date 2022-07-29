@@ -11,7 +11,7 @@ mixin card-new(props = {}, mods = [])
     +grid(['card-new'])
       .grid__item
         .card-new__image
-          img.card-new__img(src=props.src)
+          img.card-new__img(src=props.src alt='')
           .card-new__mark
             +arrow-tilt-svg.card-new__svg
       .grid__item

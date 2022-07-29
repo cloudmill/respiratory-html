@@ -30,7 +30,7 @@ mixin slider
         ];
       each slide in slides
         .js-slider-slide
-          img.js-slider-src(src=slide.src)
+          img.js-slider-src(src=slide.src alt='')
           a.js-slider-href(href=slide.href)
           .js-slider-day= slide.day
           .js-slider-month= slide.month
@@ -116,7 +116,7 @@ mixin slider-consumers
         ];
       each slide in slides
         .js-slider-slide
-          img.js-slider-src(src=slide.src)
+          img.js-slider-src(src=slide.src alt='')
           a.js-slider-href(href=slide.href)
           .js-slider-day= slide.day
           .js-slider-month= slide.month

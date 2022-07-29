@@ -24,7 +24,7 @@ mixin btn(props = {})
     props = Object.assign({}, defaultProps, props);
 
   mixin btn-img(source)
-    img.btn__img(src=source)
+    img.btn__img(src=source alt='')
   mixin btn-icon(icon)
     -
       var name = icon[0];

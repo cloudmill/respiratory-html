@@ -29,7 +29,10 @@
     }
     #{$component} {
       &__top {
-        height: rem(193px);
+        height: rem(295px);
+        @media #{media("<")} {
+          height: rem(193px);
+        }
       }
 
       &__bottom {

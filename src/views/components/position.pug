@@ -2,7 +2,7 @@ mixin position
   a.position(href='#')
     .position__col.position__image
       .position__frame
-        img.position__img(src='assets/images/unit/unit.jpeg')
+        img.position__img(alt="" src='assets/images/unit/unit.jpeg')
     .position__col
       +heading(['position'], 2).position__title
         |RK 9010
@@ -53,7 +53,7 @@ mixin position
             each item in items
               .stack__item
                 .position__feature
-                  img.position__feature-img(src=item.src)
+                  img.position__feature-img(alt="" src=item.src)
                   +heading(['position-feature'], 6)
                     |!{item.title}
                   +wrap-list([]).position__feature-labels

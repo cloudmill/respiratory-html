@@ -11,21 +11,21 @@ mixin press(props = {})
           .press__content-item.press__content-item--start
             if (props.icon && props.icon[2] === 'left')
               .press__icon.press__icon--start
-                img(src=File.getPathFromFilename(props.icon[0])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[0])).press__icon-img
             .press__text.press__text--start
               block
             if (props.icon && props.icon[2] === 'right')
               .press__icon.press__icon--start
-                img(src=File.getPathFromFilename(props.icon[0])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[0])).press__icon-img
           .press__content-item.press__content-item--end
             if (props.icon && props.icon[2] === 'left')
               .press__icon.press__icon--end
-                img(src=File.getPathFromFilename(props.icon[1])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[1])).press__icon-img
             .press__text.press__text--end
               block
             if (props.icon && props.icon[2] === 'right')
               .press__icon.press__icon--end
-                img(src=File.getPathFromFilename(props.icon[1])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[1])).press__icon-img
         .press__bg
           .press__bg-item.press__bg-item--start
           .press__bg-item.press__bg-item--end
@@ -42,21 +42,21 @@ mixin press(props = {})
           .press__content-item.press__content-item--start
             if (props.icon && props.icon[2] === 'left')
               .press__icon.press__icon--start
-                img(src=File.getPathFromFilename(props.icon[0])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[0])).press__icon-img
             .press__text.press__text--start
               block
             if (props.icon && props.icon[2] === 'right')
               .press__icon.press__icon--start
-                img(src=File.getPathFromFilename(props.icon[0])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[0])).press__icon-img
           .press__content-item.press__content-item--end
             if (props.icon && props.icon[2] === 'left')
               .press__icon.press__icon--end
-                img(src=File.getPathFromFilename(props.icon[1])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[1])).press__icon-img
             .press__text.press__text--end
               block
             if (props.icon && props.icon[2] === 'right')
               .press__icon.press__icon--end
-                img(src=File.getPathFromFilename(props.icon[1])).press__icon-img
+                img(alt="" src=File.getPathFromFilename(props.icon[1])).press__icon-img
         .press__bg
           .press__bg-item.press__bg-item--start
           .press__bg-item.press__bg-item--end
@@ -74,13 +74,13 @@ mixin press-header
       .press__content
         .press__content-item.press__content-item--start
           .press__icon.press__icon--start
-            img(src='assets/images/menu-start.svg').press__icon-img
+            img(alt="" src='assets/images/menu-start.svg').press__icon-img
           .press__text.press__text--start
             block
         .press__content-item.press__content-item--end
           .press__icon.press__icon--end
-            img(src='assets/images/menu-end.svg').press__icon-img.press__icon-show
-            img(src='assets/images/cross.svg').press__icon-img.press__icon-hidden
+            img(alt="" src='assets/images/menu-end.svg').press__icon-img.press__icon-show
+            img(alt="" src='assets/images/cross.svg').press__icon-img.press__icon-hidden
           .press__text.press__text--end
             block
       .press__bg

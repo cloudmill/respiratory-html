@@ -1,6 +1,6 @@
 mixin card-value(props = {}, mods = [])
   .card-value(class=getClassesFromMods('card-value', mods))&attributes(attributes)
-    img.card-value__img(src=props.src)
+    img.card-value__img(alt="" src=props.src)
     +heading(['card-value-title'], 3)
       |!{props.title}
     +space([9])

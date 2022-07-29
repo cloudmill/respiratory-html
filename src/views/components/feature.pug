@@ -13,14 +13,14 @@ mixin feature(props)
     each i in repeat(3)
       .feature__decor
     if (props.text)
-      img.feature__img(src=props.src)
+      img.feature__img(alt="" src=props.src)
       +space(['sub-block'])
       +text(['feature-text'])
         |!{props.text}
     else
       +grid(['feature'])
         .grid__item
-          img.feature__img(src=props.src)
+          img.feature__img(alt="" src=props.src)
         .grid__item
           +text(['feature-label'])
             |!{props.label}

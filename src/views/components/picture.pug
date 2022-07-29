@@ -8,7 +8,7 @@ mixin picture(fileName)
       type="image/webp"
       srcset=(File.getPath(fileTitle, "webp") + " 1x, " + File.getPath(fileTitle + "_2x", "webp") + " 2x")
     )
-    img.picture__img(
+    img.picture__img(alt="" 
       src=(File.getPath(fileTitle, fileExtension))
       srcset=(File.getPath(fileTitle + "_2x", fileExtension) + " 2x")
     )

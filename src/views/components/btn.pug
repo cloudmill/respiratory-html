@@ -23,8 +23,8 @@ mixin btn(props = {})
 
     props = Object.assign({}, defaultProps, props);
 
-  mixin btn-img(source)
-    img.btn__img(src=source)
+  mixin btn-img(alt="" source)
+    img.btn__img(alt="" src=source)
   mixin btn-icon(icon)
     -
       var name = icon[0];
@@ -33,7 +33,7 @@ mixin btn(props = {})
       var source = 'assets/images/' + name + '.svg';
       var classes = mods.map(mod => 'btn__icon--' + mod);
     .btn__icon(class=classes)
-      +btn-img(source)
+      +btn-img(alt="" source)
 
   mixin btn-mask(modifier)
     .btn__mask(class=("btn__mask--" + modifier))

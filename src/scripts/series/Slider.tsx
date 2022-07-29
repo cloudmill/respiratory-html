@@ -103,7 +103,49 @@ const Slider: React.FC<{ data: Data; onLoad: () => void }> = ({
             <div className="series__place">
               <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
             </div>
-            
+
+            <div className="only-mobile series__mob-photo">
+
+              <div className="only-mobile series__mob-photo-col">
+                {[1, 2, 3].map((index) => (
+                  <div key={index} className="series__place">
+                    <div
+                      className={classNames([
+                        "series__photo",
+                        { "series__photo--large": index === 0 },
+                        { "series__photo--small": index !== 0 },
+                      ])}
+                    >
+                      <Images
+                        cur={getImagesCur(index)}
+                        animation={getImagesAnimation(index)}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="only-mobile series__mob-photo-col">
+                {[0].map((index) => (
+                    <div key={index} className="series__place">
+                      <div
+                        className={classNames([
+                          "series__photo",
+                          { "series__photo--large": index === 0 },
+                          { "series__photo--small": index !== 0 },
+                        ])}
+                      >
+                        <Images
+                          cur={getImagesCur(index)}
+                          animation={getImagesAnimation(index)}
+                        />
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              
+            </div>
+
             <div className="series__place">
               <Contents slides={slides} slide={slide} animation={animation} />
             </div>

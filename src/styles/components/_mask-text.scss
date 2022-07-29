@@ -70,8 +70,13 @@
       sup {
         @include fsl(30px, 100%);
         font-weight: 550;
+        letter-spacing: -0.06em;
         text-transform: uppercase;
         vertical-align: top;
+
+        @media #{media('<')} {
+          @include fsl(16px);
+        }
       }
     }
 
@@ -87,7 +92,7 @@
 
       @media #{media('<')} {
         @include fsl(16px, 100%);
-        font-weight: 550;
+        margin-top: rem(8px);
       }
     }
 

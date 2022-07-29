@@ -371,6 +371,10 @@
 
     padding: rem(21px) 0 0 rem(21px);
 
+    @media #{media('<')} {
+      padding-top: rem(15px);
+    }
+
     &:not(:first-child) {
       margin-top: rem(60px);
 

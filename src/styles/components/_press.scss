@@ -563,4 +563,10 @@
       transition: opacity $transition;
     }
   }
+
+  &--flex-end {
+    @media #{media('<', xl)} {
+      justify-content: flex-end;
+    }
+  }
 }

@@ -70,24 +70,26 @@ addEventListener("DOMContentLoaded", () => {
   forms();
   headerOnScroll();
 
-  const aboutVideo = document.querySelector('[data-start-video]');
+  const aboutVideo = document.querySelectorAll('[data-start-video]');
 
-  if (aboutVideo) {
+  if (aboutVideo.length) {
 
-    document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
+    aboutVideo.forEach(video => {
 
-      console.log('canplaythrough');
-      aboutVideo.play();
-      aboutVideo.setAttribute('autoplay', '');
-  
-    });
+      video.addEventListener('canplaythrough', () => {
 
-    console.log('video loaded');
-    aboutVideo.play();
-    aboutVideo.setAttribute('autoplay', '');
+        console.log('canplaythrough');
+        video.play();
+        video.setAttribute('autoplay', '');
     
-  }
+      });
   
+      console.log('video loaded');
+      video.play();
+      video.setAttribute('autoplay', '');
+
+    }) 
+  }
 });
 
 addEventListener("load", async () => {

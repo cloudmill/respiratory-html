@@ -8,6 +8,7 @@ import { wait } from "./scripts/wait";
 import "./scripts/mobile-menu";
 import "./scripts/header-modals";
 import "./scripts/date-picker";
+import "./scripts/partners-modal";
 
 import * as scrollPage from "./scripts/scrollPage";
 import * as noTransitionChild from "./scripts/noTransitionChild";

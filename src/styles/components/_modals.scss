@@ -74,6 +74,7 @@
 .product-modal {
   $comp: &;
   $transition: transition(major);
+  --itemsCount: 6;
 
   padding: rem(24px) rem(40px) rem(40px);
 
@@ -83,7 +84,7 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(var(--itemsCount), 1fr);
     gap: rem(20px);
   }
 

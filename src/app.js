@@ -69,6 +69,25 @@ addEventListener("DOMContentLoaded", () => {
 
   forms();
   headerOnScroll();
+
+  const aboutVideo = document.querySelector('[data-start-video]');
+
+  if (aboutVideo) {
+
+    document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
+
+      console.log('canplaythrough');
+      aboutVideo.play();
+      aboutVideo.setAttribute('autoplay', '');
+  
+    });
+
+    console.log('video loaded');
+    aboutVideo.play();
+    aboutVideo.setAttribute('autoplay', '');
+    
+  }
+  
 });
 
 addEventListener("load", async () => {
@@ -103,18 +122,6 @@ addEventListener("load", async () => {
     top.zoom.in();
   }
 
-  const aboutVideo = document.querySelector("[data-start-video]");
-
-  if (aboutVideo) {
-
-    document.querySelector('[data-start-video]').addEventListener('canplaythrough', () => {
-
-      document.querySelector('[data-start-video]').play();
-      document.querySelector('[data-start-video]').setAttribute('autoplay', '');
-  
-    })
-    
-  }
 });
 
 addEventListener("beforeunload", () => {

@@ -5,15 +5,17 @@ mixin footer
         var items = [
           {
             number: '8 812 703-37-33',
+            href: '88127033733',
             description: 'Многоканальный',
           },
           {
             number: '8 812 329-11-65',
+            href: '88123291165',
             description: 'Отдел продаж, только для юридических лиц',
           },
         ]
       each item in items
-        a.footer__phones-item(href=`tel:${item.number}`)
+        a.footer__phones-item(href=`tel:${item.href}`)
           .footer__phones-number= item.number
           .footer__phones-description= item.description
           .footer__phones-mark.footer__circle

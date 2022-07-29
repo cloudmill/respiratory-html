@@ -1,11 +1,17 @@
 .series {
-  display: grid;
-  grid-template-columns:
-    repeat(2, calc(#{columns(3)})) repeat(2, calc(#{$column}))
-    calc(#{columns(4)});
-  grid-template-rows: auto 1fr repeat(2, auto);
-  column-gap: $column-gap;
-  row-gap: $column-gap;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  
+  @media #{media('>')} {
+    display: grid;
+    grid-template-columns:
+      repeat(2, calc(#{columns(3)})) repeat(2, calc(#{$column}))
+      calc(#{columns(4)});
+    grid-template-rows: auto 1fr repeat(2, auto);
+    column-gap: $column-gap;
+    row-gap: $column-gap;
+  }
 
   &__place {
     &:nth-child(1) {
@@ -227,23 +233,38 @@
   // slide inner
 
   &__main {
-    height: 100%;
+    
     display: grid;
     grid-template-rows: 1fr auto;
+
+    @media #{media('>')} {
+      height: 100%;
+    }
   }
 
   &__content {
-    padding-top: 40px;
+    
+    @media #{media('>')} {
+      padding-top: 40px;
+    }
 
     &-sub-title {
       @include font-fsl("content-2", 16px, 130%);
 
       margin-bottom: $column-gap;
+
+      @media #{media('<')} {
+        @include fsl(12px);
+        margin-bottom: rem(4px);
+      }
     }
   }
 
   &__watch {
     margin-top: rem(80px);
+    @media #{media('<')} {
+      margin-top: rem(24px);
+    }
   }
 
   // features
@@ -304,11 +325,17 @@
   // descriptions
 
   &__descriptions {
-    margin-top: rem(20px);
+    margin-top: rem(12px);
     display: grid;
-    grid-template-columns: repeat(2, calc(#{columns(3)}));
+    
     column-gap: $column-gap;
-    row-gap: $column-gap;
+    row-gap: rem(8px);
+
+    @media #{media('>')} {
+      margin-top: rem(20px);
+      grid-template-columns: repeat(2, calc(#{columns(3)}));
+      row-gap: $column-gap;
+    }
   }
 
   &__description {
@@ -316,6 +343,10 @@
     z-index: 0;
 
     padding: rem(30px) 0 0 rem(30px);
+
+    @media #{media('<')} {
+      padding-top: 0;
+    }
 
     &-text {
       @include font-fsl("content-2", 16px, 130%);

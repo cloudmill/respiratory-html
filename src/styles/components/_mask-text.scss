@@ -49,6 +49,11 @@
       font-weight: 550;
 
       color: color(yellow);
+
+      @media #{media('<')} {
+        @include fsl(24px, 112%);
+        font-weight: 550;
+      }
     }
 
     &--large {
@@ -56,6 +61,11 @@
       font-weight: 550;
 
       color: color(white);
+
+      @media #{media('<')} {
+        @include fsl(40px, 100%);
+        font-weight: 550;
+      }
 
       sup {
         @include fsl(30px, 100%);
@@ -74,6 +84,11 @@
 
       vertical-align: top;
       color: color(white);
+
+      @media #{media('<')} {
+        @include fsl(16px, 100%);
+        font-weight: 550;
+      }
     }
 
     &--slider {

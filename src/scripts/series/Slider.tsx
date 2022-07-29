@@ -103,11 +103,12 @@ const Slider: React.FC<{ data: Data; onLoad: () => void }> = ({
             <div className="series__place">
               <Tabs tabs={tabs} active={active} onChange={handleTabsChange} />
             </div>
+            
             <div className="series__place">
               <Contents slides={slides} slide={slide} animation={animation} />
             </div>
             {[0, 1, 2, 3].map((index) => (
-              <div key={index} className="series__place">
+              <div key={index} className="series__place only-desktop">
                 <div
                   className={classNames([
                     "series__photo",

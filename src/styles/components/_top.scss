@@ -29,6 +29,10 @@
   background-color: gray; // test
   border-radius: 0 0 rem(120px) 0;
 
+  @media #{media('<')} {
+    border-radius: 0 0 rem(30px) 0;
+  }
+
   &--zoom {
     &--out {
       #{$component} {
@@ -84,6 +88,12 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: flex-end;
     pointer-events: all;
+
+    @media #{media('<')} {
+      width: calc(#{columns-small(4)});
+      bottom: rem(20px);
+      left: rem(20px);
+    }
   }
 
   &__control {
@@ -92,6 +102,9 @@
     $border-radius: rem(12px);
 
     --height: #{rem(80px)};
+    @media #{media('<')} {
+      --height: #{rem(36px)};
+    }
 
     --background-color: #{color(white)};
 
@@ -131,6 +144,10 @@
     transition: height var(--transition), background-color var(--transition),
       border-radius var(--transition), padding var(--transition);
 
+      @media #{media('<')} {
+        padding: rem(10px) rem(17px);
+      }
+
     &:nth-child(1) {
       border-radius: var(--border-radius) var(--border-radius) 0
         var(--border-radius);
@@ -168,6 +185,9 @@
       --progress-opacity: 1;
 
       --height: #{rem(105px)};
+      @media #{media('<')} {
+        --height: #{rem(46px)};
+      }
 
       --background-color: #{color(blue)};
 
@@ -179,6 +199,9 @@
       --text-offset: 0;
 
       padding: rem(25px) rem(20px) rem(40px);
+      @media #{media('<')} {
+        padding: rem(14px);
+      }
 
       & + {
         #{$el} {
@@ -223,6 +246,11 @@
 
       color: var(--text-color);
       transition: color var(--transition), transform var(--transition);
+
+      @media #{media('<')} {
+        @include fsl(8px);
+        font-weight: 550;
+      }
     }
 
     &-progress {
@@ -236,6 +264,12 @@
       pointer-events: none;
 
       opacity: var(--progress-opacity);
+
+      @media #{media('<')} {
+        top: rem(32px);
+        left: rem(14px);
+        right: rem(14px);
+      }
 
       &::before,
       &::after {
@@ -298,10 +332,15 @@
 
   &__top {
     position: absolute;
-    top: rem(230px);
-    left: rem(40px);
+    top: rem(80px);
+    left: rem(20px);
 
-    width: calc(#{columns(4)});
+    @media #{media('>')} {
+      width: calc(#{columns(4)});
+      top: rem(230px);
+      left: rem(40px);
+    }
+    
 
     &--alt {
       width: calc(#{columns(5)} - #{$column} / 2);
@@ -310,10 +349,17 @@
 
   &__bottom {
     position: absolute;
-    bottom: rem(120px);
-    right: rem(40px);
+    bottom: rem(100px);
 
-    width: calc(#{columns(3)});
+    @media #{media('<')} {
+      left: rem(20px);
+    }
+
+    @media #{media('>')} {
+      width: calc(#{columns(3)});
+      bottom: rem(120px);
+      right: rem(40px);
+    }
   }
 
   &__list {
@@ -327,6 +373,10 @@
 
     &:not(:first-child) {
       margin-top: rem(60px);
+
+      @media #{media('<')} {
+        margin-top: rem(20px);
+      }
     }
   }
 
@@ -349,5 +399,11 @@
     max-width: calc(#{columns(2)});
 
     color: color(white);
+
+    @media #{media('<')} {
+      @include fsl(12px);
+      max-width: unset;
+      margin-top: rem(5px);
+    }
   }
 }

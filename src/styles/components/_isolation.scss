@@ -286,13 +286,15 @@
     }
     overflow: hidden;
   
-    border-radius: 0px 0px rem(120px) 0px;
     background-color: color(black);
     background-image: url("assets/images/info.jpg");
     background-size: cover;
     background-position: top;
     @media #{media("<")} {
       background: none;
+    }
+    @media #{media(">")} {
+      border-radius: 0px 0px rem(120px) 0px;
     }
     color: color(white);
   
@@ -392,7 +394,8 @@
       font-size: rem(90px);
       @media #{media("<")} {
         font-size: rem(30px);
-        white-space: wrap;
+        white-space: normal;
+        text-align: center;
       }
       font-weight: 550;
       line-height: 1;
